@@ -163,7 +163,7 @@ function ProductList() {
           <div className="col-9 productList d-flex justify-content-between">
             <div className="row ">
               <a href="#/" className="col-3 d-flex cardSize cardBottomMargin">
-                <div className="card   cardStyle ">
+                <div className="card cardStyle ">
                   <img
                     className="imgSize card-img-top"
                     src={FakeImg}
@@ -181,12 +181,18 @@ function ProductList() {
               </a>
               <a href="#/" className="col-3 d-flex cardSize cardBottomMargin">
                 <div className="card cardStyle ">
-                  <div className="imgBox">
+                  <div className="imgBox position-relative">
                     <img
                       className="imgSize card-img-top"
                       src={FakeImg}
                       alt="..."
                     />
+                    <a
+                      href="#/"
+                      className="viewProject position-absolute top-50 start-50 translate-middle"
+                    >
+                      <p className="text-nowrap h6 viewProjectP">查看商品</p>
+                    </a>
                   </div>
                   <div className="card-body cardPadding">
                     <h6 className="card-title englishText ">

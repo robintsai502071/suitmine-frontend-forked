@@ -1,0 +1,155 @@
+//中文字體 = Noto Sans Traditional Chinese
+//英文內文 = Source Sans Pro
+//英文大標 = Nuosu SIL
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Nuosu+SIL&family=Source+Sans+Pro&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif; // 中文字體 = Noto Sans Traditional Chinese
+}
+// font-family: 'Nuosu SIL', serif;  //英文大標 = Nuosu SIL
+// font-family: 'Source Sans Pro', sans-serif; // 英文內文 = Source Sans Pro
+a {
+  text-decoration: none !important;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin text {
+  font-style: normal;
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: $letter-spacing;
+  // line-height: 110%;
+  // color: $color-font;
+}
+
+h1 {
+  @include text;
+  font-weight: 500;
+  font-size: 3.75rem;
+}
+
+h2 {
+  @include text;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+h3 {
+  @include text;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+h4 {
+  @include text;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+h5 {
+  @include text;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+h6 {
+  @include text;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+
+@mixin h1 {
+  @include text;
+  font-weight: 500;
+  font-size: 3.75rem;
+}
+
+@mixin h2 {
+  @include text;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+@mixin h3 {
+  @include text;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+@mixin h4 {
+  @include text;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+@mixin h5 {
+  @include text;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+@mixin h6 {
+  @include text;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+@mixin text--large {
+  @include text;
+  font-weight: normal;
+  font-size: 1.25rem;
+}
+
+@mixin text--large-bold {
+  @include text;
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+
+@mixin text--medium {
+  @include text;
+  font-weight: normal;
+  font-size: 1.125rem;
+}
+
+@mixin text--medium-bold {
+  @include text;
+  font-weight: 500;
+  font-size: 1.125rem;
+}
+
+@mixin text--normal {
+  @include text;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+@mixin text--normal-bold {
+  @include text;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+@mixin text--small {
+  @include text;
+  font-weight: normal;
+  font-size: 0.875rem;
+}
+
+@mixin text--small-bold {
+  @include text;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+

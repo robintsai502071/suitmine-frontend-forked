@@ -1,0 +1,23 @@
+//-------------字體間距----------------
+
+$letter-spacing: 1rem;
+
+//-------------按鈕----------------
+
+$btn-border-radious: 0px; //<--按鈕圓角
+$btn-black-color: #0000; //<--按鈕黑色顏色
+$btn-white-color: #ffffff; //<--按鈕白色顏色
+$btn-hover-color: #727272; //<--按鈕hover顏色
+$btn-text-hover: #ffffff; //<--按鈕文字hover顏色
+
+//-------------色塊----------------
+
+$dark-gray: #727272;
+$light-gray: #ececec;
+
+//-------------色塊----------------
+
+
+/* bootstrap */
+@import "~bootstrap/scss/bootstrap.scss";
+

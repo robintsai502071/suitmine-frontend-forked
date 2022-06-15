@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# MFEE25 第四組 SUITMINE 前端
+# 協作須知，請詳讀！！
+## 開啟專案
+1. `git clone`
+2. `npm i`
+3. `npm start`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 關於 components 資料夾
+這裡先用大家的名字區分資料夾，可再以不同頁面功能建立子資料夾
 
-## Available Scripts
+## 關於 styles
+- `index.scss` 只用來 import 其他 scss 檔案
+- 其餘的 scss 檔檔名前統一綴加 `_` 表示是被 import 的檔案
+- `/styles/_variables`
+  - 在這裡新增變數，可依照個人習慣自行新增
+  - 可覆蓋 bootstrap 原本的變數，如 pirmary、secondary 等等
+    - （覆蓋變數要放在 `@import "~bootstrap/scss/bootstrap.scss";` 的上面）
 
-In the project directory, you can run:
+- `/styles/_global`
+  - 放全域樣式
+  - 已經寫好的 mixin 可以直接 include 就不用自己寫字體樣式
+  - **若有要在全域新增樣式，請先與組員討論！**
 
-### `npm start`
+## 關於開分支
+- 切版分支這樣開：`layout/自訂的 Component or Page名稱`
+- 功能分支這樣開：`feature/自訂功能名稱`
+- **完整做完功能或切版後**，統一發 pull request 至 `dev` 分支，請通知技術長審核謝謝～
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Commit message 規範
++ feat: 新增 / 修改功能 (feature)。
++ fix: 修補 bug (bug fix)。
++ update: 更新程式碼區段。
++ style: 格式 (不影響程式碼運行的變動 white-space, formatting, missing semi colons, etc)。
++ refactor: 重構 (既不是新增功能，也不是修補 bug 的程式碼變動)。
++ perf: 改善效能 (A code change that improves performance)。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 範例
+```
+[fix] 自訂表單新增/編輯頁面，修正離開頁面提醒邏輯
 
-### `npm test`
+問題：
+1. 原程式碼進入新增頁面後，沒做任何動作之下，離開頁面會跳提醒
+2. 原程式碼從新增/編輯頁面回到上一頁後（表單列表頁面），離開頁面會跳提醒
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+原因：
+1. 新增頁面時，頁面自動建立空白題組會調用 sort_item，造成初始化 unload 事件處理器。
+2. 回到上一頁後，就不需要監聽 unload 事件，應該把 unload 事件取消。
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+調整項目：
+1. 初始化 unload 事件處理器：排除新增表單時，頁面自動建立空白題組調用 sort_item 的情境
+2. 回到上一頁後，復原表單被異動狀態且清除 unload 事件處理器
+```

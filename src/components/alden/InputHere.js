@@ -1,16 +1,21 @@
 import React from 'react';
-import Form from 'react-bootstrap/Form';
 
 const InputHere = (props) => {
   return (
     <>
-      <Form.Label htmlFor="inputPassword5">{props.labelName}</Form.Label>
-      <Form.Control
-        type="password"
-        id="inputPassword5"
-        aria-describedby="passwordHelpBlock"
-        className=" rounded-0 btnhere"
-      />
+      <div class="form-group">
+        <div class="form-group">
+          <label for="exampleInputEmail1">{props.labelName}</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            placeholder={props.InputText}
+          />
+          <small id="emailHelp" class="form-text text-muted"></small>
+        </div>
+      </div>
     </>
   );
 };

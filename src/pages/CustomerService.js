@@ -1,9 +1,11 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import InputHere from '../components/alden/InputHere';
+import Btn from '../components/alden/Btn';
 
 function CustomerService() {
   const labelName = ['您的Email地址', '主旨'];
+  const InputText = ['請輸入你的Email地址', '請輸入主旨'];
   return (
     <>
       {/* <!-- container --> */}
@@ -31,10 +33,10 @@ function CustomerService() {
               </div>
 
               {/* <!--Email--> */}
-              <InputHere labelName={labelName[0]} />
+              <InputHere labelName={labelName[0]} InputText={InputText[0]} />
 
               {/* <!--主旨--> */}
-              <InputHere labelName={labelName[1]} />
+              <InputHere labelName={labelName[1]} InputText={InputText[1]} />
 
               {/* <!--請描述你的問題--> */}
               <div>
@@ -57,15 +59,7 @@ function CustomerService() {
               </Form.Group>
 
               {/* <!-- 送出button --> */}
-              <div class="button">
-                <button
-                  class="btn btn-outline-secondary"
-                  type="button"
-                  id="inputGroupFileAddon04"
-                >
-                  送出
-                </button>
-              </div>
+              <Btn />
             </form>
           </main>
         </div>

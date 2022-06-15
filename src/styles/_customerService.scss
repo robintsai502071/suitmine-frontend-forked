@@ -16,3 +16,7 @@ form div{
 form div div{
   @include blockheight
 }
+
+.widthbtn{
+  @include whitebtn
+}

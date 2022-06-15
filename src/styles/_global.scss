@@ -31,6 +31,18 @@ ul {
   // color: $color-font;
 }
 
+@mixin eng-text {
+  font-style: normal;
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin eng-title-text {
+  font-style: normal;
+  font-family: 'Nuosu SIL', serif;
+  letter-spacing: $letter-spacing;
+}
+
 h1 {
   @include text;
   font-weight: 500;

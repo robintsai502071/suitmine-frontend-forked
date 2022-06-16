@@ -3,6 +3,13 @@ import product_pic1 from '../../../images/sol/suit1.svg';
 import product_pic2 from '../../../images/sol/suit22.svg';
 import product_pic3 from '../../../images/sol/pant1.svg';
 import product_pic4 from '../../../images/sol/item1.svg';
+// import AOS from 'aos';
+
+// componentDidMount() {
+//     AOS.init({
+//         duration : 2000
+//     })
+// }
 
 function ProductCategory() {
   return (
@@ -68,10 +75,27 @@ function ProductCategory() {
     // </div>
 
     <div className="container">
-      <div className="card-group">
-        <h4 className="product_category_h pb-3 mt-5 mb-3 border-bottom border-2 border-dark">Product Category</h4>
+      <div
+        className="card-group"
+        // data-aos="fade-right"
+        // data-aos-easing="ease-out-cubic"
+        // data-aos-duration="800"
+      >
+        <h4
+          className="product_category_h d-inline-block pb-3 mt-5 mb-3 border-bottom border-2 border-dark"
+          data-aos="fade-down"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="800"
+        >
+          Product Category
+        </h4>
         <div className="row gx-0 d-flex justify-content-center align-item-center flex-row">
-          <div className="col-md-3 col-10 ">
+          <div
+            className="col-md-3 col-5 "
+            data-aos="fade-down"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="800"
+          >
             <div className="card card-group-a">
               <img src={product_pic2} className="card-img-top" alt="..." />
               <div className="card-body d-flex justify-content-center align-item-center flex-column">
@@ -81,7 +105,12 @@ function ProductCategory() {
             </div>
           </div>
 
-          <div className="col-md-3 col-10">
+          <div
+            className="col-md-3 col-5"
+            data-aos="fade-up"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="800"
+          >
             <div className="card card-group-a">
               <img src={product_pic1} className="card-img-top" alt="..." />
               <div className="card-body d-flex justify-content-center align-item-center flex-column">
@@ -91,7 +120,12 @@ function ProductCategory() {
             </div>
           </div>
 
-          <div className="col-md-3 col-10">
+          <div
+            className="col-md-3 col-5"
+            data-aos="fade-down"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="800"
+          >
             <div className="card card-group-a">
               <img src={product_pic3} className="card-img-top" alt="..." />
               <div className="card-body d-flex justify-content-center align-item-center flex-column">
@@ -101,7 +135,12 @@ function ProductCategory() {
             </div>
           </div>
 
-          <div className="col-md-3 col-10">
+          <div
+            className="col-md-3 col-5"
+            data-aos="fade-up"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="800"
+          >
             <div className="card card-group-a">
               <img src={product_pic4} className="card-img-top" alt="..." />
               <div className="card-body d-flex justify-content-center align-item-center flex-column">

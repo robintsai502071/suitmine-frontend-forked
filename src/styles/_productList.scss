@@ -1,3 +1,6 @@
+.row {
+  margin: 0;
+}
 /* -----------右側sticky功能欄----------- */
 .sidebar {
   background-color: rgb(95, 95, 95);
@@ -53,99 +56,100 @@
   text-decoration: none;
   background-color: #b8b8b8;
 }
-/* -----------switchButton----------- */
-input[type='checkbox'] {
-  height: 0;
-  width: 0;
-  visibility: hidden;
+/* -----------材質展示switchButton----------- */
+.ant-switch-checked {
+  background: #000000;
 }
-label {
-  cursor: pointer;
-  text-indent: -9999px;
-  width: 45px;
-  height: 25px;
-  background: grey;
-  display: block;
-  border-radius: 100px;
-  position: relative;
-}
-label:after {
-  content: '';
-  position: absolute;
-  top: 3.6px;
-  left: 3.7px;
-  width: 18px;
-  height: 18px;
-  background: #fff;
-  border-radius: 90px;
-  transition: 0.4s;
-}
-
-input:checked + label {
-  background: #1d1d1d;
-}
-
-input:checked + label:after {
-  left: calc(100% - 4px);
-  transform: translateX(-100%);
-}
-label:active:after {
-  width: 30px;
-}
-/* -----------商品種類篩選欄位----------- */
-.productFilter ul {
-  list-style: none;
-  padding-left: 0;
-}
-.productFilter a:hover {
-  color: #777777;
-}
-.productFilter i:hover {
-  color: #777777;
-}
-.productFilter li:hover {
-  transform: scale(1.015);
-}
-.productFilter a {
-  text-decoration: none;
-  color: #000;
-}
-.productFilterPaddong {
-  padding-left: 20px;
-}
-.fa-chevron-right {
-  font-size: 10px;
-  margin-right: 5px;
-}
-.fa-square-full {
-  font-size: 5px;
-  margin-right: 8px;
-  color: rgb(109, 109, 109);
-}
-.productFilter input {
-  width: 150px;
+/* =========== 商品材質、顏色、價格篩選列表 RWD ===========*/
+.ant-drawer-body {
+  padding: 0;
 }
 /* -----------搜尋欄位----------- */
 .ant-btn-primary {
-  border-color: #000000 !important;
-  background: #000000 !important;
+  border-color: #000000;
+  background: #000000;
+}
+.ant-input-group-wrapper {
+  width: 90%;
 }
 .ant-input-search .ant-input:hover,
 .ant-input-search .ant-input:focus {
-  border-color: #0d0f10 !important;
+  border-color: #0d0f10;
 }
 .ant-input:focus,
 .ant-input:focus,
 .ant-input-focused {
-  border-color: #000000 !important;
-  box-shadow: 0 0 0 2px rgba(24, 143, 255, 0) !important;
-  border-right-width: 1px !important;
-  outline: 0 !important;
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(24, 143, 255, 0);
+  border-right-width: 1px;
+  outline: 0;
+}
+.searchInput {
+  width: 100%;
+}
+.ant-space-vertical {
+  width: 100%;
 }
 html {
-  --antd-wave-shadow-color: #001e3a !important;
+  --antd-wave-shadow-color: #001e3a;
+}
+/* -----------商品種類篩選抽屜(蓋)----------- */
+.ant-menu-light .ant-menu-item:hover,
+.ant-menu-light .ant-menu-item-active,
+.ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-light .ant-menu-submenu-active,
+.ant-menu-light .ant-menu-submenu-title:hover {
+  color: #00101f;
+}
+.productTypeBar {
+  margin: 0%;
+  width: 90%;
+}
+.ant-menu-sub {
+  width: 100%;
+}
+.ant-menu {
+  width: 100% !important;
+}
+.ant-menu-submenu-title {
+  width: 100%;
+}
+.ant-menu-submenu-selected {
+  color: $btn-hover-color;
+}
+.ant-menu-item-selected {
+  color: $btn-hover-color;
+}
+.ant-menu-item:active,
+.ant-menu-submenu-title:active {
+  background: #747474;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #ebebeb;
+}
+.ant-menu-submenu-arrow::before,
+.ant-menu-submenu-arrow::after {
+  position: absolute;
+  width: 6px;
+  height: 1.5px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  content: '';
+}
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+  border-right: 3px solid #000000;
 }
 /* -----------商品列表----------- */
+.cardSize {
+  padding: 0%;
+}
 .cardStyle {
   --bs-card-border-radius: 0rem;
   border: unset;
@@ -154,11 +158,9 @@ html {
   height: 400px;
   object-fit: cover;
 }
-// .cardSize {
-//   width: 252px;
-// }
 .cardPadding {
   padding-left: 0px;
+  padding-right: 0px;
 }
 .productList {
   padding-right: 0px;
@@ -196,10 +198,22 @@ html {
 .viewProject :hover {
   background-color: #fff;
   border: 0.1px solid #ffffff;
-  // transition: 0.5s;
   color: #000;
 }
-/* ------------ 分頁 ------------ */
+.price {
+  color: #000;
+}
+.product-fa-heart {
+  font-size: 20px;
+  color: $dark-gray;
+}
+/* ============ 商品列表 RWD============ */
+@media screen and (max-width:420px) { 
+  .cardStyle img{
+    height:300px;
+  }
+}
+/* ------------ 商品列表頁碼 ------------ */
 .pager {
   margin: 0 0 3.75rem;
   font-size: 0;
@@ -298,6 +312,6 @@ html {
   margin: 20px;
 }
 .customersSayBox {
-  width: 900px;
+  width: 90%;
   text-align: center;
 }

@@ -1,4 +1,4 @@
-// Sidebar.js
+// ******** 桌機版 Sidebar.js ********
 .main__sidebar__user-info {
   padding-left: 1.25rem;
 }
@@ -10,10 +10,70 @@
 }
 
 .accordion-body {
-  & a {
+  & > .main__sidebar__list__link {
     padding: 1rem 1rem 1rem 1.5rem;
     color: $dark-gray;
   }
 }
 
-// MainForm.js
+// ******** 桌機版 MainForm.js ********
+.main__form {
+  padding: 3rem;
+  border: 1px solid $light-gray;
+  border-radius: 25px;
+  height: 100%;
+  &__title {
+    margin-bottom: 3rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $light-gray;
+  }
+}
+
+// 使用者大頭貼大小
+.main__form__avatar__wrapper {
+  width: 120px;
+  height: 120px;
+}
+// 使用者大頭貼圓形
+.main__form__avatar__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+// ********start disabled radio 覆蓋樣式不要灰底跟 cursor 不要禁止 start********
+.ant-input[disabled] {
+  color: black !important;
+  background-color: white !important;
+  cursor: default !important;
+}
+
+.ant-radio-wrapper-disabled {
+  cursor: default !important;
+}
+
+.ant-radio-disabled {
+  cursor: default !important;
+}
+
+.ant-radio-disabled .ant-radio-input {
+  cursor: default !important;
+}
+
+.ant-radio.ant-radio-checked .ant-radio-inner {
+  border-color: #1890ff !important;
+}
+.ant-radio-disabled .ant-radio-inner {
+  background-color: white !important;
+  cursor: default !important;
+}
+.ant-radio-disabled .ant-radio-inner::after {
+  background-color: #1890ff !important;
+}
+.ant-radio-disabled + span {
+  color: black !important;
+  cursor: default !important;
+}
+// ********ending disabled radio 覆蓋樣式不要灰底跟 cursor 不要禁止 ending********

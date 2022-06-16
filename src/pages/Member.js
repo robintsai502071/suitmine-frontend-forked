@@ -10,7 +10,7 @@ function Member() {
           <div className="col-2">
             <SideBar />
           </div>
-          <div className="col-10">
+          <div className="col-8 offset-1">
             <MainForm />
           </div>
         </div>

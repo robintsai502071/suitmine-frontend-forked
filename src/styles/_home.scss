@@ -154,6 +154,18 @@ code {
 }
 
 
+.suit-style-title{
+  padding-bottom: 1rem;
+}
+
+@media screen and (max-width:768px) {
+  .suit-style-title{
+    @include h3
+  }
+  
+}
+
+
 
 
 // ---------------------------------------------------pointArticle部分-------------------------------
@@ -275,4 +287,65 @@ code {
     color: rgb(129, 129, 129);
     justify-content: start;
   }
+}
+
+
+
+
+// --------------------------------------simple-slider部分--------------------------------
+.slider-outer-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.slider-outer{
+  max-width: 28rem;
+  height: 28rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // overflow: hidden;
+  border: 4px solid white;
+ 
+}
+
+.slider-img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+ 
+}
+
+
+.simpleStyle-container{
+  margin-top: 10rem;
+}
+
+
+.simpleStyle-title{
+  border-bottom: 2px solid black;
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+}
+
+
+@media screen and (max-width:768px) {
+  
+  .slider-text{
+    
+    @include h5
+  }
+
+  .simpleStyle-title{
+    margin-left: 2.3rem;
+    @include h5
+  }
+
+  .simpleStyle-container{
+    margin-top: 2rem;
+  }
+
 }

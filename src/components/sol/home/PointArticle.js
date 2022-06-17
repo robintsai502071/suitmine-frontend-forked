@@ -29,7 +29,9 @@ function PointArticle() {
             >
               <img src={article1} class="card-img-top" alt="..." />
               <div class="card-body">
-                <h2 className="pointArticle-text">盤點2022男裝週時髦型男的風格西裝造型</h2>
+                <h2 className="pointArticle-text">
+                  盤點2022男裝週時髦型男的風格西裝造型
+                </h2>
               </div>
             </div>
           </div>

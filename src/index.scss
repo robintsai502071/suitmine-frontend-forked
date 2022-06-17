@@ -6,8 +6,11 @@
 // 洧
 @import './styles/_member';
 // member 手機版
-@import './styles/memberMobile';
+@import './styles/_memberMobile';
+
+@import './styles/_changePassword.scss';
+
 // layout.scss
-@import './styles/layout';
+@import './styles/_layout';
 // giftcard
-@import './styles/giftcard';
+@import './styles/_giftcard';

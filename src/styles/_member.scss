@@ -8,12 +8,6 @@
 .main__sidebar__user-info {
   padding-left: 1.25rem;
 }
-.main__sidebar__edit-btn {
-  color: $dark-gray;
-  &:hover {
-    color: $dark-gray;
-  }
-}
 
 // 調整 Sidebar 子選單 padding 跟 color
 .accordion-body {
@@ -36,7 +30,13 @@
     border-bottom: 2px solid $light-gray;
   }
 }
-
+.main__form__edit-btn {
+  @include h6;
+  color: $dark-gray;
+  &:hover {
+    color: $dark-gray;
+  }
+}
 .goBackBtn {
   @include text;
   display: none;

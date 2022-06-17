@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
-import LayoutFooter from '../components/robert/LayoutFooter';
-import LayoutHeader from '../components/robert/LayoutHeader';
-import MainForm from '../components/robin/Member/MainForm';
-import MemberMobileView from './MemberMobileView';
-import SideBar from '../components/robin/Member/SideBar';
+import LayoutFooter from '../../components/robert/LayoutFooter';
+import LayoutHeader from '../../components/robert/LayoutHeader';
+
+import SideBar from '../../components/robin/Member/SideBar';
+import ChangePasswordForm from '../../components/robin/Member/user/ChangePasswordForm';
 
 function Member() {
   return (
@@ -15,14 +15,11 @@ function Member() {
             <SideBar />
           </div>
           <div className="col-8 offset-1">
-            <MainForm />
+            <ChangePasswordForm />
           </div>
         </div>
       </div>
 
-      {/* <div className="d-lg-none">
-        <MemberMobileView />
-      </div> */}
       <LayoutFooter />
     </>
   );

@@ -17,7 +17,12 @@ function MainForm() {
               alt="..."
             />
           </figure>
-          <h4 className="main__form__title">個人檔案</h4>
+          <h4 className="main__form__title">
+            個人檔案
+            <a href="#/" className="main__form__edit-btn ms-2">
+              <i className="fa-solid fa-pen-to-square me-1"></i>編輯檔案
+            </a>
+          </h4>
         </div>
         <Form
           // labelCol={{ span: 8 }}

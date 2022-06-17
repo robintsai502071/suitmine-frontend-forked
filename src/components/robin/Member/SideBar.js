@@ -6,9 +6,6 @@ function SideBar() {
       <div className="main__sidebar">
         <div className="main__sidebar__user-info mb-3">
           <h5 className="main__sidebar__username mb-1">br502071</h5>
-          <a href="#/" className="main__sidebar__edit-btn">
-            <i className="fa-solid fa-pen-to-square me-1"></i>編輯檔案
-          </a>
         </div>
 
         <Accordion defaultActiveKey="0" flush className="main__sidebar__list">
@@ -17,11 +14,17 @@ function SideBar() {
               <i className="fa-solid fa-user me-2"></i>我的帳戶
             </Accordion.Header>
             <Accordion.Body>
-              <a href="#/" className="d-block main__sidebar__list__link">
+              <a
+                href="http://localhost:3000/member/user"
+                className="d-block main__sidebar__list__link"
+              >
                 個人檔案
               </a>
 
-              <a href="#/" className="d-block main__sidebar__list__link">
+              <a
+                href="http://localhost:3000/member/user/change-password"
+                className="d-block main__sidebar__list__link"
+              >
                 更改密碼
               </a>
             </Accordion.Body>

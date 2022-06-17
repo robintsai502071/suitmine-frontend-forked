@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import MainForm from './components/robin/Member/MainForm';
+import MainForm from './components/robin/Member/user/MainForm';
 import Blog from './pages/Blog';
 import BookingDate from './pages/BookingDate';
 import BookingMap from './pages/BookingMap';
@@ -8,22 +8,30 @@ import Customize from './pages/Customize';
 import GiftCard from './pages/GiftCard';
 import Home from './pages/Home';
 import Measurement from './pages/Measurement';
-import Member from './pages/Member';
-import MemberMobileView from './pages/MemberMobileView';
+import Member from './pages/Member/Member';
+import MemberMobileView from './pages/Member/MemberMobileView';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
-
+import ChangePassword from './pages/Member/ChangePassword';
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/m.member/user-info">
+        <Route path="/member/user/change-password">
+          <ChangePassword />
+        </Route>
+
+        <Route path="/m.member/user">
           <MainForm />
         </Route>
 
         <Route path="/m.member">
           <MemberMobileView />
+        </Route>
+
+        <Route path="/member/user">
+          <Member />
         </Route>
 
         <Route path="/blog">
@@ -60,10 +68,6 @@ function App() {
 
         <Route path="/measurement">
           <Measurement />
-        </Route>
-
-        <Route path="/member">
-          <Member />
         </Route>
 
         <Route path="/product-detail">

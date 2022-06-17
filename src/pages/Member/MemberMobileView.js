@@ -1,6 +1,6 @@
 import React from 'react';
-import LayoutFooter from '../components/robert/LayoutFooter';
-import LayoutHeader from '../components/robert/LayoutHeader';
+import LayoutFooter from '../../components/robert/LayoutFooter';
+import LayoutHeader from '../../components/robert/LayoutHeader';
 
 function MemberMobileView() {
   return (
@@ -60,7 +60,7 @@ function MemberMobileView() {
                 我的收藏
               </a>
               <a
-                href="http://localhost:3000/m.member/user-info"
+                href="http://localhost:3000/m.member/user"
                 className="d-flex flex-column align-items-center"
               >
                 <i className="fa-solid fa-gear mb-2"></i>

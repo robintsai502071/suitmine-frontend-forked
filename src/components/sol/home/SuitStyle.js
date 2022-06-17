@@ -18,10 +18,10 @@ function SuitStyle() {
               className="col-md-8 col-12 d-flex justify-content-center flex-column align-items-center"
             >
               <div className="fs-3 suit-style-title border-bottom border-3 border-dark px-2 mb-4">
-                <h2>Suit Style</h2>
+                <h4>Suit Style</h4>
               </div>
-              <figure className="w-100 section2-bg d-flex justify-content-center align-items-center">
-                <img className="mw-100" src={middieImageBar} alt="" />
+              <figure className="w-75 section2-bg d-flex justify-content-center align-items-center">
+                <img className="w-100" src={middieImageBar} alt="" />
               </figure>
             </div>
           </div>

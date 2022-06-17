@@ -88,10 +88,10 @@ export default class MultipleItems extends Component {
         data-aos-duration="700"
         data-aos-easing="ease-out-cubic"
       >
-        <div className="row">
-          <div className="col-md-12 col-12">
+        <div className="row justify-content-center align-items-center">
+          <div className="col-md-8 col-12">
             <div className="simpleStyle-slider-outer-wrap-outside">
-              <h2 className="simpleStyle-title"> Suit Style</h2>
+              <h4 className="simpleStyle-title"> Suit Style</h4>
             </div>
             <Slider {...settings}>
               <div className="slider-outer-wrap">

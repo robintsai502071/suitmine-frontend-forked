@@ -81,17 +81,17 @@ function ProductCategory() {
         // data-aos-easing="ease-out-cubic"
         // data-aos-duration="800"
       >
-        <h2
-          className="product_category_h d-inline-block pb-3 mt-5 mb-3 border-bottom border-2 border-dark"
-          data-aos="fade-down"
-          data-aos-easing="ease-out-cubic"
-          data-aos-duration="800"
-        >
-          Product Category
-        </h2>
         <div className="row gx-0 d-flex justify-content-center align-item-center flex-row">
+          <h4
+            className="product_category_h d-inline-block pb-3 mt-5 mb-3 border-bottom border-2 border-dark"
+            data-aos="fade-down"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="800"
+          >
+            Product Category
+          </h4>
           <div
-            className="col-md-3 col-5 "
+            className="col-md-2 col-5 "
             data-aos="fade-down"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="800"
@@ -106,7 +106,7 @@ function ProductCategory() {
           </div>
 
           <div
-            className="col-md-3 col-5"
+            className="col-md-2 col-5"
             data-aos="fade-up"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="800"
@@ -121,7 +121,7 @@ function ProductCategory() {
           </div>
 
           <div
-            className="col-md-3 col-5"
+            className="col-md-2 col-5"
             data-aos="fade-down"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="800"
@@ -136,7 +136,7 @@ function ProductCategory() {
           </div>
 
           <div
-            className="col-md-3 col-5"
+            className="col-md-2 col-5"
             data-aos="fade-up"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="800"

@@ -11,3 +11,6 @@ function Btn(props) {
 }
 
 export default Btn;
+
+//請先const BtnText
+//BtnText: BtnText內的文字

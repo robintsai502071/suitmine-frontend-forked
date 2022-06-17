@@ -167,6 +167,17 @@ h6 {
 
 
 //btns
+//黑底白字按鈕，請在各頁面@include到各按鈕中
+@mixin blackbtn {
+  background-color: black;
+  color: white;
+}
+
+//黑底白字按鈕，請在各頁面@include到各按鈕中
+@mixin whitebtn{
+  background-color: white;
+  color: black;
+}
 
 .btn-primary:hover {
   color: #fff;
@@ -191,15 +202,7 @@ h6 {
   box-shadow: 0 0 0 0.25rem $dark-gray;
 }
 
-@mixin blackbtn {
-  background-color: black;
-  color: white;
-}
 
-@mixin whitebtn{
-  background-color: white;
-  color: black;
-}
 
 .widthbtn{
   border: 1px solid black;

@@ -8,3 +8,6 @@ const TextAreaAntd = (props) => (
 );
 
 export default TextAreaAntd;
+
+//請先const TextAreaText
+//TextAreaText: 預先顯示的文字

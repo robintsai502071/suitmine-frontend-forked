@@ -17,3 +17,6 @@ const SelectAntd = (props) => {
 };
 
 export default SelectAntd;
+
+//請先const SelectArray陣列
+//Select: 需要的欄位內容

@@ -8,9 +8,9 @@ import UploadAntd from '../components/alden/UploadAntd';
 //引入banner圖片
 import customerServiceBanner from '../images/alden/CustomerService/customerServiceBanner.png';
 import customerServiceBanner_sm from '../images/alden/CustomerService/customerServiceBanner_sm.png';
-//引入背景影片
-import ReactPlayer from 'react-player';
-import bgvediopen from '../images/alden/CustomerService/bgvediopen.mp4';
+//引入背景圖片
+import rulerRight from '../images/alden/CustomerService/rulerRight.png';
+import rulerLeft from '../images/alden/CustomerService/rulerLeft.png';
 
 function CustomerService() {
   //各componemt需要變數
@@ -77,19 +77,14 @@ function CustomerService() {
             </form>
           </main>
         </div>
+        {/* ruler */}
+        <div className="rulers rulersLeft">
+          <img src={rulerLeft} className="w-100" alt="" />
+        </div>
+        <div className="rulers rulersRight">
+          <img src={rulerRight} className="w-100" alt="" />
+        </div>
       </div>
-      {/* 背景影片 */}
-      <ReactPlayer
-        url={bgvediopen}
-        playing
-        loop
-        muted
-        auto
-        className="bgvedio"
-        width="100%"
-        height="210%"
-      />
-      <div className="vedioFilter"></div>
     </div>
   );
 }

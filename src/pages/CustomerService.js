@@ -11,6 +11,10 @@ import customerServiceBanner_sm from '../images/alden/CustomerService/customerSe
 //引入背景圖片
 import rulerRight from '../images/alden/CustomerService/rulerRight.png';
 import rulerLeft from '../images/alden/CustomerService/rulerLeft.png';
+//引入header
+import LayoutHeader from '../components/robert/LayoutHeader';
+//引入footer
+import LayoutFooter from '../components/robert/LayoutFooter';
 
 function CustomerService() {
   //各componemt需要變數
@@ -20,8 +24,12 @@ function CustomerService() {
   const SelectArray = ['這裡', '先放', '假資料'];
 
   return (
-    <div className="background">
-      {/* <!-- banner圖片 --> */}
+    <body>
+      {/* header */}
+      <div>
+        <LayoutHeader />
+      </div>
+      {/* <!-- banner --> */}
       <div className="container-fluid banner">
         <div className="bannerweb w-100">
           <img src={customerServiceBanner} className="w-100" alt="" />
@@ -30,7 +38,7 @@ function CustomerService() {
           <img src={customerServiceBanner_sm} className="" alt="" />
         </div>
       </div>
-      {/* <!-- container --> */}
+      {/* <!-- main --> */}
       <div class="container formbackground">
         <div className="row">
           {/* <!-- main --> */}
@@ -85,7 +93,11 @@ function CustomerService() {
           <img src={rulerRight} className="w-100" alt="" />
         </div>
       </div>
-    </div>
+      {/* footer */}
+      <div className="footer">
+        <LayoutFooter />
+      </div>
+    </body>
   );
 }
 

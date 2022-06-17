@@ -4,7 +4,7 @@ import React from 'react';
 function MainForm() {
   return (
     <>
-      <a href="http://localhost:3000/m.member" className="goBackBtn">
+      <a href="http://localhost:3000/member/user" className="goBackBtn">
         <i className="fa-solid fa-arrow-left-long me-2"></i>
         回上一頁
       </a>

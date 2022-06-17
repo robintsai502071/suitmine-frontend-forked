@@ -3,12 +3,11 @@
 @import './styles/reset';
 @import './styles/global';
 
-// 洧
+// 洧 Member
 @import './styles/_member';
-// member 手機版
 @import './styles/_memberMobile';
-
 @import './styles/_changePassword.scss';
+@import './styles/_orderList.scss';
 
 // layout.scss
 @import './styles/_layout';

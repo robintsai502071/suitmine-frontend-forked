@@ -1,6 +1,6 @@
 import Accordion from 'react-bootstrap/Accordion';
 
-function SideBar() {
+function SideBar(props) {
   return (
     <>
       <div className="main__sidebar">
@@ -8,7 +8,11 @@ function SideBar() {
           <h5 className="main__sidebar__username mb-1">br502071</h5>
         </div>
 
-        <Accordion defaultActiveKey="0" flush className="main__sidebar__list">
+        <Accordion
+          defaultActiveKey={props.sidebarActiveNumber}
+          flush
+          className="main__sidebar__list"
+        >
           <Accordion.Item eventKey="0">
             <Accordion.Header>
               <i className="fa-solid fa-user me-2"></i>我的帳戶
@@ -30,7 +34,10 @@ function SideBar() {
             </Accordion.Body>
           </Accordion.Item>
 
-          <a href="#/" className="d-block main__sidebar__list__link">
+          <a
+            href="http://localhost:3000/member/my-order"
+            className="d-block main__sidebar__list__link"
+          >
             <Accordion.Item eventKey="1">
               <Accordion.Header>
                 <i className="fa-solid fa-table-list me-1"></i>購買清單

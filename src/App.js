@@ -14,20 +14,27 @@ import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
 import ChangePassword from './pages/Member/ChangePassword';
+import OrderList from './pages/Member/OrderList';
+import ChangePasswordForm from './components/robin/Member/user/ChangePasswordForm';
+
 function App() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/member/user/m.change-password">
+          <ChangePasswordForm />
+        </Route>
+
         <Route path="/member/user/change-password">
           <ChangePassword />
         </Route>
 
-        <Route path="/m.member/user">
-          <MainForm />
+        <Route path="/member/my-order">
+          <OrderList />
         </Route>
 
-        <Route path="/m.member">
-          <MemberMobileView />
+        <Route path="/member/m.user">
+          <MainForm />
         </Route>
 
         <Route path="/member/user">

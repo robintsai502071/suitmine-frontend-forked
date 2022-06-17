@@ -1,11 +1,8 @@
 import React from 'react';
-import LayoutFooter from '../../components/robert/LayoutFooter';
-import LayoutHeader from '../../components/robert/LayoutHeader';
 
 function MemberMobileView() {
   return (
     <>
-      <LayoutHeader />
       <div className="m-header">
         <div className="container">
           <div className="m-header__user-info">
@@ -53,14 +50,23 @@ function MemberMobileView() {
             <div className="m-main__my-service__buttons">
               <a href="#/" className="d-flex flex-column align-items-center">
                 <i className="fa-solid fa-gift mb-2"></i>
-                我的禮物卡
+                禮物卡
               </a>
               <a href="#/" className="d-flex flex-column align-items-center">
                 <i className="fa-solid fa-heart mb-2"></i>
                 我的收藏
               </a>
+
               <a
-                href="http://localhost:3000/m.member/user"
+                href="http://localhost:3000/member/user/m.change-password"
+                className="d-flex flex-column align-items-center"
+              >
+                <i className="fa-solid fa-user-lock mb-2"></i>
+                修改密碼
+              </a>
+
+              <a
+                href="http://localhost:3000/member/m.user"
                 className="d-flex flex-column align-items-center"
               >
                 <i className="fa-solid fa-gear mb-2"></i>
@@ -70,8 +76,6 @@ function MemberMobileView() {
           </div>
         </div>
       </div>
-
-      <LayoutFooter />
     </>
   );
 }

@@ -4,7 +4,6 @@
 /* -----------右側sticky功能欄----------- */
 .sidebar {
   background-color: rgb(95, 95, 95);
-  float: right;
   z-index: 9999;
 }
 .sidebar {
@@ -13,58 +12,60 @@
   border-radius: 15px 0 0 15px;
 }
 .sidebar {
-  position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 35%;
+  right: 0%;
 }
 .sidebar i {
   color: rgb(255, 255, 255);
 }
-/* -----------商品材質、顏色、價格篩選列表----------- */
-.dropdown .btn {
-  color: rgb(0, 0, 0);
-  background-color: #0d6dfd00;
-  border-color: #0d6dfd00;
-}
+/* -----------商品顏色、價格篩選列表(蓋)----------- */
 .filterBar {
+  border-bottom: 0.5px solid #7575752d;
+  margin-bottom: 20px;
+}
+.container-fluid-padding {
   padding: 0%;
 }
-.btn-check:checked + .btn-primary,
-.btn-check:active + .btn-primary,
-.btn-primary:active,
-.btn-primary.active,
-.show > .btn-primary.dropdown-toggle {
-  color: #000;
-  background-color: #0a58ca00;
-  border-color: #0a53be00;
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: #757575;
+  border-right-width: 1px;
 }
-.btn-check:focus + .btn,
-.btn:focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(233, 233, 233, 0);
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  border-color: #5e5e5e;
+  box-shadow: 0 0 0 2px rgba(114, 114, 114, 0);
+  border-right-width: 1px;
 }
-.btn-check:checked + .btn-primary:focus,
-.btn-check:active + .btn-primary:focus,
-.btn-primary:active:focus,
-.btn-primary.active:focus,
-.show > .btn-primary.dropdown-toggle:focus {
-  box-shadow: 0 0 0 0.25rem rgb(104 125 157 / 0%);
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: #e6f7ff00;
 }
-.dropdown-item.active,
-.dropdown-item:active {
-  color: #fff;
-  text-decoration: none;
-  background-color: #b8b8b8;
-}
-/* -----------材質展示switchButton----------- */
+/* -----------材質展示switchButton(蓋)----------- */
 .ant-switch-checked {
   background: #000000;
 }
-/* =========== 商品材質、顏色、價格篩選列表 RWD ===========*/
+/* ===========材質展示switchButton RWD=========== */
+@media screen and (max-width: 768px) {
+  .switchButton{
+    margin-right: 0 !important;
+  }
+}
+/* =========== 商品顏色、價格 篩選列表 RWD(蓋) ===========*/
 .ant-drawer-body {
   padding: 0;
 }
-/* -----------搜尋欄位----------- */
+@media screen and (max-width: 768px) {
+  .RWDFilterBar .select {
+    width: 98% !important;
+  }
+  .ant-select-selection-item{
+    padding-left: 0%;
+  }
+  .ant-select-suffix svg{
+    margin-right: 10px;
+  }
+}
+/* -----------搜尋欄位(蓋)----------- */
 .ant-btn-primary {
   border-color: #000000;
   background: #000000;
@@ -92,6 +93,16 @@
 }
 html {
   --antd-wave-shadow-color: #001e3a;
+}
+.ant-btn-primary:active {
+  color: #fff;
+  border-color:  #000000;
+  background:  #000000;
+}
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  color: #fff;
+  border-color: $btn-hover-color;
+  background: $btn-hover-color;
 }
 /* -----------商品種類篩選抽屜(蓋)----------- */
 .ant-menu-light .ant-menu-item:hover,
@@ -146,6 +157,11 @@ html {
 .ant-menu-inline .ant-menu-item::after {
   border-right: 3px solid #000000;
 }
+
+/* ==================商品種類篩選抽屜RWD(蓋)================== */
+.ant-drawer-content-wrapper {
+  width: 340px !important;
+}
 /* -----------商品列表----------- */
 .cardSize {
   padding: 0%;
@@ -170,6 +186,7 @@ html {
   margin-bottom: 40px;
   text-decoration: none;
   color: #000;
+  
 }
 .imgBox:hover:after {
   content: '';
@@ -180,6 +197,19 @@ html {
   right: 0;
   height: 400px;
   background-color: rgba($color: #000000, $alpha: 0.8);
+}
+/* ============ 商品卡 hover============ */
+@media screen and (max-width: 420px) {
+  .imgBox:hover:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+  }
 }
 .imgBox:hover .viewProject {
   display: block;
@@ -194,10 +224,10 @@ html {
 }
 .viewProject p {
   color: rgb(255, 255, 255);
+  line-height: 26px;
 }
 .viewProject :hover {
   background-color: #fff;
-  border: 0.1px solid #ffffff;
   color: #000;
 }
 .price {
@@ -208,9 +238,9 @@ html {
   color: $dark-gray;
 }
 /* ============ 商品列表 RWD============ */
-@media screen and (max-width:420px) { 
-  .cardStyle img{
-    height:300px;
+@media screen and (max-width: 420px) {
+  .cardStyle img {
+    height: 300px;
   }
 }
 /* ------------ 商品列表頁碼 ------------ */
@@ -310,6 +340,7 @@ html {
 }
 .customersSayMargin {
   margin: 20px;
+  line-height: 25px;
 }
 .customersSayBox {
   width: 90%;

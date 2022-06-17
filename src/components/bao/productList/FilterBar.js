@@ -1,29 +1,39 @@
-import React from 'react';
-import { DropdownButton, Dropdown } from 'react-bootstrap';
+import { Select } from 'antd';
+const { Option } = Select;
 
-function FilterBar() {
-  return (
-    <>
-      <DropdownButton className="h6" id="dropdown-item-button" title="顏色">
-        <Dropdown.Item as="button">Action</Dropdown.Item>
-        <Dropdown.Item as="button">Another action</Dropdown.Item>
-        <Dropdown.Item as="button">Something else</Dropdown.Item>
-      </DropdownButton>
+const handleChange = (value) => {
+  console.log(`selected ${value}`);
+};
 
-      <DropdownButton className="h6" id="dropdown-item-button" title="種類">
-        <Dropdown.Item as="button">西裝類</Dropdown.Item>
-        <Dropdown.Item as="button">襯衫類</Dropdown.Item>
-        <Dropdown.Item as="button">西裝褲類</Dropdown.Item>
-        <Dropdown.Item as="button">配件類</Dropdown.Item>
-      </DropdownButton>
+const App = () => (
+  <>
+    <Select
+      className="col select "
+      defaultValue="顏色"
+      style={{
+        width: 120,
+      }}
+      onChange={handleChange}
+    >
+      <Option value="黑色">黑色</Option>
+      <Option value="深藍">深藍</Option>
+      <Option value="灰色">灰色</Option>
+    </Select>
+    <Select
+      className="col select my-2"
+      defaultValue="價格"
+      style={{
+        width: 120,
+      }}
+      onChange={handleChange}
+    >
+      <Option value="1000以下">1000以下</Option>
+      <Option value="1001~2000">1001~2000</Option>
+      <Option value="2001~3000">2001~3000</Option>
+      <Option value="3001~4000">3001~4000</Option>
+      <Option value="4001以上">4001以上</Option>
+    </Select>
+  </>
+);
 
-      <DropdownButton className="h6" id="dropdown-item-button" title="價格">
-        <Dropdown.Item as="button">1000以下</Dropdown.Item>
-        <Dropdown.Item as="button">1001~3000</Dropdown.Item>
-        <Dropdown.Item as="button">3001~6000</Dropdown.Item>
-        <Dropdown.Item as="button">6000以上</Dropdown.Item>
-      </DropdownButton>
-    </>
-  );
-}
-export default FilterBar;
+export default App;

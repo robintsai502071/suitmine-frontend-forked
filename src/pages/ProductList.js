@@ -3,7 +3,7 @@ import FilterBar from '../components/bao/productList/FilterBar';
 import SearchInput from '../components/bao/productList/SearchInput';
 import FakeImg from '../components/images/productList/15011428_0_set.jpg';
 import ProductTypeBar from '../components/bao/productList/ProductTypeBar';
-import RWDfilterBar from '../components/bao/productList/RWDfilterBar';
+import RWDProductTypeBar from '../components/bao/productList/RWDProductTypeBar';
 import SwitchButton from '../components/bao/productList/SwitchButton';
 
 function ProductList() {
@@ -24,44 +24,33 @@ function ProductList() {
       {/* <!------------banner------------> */}
       <div className="banner w-100"></div>
       <div className="bar w-100"></div>
-      <div className="container ">
+      <div className="container-fluid container-fluid-padding">
         <div className="row">
-          {/* <!------------商品顏色、種類、價格 篩選列表------------> */}
-          <div className="col-12 filterBar my-3 d-md-flex justify-content-between d-none ">
-            <ul className="d-flex align-items-center">
+          {/* <!------------商品顏色、價格 篩選列表------------> */}
+          <div className="col-12 filterBar d-flex justify-content-between align-items-center">
+            <ul className="align-items-center d-md-flex d-none py-3 mx-3">
               <FilterBar />
             </ul>
-            {/* <!------------材質展示switchButton------------> */}
-            <ul className="d-flex align-items-center  ">
-              <li className=" h6 px-1 chineseText">Model展示</li>
-              <li className="px-1">
-                <SwitchButton />
-              </li>
-              <li className=" h6 px-1 chineseText">材質展示</li>
-            </ul>
-          </div>
-          {/* <!============= 商品顏色、種類、價格 篩選列表 RWD =============> */}
-          <div className="col-12 filterBar my-3 d-md-none justify-content-between d-flex ">
-            <div>
-              <RWDfilterBar />
+            {/* <!============= 商品種類篩選抽屜 =============> */}
+            <div className="d-md-none ">
+              <RWDProductTypeBar />
             </div>
             {/* <!------------材質展示switchButton------------> */}
-            <ul className="d-flex align-items-center  ">
-              <li className=" h6 px-1 chineseText">Model展示</li>
-              <li className="px-1">
-                <div className="d-flex align-items-center">
-                  <input type="checkbox" id="switch" />
-                  <label for="switch">Toggle</label>
-                </div>
+            <ul className="d-flex align-items-center switchButton py-3 mx-3">
+              <li className=" h6  chineseText">Model展示</li>
+              <li className="px-2">
+                <SwitchButton />
               </li>
-              <li className=" h6 px-1 chineseText">材質展示</li>
+              <li className=" h6  chineseText">材質展示</li>
             </ul>
           </div>
         </div>
       </div>
-      {/* <!============= 商品種類篩選欄位 RWD =============> */}
-      <div className="container">
-        <div className="row"></div>
+      {/* <!============= 商品顏色、價格 篩選列表 =============> */}
+      <div className="container d-md-none RWDFilterBar">
+        <div className="row flex-column align-items-center">
+          <FilterBar className="RWDFilterBar" />
+        </div>
       </div>
       {/* <!------------ 商品種類篩選欄位 ------------> */}
       <div className="container ">
@@ -95,7 +84,7 @@ function ProductList() {
                       href="#/"
                       className="viewProject position-absolute top-50 start-50 translate-middle"
                     >
-                      <p className="text-nowrap h6 viewProjectP">查看商品</p>
+                      <p className="text-nowrap viewProjectP">查看商品</p>
                     </a>
                   </div>
                   <div className="card-body cardPadding">

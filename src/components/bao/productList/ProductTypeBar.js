@@ -12,25 +12,29 @@ function getItem(label, key, children, type) {
 
 const items = [
   getItem('西裝類', 'sub1', [
-    getItem('新品上市', '1'),
-    getItem('高級西裝', '2'),
-    getItem('奢華西裝', '3'),
+    getItem('西裝總覽', '1'),
+    getItem('新品上市', '2'),
+    getItem('高級西裝', '3'),
+    getItem('奢華西裝', '4'),
   ]),
   getItem('襯衫類', 'sub2', [
-    getItem('新品上市', '4'),
-    getItem('休閒襯衫', '5'),
-    getItem('針織襯衫', '6'),
+    getItem('襯衫總覽', '5'),
+    getItem('新品上市', '6'),
+    getItem('休閒襯衫', '7'),
+    getItem('針織襯衫', '8'),
   ]),
   getItem('西裝褲類', 'sub3', [
-    getItem('新品上市', '7'),
-    getItem('高級西裝褲類', '8'),
-    getItem('奢華西裝褲類', '9'),
+    getItem('西裝褲總覽', '9'),
+    getItem('新品上市', '10'),
+    getItem('高級西裝褲類', '11'),
+    getItem('奢華西裝褲類', '12'),
   ]),
   getItem('配件類', 'sub4', [
-    getItem('新品上市', '10'),
-    getItem('領帶', '11'),
-    getItem('領帶夾', '12'),
-    getItem('方巾', '13'),
+    getItem('配件總覽', '13'),
+    getItem('新品上市', '14'),
+    getItem('領帶', '15'),
+    getItem('領帶夾', '16'),
+    getItem('方巾', '17'),
   ]),
 ]; // submenu keys of first level
 

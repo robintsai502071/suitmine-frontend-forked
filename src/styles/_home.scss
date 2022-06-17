@@ -160,11 +160,119 @@ code {
 
 .card-pointArticle-1, .card-pointArticle-2{
   width: 60%;
-  box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.5);
+  // box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.5);
   border: none;
 }
 
 
 .pointArticle-col-2{
-  margin-bottom: 17rem;
+  margin-bottom: 5rem;
+}
+
+
+@media screen and (max-width:768px) {
+  
+  .pointArticle-text{
+    @include h5
+  }
+
+  .pointArticle-col-2{
+    margin-bottom: 2rem;
+  }
+}
+
+
+// ----------------------------------------------fabric部分------------------------------------------
+
+
+.bg-gray{
+  height: 40rem;
+  width: 100%;
+  background-color: rgba(233, 233, 233, 0.728);
+  position: absolute;
+  top:5rem;
+  z-index: -2;
+}
+
+.fabricClass1-outer{
+  max-width: 70%;
+  border: 15px solid white;
+}
+
+.fabricClass1{
+  width: 100%;
+  // opacity: .9;
+}
+
+.fabricClass2-outer{
+  max-width: 70%;
+  position: absolute;
+  left:30%;
+  border: 15px solid white;
+}
+
+
+.fabricClass2{
+  width: 100%;
+  // opacity: .9;
+  
+}
+
+.figure-text{
+  z-index: 1;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .fabricClass1-outer{
+    max-width: 100%;
+    border: 1px solid white;
+    position: relative;
+  }
+  
+  .fabricClass1{
+    width: 100%;
+  }
+  
+  .fabricClass2-outer{
+    max-width: 60%;
+    position: absolute;
+    left:30%;
+    border: 1px solid white;
+    display: none;
+  }
+  
+  
+  .fabricClass2{
+    width: 100%;
+    
+  }
+
+
+  .bg-gray{
+    display: none;
+  }
+
+  .figure-text-inner{
+    @include h4;
+    z-index:4;
+    color: rgb(255, 255, 255);
+    justify-content: start;
+  }
+
+  .figure-text{
+    position: absolute;
+  }
+
+}
+
+
+@media screen and (max-width: 1726px) and (min-width: 768px){
+  .figure-text-inner{
+    @include h2;
+    z-index:4;
+    color: rgb(129, 129, 129);
+    justify-content: start;
+  }
 }

@@ -1,0 +1,79 @@
+import React from 'react';
+import LayoutFooter from '../components/robert/LayoutFooter';
+import LayoutHeader from '../components/robert/LayoutHeader';
+
+function MemberMobileView() {
+  return (
+    <>
+      <LayoutHeader />
+      <div className="m-header">
+        <div className="container">
+          <div className="m-header__user-info">
+            <figure className="m-header__avatar">
+              <img
+                className="m-header__avatar__image"
+                src="https://fakeimg.pl/250x100/"
+                alt=""
+              />
+            </figure>
+            <h1 className="m-header__username">蔡洧洧</h1>
+          </div>
+        </div>
+        <div className="welcome-text">Welcome to SUITMINE!</div>
+      </div>
+
+      <div className="m-main">
+        <div className="container">
+          <div className="m-main__my-order">
+            <h2 className="m-main__my-order__title">我的訂單</h2>
+
+            <div className="m-main__my-order__buttons">
+              <a href="#/" className="d-flex flex-column align-items-center">
+                <i className="fa-solid fa-clipboard-list mb-2"></i>
+                全部訂單
+              </a>
+              <a href="#/" className="d-flex flex-column align-items-center">
+                <i className="fa-solid fa-boxes-packing mb-2"></i>
+                待出貨
+              </a>
+              <a href="#/" className="d-flex flex-column align-items-center">
+                <i className="fa-solid fa-truck-fast mb-2"></i>
+                已出貨
+              </a>
+              <a href="#/" className="d-flex flex-column align-items-center">
+                <i className="fa-solid fa-comment-dots mb-2"></i>
+                待評價
+              </a>
+            </div>
+          </div>
+
+          <div className="m-main__my-service">
+            <h2 className="m-main__my-service__title">我的服務</h2>
+
+            <div className="m-main__my-service__buttons">
+              <a href="#/" className="d-flex flex-column align-items-center">
+                <i className="fa-solid fa-gift mb-2"></i>
+                我的禮物卡
+              </a>
+              <a href="#/" className="d-flex flex-column align-items-center">
+                <i className="fa-solid fa-heart mb-2"></i>
+                我的收藏
+              </a>
+              <a
+                href="http://localhost:3000/m.member/user-info"
+                className="d-flex flex-column align-items-center"
+              >
+                <i className="fa-solid fa-gear mb-2"></i>
+                個人檔案
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <LayoutFooter />
+    </>
+  );
+}
+
+export default MemberMobileView;

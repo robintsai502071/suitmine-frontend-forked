@@ -2,12 +2,13 @@ import React, { Fragment } from 'react';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import LayoutHeader from '../components/robert/LayoutHeader';
 import MainForm from '../components/robin/Member/MainForm';
+import MemberMobileView from './MemberMobileView';
 import SideBar from '../components/robin/Member/SideBar';
 
 function Member() {
   return (
     <>
-      <LayoutHeader></LayoutHeader>
+      <LayoutHeader />
       <div className="container member-container">
         <div className="row">
           <div className="col-2">
@@ -18,7 +19,11 @@ function Member() {
           </div>
         </div>
       </div>
-      <LayoutFooter></LayoutFooter>
+
+      {/* <div className="d-lg-none">
+        <MemberMobileView />
+      </div> */}
+      <LayoutFooter />
     </>
   );
 }

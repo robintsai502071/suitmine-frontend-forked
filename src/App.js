@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
+import MainForm from './components/robin/Member/MainForm';
 import Blog from './pages/Blog';
 import BookingDate from './pages/BookingDate';
 import BookingMap from './pages/BookingMap';
@@ -9,6 +9,7 @@ import GiftCard from './pages/GiftCard';
 import Home from './pages/Home';
 import Measurement from './pages/Measurement';
 import Member from './pages/Member';
+import MemberMobileView from './pages/MemberMobileView';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
@@ -17,6 +18,14 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path="/m.member/user-info">
+          <MainForm />
+        </Route>
+
+        <Route path="/m.member">
+          <MemberMobileView />
+        </Route>
+
         <Route path="/blog">
           <Blog />
         </Route>

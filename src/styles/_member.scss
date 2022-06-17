@@ -15,8 +15,10 @@
   }
 }
 
+// 調整 Sidebar 子選單 padding 跟 color
 .accordion-body {
   & > .main__sidebar__list__link {
+    position: relative;
     padding: 1rem 1rem 1rem 1.5rem;
     color: $dark-gray;
   }
@@ -35,6 +37,11 @@
   }
 }
 
+.goBackBtn {
+  @include text;
+  display: none;
+}
+
 // 使用者大頭貼大小
 .main__form__avatar__wrapper {
   width: 120px;
@@ -49,7 +56,7 @@
   border-radius: 50%;
 }
 
-// ********start disabled radio 覆蓋樣式不要灰底跟 cursor 不要禁止 start********
+// ********start disabled radio 覆蓋樣式不要灰底跟 cursor 不要禁止 ********
 .ant-input[disabled] {
   color: black !important;
   background-color: white !important;
@@ -82,4 +89,4 @@
   color: black !important;
   cursor: default !important;
 }
-// ********ending disabled radio 覆蓋樣式不要灰底跟 cursor 不要禁止 ending********
+// ********ending disabled radio 覆蓋樣式不要灰底跟 cursor 不要禁止 ********

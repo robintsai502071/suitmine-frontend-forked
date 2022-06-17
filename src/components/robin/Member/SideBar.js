@@ -14,12 +14,13 @@ function SideBar() {
         <Accordion defaultActiveKey="0" flush className="main__sidebar__list">
           <Accordion.Item eventKey="0">
             <Accordion.Header>
-              <i className="fa-solid fa-user me-1"></i>我的帳戶
+              <i className="fa-solid fa-user me-2"></i>我的帳戶
             </Accordion.Header>
             <Accordion.Body>
               <a href="#/" className="d-block main__sidebar__list__link">
                 個人檔案
               </a>
+
               <a href="#/" className="d-block main__sidebar__list__link">
                 更改密碼
               </a>

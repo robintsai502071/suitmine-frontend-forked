@@ -17,7 +17,7 @@ function SuitStyle() {
               data-aos-duration="1000"
               className="col-md-8 col-12 d-flex justify-content-center flex-column align-items-center"
             >
-              <div className="fs-3 suit-style-title border-bottom border-3 border-dark px-2 mb-4">
+              <div className="suit-style-title border-bottom border-3 border-dark px-2 mb-4">
                 <h4>Suit Style</h4>
               </div>
               <figure className="w-75 section2-bg d-flex justify-content-center align-items-center">

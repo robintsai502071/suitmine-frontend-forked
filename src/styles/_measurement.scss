@@ -1,0 +1,149 @@
+// -------------------------------------fit matters部分--------------------------------------------
+.fit-matter{
+    // background-position: center;
+    // transition-property: opacity;
+    // color: rgb(255, 255, 255);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height:678px;
+}
+
+.fit-matter::after{
+    content: "";
+    position:absoulte;
+    background: url("../images/sol/FitMatters.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height:678px;
+    position: absolute;
+    z-index: -1;
+}
+
+
+.fit-matter-title{
+    position: relative;
+    transform: translateY(180px);
+    color: white;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding-left: 20px;
+}
+
+.fit-matters-describe{
+    top: 400px;
+    left: 3%;
+    right: 3%;
+    font-size: 13px;
+}
+
+.fit-matters-p{
+    line-height: 22px;
+}
+
+.fit-matters-span{
+    margin-right: 3%;
+}
+
+
+@media screen and (max-width:768px) {
+    .fit-matters-describe{
+        transform: translateY(300px);
+        // text-align: start;
+        margin: 0;
+    }
+
+}
+
+
+
+// -------------------------------------get noticed部分--------------------------------------------
+// .get-noticed-man{
+//     position: relative;
+//     display: flex;
+//     justify-content: center;
+//     width: 154px;
+//     height:478px;
+// }
+
+// .get-noticed-man::after{
+//     content: "";
+//     position:absoulte;
+//     background: url("../images/sol/get-noticed.jpg");
+//     background-size: cover;
+//     background-position: center;
+//     width: 154px;
+//     height:478px;
+//     position: absolute;
+//     z-index: -1;
+// }
+
+
+.get-notice-man-text-wrapper{
+    position: absolute;
+}
+
+
+.get-noticed-hr{
+    width: 15rem;
+    // border: 1px solid black;
+}
+
+.get-notice-part{
+    position: absolute;
+    top: 2rem;
+}
+
+.get-noticed-figure{
+    max-width: 154px;
+}
+
+.get-noticed-img{
+    width: 100%;
+
+}
+
+.get-notice-sec1{
+    right: 10.4rem;
+    top: 5.3rem;
+}
+
+// .get-noticed-hr-trans{
+//     right: -1rem;
+//     top:2rem;
+// }
+
+.get-notice-sec2{
+    right: 9.5rem;
+    top: 14rem;
+}
+
+.get-notice-sec3{
+    right: 9rem;
+    top: 27.4rem;
+}
+
+
+.get-notice-sec4{
+    right: -120%;
+    top: 40%;
+    width: 100%;
+}
+
+.get-notice-sec{
+    width: 100%;
+}
+
+
+@media screen and (max-width:991px) {
+    .get-noticed-figure-mobile {
+        max-width: 100px;
+    }
+
+    .get-noticed-img-mobile {
+        width: 100%;
+    }
+
+}

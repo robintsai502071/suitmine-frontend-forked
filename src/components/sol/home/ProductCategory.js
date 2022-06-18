@@ -83,7 +83,7 @@ function ProductCategory() {
       >
         <div className="row gx-0 d-flex justify-content-center align-item-center flex-row">
           <h4
-            className="product_category_h d-inline-block pb-3 mt-5 mb-3 border-bottom border-2 border-dark"
+            className="product_category_h mt-5 pb-3 mb-3"
             data-aos="fade-down"
             data-aos-easing="ease-out-cubic"
             data-aos-duration="800"

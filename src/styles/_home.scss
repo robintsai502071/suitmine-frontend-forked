@@ -74,6 +74,10 @@ code {
   padding: 1px;
 }
 
+.product_category_h{
+  border-bottom: 2px solid black;
+}
+
 
 
 @media screen and (max-width: 768px) {
@@ -95,6 +99,11 @@ code {
       padding: .5rem 1rem;
       margin: 2rem 0 0 0;
       @include h4;
+  }
+
+  .product_category_h{
+    border: none;
+    text-align: center;
   }
   
 }
@@ -125,9 +134,11 @@ code {
 
 
 
+
+
 @media screen and (max-width: 768px) {
   .product_category_h{
-    margin-left:8%;
+    // margin-left:8%;
     @include h4
   }
 
@@ -187,6 +198,14 @@ margin-bottom: 5rem;
 }
 
 
+
+.pointArticle-text-tittle{
+  border-bottom: 2px solid black;
+}
+
+
+
+
 @media screen and (max-width:768px) {
 
 .pointArticle-text{
@@ -196,12 +215,18 @@ margin-bottom: 5rem;
 .pointArticle-col-2{
   margin-bottom: 2rem;
 }
+
+// .pointArticle-text{
+//   text-align: center;
+// }
+
+.pointArticle-text-tittle{
+  border-bottom: none;
+  text-align: center;
 }
 
-// .bg-rule1-outer{
-//   height: 10rem;
-//   width: 10rem;
-// }
+
+}
 
 .bg-rule1{
 background-image: url(../images/sol/rule.png);
@@ -367,7 +392,7 @@ margin-top: 10rem;
 
 .simpleStyle-title{
 border-bottom: 2px solid black;
-display: inline-block;
+// display: inline-block;
 margin-bottom: 1rem;
 padding-bottom: 1rem;
 }
@@ -377,16 +402,62 @@ padding-bottom: 1rem;
 
 .slider-text{
   
-  @include h5
+  @include h4
 }
 
 .simpleStyle-title{
   margin-left: 2.3rem;
-  @include h5
+  text-align: center;
+  border: none;
+  @include h4
 }
 
 .simpleStyle-container{
   margin-top: 2rem;
 }
 
+}
+
+// .slick-track{
+//   width: 1712px !important;
+// }
+
+// .slick-arrow{
+    // font-size: 10;
+    // line-height: 0;
+    // position: absolute;
+    // top: 50%;
+    // display: block;
+    // width: 20px;
+    // height: 20px;
+    // padding: 0;
+    // transform: translate(0, -50%);
+    // cursor: pointer;
+    // color: #dc3545;
+//     border: none;
+//     outline: none;
+//     background: transparent;
+// }
+
+
+// .slick-prev, .slick-next {
+//   font-size: 0;
+//   line-height: 0;
+//   position: absolute;
+//   top: 50%;
+//   // display: block;
+//   width: 20px;
+//   height: 20px;
+//   padding: 0;
+//   transform: translate(0, -50%);
+//   // cursor: pointer;
+//   // color: #ff1010 !important;
+//   border: none;
+//   outline: none;
+//   background: #000000 !important;
+// }
+
+.slick-track{
+  height: 420px !important;
+  margin-top: -30px;
 }

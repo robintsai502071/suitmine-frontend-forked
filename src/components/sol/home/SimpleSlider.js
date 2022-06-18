@@ -16,7 +16,7 @@ export default class MultipleItems extends Component {
       infinite: false,
       speed: 500,
       slidesToShow: 4,
-      slidesToScroll: 3,
+      slidesToScroll: 4,
       initialSlide: 0,
       responsive: [
         {
@@ -50,7 +50,7 @@ export default class MultipleItems extends Component {
           breakpoint: 800,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 4,
+            slidesToScroll: 2,
             infinite: true,
             dots: true,
           },
@@ -59,7 +59,7 @@ export default class MultipleItems extends Component {
           breakpoint: 700,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 3,
+            slidesToScroll: 2,
             infinite: true,
             dots: true,
           },
@@ -89,10 +89,10 @@ export default class MultipleItems extends Component {
         data-aos-easing="ease-out-cubic"
       >
         <div className="row justify-content-center align-items-center">
+          <div className="simpleStyle-slider-outer-wrap-outside">
+            <h4 className="simpleStyle-title"> Suit Style</h4>
+          </div>
           <div className="col-md-8 col-12">
-            <div className="simpleStyle-slider-outer-wrap-outside">
-              <h4 className="simpleStyle-title"> Suit Style</h4>
-            </div>
             <Slider {...settings}>
               <div className="slider-outer-wrap">
                 <figure className="slider-outer">
@@ -182,13 +182,13 @@ export default class MultipleItems extends Component {
                 <h5 className="text-center slider-text">123456</h5>
                 <h5 className="text-center slider-text">123456</h5>
               </div>
-              <div className="slider-outer-wrap">
+              {/* <div className="slider-outer-wrap">
                 <figure className="slider-outer">
-                  <img src={suit_style2} alt="" />
+                  <img src={suit_style1} alt="" />
                 </figure>
                 <h5 className="text-center slider-text">123456</h5>
                 <h5 className="text-center slider-text">123456</h5>
-              </div>
+              </div> */}
             </Slider>
           </div>
         </div>

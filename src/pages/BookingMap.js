@@ -6,7 +6,6 @@ import article1 from '../components/images/BookingMap/文章1.png';
 import article2 from '../components/images/BookingMap/文章2.png';
 import article3 from '../components/images/BookingMap/文章3.png';
 
-
 function BookingMap() {
   return (
     <>
@@ -301,7 +300,7 @@ function BookingMap() {
                 <g id="Dots__x26__star"></g>
                 <g id="Text"></g>
               </svg>
-              {/* <!------------台北icon------------> */}
+              {/* <!------------各icon------------> */}
               <PopconfirmTPE />
               <PopconfirmTYN />
               <PopconfirmCWS />
@@ -317,7 +316,7 @@ function BookingMap() {
                   <p className="h3">分店詳細資訊</p>
                 </div>
               </div>
-              {/* <!------------台北------------> */}
+              {/* <!------------台北店卡------------> */}
               <div className="col-3 d-flex justify-content-center">
                 <div class="card d-flex justify-content-center">
                   <div className="shopName d-flex justify-content-center align-items-center">
@@ -352,7 +351,7 @@ function BookingMap() {
                   </div>
                 </div>
               </div>
-              {/* <!------------桃園------------> */}
+              {/* <!------------桃園店卡------------> */}
               <div className="col-3 d-flex justify-content-center">
                 <div class="card d-flex justify-content-center ">
                   <div className="shopName d-flex justify-content-center align-items-center">
@@ -387,7 +386,7 @@ function BookingMap() {
                   </div>
                 </div>
               </div>
-              {/* <!------------彰化------------> */}
+              {/* <!------------彰化店卡------------> */}
               <div className="col-3 d-flex justify-content-center">
                 <div class="card d-flex justify-content-center">
                   <div className="shopName d-flex justify-content-center align-items-center">
@@ -422,6 +421,7 @@ function BookingMap() {
                   </div>
                 </div>
               </div>
+              {/* <!------------推薦文章------------> */}
               <div>
                 <div className="articleTitleBox ">
                   <p className="h3">推薦文章</p>

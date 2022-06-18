@@ -48,11 +48,11 @@ function MemberMobileView() {
             <h2 className="m-main__my-service__title">我的服務</h2>
 
             <div className="m-main__my-service__buttons">
-              <a href="#/" className="d-flex flex-column align-items-center">
+              <a href="http://localhost:3000/member/my-gift-card" className="d-flex flex-column align-items-center">
                 <i className="fa-solid fa-gift mb-2"></i>
                 禮物卡
               </a>
-              <a href="#/" className="d-flex flex-column align-items-center">
+              <a href="http://localhost:3000/member/my-favorites" className="d-flex flex-column align-items-center">
                 <i className="fa-solid fa-heart mb-2"></i>
                 我的收藏
               </a>

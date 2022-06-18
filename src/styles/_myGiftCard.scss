@@ -29,4 +29,7 @@
   .my-gift-list__header__title {
     @include h6;
   }
+  .my-gift-card-display-item__wrapper {
+    margin-left: 1rem;
+  }
 }

@@ -16,6 +16,7 @@ import ShoppingCart from './pages/ShoppingCart';
 import ChangePassword from './pages/Member/ChangePassword';
 import OrderList from './pages/Member/OrderList';
 import MyGiftCard from './pages/Member/MyGiftCard';
+import MyFavorites from './pages/Member/MyFavorites';
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
       <Switch>
         <Route path="/member/user/change-password">
           <ChangePassword />
+        </Route>
+
+        <Route path="/member/my-favorites">
+          <MyFavorites />
         </Route>
 
         <Route path="/member/my-gift-card">

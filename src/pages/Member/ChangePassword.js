@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import LayoutFooter from '../../components/robert/LayoutFooter';
 import LayoutHeader from '../../components/robert/LayoutHeader';
 
@@ -10,11 +10,11 @@ function Member() {
     <>
       <LayoutHeader />
       <div className="container member-container">
-        <div className="row">
-          <div className="col-2">
+        <div className="row justify-content-center">
+          <div className="col-2 d-none d-lg-block">
             <SideBar />
           </div>
-          <div className="col-8 offset-1">
+          <div className="col-10 col-lg-8 offset-lg-1 position-relative">
             <ChangePasswordForm />
           </div>
         </div>

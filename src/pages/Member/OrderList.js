@@ -10,11 +10,11 @@ function OrderList() {
     <>
       <LayoutHeader />
       <div className="container member-container">
-        <div className="row">
-          <div className="col-2">
+        <div className="row justify-content-center">
+          <div className="col-2 d-none d-lg-block">
             <SideBar sidebarActiveNumber={'1'} />
           </div>
-          <div className="col-8 offset-1">
+          <div className="col-12 col-lg-8 offset-lg-1">
             <OrderListDisplay />
           </div>
         </div>

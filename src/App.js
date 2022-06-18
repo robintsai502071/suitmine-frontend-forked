@@ -15,16 +15,12 @@ import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
 import ChangePassword from './pages/Member/ChangePassword';
 import OrderList from './pages/Member/OrderList';
-import ChangePasswordForm from './components/robin/Member/user/ChangePasswordForm';
+
 
 function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/member/user/m.change-password">
-          <ChangePasswordForm />
-        </Route>
-
         <Route path="/member/user/change-password">
           <ChangePassword />
         </Route>

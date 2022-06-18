@@ -4,10 +4,11 @@ import React from 'react';
 function MainForm() {
   return (
     <>
-      <a href="http://localhost:3000/member/user" className="goBackBtn">
+      <a href="http://localhost:3000/member/user" className="goBackBtn m-user-position">
         <i className="fa-solid fa-arrow-left-long me-2"></i>
         回上一頁
       </a>
+
       <div className="main__form shadow">
         <div className="main__form__avatar">
           <figure className="main__form__avatar__wrapper mb-4">

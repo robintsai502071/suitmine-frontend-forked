@@ -58,7 +58,7 @@ function MemberMobileView() {
               </a>
 
               <a
-                href="http://localhost:3000/member/user/m.change-password"
+                href="http://localhost:3000/member/user/change-password"
                 className="d-flex flex-column align-items-center"
               >
                 <i className="fa-solid fa-user-lock mb-2"></i>

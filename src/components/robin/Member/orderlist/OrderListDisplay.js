@@ -1,27 +1,30 @@
 import React from 'react';
 import OrderListDisplayItem from './OrderListDisplayItem';
+import { useState } from 'react';
 
-function orderListDisplay() {
+function OrderListDisplay() {
+  const [activeBtn, setActiveBtn] = useState('待出貨');
+  const sortingBtns = ['待出貨', '已出貨', '待收貨', '待評價', '全部訂單'];
   return (
     <>
       <div className="order-list">
         <div className="order-list__btns d-flex justify-content-between ">
-          <a href="#/" className="d-block active">
-            待出貨
-          </a>
-
-          <a href="#/" className="d-block">
-            已出貨
-          </a>
-
-          <a href="#/" className="d-block">
-            待收貨
-          </a>
-
-          <a href="#/" className="d-block">
-            所有訂單
-          </a>
+          {sortingBtns.map((item, i) => {
+            return (
+              <a
+                href="#/"
+                key={i}
+                className={`d-block ${activeBtn === item ? 'active' : ''}`}
+                onClick={() => {
+                  setActiveBtn(item);
+                }}
+              >
+                {item}
+              </a>
+            );
+          })}
         </div>
+
         <div className="order-list__display">
           <OrderListDisplayItem />
           <OrderListDisplayItem />
@@ -31,4 +34,4 @@ function orderListDisplay() {
   );
 }
 
-export default orderListDisplay;
+export default OrderListDisplay;

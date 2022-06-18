@@ -2,6 +2,11 @@ import React from 'react';
 import PopconfirmTPE from '../components/bao/BookingMap/PopconfirmTPE';
 import PopconfirmTYN from '../components/bao/BookingMap/PopconfirmTYN';
 import PopconfirmCWS from '../components/bao/BookingMap/PopconfirmCWS';
+import article1 from '../components/images/BookingMap/文章1.png';
+import article2 from '../components/images/BookingMap/文章2.png';
+import article3 from '../components/images/BookingMap/文章3.png';
+
+
 function BookingMap() {
   return (
     <>
@@ -20,7 +25,7 @@ function BookingMap() {
         {/* <!------------banner------------> */}
         <div className="banner w-100"></div>
         <div className="bar w-100"></div>
-        <div className="container-fluid mapContainerFluid">
+        <div className="container-fluid mapContainerFluid ">
           <div className="chineseText fs-3 spanBorder ">
             <p>立即探索離你最近的SUITMINE</p>
           </div>
@@ -305,18 +310,26 @@ function BookingMap() {
         </div>
         {/* <!------------分店預約卡------------> */}
         <div className="container-fluid branch-container-fluid">
-          <div className="container">
+          <div className="container py-5">
             <div className="row d-flex justify-content-center">
-              <div className="col-4 d-flex justify-content-center">
-                <div class="card">
+              <div>
+                <div className="branchTitleBox">
+                  <p className="h3">分店詳細資訊</p>
+                </div>
+              </div>
+              {/* <!------------台北------------> */}
+              <div className="col-3 d-flex justify-content-center">
+                <div class="card d-flex justify-content-center">
                   <div className="shopName d-flex justify-content-center align-items-center">
                     <p className="h5">台北新光店</p>
                   </div>
                   <div class="card-body">
                     <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-phone"></i> */}
                       <p>03-2189658</p>
                     </div>
                     <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-location-dot"></i> */}
                       <p>桃園市中壢區新生街226巷8弄5號</p>
                     </div>
                     <div className="my-1 d-flex ">
@@ -328,42 +341,104 @@ function BookingMap() {
                     <div className="my-1 d-flex ">
                       <p>Sun : 10 am to 6 pm</p>
                     </div>
-                    <a className="AppointmentButton" href="#/">
-                      立即預約
+                    <a
+                      className="AppointmentButton  text-center d-flex justify-content-center"
+                      href="#/"
+                    >
+                      <div className="pBox d-flex justify-content-center align-items-center">
+                        <p className="text-nowrap">立即預約</p>
+                      </div>
                     </a>
                   </div>
                 </div>
               </div>
-              <div className="col-4 d-flex justify-content-center">
-                <div class="card">
-                  <img src="..." class="card-img-top" alt="..." />
+              {/* <!------------桃園------------> */}
+              <div className="col-3 d-flex justify-content-center">
+                <div class="card d-flex justify-content-center ">
+                  <div className="shopName d-flex justify-content-center align-items-center">
+                    <p className="h5">台北新光店</p>
+                  </div>
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <a href="#/" class="btn btn-primary">
-                      Go somewhere
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-phone"></i> */}
+                      <p>03-2189658</p>
+                    </div>
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-location-dot"></i> */}
+                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Mon - Fri : 10 am to 8 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sat : 9 am to 7 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sun : 10 am to 6 pm</p>
+                    </div>
+                    <a
+                      className="AppointmentButton  text-center d-flex justify-content-center"
+                      href="#/"
+                    >
+                      <div className="pBox d-flex justify-content-center align-items-center">
+                        <p className="text-nowrap">立即預約</p>
+                      </div>
                     </a>
                   </div>
                 </div>
               </div>
-              <div className="col-4 d-flex justify-content-center">
-                <div class="card">
-                  <img src="..." class="card-img-top" alt="..." />
+              {/* <!------------彰化------------> */}
+              <div className="col-3 d-flex justify-content-center">
+                <div class="card d-flex justify-content-center">
+                  <div className="shopName d-flex justify-content-center align-items-center">
+                    <p className="h5">台北新光店</p>
+                  </div>
                   <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                    <a href="#/" class="btn btn-primary">
-                      Go somewhere
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-phone"></i> */}
+                      <p>03-2189658</p>
+                    </div>
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-location-dot"></i> */}
+                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Mon - Fri : 10 am to 8 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sat : 9 am to 7 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sun : 10 am to 6 pm</p>
+                    </div>
+                    <a
+                      className="AppointmentButton  text-center d-flex justify-content-center"
+                      href="#/"
+                    >
+                      <div className="pBox d-flex justify-content-center align-items-center">
+                        <p className="text-nowrap">立即預約</p>
+                      </div>
                     </a>
                   </div>
                 </div>
               </div>
+              <div>
+                <div className="articleTitleBox ">
+                  <p className="h3">推薦文章</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className=".container-xxl"></div>
+          <div className="row d-flex justify-content-center">
+            <div className="col-3">
+              <img className="articleImg" src={article1} alt="" />
+            </div>
+            <div className="col-3">
+              <img className="articleImg" src={article2} alt="" />
+            </div>
+            <div className="col-3">
+              <img className="articleImg" src={article3} alt="" />
             </div>
           </div>
         </div>

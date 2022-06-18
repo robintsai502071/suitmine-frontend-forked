@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Btn(props) {
+function SentBtn(props) {
   return (
     <>
       <button type="button" class="btn btn-primary widthbtn">
@@ -10,7 +10,7 @@ function Btn(props) {
   );
 }
 
-export default Btn;
+export default SentBtn;
 
 //請先const BtnText
 //BtnText: BtnText內的文字

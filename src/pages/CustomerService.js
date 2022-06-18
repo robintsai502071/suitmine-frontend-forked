@@ -1,6 +1,6 @@
 import React from 'react';
 //form 各部件
-import Btn from '../components/alden/Btn';
+import SentBtn from '../components/alden/SentBtn';
 import SelectAntd from '../components/alden/SelectAntd';
 import InputAntd from '../components/alden/InputAntd';
 import TextAreaAntd from '../components/alden/TextAreaAntd';
@@ -80,7 +80,7 @@ function CustomerService() {
 
               {/* <!-- 送出button --> */}
               <div>
-                <Btn BtnText="送出" />
+                <SentBtn BtnText="送出" />
               </div>
             </form>
           </main>

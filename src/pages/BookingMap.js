@@ -1,7 +1,7 @@
 import React from 'react';
 import PopconfirmTPE from '../components/bao/BookingMap/PopconfirmTPE';
-// import PopconfirmTYN from '../components/bao/BookingMap/PopconfirmTYN';
-
+import PopconfirmTYN from '../components/bao/BookingMap/PopconfirmTYN';
+import PopconfirmCWS from '../components/bao/BookingMap/PopconfirmCWS';
 function BookingMap() {
   return (
     <>
@@ -21,7 +21,7 @@ function BookingMap() {
         <div className="banner w-100"></div>
         <div className="bar w-100"></div>
         <div className="container-fluid mapContainerFluid">
-          <div className="chineseText fs-3 spanBorder">
+          <div className="chineseText fs-3 spanBorder ">
             <p>立即探索離你最近的SUITMINE</p>
           </div>
           <div className="container titleSpan">
@@ -298,7 +298,72 @@ function BookingMap() {
               </svg>
               {/* <!------------台北icon------------> */}
               <PopconfirmTPE />
-              {/* <PopconfirmTYN /> */}
+              <PopconfirmTYN />
+              <PopconfirmCWS />
+            </div>
+          </div>
+        </div>
+        {/* <!------------分店預約卡------------> */}
+        <div className="container-fluid branch-container-fluid">
+          <div className="container">
+            <div className="row d-flex justify-content-center">
+              <div className="col-4 d-flex justify-content-center">
+                <div class="card">
+                  <div className="shopName d-flex justify-content-center align-items-center">
+                    <p className="h5">台北新光店</p>
+                  </div>
+                  <div class="card-body">
+                    <div className="my-3 d-flex ">
+                      <p>03-2189658</p>
+                    </div>
+                    <div className="my-3 d-flex ">
+                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Mon - Fri : 10 am to 8 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sat : 9 am to 7 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sun : 10 am to 6 pm</p>
+                    </div>
+                    <a className="AppointmentButton" href="#/">
+                      立即預約
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-4 d-flex justify-content-center">
+                <div class="card">
+                  <img src="..." class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#/" class="btn btn-primary">
+                      Go somewhere
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-4 d-flex justify-content-center">
+                <div class="card">
+                  <img src="..." class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                    <a href="#/" class="btn btn-primary">
+                      Go somewhere
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

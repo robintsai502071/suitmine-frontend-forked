@@ -1,12 +1,12 @@
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
-import iconTPE from '../../images/BookingMap/台北-01.png';
-import TPEimg from "../../images/BookingMap/台北店照片.jpg"
+import iconCWS from '../../images/BookingMap/彰化-01.png';
+import CWSimg from '../../images/BookingMap/彰化店照片.jpg';
 
-function PopconfirmTPE() {
+function PopconfirmTYN() {
   return (
     <>
-      {['right'].map((placement) => (
+      {['left'].map((placement) => (
         <OverlayTrigger
           trigger="click"
           key={placement}
@@ -14,10 +14,10 @@ function PopconfirmTPE() {
           overlay={
             <Popover id={`popover-positioned-${placement}`}>
               <Popover.Body>
-                <div class="TPEcard" >
-                  <img src={TPEimg} class=" card-img-top" alt="..." />
+                <div class="TPEcard">
+                  <img src={CWSimg} class=" card-img-top" alt="..." />
                   <div class="card-body">
-                    <h5 class="card-title">台北店</h5>
+                    <h5 class="card-title">彰化店</h5>
                     <div>
                       <p class="">
                         <i class="fa-solid fa-phone"></i>
@@ -36,8 +36,8 @@ function PopconfirmTPE() {
             </Popover>
           }
         >
-          <div className="TPEBox">
-            <img className="iconTPE btn" src={iconTPE} alt="" />
+          <div className="CWSBox">
+            <img className="iconTPE btn" src={iconCWS} alt="" />
           </div>
         </OverlayTrigger>
       ))}
@@ -45,4 +45,4 @@ function PopconfirmTPE() {
   );
 }
 
-export default PopconfirmTPE;
+export default PopconfirmTYN;

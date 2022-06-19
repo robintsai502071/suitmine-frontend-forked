@@ -17,6 +17,7 @@ import ChangePassword from './pages/Member/ChangePassword';
 import OrderList from './pages/Member/OrderList';
 import MyGiftCard from './pages/Member/MyGiftCard';
 import MyFavorites from './pages/Member/MyFavorites';
+import OrderDetail from './pages/Member/OrderDetail';
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
 
         <Route path="/member/my-gift-card">
           <MyGiftCard />
+        </Route>
+        
+        <Route path="/member/my-order/detail">
+          <OrderDetail />
         </Route>
 
         <Route path="/member/my-order">

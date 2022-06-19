@@ -74,7 +74,7 @@ function ShoppingCartChecking() {
                 </div>
                 <div className="col-3"></div>
                 {/* 商品數量 */}
-                <div className="col-2">
+                <div className="col-2 countBtn">
                   <div className="reduce">
                     <p>-</p>
                   </div>
@@ -156,7 +156,71 @@ function ShoppingCartChecking() {
       </div>
 
       {/* checkingMobile */}
-      <div className="container-fluid checkingMobile d-none"></div>
+      <div className="container-fluid checkingMobile d-sm-none">
+        {/* 標題Bar */}
+        <div className="backBar d-flex flex-row">
+          {/* 返回鍵 */}
+          <div className="backBtn w-25 h-100">
+            <div></div>
+            <div></div>
+          </div>
+          <div className="d-flex justify-content-center align-items-center w-50">
+            <h4>購物車</h4>
+          </div>
+        </div>
+        {/* 商品列 */}
+        <div className="productsMobile row">
+          {/* 按鈕 */}
+          <div className="col-2">
+            <Form.Check className="itslabel" />
+          </div>
+          {/* 商品照片 */}
+          <div className="col-2">
+            <img src={ShoppingCartsample} alt="" />
+          </div>
+          {/* 文字敘述 */}
+          <div className="col-4">
+            {/* 商品名 */}
+            <div>
+              <h5>Hayle Sharkskin Dark Navy Suit</h5>
+            </div>
+            {/* 客製化按鈕 */}
+            <div>
+              <button type="button" class="btn btn-primary widthbtn">
+                客製化
+              </button>
+            </div>
+            {/* 價格 */}
+            <div className="d-flex justify-content-center align-items-center">
+              <h4 className="text-danger">$1440</h4>
+            </div>
+          </div>
+          {/* 右邊欄位 */}
+          <div className="col-4">
+            {/* 刪除鍵 */}
+            <div>
+              <div className="delBtn w-25 h-50 pt-2">
+                <h5>刪除</h5>
+              </div>
+            </div>
+            {/* 商品數量 */}
+            <div className="countsBtn countBtn countBtnMobile">
+              <div className="reduce">
+                <p>-</p>
+              </div>
+              <div className="number">
+                <p>1</p>
+              </div>
+              <div className="plus">
+                <p>+</p>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </div>
+        {/* 小計 */}
+        <div className="countingMoble"></div>
+      </div>
 
       {/* footer */}
       <div className="footerMobile d-none d-sm-block">

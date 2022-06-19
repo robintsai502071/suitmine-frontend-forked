@@ -131,7 +131,19 @@ function ShoppingCartChecking() {
       </div>
 
       {/* paymentMobile */}
-      <div className="container-fluid paymentMobile d-none"></div>
+      <div className="container-fluid paymentMobile d-sm-none">
+        {/* 標題Bar */}
+        <div className="backBar d-flex flex-row">
+          {/* 返回鍵 */}
+          <div className="backBtn w-25 h-100">
+            <div></div>
+            <div></div>
+          </div>
+          <div className="d-flex justify-content-center align-items-center w-50">
+            <h4>購物車</h4>
+          </div>
+        </div>
+      </div>
 
       {/* footer */}
       <div className="footerMobile d-none d-sm-block">

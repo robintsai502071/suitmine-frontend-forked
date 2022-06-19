@@ -12,6 +12,44 @@
   background-color: $light-gray;
 }
 
+//商品數量
+.countBtn {
+  div {
+    width: 23%;
+    height: 9%;
+    border: 1px $light-gray solid;
+  }
+  .number {
+    border-left: 0;
+    border-right: 0;
+  }
+  .reduce {
+    border-radius: 20% 0 0 20%;
+    background-color: $dark-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 4%;
+    color: white;
+  }
+  .plus {
+    border-radius: 0 20% 20% 0;
+    background-color: $dark-gray;
+    color: white;
+  }
+
+  .plus:hover,
+  .reduce:hover {
+    background-color: $light-gray;
+  }
+  .reduce:active,
+  .plus:active {
+    border: 1px solid $light-gray;
+    background-color: white;
+    color: $light-gray;
+  }
+}
+
 //checkbox
 .form-check-input:focus {
   border-color: $dark-gray;
@@ -135,43 +173,7 @@ $blockHeight: 300px;
         height: 10%;
       }
     }
-    //商品數量
-    div:nth-child(5) {
-      div {
-        width: 23%;
-        height: 9%;
-        border: 1px $light-gray solid;
-      }
-      .number {
-        border-left: 0;
-        border-right: 0;
-      }
-      .reduce {
-        border-radius: 20% 0 0 20%;
-        background-color: $dark-gray;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 4%;
-        color: white;
-      }
-      .plus {
-        border-radius: 0 20% 20% 0;
-        background-color: $dark-gray;
-        color: white;
-      }
 
-      .plus:hover,
-      .reduce:hover {
-        background-color: $light-gray;
-      }
-      .reduce:active,
-      .plus:active {
-        border: 1px solid $light-gray;
-        background-color: white;
-        color: $light-gray;
-      }
-    }
     div:last-child {
       h4 {
         color: red;
@@ -412,6 +414,7 @@ $blockHeight: 300px;
 
 // ------------------------checkingMobile------------------------
 
+// 各Wed頁面d-none
 @media (max-width: 375px) {
   .checkingWeb,
   .consumerDetailWeb,
@@ -422,11 +425,125 @@ $blockHeight: 300px;
   }
 }
 
+//各Moile頁面d-block
 @media (min-width: 375px) {
   .checkingMobile,
+  .paymentMobile,
   .consumerDetailMobile,
   .finishMobile,
   .footerMobile {
     display: block;
+    padding: 0;
+    margin: 0;
+    background-color: $light-gray;
+    height: 1000px;
+  }
+}
+
+//mobile欄位設定
+@mixin mobileBlockSetting {
+  height: 80px;
+  border-bottom: 1px solid $light-gray;
+  background-color: white;
+}
+
+.backBar {
+  @include mobileBlockSetting;
+  .backBtn {
+    position: relative;
+    & > div {
+      height: 3px;
+      width: 25%;
+      background-color: $dark-gray;
+      position: absolute;
+      right: 45%;
+      top: 50%;
+    }
+    & > div:first-child {
+      transform: rotate(130deg);
+      right: 57%;
+      top: 40%;
+    }
+    & > div:last-child {
+      transform: rotate(50deg);
+      right: 57%;
+      top: 61%;
+    }
+  }
+  .backBtn:hover div {
+    background-color: $light-gray;
+  }
+}
+
+.productsMobile {
+  @include mobileBlockSetting;
+  padding: 10px 0 10px 0;
+  height: 150px;
+  margin: 0%;
+  & > div {
+    // border: blue 1px solid;
+    padding: 0%;
+  }
+  & > div:first-child,
+  //商品照片
+  div:nth-child(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  // 文字敘述
+  div:nth-child(3) {
+    div {
+      height: 30%;
+    }
+    // 商品名
+    div:first-child {
+      padding: 6%;
+      h5 {
+        font-size: small;
+      }
+    }
+    //客製化按鈕
+    div:nth-child(2) {
+      .widthbtn {
+        width: 53%;
+        height: 66%;
+        line-height: 6px;
+        font-size: xx-small;
+      }
+    }
+  }
+  //刪除、數量
+  div:last-child {
+    & > div {
+      height: 33%;
+      display: flex;
+      justify-content: end;
+    }
+    & > div:first-child {
+      padding: 5%;
+      padding-right: 6%;
+      h5 {
+        font-size: small;
+      }
+    }
+  }
+}
+.countingMoble {
+  @include mobileBlockSetting;
+  height: 230px;
+}
+
+// 手機板商品數量
+.countBtnMobile {
+  padding-right: 6%;
+  div {
+    width: 23%;
+    height: 60%;
+    border: 1px #ececec solid;
+  }
+  div:last-child {
+    padding-left: 7%;
+    padding-top: 3%;
   }
 }

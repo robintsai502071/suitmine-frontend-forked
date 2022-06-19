@@ -32,11 +32,15 @@
     }
     &__status {
       @include text;
+      color: $dark-gray;
     }
   }
   &__body {
     padding: 1rem 0;
     border-bottom: 1px solid $light-gray;
+    &__info {
+      color: $dark-gray;
+    }
   }
   &__body__wrapper {
     display: flex;

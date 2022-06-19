@@ -36,7 +36,7 @@ function PopconfirmTYN() {
             </Popover>
           }
         >
-          <div className="TYNBox">
+          <div className="TYNBox d-md-flex d-none">
             <img className="iconTPE btn" src={iconTYN} alt="" />
           </div>
         </OverlayTrigger>

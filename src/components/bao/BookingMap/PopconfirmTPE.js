@@ -36,7 +36,7 @@ function PopconfirmTPE() {
             </Popover>
           }
         >
-          <div className="TPEBox">
+          <div className="TPEBox d-md-flex d-none">
             <img className="iconTPE btn" src={iconTPE} alt="" />
           </div>
         </OverlayTrigger>

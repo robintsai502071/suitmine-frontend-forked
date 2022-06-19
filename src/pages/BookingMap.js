@@ -2,6 +2,11 @@ import React from 'react';
 import PopconfirmTPE from '../components/bao/BookingMap/PopconfirmTPE';
 import PopconfirmTYN from '../components/bao/BookingMap/PopconfirmTYN';
 import PopconfirmCWS from '../components/bao/BookingMap/PopconfirmCWS';
+
+// import RWDpopconfirmCWS from '../components/bao/BookingMap/RWDpopconfirmCWS';
+// import RWDpopconfirmTPE from '../components/bao/BookingMap/RWDpopconfirmTPE';
+import RWDpopconfirmTYN from '../components/bao/BookingMap/RWDpopconfirmTYN';
+
 import article1 from '../components/images/BookingMap/文章1.png';
 import article2 from '../components/images/BookingMap/文章2.png';
 import article3 from '../components/images/BookingMap/文章3.png';
@@ -10,7 +15,8 @@ function BookingMap() {
   return (
     <>
       <div className="main">
-        <div className="sidebar py-2 d-flex flex-column align-items-center justify-content-around">
+        {/* <!------------右側sticky功能欄------------> */}
+        <div className="d-md-flex d-none sidebar py-2  flex-column align-items-center justify-content-around">
           <a href="#/">
             <i className="fas fa-user"></i>
           </a>
@@ -25,7 +31,7 @@ function BookingMap() {
         <div className="banner w-100"></div>
         <div className="bar w-100"></div>
         <div className="container-fluid mapContainerFluid ">
-          <div className="chineseText fs-3 spanBorder ">
+          <div className="chineseText h3 spanBorder ">
             <p>立即探索離你最近的SUITMINE</p>
           </div>
           <div className="container titleSpan">
@@ -300,10 +306,20 @@ function BookingMap() {
                 <g id="Dots__x26__star"></g>
                 <g id="Text"></g>
               </svg>
-              {/* <!------------各icon------------> */}
+              {/* <!------------台北icon------------> */}
               <PopconfirmTPE />
+              {/* <!============台北iconRWD============> */}
+              {/* <RWDpopconfirmTPE  /> */}
+
+              {/* <!------------桃園icon------------> */}
               <PopconfirmTYN />
+              {/* <!============桃園iconRWD============> */}
+              <RWDpopconfirmTYN />
+
+              {/* <!------------彰化icon------------> */}
               <PopconfirmCWS />
+              {/* <!============彰化iconRWD============> */}
+              {/* <RWDpopconfirmCWS  /> */}
             </div>
           </div>
         </div>
@@ -311,13 +327,49 @@ function BookingMap() {
         <div className="container-fluid branch-container-fluid">
           <div className="container py-5">
             <div className="row d-flex justify-content-center">
+              {/* <!------------title------------> */}
               <div>
                 <div className="branchTitleBox">
                   <p className="h3">分店詳細資訊</p>
                 </div>
               </div>
               {/* <!------------台北店卡------------> */}
-              <div className="col-3 d-flex justify-content-center">
+              <div className="col-3 d-md-flex d-none justify-content-center">
+                <div class="card d-flex justify-content-center">
+                  <div className="shopName d-flex justify-content-center align-items-center">
+                    <p className="h5">台北新光店</p>
+                  </div>
+                  <div class="card-body">
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-phone"></i> */}
+                      <p>03-2189658</p>
+                    </div>
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-location-dot"></i> */}
+                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Mon - Fri : 10 am to 8 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sat : 9 am to 7 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sun : 10 am to 6 pm</p>
+                    </div>
+                    <a
+                      className="AppointmentButton  text-center d-flex justify-content-center"
+                      href="#/"
+                    >
+                      <div className="pBox d-flex justify-content-center align-items-center">
+                        <p className="text-nowrap">立即預約</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              {/* <!============台北店卡RWD============> */}
+              <div className="col-12 d-flex d-md-none justify-content-center">
                 <div class="card d-flex justify-content-center">
                   <div className="shopName d-flex justify-content-center align-items-center">
                     <p className="h5">台北新光店</p>
@@ -352,7 +404,42 @@ function BookingMap() {
                 </div>
               </div>
               {/* <!------------桃園店卡------------> */}
-              <div className="col-3 d-flex justify-content-center">
+              <div className="col-3 d-md-flex d-none justify-content-center">
+                <div class="card d-flex justify-content-center ">
+                  <div className="shopName d-flex justify-content-center align-items-center">
+                    <p className="h5">台北新光店</p>
+                  </div>
+                  <div class="card-body">
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-phone"></i> */}
+                      <p>03-2189658</p>
+                    </div>
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-location-dot"></i> */}
+                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Mon - Fri : 10 am to 8 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sat : 9 am to 7 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sun : 10 am to 6 pm</p>
+                    </div>
+                    <a
+                      className="AppointmentButton  text-center d-flex justify-content-center"
+                      href="#/"
+                    >
+                      <div className="pBox d-flex justify-content-center align-items-center">
+                        <p className="text-nowrap">立即預約</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              {/* <!============桃園店卡RWD============> */}
+              <div className="my-5 col-12 d-flex d-md-none justify-content-center">
                 <div class="card d-flex justify-content-center ">
                   <div className="shopName d-flex justify-content-center align-items-center">
                     <p className="h5">台北新光店</p>
@@ -387,7 +474,42 @@ function BookingMap() {
                 </div>
               </div>
               {/* <!------------彰化店卡------------> */}
-              <div className="col-3 d-flex justify-content-center">
+              <div className="col-3 d-md-flex d-none justify-content-center">
+                <div class="card d-flex justify-content-center">
+                  <div className="shopName d-flex justify-content-center align-items-center">
+                    <p className="h5">台北新光店</p>
+                  </div>
+                  <div class="card-body">
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-phone"></i> */}
+                      <p>03-2189658</p>
+                    </div>
+                    <div className="my-3 d-flex ">
+                      {/* <i class="fa-solid fa-location-dot"></i> */}
+                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Mon - Fri : 10 am to 8 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sat : 9 am to 7 pm</p>
+                    </div>
+                    <div className="my-1 d-flex ">
+                      <p>Sun : 10 am to 6 pm</p>
+                    </div>
+                    <a
+                      className="AppointmentButton  text-center d-flex justify-content-center"
+                      href="#/"
+                    >
+                      <div className="pBox d-flex justify-content-center align-items-center">
+                        <p className="text-nowrap">立即預約</p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              {/* <!============桃園店卡RWD============> */}
+              <div className="col-12 d-flex d-md-none justify-content-center">
                 <div class="card d-flex justify-content-center">
                   <div className="shopName d-flex justify-content-center align-items-center">
                     <p className="h5">台北新光店</p>
@@ -431,15 +553,66 @@ function BookingMap() {
           </div>
           <div className=".container-xxl"></div>
           <div className="row d-flex justify-content-center">
-            <div className="col-3">
+            {/* <!------------推薦文章(第一篇)------------> */}
+            <a
+              href="#/"
+              className="d-md-flex d-none col-3 position-relative articleBox"
+            >
               <img className="articleImg" src={article1} alt="" />
-            </div>
-            <div className="col-3">
+              <p className="h3 text-nowrap position-absolute top-50 start-50 translate-middle">
+                How to Be Shark
+              </p>
+            </a>
+            {/* <!============推薦文章(第一篇)RWD============> */}
+            <a
+              href="#/"
+              className="d-flex d-md-none col-12 position-relative articleBox"
+            >
+              <img className="articleImg" src={article1} alt="" />
+              <p className="h3 text-nowrap position-absolute top-50 start-50 translate-middle">
+                How to Be Shark
+              </p>
+            </a>
+            {/* <!------------推薦文章(第二篇)------------> */}
+            <a
+              href="#/"
+              className="d-md-flex d-none col-3 position-relative articleBox"
+            >
               <img className="articleImg" src={article2} alt="" />
-            </div>
-            <div className="col-3">
+              <p className="h3 text-nowrap position-absolute top-50 start-50 translate-middle">
+                How to Be Shark
+              </p>
+            </a>
+            {/* <!============推薦文章(第一篇)RWD============> */}
+            <a
+              href="#/"
+              className="my-5 d-flex d-md-none col-12 position-relative articleBox"
+            >
+              <img className="articleImg" src={article2} alt="" />
+              <p className="h3 text-nowrap position-absolute top-50 start-50 translate-middle">
+                How to Be Shark
+              </p>
+            </a>
+            {/* <!------------推薦文章(第三篇)------------> */}
+            <a
+              href="#/"
+              className="d-md-flex d-none col-3 position-relative articleBox"
+            >
               <img className="articleImg" src={article3} alt="" />
-            </div>
+              <p className="h3 text-nowrap position-absolute top-50 start-50 translate-middle">
+                How to Be Shark
+              </p>
+            </a>
+            {/* <!============推薦文章(第一篇)RWD============> */}
+            <a
+              href="#/"
+              className="d-flex d-md-none col-12 position-relative articleBox"
+            >
+              <img className="articleImg" src={article3} alt="" />
+              <p className="h3 text-nowrap position-absolute top-50 start-50 translate-middle">
+                How to Be Shark
+              </p>
+            </a>
           </div>
         </div>
       </div>

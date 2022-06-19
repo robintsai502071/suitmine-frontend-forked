@@ -39,21 +39,27 @@
   position: relative;
   z-index: 0;
 }
-
+/* -----------底紋---------- */
 .mapContainerFluid ::before {
   content: '';
   position: absolute;
-  width: 100%;
-  height: 100%;
   left: 0;
   right: 0;
   top: 0;
   bottom: 0;
-  background: url(../components/images/BookingMap/19742-01.jpg) no-repeat center / contain;
+  background: url(../components/images/BookingMap/19742-01.jpg) no-repeat center /
+    contain;
   z-index: -1;
   opacity: 0.06;
-  background-size:140%;
+  background-size: 123%;
 }
+/* ==========底紋RWD==========*/
+@media screen and (max-width: 420px) {
+  .mapContainerFluid ::before {
+    content: '';
+  }
+}
+
 /* -------------------title--------------------- */
 .spanBorder {
   border: 1px #747474 solid;
@@ -67,6 +73,22 @@
   margin-bottom: 0%;
   margin: 15px 40px 15px 40px;
 }
+
+/* ==========titleRWD==========*/
+@media screen and (max-width: 420px) {
+  .spanBorder {
+    width: 82%;
+    margin: 5% auto 5%;
+  }
+  .spanBorder p {
+    letter-spacing: 2px;
+    font-size: 15px;
+    text-align: center;
+    line-height: 19px;
+    margin: 9px 19px 9px 19px;
+  }
+}
+/* ----------全台灣地圖----------- */
 .mapBox {
   position: relative;
   width: fit-content;
@@ -81,7 +103,6 @@
   stroke: white;
   cursor: pointer;
 }
-/* ----------全台灣地圖----------- */
 .st1,
 .st2,
 .st3,
@@ -121,6 +142,13 @@
 .mapBox .btn {
   border: none;
 }
+/* ==========全台灣地圖RWD==========*/
+@media screen and (max-width: 420px) {
+  .mapSvg {
+    width: 82%;
+    height: 100%;
+  }
+}
 /* ----------popover框----------- */
 .popover-body {
   padding: 0rem 0rem;
@@ -145,6 +173,14 @@
 .card-body span {
   text-align: justify;
 }
+/* ===========-popover框RWD=========== */
+.modal-content{
+  width: 70%;
+}
+.modal-dialog-centered{
+  display: flex;
+  justify-content: center;
+}
 /* --------------------台北icon--------------------*/
 .iconTPE {
   width: 100%;
@@ -156,6 +192,9 @@
   position: absolute;
   top: -1%;
   right: 10%;
+}
+/* ==========台北iconRWD==========*/
+@media screen and (max-width: 420px) {
 }
 
 /* --------------------桃園icon--------------------*/
@@ -170,7 +209,18 @@
   top: 2%;
   right: 31%;
 }
-
+/* ==========桃園iconRWD==========*/
+.RWDtynBox {
+  width: 17%;
+  position: absolute;
+  top: 5%;
+  right: 34%;
+}
+.RWDiconTYN {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 /* --------------------彰化icon--------------------*/
 .iconCWS {
   width: 100%;
@@ -183,9 +233,13 @@
   top: 28%;
   right: 67%;
 }
+/* ==========彰化iconRWD==========*/
+@media screen and (max-width: 420px) {
+}
+
 /* --------------------分店預約卡--------------------*/
 .branch-container-fluid {
-  background-color: #ececec77;
+  background-color: #ececec3b;
   // height: 100vh;
 }
 .branch-container-fluid .col {
@@ -220,6 +274,13 @@
 .card-body p {
   line-height: 20px;
 }
+/* ==========分店預約卡RWD==========*/
+@media screen and (max-width: 420px) {
+  .branchTitleBox {
+    margin-bottom: 35px;
+  }
+}
+
 /* --------立即預約按鈕--------*/
 .AppointmentButton {
   margin-top: 30px;
@@ -239,9 +300,18 @@
   border-bottom: 2px solid #000000;
   width: max-content;
   padding-bottom: 10px;
-  margin-top: 172px;
+  margin-top: 130px;
 }
-.articleImg{
+.articleImg {
   object-fit: cover;
   width: 100%;
+}
+.articleBox p {
+  color: #ffffff;
+}
+/* ==========推薦文章RWD==========*/
+@media screen and (max-width: 420px) {
+  .articleTitleBox {
+    margin-top: 90px;
+  }
 }

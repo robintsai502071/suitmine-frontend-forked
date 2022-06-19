@@ -18,6 +18,7 @@ import OrderList from './pages/Member/OrderList';
 import MyGiftCard from './pages/Member/MyGiftCard';
 import MyFavorites from './pages/Member/MyFavorites';
 import OrderDetail from './pages/Member/OrderDetail';
+import CustomizeSlient from './pages/CustomizeSlient';
 
 function App() {
   return (
@@ -34,7 +35,7 @@ function App() {
         <Route path="/member/my-gift-card">
           <MyGiftCard />
         </Route>
-        
+
         <Route path="/member/my-order/detail">
           <OrderDetail />
         </Route>
@@ -49,6 +50,10 @@ function App() {
 
         <Route path="/member/user">
           <Member />
+        </Route>
+
+        <Route path="/customize-silent">
+          <CustomizeSlient />
         </Route>
 
         <Route path="/blog">

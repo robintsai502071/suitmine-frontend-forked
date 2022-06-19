@@ -1,0 +1,58 @@
+.banner {
+  height: 860px;
+  background-image: url('../images/robin/Custom/banner/banner-background-image.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &__wrapper {
+    &__model {
+      &__title {
+        top: 50%;
+        left: 21%;
+      }
+    }
+    &__controller {
+      width: 200px;
+      right: 6%;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+    }
+  }
+}
+// slick sliders arrows 箭頭樣式必加！
+.slick-prev {
+  left: 3% !important;
+  z-index: 1;
+}
+.slick-next {
+  right: 3% !important;
+  z-index: 1;
+}
+.banner-rwd-bg {
+  background-image: url('../images/robin/Custom/banner/banner-background-image.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.banner-rwd__slider {
+  .slick-prev {
+    transform: scale(4);
+    background-color: transparent !important;
+    color: white !important;
+  }
+  .slick-next {
+    transform: scale(4);
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .banner-rwd__slider {
+    .slick-prev {
+      transform: scale(2);
+    }
+    .slick-next {
+      transform: scale(2);
+    }
+  }
+}

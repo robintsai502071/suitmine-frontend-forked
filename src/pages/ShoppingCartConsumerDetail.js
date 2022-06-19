@@ -18,8 +18,8 @@ function ShoppingCartChecking() {
         <LayoutHeader />
       </div>
 
-      {/* main */}
-      <div className="container-fluid">
+      {/* consumerDetailWeb */}
+      <div className="container-fluid consumerDetailWeb">
         <div className="row">
           <div className="col-7 m-auto">
             {/* 流程 */}
@@ -132,8 +132,13 @@ function ShoppingCartChecking() {
         </div>
       </div>
 
+      {/* consumerDetailMobile */}
+      <div className="container-fluid consumerDetailMobile d-none"></div>
+
       {/* footer */}
-      <LayoutFooter />
+      <div className="footerMobile d-none d-sm-block">
+        <LayoutFooter />
+      </div>
     </body>
   );
 }

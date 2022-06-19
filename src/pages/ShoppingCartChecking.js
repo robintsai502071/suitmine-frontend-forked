@@ -16,8 +16,8 @@ function ShoppingCartChecking() {
         <LayoutHeader />
       </div>
 
-      {/* main */}
-      <div className="container-fluid">
+      {/* checkingWeb */}
+      <div className="container-fluid checkingWeb">
         <div className="row">
           <div className="col-7 m-auto">
             {/* 流程 */}
@@ -25,7 +25,7 @@ function ShoppingCartChecking() {
               <Showsteps />
             </div>
             {/* 中間部分(checking) */}
-            <div className="checking">
+            <div className="checking my-5">
               {/* 全選 */}
               <div className="allselect">
                 <Form>
@@ -155,8 +155,13 @@ function ShoppingCartChecking() {
         </div>
       </div>
 
+      {/* checkingMobile */}
+      <div className="container-fluid checkingMobile d-none"></div>
+
       {/* footer */}
-      <LayoutFooter />
+      <div className="footerMobile d-none d-sm-block">
+        <LayoutFooter />
+      </div>
     </body>
   );
 }

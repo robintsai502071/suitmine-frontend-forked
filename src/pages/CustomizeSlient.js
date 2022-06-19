@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Component, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
-
+import Lightbox from 'react-image-lightbox';
+import 'react-image-lightbox/style.css';
+import { useEffect } from 'react';
 function CustomizeSlient() {
   function SampleNextArrow(props) {
     const { className, style, onClick } = props;
@@ -31,6 +33,34 @@ function CustomizeSlient() {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+
+  // lightbox
+  const images = [
+    'https://source.unsplash.com/I1ASdgphUH4/800x599',
+    'https://source.unsplash.com/2ShvY8Lf6l0/800x599',
+    'https://source.unsplash.com/Dm-qxdynoEc/800x799',
+    'https://source.unsplash.com/qDkso9nvCg0/600x799',
+    'https://source.unsplash.com/iecJiKe_RNg/600x799',
+    'https://source.unsplash.com/epcsn8Ed8kY/600x799',
+    'https://source.unsplash.com/NQSWvyVRIJk/800x599',
+    'https://source.unsplash.com/zh7GEuORbUw/600x799',
+    'https://source.unsplash.com/PpOHJezOalU/800x599',
+    'https://source.unsplash.com/I1ASdgphUH4/800x599',
+  ];
+  // lightbox hooks
+  const [photoIndex, setPhotoIndex] = useState(0);
+  const [isOpen, setIsOpen] = useState(false);
+  useEffect(() => {
+    
+    return () => {
+      /* 下面是 componentWillUnmount */
+      /* 上面是 componentWillUnmount */
+      setIsOpen(false)
+    };
+  }, [
+    [isOpen]
+  ]); /* 第二個參數是用來限定當哪些變數被改變時useEffect要觸發 */
+
   return (
     <>
       {/* 桌機板 banner */}
@@ -126,6 +156,70 @@ function CustomizeSlient() {
               </div>
             </div>
           </Slider>
+        </div>
+      </div>
+
+      {/*  intro1  */}
+      <div className="container my-5">
+        <div className="intro1">
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="intro1__info px-4 px-lg-0 d-lg-flex flex-lg-column justify-content-lg-center h-100">
+                <h2 className="mb-3">您的選擇</h2>
+                <h4 className="mb-5">
+                  我們獨特的定制流程允許您為您的西裝選擇您想要的確切定制。從鈕扣和開衩到口袋和翻領，你可以說出你想要的樣子，這就是我們將如何建造它。
+                </h4>
+
+                <h2 className="mb-3">多項選擇</h2>
+                <h4>
+                  我們所有的定制選項都是免費的，並包含在您的西裝價格中。個性化您的購買，直至最後一個細節，以便您獲得您想要的確切服裝。
+                </h4>
+              </div>
+            </div>
+
+            <div className="col-lg-6 d-none d-lg-flex">
+              <div className="intro1__lightbox w-100">
+                <div className="intro1__lightbox__thumb position-relative">
+                  <img
+                    className="w-100"
+                    // src="./images/intro1/lightbox_thumb.webp"
+                    src={require('../images/robin/Custom//intro1/lightbox_thumb.webp')}
+                    alt=""
+                  />
+
+                  <button
+                    type="button"
+                    className="btn position-absolute intro1__lightbox__thumb__btn"
+                    onClick={() => {
+                      setIsOpen(true);
+                    }}
+                  >
+                    <i className="fa-solid fa-images text-white"></i>
+                  </button>
+
+                  {isOpen && (
+                    <Lightbox
+                      mainSrc={images[photoIndex]}
+                      nextSrc={images[(photoIndex + 1) % images.length]}
+                      prevSrc={
+                        images[(photoIndex + images.length - 1) % images.length]
+                      }
+                      onCloseRequest={() => setIsOpen(false)}
+                      onMovePrevRequest={() =>
+                        setPhotoIndex(
+                          (photoIndex + images.length - 1) % images.length
+                        )
+                      }
+                      onMoveNextRequest={() =>
+                        setPhotoIndex((photoIndex + 1) % images.length)
+                      }
+                      key={images[photoIndex]}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

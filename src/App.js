@@ -14,6 +14,7 @@ import ProductList from './pages/ProductList';
 import ShoppingCartChecking from './pages/ShoppingCartChecking';
 import ShoppingCartPayment from './pages/ShoppingCartPayment';
 import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
+import ShoppingCartFinish from './pages/ShoppingCartFinish';
 
 function App() {
   return (
@@ -37,6 +38,10 @@ function App() {
 
         <Route path="/shopping-cart-consumerdetail">
           <ShoppingCartConsumerDetail />
+        </Route>
+
+        <Route path="/shopping-cart-finish">
+          <ShoppingCartFinish />
         </Route>
 
         <Route path="/booking-map">

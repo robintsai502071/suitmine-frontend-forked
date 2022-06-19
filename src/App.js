@@ -11,7 +11,8 @@ import Measurement from './pages/Measurement';
 import Member from './pages/Member';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
-import ShoppingCart from './pages/ShoppingCart';
+import ShoppingCartChecking from './pages/ShoppingCartChecking';
+import ShoppingCartPayment from './pages/ShoppingCartPayment';
 
 function App() {
   return (
@@ -25,8 +26,12 @@ function App() {
           <BookingDate />
         </Route>
 
-        <Route path="/shopping-cart">
-          <ShoppingCart />
+        <Route path="/shopping-cart-checking">
+          <ShoppingCartChecking />
+        </Route>
+
+        <Route path="/shopping-cart-payment">
+          <ShoppingCartPayment />
         </Route>
 
         <Route path="/booking-map">

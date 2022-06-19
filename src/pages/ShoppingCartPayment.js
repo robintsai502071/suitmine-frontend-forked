@@ -5,10 +5,9 @@ import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import Showsteps from '../components/alden/Showsteps';
 import Form from 'react-bootstrap/Form';
-//引入照片
-import ShoppingCartsample from '../images/alden/ShoppingCart/shoppingCartsample.png';
+import { Select } from 'antd';
 
-function ShoppingCart() {
+function ShoppingCartChecking() {
   return (
     <body>
       {/* header */}
@@ -21,74 +20,49 @@ function ShoppingCart() {
         <div className="row">
           <div className="col-7 m-auto">
             {/* 流程 */}
-            <div className="showSteps">
+            <div className="showSteps showStepsPayment">
               <Showsteps />
             </div>
-
-            {/* 中間部分 */}
+            {/* 中間部分(payment) */}
             <div className="checking">
-              {/* 全選 */}
-              <div className="allselect">
-                <Form>
-                  {['checkbox'].map((type) => (
-                    <div key={`default-${type}`} className="mb-3">
-                      <Form.Check
-                        type={type}
-                        id={`default-${type}`}
-                        label={`全選`}
-                        className="itslabel"
-                        checked
-                      />
-                    </div>
-                  ))}
-                </Form>
-              </div>
-
-              {/* 商品部分 */}
-              <div className="productDetail row">
-                {/* 商品選擇紐 */}
-                <div className="col-1">
+              {/* 取貨方式 */}
+              <div className="delivery">
+                <div>
+                  <h4>台灣與離島</h4>
+                </div>
+                <div>
                   <Form>
-                    {['checkbox'].map((type) => (
-                      <div key={`default-${type}`} className="mb-3">
-                        <Form.Check
-                          type={type}
-                          id={`default-${type}`}
-                          className="itslabel"
-                        />
-                      </div>
-                    ))}
+                    <Form.Check label={`7-11取貨付款`} className="itslabel" />
                   </Form>
                 </div>
-                {/* 商品照片 */}
-                <div className="col-2">
-                  <img src={ShoppingCartsample} alt="" />
+                <div>
+                  <Form>
+                    <Form.Check label={`信用卡付款`} className="itslabel" />
+                  </Form>
                 </div>
-                {/* 商品名&客製化按鈕 */}
-                <div className="col-2">
-                  <div>
-                    <p4>Hayle Sharkskin Dark Navy Suit</p4>
-                  </div>
-                  <button type="button" class="btn btn-primary widthbtn">
-                    客製化
-                  </button>
+                <div>
+                  <Form>
+                    <Form.Check
+                      label={`LINE pay(可用line point折抵)`}
+                      className="itslabel"
+                    />
+                  </Form>
                 </div>
-                <div className="col-3"></div>
-                {/* 商品數量 */}
-                <div className="col-2">
-                  <div className="reduce">
-                    <p>-</p>
-                  </div>
-                  <div className="number">
-                    <p>1</p>
-                  </div>
-                  <div className="plus">
-                    <p>+</p>
-                  </div>
+                <div>
+                  <Form>
+                    <Form.Check
+                      label={`宅配貨到付款(限台灣本島)`}
+                      className="itslabel"
+                    />
+                  </Form>
                 </div>
-                {/* 單品總額 */}
-                <div className="col-2">
-                  <h4>$1440</h4>
+                <div>
+                  <h4>海外配送</h4>
+                  <Select
+                    style={{
+                      width: 120,
+                    }}
+                  />
                 </div>
               </div>
 
@@ -162,4 +136,4 @@ function ShoppingCart() {
   );
 }
 
-export default ShoppingCart;
+export default ShoppingCartChecking;

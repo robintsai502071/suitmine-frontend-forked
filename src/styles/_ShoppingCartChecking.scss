@@ -6,6 +6,12 @@
   }
 }
 
+@mixin subtotalblockstyle {
+  padding: 5%;
+  height: $blockHeight;
+  background-color: $light-gray;
+}
+
 //checkbox
 .form-check-input:focus {
   border-color: $dark-gray;
@@ -175,9 +181,7 @@ $blockHeight: 300px;
 
   //總和計算
   .subtotalblock {
-    padding: 5%;
-    height: $blockHeight;
-    background-color: $light-gray;
+    @include subtotalblockstyle;
     // 加總過程
     .pricelist {
       height: 80%;
@@ -219,6 +223,6 @@ $blockHeight: 300px;
   height: 30%;
   // background-color: blue;
   button:first-child {
-    @include whitebtn;
+    // @include whitebtn;
   }
 }

@@ -9,7 +9,7 @@
       &__title {
         top: 50%;
         left: 50%;
-        transform: translate(-50%);
+        transform: translate(-50%, -50%);
       }
     }
     &__controller {
@@ -63,7 +63,6 @@
   bottom: 0;
   right: 0;
 }
-
 
 // ******** changeColorBlock ******** //
 .changeColorBlock__wrapper {

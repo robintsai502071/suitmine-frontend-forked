@@ -63,30 +63,36 @@ function GetNoticed() {
         </div>
       </div>
 
-      <div className="container d-lg-none">
+      <div className="container d-lg-none mt-5">
         <div className="row get-noticed-mobile">
-          <div className="col-lg-12">1467890</div>
+          <div className="col-lg-12 get-notice-wrapper-mobile">
+            <h5 className="get-notice-title-mobile">Made to Fit You</h5>
+            <p className="get-notice-p-mobile">
+              由於我們的每件衣服都是根據您的精確尺寸所製作，
+              因此以往尋找適合您特定體型的衣服已成過去式
+            </p>
+          </div>
         </div>
 
         <div className="row">
           <div className="col-8">
             <div className="row flex-column">
-              <div className="col">
-                <h5 className="">Made to Fit You</h5>
-                <p className="">
+              {/* <div className="col get-notice-wrapper-mobile">
+                <h5 className="get-notice-title-mobile">Made to Fit You</h5>
+                <p className="get-notice-p-mobile">
                   由於我們的每件衣服都是根據您的精確尺寸所製作，
                   因此以往尋找適合您特定體型的衣服已成過去式
                 </p>
-              </div>
-              <div className="col">
-                <h5 className="">Get Noticed</h5>
-                <p className="">
+              </div> */}
+              <div className="col get-notice-wrapper-mobile">
+                <h5 className="get-notice-title-mobile">Get Noticed</h5>
+                <p className="get-notice-p-mobile">
                   當您擁有一套能襯託身材並突顯出特徵的西裝時，肯定會引起人們關注，請相信我們的西裝絕對適合您的身形，就放心交給SUITMINE吧！
                 </p>
               </div>
-              <div className="col">
-                <h5 className="">Rules</h5>
-                <p className="">
+              <div className="col get-notice-wrapper-mobile">
+                <h5 className="get-notice-title-mobile">Rules</h5>
+                <p className="get-notice-p-mobile">
                   當談到西裝時，最重要的細節絕對是合身與否。
                   肩縫得在您的自然肩線處結束，夾克剛好蓋住後背，褲管落在鞋跟之上。
                 </p>
@@ -94,9 +100,9 @@ function GetNoticed() {
             </div>
           </div>
 
-          <div className="col-4">
+          <div className="col-4  d-flex justify-content-end align-items-end">
             <div className="row">
-              <div className="col">
+              <div className="col d-flex justify-content-end align-items-center">
                 <figure className="get-noticed-figure-mobile">
                   <img
                     className="get-noticed-img-mobile"

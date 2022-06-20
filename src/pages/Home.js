@@ -13,7 +13,7 @@ function Home() {
     <>
       <VideoBG />
       <ProductCategory />
-      <Meature />
+      {/* <Meature /> */}
       <SuitStyle />
       <PointArticle />
       <Fabric />

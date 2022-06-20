@@ -55,6 +55,10 @@
         margin: 0;
     }
 
+    .fit-matters-p{
+        display: none;
+    }
+
 }
 
 
@@ -136,6 +140,13 @@
     width: 100%;
 }
 
+.get-notice-man-title{
+    margin-bottom: 5%;
+}
+
+.get-notice-man-p{
+    line-height: 28px;
+}
 
 @media screen and (max-width:991px) {
     .get-noticed-figure-mobile {
@@ -146,4 +157,269 @@
         width: 100%;
     }
 
+    .get-notice-wrapper-mobile{
+        margin-bottom: 2rem;
+        
+    }
+
+    .get-notice-title-mobile{
+        margin-bottom: 2%;
+    }
+
+    .get-notice-p-mobile{
+        line-height: 28px;
+
+    }
+
+}
+
+
+
+// ------------------measuremennt-profile部分-----------------------------------------------------------------------------
+.measurement-profile{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 750px;
+}
+
+
+
+
+.measurement-profile::after{
+    content: '';
+    background-image: url(../images/sol/measurement-profile.jpg);
+    position:absoulte;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 750px;
+    position: absolute;
+    z-index: -1;
+}
+
+.measurement-profile-row1{
+    margin-top: 3.5rem;
+}
+
+.measurement-profile-row2{
+    margin-top: 16rem;
+}
+
+.measurement-profile-title2{
+    margin-bottom: 5%;
+    margin-top: 2%;
+}
+
+.measurement-profile-p1{
+    line-height: 26px;
+    margin-bottom: 2%;
+}
+
+
+
+
+
+
+// @media screen and (max-width: 991px) {
+    
+//     .measurement-profile-mobile-h4{
+//         color: white;
+//         top: 13.5rem;
+//         left: 26%;
+    
+//     }
+// }
+
+@media screen and (max-width: 768px) {
+    .measurement-profile{
+
+        display: none;
+    }
+
+}
+.measurement-profile-mobile-img{
+    width: 100%;
+}
+
+
+.measurement-profile-mobile-imgouter{
+    max-width: 100%;
+}
+
+
+.measurement-profile-mobile-h4{
+    color: white;
+    bottom: 0.5rem;
+
+}
+
+.measurement-profile{
+    margin-top: 8rem;
+}
+
+.measurement-profile-mobile{
+    margin-top: 2rem;
+}
+
+
+// -------------------------------------有ipad部分-------------------------------------------
+.ipad-outer{
+    max-width: 100%;
+}
+
+.ipad-img{
+    width: 80%;
+}
+
+.predictive-measurements-title{
+    margin-bottom: 2%;
+}
+
+.predictive-measurements-p{
+    line-height: 26px;
+    margin-bottom: 4%;
+}
+
+
+
+// -------------------------------------------------ease-of-mind---------------------------------------
+
+// .ease-of-mind-img{
+//     max-width: 100%;
+// }
+
+
+// .ease-of-mind-imgouter{
+//     max-width: 100%;
+//     padding: 0;
+// }
+
+
+// @media screen and (max-width: 768px) {
+//     .ease-of-mind-imgouter{
+//         padding: 0 12px;
+//     }
+// }
+
+
+
+
+.ease-of-mind{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 750px;
+}
+
+
+
+
+.ease-of-mind::after{
+    content: '';
+    background-image: url(../images/sol/ease-of-mind.jpg);
+    position:absoulte;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 750px;
+    position: absolute;
+    z-index: -1;
+}
+
+// .ease-of-mind-row1{
+//     margin-top: 3.5rem;
+// }
+
+// .ease-of-mind-row2{
+//     margin-top: 16rem;
+// }
+
+
+.ease-of-mind-row1{
+    margin-top: 20rem;
+}
+
+.ease-of-mind-row2{
+    margin-top: 10rem;
+}
+
+
+.ease-of-mind-title{
+    margin-bottom: 2%;
+}
+
+.ease-of-mind-title-p{
+    line-height: 26px;
+    margin-bottom: 4%;
+}
+
+
+@media screen and (max-width: 768px) {
+    .ease-of-mind{
+
+        display: none;
+    }
+
+}
+.ease-of-mind-mobile-img{
+    width: 100%;
+}
+
+
+.ease-of-mind-mobile-imgouter{
+    max-width: 100%;
+}
+
+
+.ease-of-mind{
+    margin-top: 8rem;
+}
+
+
+.ease-of-mind-mobile-h4{
+    top: 8rem;
+}
+
+
+// ------------------------------------------cellphone部分----------------------------
+.cellphone-outer{
+    max-width: 90%;
+}
+
+.cellphone-img{
+    width: 100%;
+}
+
+
+.cellphone-p{
+    line-height: 26px;
+    width: 80%;
+}
+
+.cellphone-container{
+    margin-top: 8rem;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .cellphone-p{
+        width: 100%;;
+    }
+
+    .cellphone-container{
+        margin-top: 3rem;
+    }
+
+}
+
+.cellphone-appear-p{
+    line-height: 26px;
+}
+
+.cellphone-appear-title{
+    margin-bottom: 5%;
 }

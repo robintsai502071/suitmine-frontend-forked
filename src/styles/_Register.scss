@@ -11,10 +11,49 @@
   background-size: 100%;
   z-index: -9999;
 }
+.registerRow {
+  height: 90vh;
+  // padding: 0 200px 0 200px;
+}
 .registerInputBox {
   background-color: #fff;
   border-radius: 10px;
   width: 60%;
-  height: 500px;
-  margin-right: 100px;
+  height: 680px;
+  margin-right: 350px;
+}
+.registerInputBox form {
+  width: 80%;
+  // overflow: auto;
+}
+.registerBtn {
+  width: 180px;
+  height: 40px;
+  background-color: #000;
+  border-radius: 0;
+}
+.registerBtn p {
+  color: #fff;
+}
+// ------------------打造屬於您的專屬西裝----------------------
+.registerTitleBox {
+  margin-left: 350px;
+}
+.registerTitleBox p {
+  color: #fff;
+  letter-spacing: 1px;
+}
+.registerTextBox {
+  width: 390px;
+  line-height: 26px;
+}
+.registerImgBox {
+  width: 248px;
+  height: 145px;
+  background-color: #fff;
+  margin-top: 35px;
+}
+.registerImgBox img{
+  width:100%;
+  object-fit: cover;
 }

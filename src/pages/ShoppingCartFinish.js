@@ -167,7 +167,59 @@ function ShoppingCartChecking() {
             <div></div>
           </div>
           <div className="d-flex justify-content-center align-items-center w-50">
-            <h4>購物車</h4>
+            <h4>確認訂單</h4>
+          </div>
+        </div>
+        {/* 確認訂單內容 */}
+        {/* 收件人 */}
+        <div className="receiver">
+          <div>
+            <h5>小聰明</h5>
+            <h5>*********011</h5>
+          </div>
+          <div>
+            <h5>7-11</h5>
+            <h5>聖德門市</h5>
+          </div>
+          <div>
+            <h5>桃園市中壢區oo路xx號一樓</h5>
+            <h5 className="theotherStore">選擇其他門市</h5>
+          </div>
+        </div>
+        {/* 金額 */}
+        <div className="lastTotal py-5">
+          <div>
+            <h5>商品金額</h5>
+            <h5>$1440</h5>
+          </div>
+          <div>
+            <h5>運費</h5>
+            <h5>$0</h5>
+          </div>
+          <div>
+            <h5>禮物卡折抵</h5>
+            <h5>$0</h5>
+          </div>
+          <div>
+            <h5>應付金額</h5>
+            <h5 className="text-danger">$1440</h5>
+          </div>
+        </div>
+        {/* 最下方Fix */}
+        <div className="downHere row">
+          <div className="col-1"></div>
+          <div className="col-3 d-flex justify-content-end">
+            <div>
+              <h5>應付金額:</h5>
+            </div>
+          </div>
+          <div className="col-5 d-flex justify-content-start">
+            <div>
+              <h5 className="text-danger">NT$ 1440</h5>
+            </div>
+          </div>
+          <div className="col-3 d-flex justify-content-start">
+            <div className="BtnMobile">送出訂單</div>
           </div>
         </div>
       </div>

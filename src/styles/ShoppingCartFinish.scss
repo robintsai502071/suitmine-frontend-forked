@@ -636,3 +636,26 @@ $blockHeight: 300px;
   justify-content: center;
   padding: 0%;
 }
+
+// -------------------------finishMobile----------------------
+.lastTotal,
+.receiver {
+  background-color: $light-gray;
+  border: 1px solid $light-gray;
+  div {
+    @include mobileBlockSetting;
+    height: 55px;
+    border: 1px solid $light-gray;
+    h5 {
+      padding-right: 5%;
+      padding-left: 5%;
+      padding-top: 1%;
+    }
+  }
+}
+
+.lastTotal div {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 3%;
+}

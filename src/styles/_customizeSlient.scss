@@ -8,7 +8,8 @@
     &__model {
       &__title {
         top: 50%;
-        left: 21%;
+        left: 50%;
+        transform: translate(-50%);
       }
     }
     &__controller {

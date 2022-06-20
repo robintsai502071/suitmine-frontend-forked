@@ -25,7 +25,7 @@ function ProductList() {
       <div className="banner w-100"></div>
       <div className="bar w-100"></div>
       <div className="container-fluid container-fluid-padding">
-        <div className="row">
+        <div className="productListRow row">
           {/* <!------------商品顏色、價格 篩選列表------------> */}
           <div className="col-12 filterBar d-flex justify-content-between align-items-center">
             <ul className="align-items-center d-md-flex d-none py-3 mx-3">
@@ -48,13 +48,13 @@ function ProductList() {
       </div>
       {/* <!============= 商品顏色、價格 篩選列表 =============> */}
       <div className="container d-md-none RWDFilterBar">
-        <div className="row flex-column align-items-center">
+        <div className="productListRow row flex-column align-items-center">
           <FilterBar className="RWDFilterBar" />
         </div>
       </div>
       {/* <!------------ 商品種類篩選欄位 ------------> */}
       <div className="container ">
-        <div className="row">
+        <div className="productListRow row">
           <div className="col-3 productFilter d-md-flex d-none flex-column">
             {/*  -----------搜尋欄位----------- */}
             <div className="searchInput">
@@ -67,7 +67,7 @@ function ProductList() {
           </div>
           {/* <!------------ 商品列表 ------------> */}
           <div className="col-md-9 col-12  productList ">
-            <div className="row ">
+            <div className="productListRow row ">
               {/* <!------------ 商品卡 ------------> */}
               <a
                 href="#/"
@@ -280,7 +280,7 @@ function ProductList() {
       {/* <!------------ 聽聽我們忠實顧客怎麼說 ? ------------> */}
       <div className="w-100 bottomBanner d-flex align-items-center ">
         <div className="container">
-          <div className="row ">
+          <div className="productListRow row ">
             <div className="messageBox d-flex justify-content-center align-items-center flex-column ">
               <span className="chineseText h4">聽聽我們忠實顧客怎麼說 ?</span>
               <div className="customersSayBox">

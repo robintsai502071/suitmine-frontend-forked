@@ -316,36 +316,18 @@ function ShoppingCartChecking() {
 
         {/* 最下方Fix */}
         <div className="downHere row">
-          <div className="col-4">
-            {/* 全選 */}
-            <div className="allselect allselectMobile">
-              <Form>
-                {['checkbox'].map((type) => (
-                  <div key={`default-${type}`} className="mb-3">
-                    <Form.Check
-                      type={type}
-                      id={`default-${type}`}
-                      label={`全選`}
-                      className="itslabel"
-                      checked
-                    />
-                  </div>
-                ))}
-              </Form>
-            </div>
-          </div>
-          <div className="col-2">
+          <div className="col-3 d-flex justify-content-end">
             <div>
               <h5>小計:</h5>
             </div>
           </div>
-          <div className="col-3">
+          <div className="col-6 d-flex justify-content-start">
             <div>
               <h5 className="text-danger">NT$ 1440</h5>
             </div>
           </div>
-          <div className="col-3">
-            <div className="BtnMobile">結帳(1)</div>
+          <div className="col-3 d-flex justify-content-start">
+            <div className="BtnMobile">下一步</div>
           </div>
         </div>
       </div>

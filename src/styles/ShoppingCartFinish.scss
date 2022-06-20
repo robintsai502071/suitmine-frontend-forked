@@ -627,3 +627,12 @@ $blockHeight: 300px;
     padding-right: 5%;
   }
 }
+
+// ------------------------consumerDetailMobile----------------
+
+.detailInput {
+  @include mobileBlockSetting;
+  display: flex;
+  justify-content: center;
+  padding: 0%;
+}

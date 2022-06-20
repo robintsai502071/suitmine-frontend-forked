@@ -134,7 +134,6 @@ function ShoppingCartChecking() {
 
       {/* consumerDetailMobile */}
       <div className="container-fluid consumerDetailMobile d-sm-none">
-        {' '}
         {/* 標題Bar */}
         <div className="backBar d-flex flex-row">
           {/* 返回鍵 */}
@@ -143,7 +142,23 @@ function ShoppingCartChecking() {
             <div></div>
           </div>
           <div className="d-flex justify-content-center align-items-center w-50">
-            <h4>購物車</h4>
+            <h4>請填寫詳細資料</h4>
+          </div>
+        </div>
+        {/* 詳細資料填寫 */}
+        <div className="detailInput">
+          <Input placeholder="收件人真實姓名" />
+        </div>
+        <div className="detailInput">
+          <Input placeholder="收件人手機號碼" />
+        </div>
+        <div className="detailInput">
+          <Input placeholder="請填寫收貨地址" />
+        </div>
+        {/* 最下方Fix */}
+        <div className="downHere row flex-row justify-content-center">
+          <div className="col-6 d-flex justify-content-center">
+            <div className="BtnMobile">儲存</div>
           </div>
         </div>
       </div>

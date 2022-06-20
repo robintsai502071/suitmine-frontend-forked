@@ -199,7 +199,7 @@ function ShoppingCartChecking() {
           <div className="col-4">
             {/* 刪除鍵 */}
             <div>
-              <div className="delBtn w-25 h-50 pt-2">
+              <div className="delBtn w-50 h-50 pt-3">
                 <h5>刪除</h5>
               </div>
             </div>
@@ -219,7 +219,80 @@ function ShoppingCartChecking() {
           </div>
         </div>
         {/* 小計 */}
-        <div className="countingMoble"></div>
+        <div className="countingMoble">
+          <div className="row">
+            <div className="col-4">
+              <h5>共 1 件商品</h5>
+            </div>
+            <div className="col-4">
+              <h5>商品金額</h5>
+            </div>
+            <div className="col-4">
+              <h5>$1440</h5>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4"></div>
+            <div className="col-4">
+              <h5>運費</h5>
+            </div>
+            <div className="col-4">
+              <h5>未選</h5>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4"></div>
+            <div className="col-4 garyline">
+              <h5>禮物卡</h5>
+            </div>
+            <div className="col-4 garyline">
+              <h5>$0</h5>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4"></div>
+            <div className="col-4">
+              <h5>小計</h5>
+            </div>
+            <div className="col-4">
+              <h5 className="text-danger">NT$ 1440</h5>
+            </div>
+          </div>
+        </div>
+        {/* 最下方Fix */}
+        <div className="downHere row">
+          <div className="col-4">
+            {/* 全選 */}
+            <div className="allselect allselectMobile">
+              <Form>
+                {['checkbox'].map((type) => (
+                  <div key={`default-${type}`} className="mb-3">
+                    <Form.Check
+                      type={type}
+                      id={`default-${type}`}
+                      label={`全選`}
+                      className="itslabel"
+                      checked
+                    />
+                  </div>
+                ))}
+              </Form>
+            </div>
+          </div>
+          <div className="col-2">
+            <div>
+              <h5>小計:</h5>
+            </div>
+          </div>
+          <div className="col-3">
+            <div>
+              <h5 className="text-danger">NT$ 1440</h5>
+            </div>
+          </div>
+          <div className="col-3">
+            <div className="BtnMobile">結帳(1)</div>
+          </div>
+        </div>
       </div>
 
       {/* footer */}

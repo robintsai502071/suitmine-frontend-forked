@@ -436,7 +436,7 @@ $blockHeight: 300px;
     padding: 0;
     margin: 0;
     background-color: $light-gray;
-    height: 1000px;
+    height: 2000px;
   }
 }
 
@@ -519,10 +519,12 @@ $blockHeight: 300px;
       height: 33%;
       display: flex;
       justify-content: end;
+      align-items: flex-end;
     }
     & > div:first-child {
+      text-align: right;
       padding: 5%;
-      padding-right: 6%;
+      padding-right: 7%;
       h5 {
         font-size: small;
       }
@@ -531,7 +533,8 @@ $blockHeight: 300px;
 }
 .countingMoble {
   @include mobileBlockSetting;
-  height: 230px;
+  height: 270px;
+  padding: 4% 4% 8% 4%;
 }
 
 // 手機板商品數量
@@ -546,4 +549,60 @@ $blockHeight: 300px;
     padding-left: 7%;
     padding-top: 3%;
   }
+}
+
+//小計
+.countingMoble .row {
+  height: 25%;
+  div {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0%;
+    h5 {
+      color: $dark-gray;
+    }
+  }
+  div:last-child {
+    padding-right: 5%;
+  }
+}
+
+.garyline {
+  border-bottom: 1px solid $dark-gray;
+}
+
+//最下方Fix
+
+.downHere {
+  @include mobileBlockSetting;
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  margin: 0%;
+  div {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.allselectMobile {
+  margin-top: 12%;
+  margin-right: -17%;
+}
+
+.BtnMobile {
+  height: 40%;
+  width: 75%;
+  background-color: $light-gray;
+  border-radius: 15px;
+  color: $dark-gray;
+  cursor: pointer;
+}
+
+.BtnMobile:hover {
+  background-color: $dark-gray;
+  color: white;
 }

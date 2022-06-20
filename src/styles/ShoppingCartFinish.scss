@@ -606,3 +606,24 @@ $blockHeight: 300px;
   background-color: $dark-gray;
   color: white;
 }
+
+// ------------------------paymentMobile----------------------
+
+.paymentlist {
+  @include mobileBlockSetting;
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0%;
+    h5 {
+      color: $dark-gray;
+    }
+  }
+  & > div:first-child {
+    padding-left: 5%;
+  }
+  & > div:last-child {
+    padding-right: 5%;
+  }
+}

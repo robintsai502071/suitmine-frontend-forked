@@ -140,7 +140,212 @@ function ShoppingCartChecking() {
             <div></div>
           </div>
           <div className="d-flex justify-content-center align-items-center w-50">
-            <h4>購物車</h4>
+            <h4>付款與運送方式</h4>
+          </div>
+        </div>
+
+        {/* 付款方式LIST */}
+        {/* 7-11 */}
+        <div className="paymentlist row">
+          <div className="col-2">
+            <Form.Check className="itslabel" />
+          </div>
+          <div className="col-4">
+            <div>
+              <h5>
+                7-11取貨付款
+                <br />
+                滿1000免運
+              </h5>
+            </div>
+          </div>
+          <div className="col-4"></div>
+          <div className="col-2">
+            <div>
+              <h5>$50</h5>
+            </div>
+          </div>
+        </div>
+        {/* 全家取貨付款 */}
+        <div className="paymentlist row">
+          <div className="col-2">
+            <Form.Check className="itslabel" />
+          </div>
+          <div className="col-4">
+            <div>
+              <h5>
+                全家取貨付款
+                <br />
+                滿1000免運
+              </h5>
+            </div>
+          </div>
+          <div className="col-4"></div>
+          <div className="col-2">
+            <div>
+              <h5>$50</h5>
+            </div>
+          </div>
+        </div>
+        {/* 信用卡付款 */}
+        <div className="paymentlist row">
+          <div className="col-2">
+            <Form.Check className="itslabel" />
+          </div>
+          <div className="col-4">
+            <div>
+              <h5>
+                信用卡付款
+                <br />
+                滿1200免運
+              </h5>
+            </div>
+          </div>
+          <div className="col-4"></div>
+          <div className="col-2">
+            <div>
+              <h5>$60</h5>
+            </div>
+          </div>
+        </div>
+        {/* LINE pay */}
+        <div className="paymentlist row">
+          <div className="col-2">
+            <Form.Check className="itslabel" />
+          </div>
+          <div className="col-4">
+            <div>
+              <h5>
+                LINE pay
+                <br />
+                滿1200免運
+              </h5>
+            </div>
+          </div>
+          <div className="col-4"></div>
+          <div className="col-2">
+            <div>
+              <h5>$60</h5>
+            </div>
+          </div>
+        </div>
+        {/* 宅配貨到付款 */}
+        <div className="paymentlist row">
+          <div className="col-2">
+            <Form.Check className="itslabel" />
+          </div>
+          <div className="col-4">
+            <div>
+              <h5>
+                宅配貨到付款
+                <br />
+                滿1200免運
+              </h5>
+            </div>
+          </div>
+          <div className="col-4"></div>
+          <div className="col-2">
+            <div>
+              <h5>$60</h5>
+            </div>
+          </div>
+        </div>
+        {/* 海外配送 */}
+        <div className="paymentlist row">
+          <div className="col-2">
+            <Form.Check className="itslabel" />
+          </div>
+          <div className="col-4">
+            <div>
+              <h5>
+                海外配送
+                <br />
+                滿1000免運
+              </h5>
+            </div>
+          </div>
+          <div className="col-4"></div>
+          <div className="col-2">
+            <div>
+              <h5>$60</h5>
+            </div>
+          </div>
+        </div>
+
+        {/* 小計 */}
+        <div className="countingMoble">
+          <div className="row">
+            <div className="col-4">
+              <h5>共 1 件商品</h5>
+            </div>
+            <div className="col-4">
+              <h5>商品金額</h5>
+            </div>
+            <div className="col-4">
+              <h5>$1440</h5>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4"></div>
+            <div className="col-4">
+              <h5>運費</h5>
+            </div>
+            <div className="col-4">
+              <h5>未選</h5>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4"></div>
+            <div className="col-4 garyline">
+              <h5>禮物卡</h5>
+            </div>
+            <div className="col-4 garyline">
+              <h5>$0</h5>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4"></div>
+            <div className="col-4">
+              <h5>小計</h5>
+            </div>
+            <div className="col-4">
+              <h5 className="text-danger">NT$ 1440</h5>
+            </div>
+          </div>
+        </div>
+
+        {/* 最下方Fix */}
+        <div className="downHere row">
+          <div className="col-4">
+            {/* 全選 */}
+            <div className="allselect allselectMobile">
+              <Form>
+                {['checkbox'].map((type) => (
+                  <div key={`default-${type}`} className="mb-3">
+                    <Form.Check
+                      type={type}
+                      id={`default-${type}`}
+                      label={`全選`}
+                      className="itslabel"
+                      checked
+                    />
+                  </div>
+                ))}
+              </Form>
+            </div>
+          </div>
+          <div className="col-2">
+            <div>
+              <h5>小計:</h5>
+            </div>
+          </div>
+          <div className="col-3">
+            <div>
+              <h5 className="text-danger">NT$ 1440</h5>
+            </div>
+          </div>
+          <div className="col-3">
+            <div className="BtnMobile">結帳(1)</div>
           </div>
         </div>
       </div>

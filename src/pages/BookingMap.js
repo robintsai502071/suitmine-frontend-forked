@@ -3,8 +3,8 @@ import PopconfirmTPE from '../components/bao/BookingMap/PopconfirmTPE';
 import PopconfirmTYN from '../components/bao/BookingMap/PopconfirmTYN';
 import PopconfirmCWS from '../components/bao/BookingMap/PopconfirmCWS';
 
-// import RWDpopconfirmCWS from '../components/bao/BookingMap/RWDpopconfirmCWS';
-// import RWDpopconfirmTPE from '../components/bao/BookingMap/RWDpopconfirmTPE';
+import RWDpopconfirmCWS from '../components/bao/BookingMap/RWDpopconfirmCWS';
+import RWDpopconfirmTPE from '../components/bao/BookingMap/RWDpopconfirmTPE';
 import RWDpopconfirmTYN from '../components/bao/BookingMap/RWDpopconfirmTYN';
 
 import article1 from '../components/images/BookingMap/文章1.png';
@@ -309,7 +309,7 @@ function BookingMap() {
               {/* <!------------台北icon------------> */}
               <PopconfirmTPE />
               {/* <!============台北iconRWD============> */}
-              {/* <RWDpopconfirmTPE  /> */}
+              <RWDpopconfirmTPE />
 
               {/* <!------------桃園icon------------> */}
               <PopconfirmTYN />
@@ -319,7 +319,7 @@ function BookingMap() {
               {/* <!------------彰化icon------------> */}
               <PopconfirmCWS />
               {/* <!============彰化iconRWD============> */}
-              {/* <RWDpopconfirmCWS  /> */}
+              <RWDpopconfirmCWS />
             </div>
           </div>
         </div>
@@ -335,18 +335,16 @@ function BookingMap() {
               </div>
               {/* <!------------台北店卡------------> */}
               <div className="col-3 d-md-flex d-none justify-content-center">
-                <div class="card d-flex justify-content-center">
-                  <div className="shopName d-flex justify-content-center align-items-center">
+                <div class="card d-flex ">
+                  <div className="shopName  d-flex justify-content-center align-items-center">
                     <p className="h5">台北新光店</p>
                   </div>
-                  <div class="card-body">
+                  <div class="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-phone"></i> */}
-                      <p>03-2189658</p>
+                      <p>02-3759965</p>
                     </div>
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-location-dot"></i> */}
-                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                      <p>台北市信義區松壽路9號</p>
                     </div>
                     <div className="my-1 d-flex ">
                       <p>Mon - Fri : 10 am to 8 pm</p>
@@ -370,18 +368,16 @@ function BookingMap() {
               </div>
               {/* <!============台北店卡RWD============> */}
               <div className="col-12 d-flex d-md-none justify-content-center">
-                <div class="card d-flex justify-content-center">
-                  <div className="shopName d-flex justify-content-center align-items-center">
+                <div class="card d-flex  ">
+                  <div className="shopName  d-flex justify-content-center align-items-center">
                     <p className="h5">台北新光店</p>
                   </div>
-                  <div class="card-body">
+                  <div class="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-phone"></i> */}
-                      <p>03-2189658</p>
+                      <p>02-3759965</p>
                     </div>
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-location-dot"></i> */}
-                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                      <p>台北市信義區松壽路9號</p>
                     </div>
                     <div className="my-1 d-flex ">
                       <p>Mon - Fri : 10 am to 8 pm</p>
@@ -405,17 +401,15 @@ function BookingMap() {
               </div>
               {/* <!------------桃園店卡------------> */}
               <div className="col-3 d-md-flex d-none justify-content-center">
-                <div class="card d-flex justify-content-center ">
-                  <div className="shopName d-flex justify-content-center align-items-center">
-                    <p className="h5">台北新光店</p>
+                <div class="card d-flex ">
+                  <div className="shopName  d-flex justify-content-center align-items-center">
+                    <p className="h5">桃園新光店</p>
                   </div>
-                  <div class="card-body">
+                  <div class="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-phone"></i> */}
                       <p>03-2189658</p>
                     </div>
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-location-dot"></i> */}
                       <p>桃園市中壢區新生街226巷8弄5號</p>
                     </div>
                     <div className="my-1 d-flex ">
@@ -440,17 +434,15 @@ function BookingMap() {
               </div>
               {/* <!============桃園店卡RWD============> */}
               <div className="my-5 col-12 d-flex d-md-none justify-content-center">
-                <div class="card d-flex justify-content-center ">
-                  <div className="shopName d-flex justify-content-center align-items-center">
-                    <p className="h5">台北新光店</p>
+                <div class="card d-flex  ">
+                  <div className="shopName  d-flex justify-content-center align-items-center">
+                    <p className="h5">桃園新光店</p>
                   </div>
-                  <div class="card-body">
+                  <div class="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-phone"></i> */}
                       <p>03-2189658</p>
                     </div>
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-location-dot"></i> */}
                       <p>桃園市中壢區新生街226巷8弄5號</p>
                     </div>
                     <div className="my-1 d-flex ">
@@ -475,18 +467,16 @@ function BookingMap() {
               </div>
               {/* <!------------彰化店卡------------> */}
               <div className="col-3 d-md-flex d-none justify-content-center">
-                <div class="card d-flex justify-content-center">
-                  <div className="shopName d-flex justify-content-center align-items-center">
-                    <p className="h5">台北新光店</p>
+                <div class="card d-flex  ">
+                  <div className="shopName  top-0 d-flex justify-content-center align-items-center">
+                    <p className="h5">彰化新光店</p>
                   </div>
-                  <div class="card-body">
+                  <div class="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-phone"></i> */}
-                      <p>03-2189658</p>
+                      <p>04-22253456</p>
                     </div>
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-location-dot"></i> */}
-                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                      <p>彰化縣彰化市旭光西路75號</p>
                     </div>
                     <div className="my-1 d-flex ">
                       <p>Mon - Fri : 10 am to 8 pm</p>
@@ -508,20 +498,18 @@ function BookingMap() {
                   </div>
                 </div>
               </div>
-              {/* <!============桃園店卡RWD============> */}
+              {/* <!============彰化店卡RWD============> */}
               <div className="col-12 d-flex d-md-none justify-content-center">
-                <div class="card d-flex justify-content-center">
-                  <div className="shopName d-flex justify-content-center align-items-center">
-                    <p className="h5">台北新光店</p>
+                <div class="card d-flex  ">
+                  <div className="shopName  top-0 d-flex justify-content-center align-items-center">
+                    <p className="h5">彰化新光店</p>
                   </div>
-                  <div class="card-body">
+                  <div class="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-phone"></i> */}
-                      <p>03-2189658</p>
+                      <p>04-22253456</p>
                     </div>
                     <div className="my-3 d-flex ">
-                      {/* <i class="fa-solid fa-location-dot"></i> */}
-                      <p>桃園市中壢區新生街226巷8弄5號</p>
+                      <p>彰化縣彰化市旭光西路75號</p>
                     </div>
                     <div className="my-1 d-flex ">
                       <p>Mon - Fri : 10 am to 8 pm</p>

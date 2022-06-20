@@ -20,14 +20,16 @@ function PopconfirmTYN() {
                     <h5 class="card-title">桃園店</h5>
                     <div>
                       <p class="">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>03-2189658</span>
+                        {/* <i class="fa-solid fa-phone"></i> */}
+                        <span className="popoverText">03-2189658</span>
                       </p>
                     </div>
                     <div>
                       <p class="">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>桃園市中壢區新生街226巷8弄5號</span>
+                        {/* <i class="fa-solid fa-location-dot"></i> */}
+                        <span className="popoverText">
+                        桃園市中壢區新生街226巷8弄5號
+                        </span>
                       </p>
                     </div>
                   </div>

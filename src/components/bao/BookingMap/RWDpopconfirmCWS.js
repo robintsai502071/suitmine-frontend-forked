@@ -1,5 +1,5 @@
-import iconTYN from '../../images/BookingMap/桃園-01.png';
-import TYNimg from '../../images/BookingMap/桃園店照片.jpg';
+import iconCWS from '../../images/BookingMap/彰化-01.png';
+import CWSimg from '../../images/BookingMap/彰化店照片.jpg';
 import Modal from 'react-bootstrap/Modal';
 import React from 'react';
 
@@ -14,15 +14,15 @@ function MyVerticallyCenteredModal(props) {
       <Modal.Body>
         <div class="RWDcard">
           <div class="PopconfirmCardImgBox">
-            <img src={TYNimg} class="PopconfirmCardImg " alt="..." />
+            <img src={CWSimg} class="PopconfirmCardImg " alt="..." />
           </div>
           <div class="card-body">
-            <h5 class="card-title">桃園店</h5>
+            <h5 class="card-title">彰化店</h5>
             <div className="my-2 d-flex">
-              <p className="">03-2189658</p>
+              <p className="">04-22253456</p>
             </div>
             <div className="d-flex">
-              <p>桃園市中壢區新生街226巷8弄5號</p>
+              <p>彰化縣彰化市旭光西路75號</p>
             </div>
           </div>
         </div>
@@ -39,16 +39,16 @@ function MyVerticallyCenteredModal(props) {
   );
 }
 
-function RWDpopconfirmTYN() {
+function RWDpopconfirmTPE() {
   const [modalShow, setModalShow] = React.useState(false);
 
   return (
     <>
       <div
-        className="RWDtynBox d-md-none d-flex"
+        className="RWDcwsBox d-md-none d-flex"
         onClick={() => setModalShow(true)}
       >
-        <img className="RWDiconTYN" src={iconTYN} alt="" />
+        <img className="RWDiconTPE" src={iconCWS} alt="" />
       </div>
 
       <MyVerticallyCenteredModal
@@ -59,4 +59,4 @@ function RWDpopconfirmTYN() {
   );
 }
 
-export default RWDpopconfirmTYN;
+export default RWDpopconfirmTPE;

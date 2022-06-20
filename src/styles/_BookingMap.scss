@@ -57,6 +57,7 @@
 @media screen and (max-width: 420px) {
   .mapContainerFluid ::before {
     content: '';
+    display: none;
   }
 }
 
@@ -154,7 +155,7 @@
   padding: 0rem 0rem;
 }
 /* ----------popover框內cardbody調整----------- */
-.card-body {
+.popover-body .card-body {
   width: 200px;
   margin: 0%;
   padding: 0rem 0.75rem 0.75rem 0.75rem;
@@ -170,17 +171,52 @@
 .fa-location-dot {
   margin-right: 10px;
 }
-.card-body span {
+.popover-body .card-body span {
   text-align: justify;
 }
-/* ===========-popover框RWD=========== */
-.modal-content{
+.popoverText {
+  font-family: 'Noto Sans TC', sans-serif;
+}
+/* ============popover框RWD============ */
+.modal-content {
   width: 70%;
 }
-.modal-dialog-centered{
+.modal-dialog-centered {
   display: flex;
   justify-content: center;
 }
+.modal-footer {
+  border-top: none;
+  padding: 0%;
+  justify-content: flex-start;
+  padding: 0rem 1rem 1rem 1rem;
+}
+/* ============popover框內cardbody調整RWD============ */
+.PopconfirmCardImgBox {
+  width: 100%;
+}
+.PopconfirmCardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.modal-content .modal-body {
+  padding: 0;
+}
+.RWDcard p {
+  line-height: 20px;
+}
+.PopconfirmCardBtn {
+  margin: 0;
+  background-color: #000000;
+  border-color: #000000;
+  border-radius: 0;
+  line-height: 1;
+}
+.PopconfirmCardBtn p {
+  color: #ffffff;
+}
+
 /* --------------------台北icon--------------------*/
 .iconTPE {
   width: 100%;
@@ -194,9 +230,17 @@
   right: 10%;
 }
 /* ==========台北iconRWD==========*/
-@media screen and (max-width: 420px) {
+.RWDtpeBox {
+  width: 17%;
+  position: absolute;
+  top: 3%;
+  right: 16%;
 }
-
+.RWDiconTPE {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
 /* --------------------桃園icon--------------------*/
 .iconTPE {
   width: 100%;
@@ -234,23 +278,31 @@
   right: 67%;
 }
 /* ==========彰化iconRWD==========*/
-@media screen and (max-width: 420px) {
+.RWDcwsBox {
+  width: 17%;
+  position: absolute;
+  top: 30%;
+  right: 66%;
+}
+.RWDiconCWS {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 /* --------------------分店預約卡--------------------*/
 .branch-container-fluid {
   background-color: #ececec3b;
-  // height: 100vh;
 }
 .branch-container-fluid .col {
   margin: 0 auto;
 }
 .branch-container-fluid .card {
   width: 220px;
-  height: 310px;
+  height: 299px;
   border-radius: 0px 0px 10px 10px;
 }
-.branch-container-fluid .card-body {
+.branch-container-fluid .reserveCardBody {
   width: 100%;
 }
 .branchTitleBox {
@@ -268,10 +320,11 @@
 .shopName p {
   color: #ffffff;
 }
-.card {
+.branch-container-fluid .card {
   box-shadow: 8px 8px 7px rgba(0, 0, 0, 0.342);
 }
-.card-body p {
+
+.reserveCardBody p {
   line-height: 20px;
 }
 /* ==========分店預約卡RWD==========*/

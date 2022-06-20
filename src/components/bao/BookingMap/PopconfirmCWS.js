@@ -17,17 +17,17 @@ function PopconfirmTYN() {
                 <div class="TPEcard">
                   <img src={CWSimg} class=" card-img-top" alt="..." />
                   <div class="card-body">
-                    <h5 class="card-title">彰化店</h5>
+                    <h5 class="card-title popoverText">彰化店</h5>
                     <div>
                       <p class="">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>03-2189658</span>
+                        {/* <i class="fa-solid fa-phone"></i> */}
+                        <span className='popoverText'>04-22253456</span>
                       </p>
                     </div>
                     <div>
                       <p class="">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>桃園市中壢區新生街226巷8弄5號</span>
+                        {/* <i class="fa-solid fa-location-dot"></i> */}
+                        <span className='popoverText'>彰化縣彰化市旭光西路75號</span>
                       </p>
                     </div>
                   </div>

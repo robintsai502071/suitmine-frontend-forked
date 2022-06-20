@@ -12,6 +12,7 @@ import Member from './pages/Member';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
       <Switch>
         <Route path="/blog">
           <Blog />
+        </Route>
+
+        <Route path="/register">
+          <Register />
         </Route>
 
         <Route path="/booking-date">

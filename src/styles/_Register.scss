@@ -1,0 +1,20 @@
+.header {
+  height: 90px;
+  background: #000;
+  z-index: 1;
+}
+.bgcImg {
+  background-image: url(../components/images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  background-size: 100%;
+  z-index: -9999;
+}
+.registerInputBox {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 60%;
+  height: 500px;
+  margin-right: 100px;
+}

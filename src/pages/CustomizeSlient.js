@@ -201,6 +201,100 @@ function CustomizeSlient() {
         </div>
       </div>
 
+      {/* <!-- changeColorBlock --> */}
+      <div className="container my-5">
+        <div className="changeColorBlock position-relative">
+          <div className="position-relative">
+            <img
+              className="w-100 d-lg-none"
+              src={require('../images/robin/Custom/changeFabricColor/main-mobile.png')}
+              alt=""
+            />
+            <img
+              className="w-100 d-none d-lg-block"
+              src={require('../images/robin/Custom/changeFabricColor/main.png')}
+              alt=""
+            />
+            <div className="changeColorBlock__wrapper position-absolute d-flex flex-column">
+              <div className="changeColorBtn__title text-white mb-2">黑色</div>
+              <div className="changeColorBtns d-flex">
+                <a href="#" className="changeColorBtns__link d-block">
+                  <img
+                    className="w-100 changeColorBtns__link__image"
+                    src={require('../images/robin/Custom/changeFabricColor/btns/beige.webp')}
+                    alt=""
+                  />
+                </a>
+                <a
+                  href="#"
+                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
+                >
+                  <img
+                    className="w-100 changeColorBtns__link__image"
+                    src={require('../images/robin/Custom/changeFabricColor/btns/black.webp')}
+                    alt=""
+                  />
+                </a>
+                <a
+                  href="#"
+                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
+                >
+                  <img
+                    className="w-100 changeColorBtns__link__image"
+                    src={require('../images/robin/Custom/changeFabricColor/btns/blue.webp')}
+                    alt=""
+                  />
+                </a>
+                <a
+                  href="#"
+                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
+                >
+                  <img
+                    className="w-100 changeColorBtns__link__image"
+                    src={require('../images/robin/Custom/changeFabricColor/btns/brown.webp')}
+                    alt=""
+                  />
+                </a>
+                <a
+                  href="#"
+                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
+                >
+                  <img
+                    className="w-100 changeColorBtns__link__image"
+                    src={require('../images/robin/Custom/changeFabricColor/btns/burgundy.webp')}
+                    alt=""
+                  />
+                </a>
+
+                <a
+                  href="#"
+                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
+                >
+                  <img
+                    className="w-100 changeColorBtns__link__image"
+                    src={require('../images/robin/Custom/changeFabricColor/btns/charcoal.png')}
+                    alt=""
+                  />
+                </a>
+                <a
+                  href="#"
+                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
+                >
+                  <img
+                    className="w-100 changeColorBtns__link__image"
+                    src={require('../images/robin/Custom/changeFabricColor/btns/purple.webp')}
+                    alt=""
+                  />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <h5 className=" changeColorBlock__title text-center mt-2">
+            專注<span className="d-block d-lg-inline">所有細節</span>
+          </h5>
+        </div>
+      </div>
       <LayoutFooter />
     </>
   );

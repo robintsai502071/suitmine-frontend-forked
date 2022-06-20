@@ -64,7 +64,38 @@
   right: 0;
 }
 
-// .ReactModal__Overlay--after-open,
-// .ReactModal__Overlay--before-open {
-//   pointer-events: none !important;
+
+// ******** changeColorBlock ******** //
+.changeColorBlock__wrapper {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+// .changeColorBtns__link {
+//   width: 18px;
+//   height: 18px;
 // }
+.changeColorBtns__link__image {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  outline: 1px solid #000;
+}
+
+@media screen and (min-width: 996px) {
+  .changeColorBlock__wrapper {
+    width: 260px;
+    left: 5%;
+    transform: translateX(0%);
+  }
+  .changeColorBlock__title {
+    @include h2;
+    position: absolute;
+    top: 50%;
+    right: 13%;
+    color: white;
+    text-shadow: 0 2px 2px #000;
+    transform: translateY(50%);
+  }
+}

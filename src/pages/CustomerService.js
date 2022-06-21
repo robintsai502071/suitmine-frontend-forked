@@ -29,8 +29,8 @@ function CustomerService() {
       <div>
         <LayoutHeader />
       </div>
-      {/* <!-- banner --> */}
-      <div className="container-fluid banner">
+      {/* <!-- customerServiceBanner --> */}
+      <div className="container-fluid customerServiceBanner">
         <div className="bannerweb w-100">
           <img src={customerServiceBanner} className="w-100" alt="" />
         </div>

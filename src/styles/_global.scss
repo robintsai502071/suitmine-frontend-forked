@@ -220,12 +220,11 @@ h6 {
   border-radius: 0%;
   width: 100%;
   // background-color: black;
-}
-
-//btn hover color
-.widthbtn:hover {
-  background-color: $btn-hover-color;
-  background-color: $dark-gray;
+  //btn hover color
+  &:hover {
+    background-color: $btn-hover-color;
+    background-color: $dark-gray;
+  }
 }
 
 .form-control:focus {

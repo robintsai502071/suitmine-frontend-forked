@@ -4,12 +4,16 @@
 @import './styles/global';
 
 //cusomerService.sass
-@import './styles/_customerService';
+@import './styles/customerService';
+
 //_shoppingcart.scss
-@import './styles/ShoppingCartChecking';
-@import './styles/ShoppingCartPayment';
-@import './styles/ShoppingCartConsumerDetail';
-@import './styles/ShoppingCartFinish';
+@import './styles/shoppingCartChecking';
+@import './styles/shoppingCartPayment';
+@import './styles/shoppingCartConsumerDetail';
+@import './styles/shoppingCartFinish';
+
+//productDetail.scss
+@import './styles/productDetail';
 
 // 洧
 @import './styles/_member';

@@ -26,12 +26,14 @@ $btnheight: 3%;
 }
 
 //表單行高
-form div {
-  @include blockheight;
-}
+.formbackground {
+  form div {
+    @include blockheight;
+  }
 
-form div div {
-  @include blockheight;
+  form div div {
+    @include blockheight;
+  }
 }
 
 //customerServiceBanner

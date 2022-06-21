@@ -275,6 +275,103 @@
   }
 }
 
-// .ant-modal-confirm-success .ant-modal-confirm-body > .anticon {
-//   color: #000000;
-// }
+//彈窗內容
+.popSelectDetail {
+  .popDetail {
+    // height: 1000px;
+    // background-color: red;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+  //標題
+  .title {
+    padding: 2%;
+  }
+  //商品顯示
+  .showProduct {
+    height: 80px;
+    // background-color: green;
+    display: flex;
+    align-items: center;
+    .pdtImg {
+      height: 70px;
+      width: 70px;
+      // background-color: yellow;
+      border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        height: 100%;
+      }
+    }
+    .pdtName {
+      //   background-color: blue;
+      margin-left: 3%;
+    }
+  }
+  .popBanner {
+    height: 60px;
+    background-color: black;
+    margin-top: 8%;
+    margin-bottom: 1%;
+  }
+  //細節內容手風琴
+  .Accordion {
+    margin-bottom: 20px;
+    .ant-collapse > .ant-collapse-item > .ant-collapse-header {
+      height: 45px;
+      align-items: center;
+      background-color: $light-gray;
+    }
+    .ant-collapse {
+      border: 0;
+    }
+    // 下拉出內容
+    .detailContents {
+      height: 160px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & > div:hover div:last-child {
+        background-color: black;
+      }
+      & > div {
+        margin-right: 3%;
+        margin-left: 3%;
+        height: 90%;
+        width: 100px;
+        border: 1px solid $dark-gray;
+        //產品照片
+        div:first-child {
+          img {
+            height: 100%;
+          }
+          height: 80%;
+        }
+        //細節名
+        div:last-child {
+          height: 21%;
+          background-color: $dark-gray;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-left: 4%;
+          h6 {
+            color: white;
+            font-size: xx-small;
+            line-height: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  //儲存按鈕
+  .widthbtn {
+    width: 100%;
+    height: 45px;
+  }
+}

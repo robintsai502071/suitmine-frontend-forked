@@ -6,9 +6,10 @@ function Register() {
     <>
       <div className="header"></div>
       <div className="main">
-        <div className="bgcImg container-fluid">
-          <div className="row registerRow d-flex align-items-center">
-            <div className="col-7">
+        <div className="bgcImg container-fluid ">
+          <div className="row registerRow d-flex align-items-center ">
+            {/* -------------------打造屬於您的專屬西裝-------------------- */}
+            <div className="col-6 registerTitleCol d-flex justify-content-end ">
               <div className="registerTitleBox">
                 <div>
                   <p className="h2">打造屬於您的專屬西裝</p>
@@ -20,7 +21,8 @@ function Register() {
                 </div>
               </div>
             </div>
-            <div className="col-5 d-flex justify-content-end ">
+            {/* -------------------註冊form表單-------------------- */}
+            <div className="col-6 registerInputCol d-flex justify-content-start ">
               <div className="registerInputBox d-flex flex-column justify-content-center">
                 <div className="mx-auto pb-5">
                   <p className="h3">成為我們的會員</p>
@@ -91,7 +93,7 @@ function Register() {
                       年齡
                     </label>
                     <input
-                      type="email"
+                      type="age"
                       class="form-control"
                       id="exampleFormControlInput1"
                       placeholder="請輸入年齡"
@@ -106,6 +108,7 @@ function Register() {
           </div>
         </div>
       </div>
+      <div className="footer w-100"></div>
     </>
   );
 }

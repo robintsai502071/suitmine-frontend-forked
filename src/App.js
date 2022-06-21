@@ -22,6 +22,10 @@ function App() {
           <Blog />
         </Route>
 
+        <Route path="/register/take-size">
+          {/* <RegisterTakeSize /> */}
+        </Route>
+
         <Route path="/register">
           <Register />
         </Route>

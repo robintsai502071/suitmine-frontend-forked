@@ -6,21 +6,22 @@
 .bgcImg {
   background-image: url(../components/images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   height: 100vh;
-  background-size: 100%;
+  background-size: cover;
   z-index: -9999;
 }
 .registerRow {
-  height: 90vh;
-  // padding: 0 200px 0 200px;
+  padding-top: 100px;
+}
+.registerInputCol {
+  padding-left: 150px;
 }
 .registerInputBox {
   background-color: #fff;
   border-radius: 10px;
   width: 420px;
   height: 680px;
-  margin-right: 350px;
 }
 .registerInputBox form {
   width: 80%;
@@ -35,9 +36,24 @@
 .registerBtn p {
   color: #fff;
 }
+// ------------------form(蓋樣式)----------------------
+
+.registerRow .form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #6161617c;
+   outline: 0; 
+   box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062); 
+}
+.registerRow .form-select:focus {
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062); 
+
+}
 // ------------------打造屬於您的專屬西裝----------------------
-.registerTitleBox {
-  margin-left: 350px;
+.registerTitleCol {
+  padding-right: 150px;
 }
 .registerTitleBox p {
   color: #fff;
@@ -53,7 +69,12 @@
   background-color: #fff;
   margin-top: 35px;
 }
-.registerImgBox img{
-  width:100%;
+.registerImgBox img {
+  width: 100%;
   object-fit: cover;
+}
+// ------------------header----------------------
+.footer {
+  height: 200px;
+  background-color: rgb(0, 0, 0);
 }

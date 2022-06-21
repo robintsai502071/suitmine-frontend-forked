@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -142,12 +143,12 @@ function CustomizeSlient() {
           <div className="row">
             <div className="col-lg-6">
               <div className="intro1__info px-4 px-lg-0 d-lg-flex flex-lg-column justify-content-lg-center h-100">
-                <h2 className="mb-3">您的選擇</h2>
+                <h4 className="mb-3">您的選擇</h4>
                 <h6 className="mb-5">
                   我們獨特的定制流程允許您為您的西裝選擇您想要的確切定制。從鈕扣和開衩到口袋和翻領，你可以說出你想要的樣子，這就是我們將如何建造它。
                 </h6>
 
-                <h2 className="mb-3">多項選擇</h2>
+                <h4 className="mb-3">多項選擇</h4>
                 <h6>
                   我們所有的定制選項都是免費的，並包含在您的西裝價格中。個性化您的購買，直至最後一個細節，以便您獲得您想要的確切服裝。
                 </h6>
@@ -301,19 +302,20 @@ function CustomizeSlient() {
           <div className="row">
             <div className="col-lg-6">
               <div className="intro2__info px-4 px-lg-0 d-lg-flex flex-lg-column justify-content-lg-center h-100">
-                <h2 className="mb-3">您的選擇</h2>
+                <h4 className="mb-3">襯料</h4>
                 <h6 className="mb-5">
-                  我們獨特的定制流程允許您為您的西裝選擇您想要的確切定制。從鈕扣和開衩到口袋和翻領，你可以說出你想要的樣子，這就是我們將如何建造它。
+                  用您選擇的襯料為您的夾克增添個性。我們的襯料有 50
+                  多種顏色和獨家圖案可供選擇，不僅經久耐用，而且可以精美地垂掛在您的西裝內部。
                 </h6>
 
-                <h2 className="mb-3">多項選擇</h2>
+                <h4 className="mb-3">添加個人風格</h4>
                 <h6>
-                  我們所有的定制選項都是免費的，並包含在您的西裝價格中。個性化您的購買，直至最後一個細節，以便您獲得您想要的確切服裝。
+                  打造獨特的個人風格，我們在任何夾克或西裝外套的內側印上字母組合。盡情享受您的風格，讓您的西裝真正與眾不同。
                 </h6>
               </div>
             </div>
 
-            <div className="col-lg-6 d-none d-lg-flex">
+            <div className="col-lg-6 d-none d-lg-flex order-first">
               <div className="intro2__lightbox w-100">
                 <div className="intro2__lightbox__thumb position-relative">
                   <img
@@ -327,7 +329,7 @@ function CustomizeSlient() {
           </div>
         </div>
       </div>
-      
+
       <LayoutFooter />
     </>
   );

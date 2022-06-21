@@ -1,0 +1,40 @@
+.VedioContainerFluid {
+  padding: 0;
+  height: 100vh;
+}
+.VedioContainerFluid div {
+  padding: 0;
+}
+// slick sliders arrows 箭頭樣式必加！
+.slick-prev {
+  left: 3% !important;
+  z-index: 1;
+}
+.slick-next {
+  right: 3% !important;
+  z-index: 1;
+}
+.lapel {
+  background-color: rgb(172, 172, 172);
+  height: 100vh;
+}
+.vedio .reactPlayer {
+  width: 100% !important;
+  height: 100% !important;
+}
+.vedio input {
+  width:140px;
+  height: 80px;
+}
+.InputBox {
+  top: 72%;
+  left: 45%;
+  width: max-content;
+  text-align: center;
+}
+.InputBox p {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}

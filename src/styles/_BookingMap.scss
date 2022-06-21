@@ -47,11 +47,11 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background: url(../components/images/BookingMap/19742-01.jpg) no-repeat center /
-    contain;
+  background: url(../components/images/BookingMap/19742-01.jpg);
   z-index: -1;
   opacity: 0.06;
-  background-size: 123%;
+  height: 100%;
+  background-size: cover;
 }
 /* ==========底紋RWD==========*/
 @media screen and (max-width: 420px) {

@@ -13,6 +13,8 @@ import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
 import Register from './pages/Register';
+import MeasurementTeaching from './pages/MeasurementTeaching';
+
 
 function App() {
   return (
@@ -22,8 +24,8 @@ function App() {
           <Blog />
         </Route>
 
-        <Route path="/register/take-size">
-          {/* <RegisterTakeSize /> */}
+        <Route path="/measurement-teaching">
+          <MeasurementTeaching />
         </Route>
 
         <Route path="/register">

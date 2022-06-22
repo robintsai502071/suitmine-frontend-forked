@@ -38,6 +38,7 @@ function CustomizeSlient() {
   };
   // lightbox
   const [visible, setVisible] = useState(false);
+  const [visible2, setVisible2] = useState(false);
 
   return (
     <>
@@ -323,6 +324,36 @@ function CustomizeSlient() {
                     src={require('../images/robin/Custom//intro2/lightbox_thumb.webp')}
                     alt=""
                   />
+                  <button
+                    type="button"
+                    className="btn position-absolute intro1__lightbox__thumb__btn"
+                    onClick={() => setVisible2(true)}
+                  >
+                    <i className="fa-solid fa-images text-white"></i>
+                  </button>
+
+                  <div
+                    style={{
+                      display: 'none',
+                    }}
+                  >
+                    <Image.PreviewGroup
+                      preview={{
+                        visible: visible2,
+                        onVisibleChange: (vis) => setVisible2(vis),
+                      }}
+                    >
+                      <Image
+                        src={require('../images/robin/Custom//intro2/lightbox_1.jpg')}
+                      />
+                      <Image
+                        src={require('../images/robin/Custom//intro2/lightbox_2.jpg')}
+                      />
+                      <Image
+                        src={require('../images/robin/Custom//intro2/lightbox_3.jpg')}
+                      />
+                    </Image.PreviewGroup>
+                  </div>
                 </div>
               </div>
             </div>

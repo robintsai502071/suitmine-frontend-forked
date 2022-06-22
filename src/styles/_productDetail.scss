@@ -278,8 +278,6 @@
 //彈窗內容
 .popSelectDetail {
   .popDetail {
-    // height: 1000px;
-    // background-color: red;
     padding-right: 5%;
     padding-left: 5%;
   }
@@ -290,14 +288,11 @@
   //商品顯示
   .showProduct {
     height: 80px;
-    // background-color: green;
     display: flex;
     align-items: center;
     .pdtImg {
       height: 70px;
       width: 70px;
-      // background-color: yellow;
-      border: 1px solid black;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -307,7 +302,6 @@
       }
     }
     .pdtName {
-      //   background-color: blue;
       margin-left: 3%;
     }
   }
@@ -344,11 +338,13 @@
         padding: 1px 0;
       }
 
-      & > div:hover div:last-child {
+      .ant-radio-button-wrapper:hover div:last-child {
         background-color: black;
       }
-      & > div:active[selected] div:last-child {
-        background-color: black;
+
+      .ant-radio-button-wrapper:focus-within {
+        box-shadow: 0 0 0 3px $dark-gray;
+        padding: 0;
       }
 
       & > div {
@@ -395,4 +391,8 @@
 
 .popDetail .ant-form-item-label > label {
   display: none;
+}
+
+.addInCart .ant-btn-primary {
+  height: 75%;
 }

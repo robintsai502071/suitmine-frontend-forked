@@ -4,8 +4,16 @@ import LayoutFooter from '../components/robert/LayoutFooter';
 import AddInCart from '../components/alden/ProductDetail/AddInCart';
 import AddDetail from '../components/alden/ProductDetail/AddDetail';
 import { Image } from 'antd';
+import Slider from 'react-slick';
 
 function ProductDetail() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
   return (
     <>
       {/* header */}
@@ -36,8 +44,8 @@ function ProductDetail() {
       {/* 商品內容 */}
       <div className="container-fluid productContentBox">
         <div className="productContent row">
-          {/* 左邊照片樣式 */}
-          <div className="col-5 imgControl">
+          {/* 左邊照片樣式(電腦版) */}
+          <div className="col-5 imgControl d-none d-sm-block">
             <img
               src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
               alt=""
@@ -81,8 +89,33 @@ function ProductDetail() {
               </div>
             </Image.PreviewGroup>
           </div>
+          {/* 左邊照片樣式(手機板) */}
+          <div>
+            <h2> Single Item</h2>
+            <Slider {...settings}>
+              <div>
+                <h3>1</h3>
+              </div>
+              <div>
+                <h3>2</h3>
+              </div>
+              <div>
+                <h3>3</h3>
+              </div>
+              <div>
+                <h3>4</h3>
+              </div>
+              <div>
+                <h3>5</h3>
+              </div>
+              <div>
+                <h3>6</h3>
+              </div>
+            </Slider>
+          </div>
+
           {/* 右邊產品細節 */}
-          <div className="col-7">
+          <div className="col-sm-7">
             {/* 右上方區塊 */}
             <div className="topSection">
               <div>

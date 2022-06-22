@@ -7,17 +7,17 @@ function LastPageSubmit(props) {
     <>
       <div className=" submitPage position-relative">
         <div className="submitPageImgBox">
-          <img src={LastPageBgc} alt="" />
-          <div className="position-absolute top-50 start-50 translate-middle">
-            <div className="registerInputBox d-flex flex-column justify-content-center ">
-              <div className="mx-auto pb-5">
+          <img src={LastPageBgc} alt="" className="d-md-flex d-none" />
+          <div className="positionBox d-flex justify-content-center">
+            <div className="registerInputBox  d-flex flex-column justify-content-center ">
+              <div className="mx-auto pb-md-5 pb-3">
                 <p className="h3">請再次確認測量資訊</p>
               </div>
               <div
                 action=""
                 className=" mx-auto d-flex flex-column justify-content-center"
               >
-                <div class="mb-3 mx-1">
+                <div class="mb-md-3 mb-1 mx-1">
                   <label for="exampleFormControlInput1" class="form-label">
                     身高
                   </label>
@@ -31,7 +31,7 @@ function LastPageSubmit(props) {
                     onChange={handleFieldChange}
                   ></input>
                 </div>
-                <div class="mb-3 mx-1">
+                <div class="mb-md-3 mb-1 mx-1">
                   <label for="exampleFormControlInput1" class="form-label">
                     體重
                   </label>
@@ -45,7 +45,7 @@ function LastPageSubmit(props) {
                     onChange={handleFieldChange}
                   ></input>
                 </div>
-                <div class="mb-3 mx-1">
+                <div class="mb-md-3 mb-1 mx-1">
                   <label for="exampleFormControlInput1" class="form-label">
                     肩寬
                   </label>
@@ -59,7 +59,7 @@ function LastPageSubmit(props) {
                     onChange={handleFieldChange}
                   ></input>
                 </div>
-                <div class="mb-3 mx-1">
+                <div class="mb-md-3 mb-1 mx-1">
                   <label for="exampleFormControlInput1" class="form-label">
                     胸圍
                   </label>
@@ -73,7 +73,7 @@ function LastPageSubmit(props) {
                     onChange={handleFieldChange}
                   ></input>
                 </div>
-                <div class="mb-3 mx-1">
+                <div class="mb-md-3 mb-1 mx-1">
                   <label for="exampleFormControlInput1" class="form-label">
                     臂長
                   </label>
@@ -87,7 +87,7 @@ function LastPageSubmit(props) {
                     onChange={handleFieldChange}
                   ></input>
                 </div>
-                <div class="mb-3 mx-1">
+                <div class="mb-md-3 mb-1 mx-1">
                   <label for="exampleFormControlInput1" class="form-label">
                     腰圍
                   </label>
@@ -101,7 +101,7 @@ function LastPageSubmit(props) {
                     onChange={handleFieldChange}
                   ></input>
                 </div>
-                <div class="mb-3 mx-1">
+                <div class="mb-md-3 mb-1 mx-1">
                   <label for="exampleFormControlInput1" class="form-label">
                     腿長
                   </label>

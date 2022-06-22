@@ -3,6 +3,7 @@ import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import AddInCart from '../components/alden/ProductDetail/AddInCart';
 import AddDetail from '../components/alden/ProductDetail/AddDetail';
+import { Image } from 'antd';
 
 function ProductDetail() {
   return (
@@ -28,12 +29,17 @@ function ProductDetail() {
           src={require('../images/alden/ProductDetail/productDetailBannerImgMobile.png')}
           alt=""
         />
+        <div className="productName">
+          <h2>Harrogate Gray Suit</h2>
+        </div>
       </div>
       {/* 商品內容 */}
       <div className="container-fluid productContentBox">
         <div className="productContent row">
           {/* 左邊照片樣式 */}
           <div className="col-5 imgControl">
+            <Image.PreviewGroup></Image.PreviewGroup>
+
             <img
               src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
               alt=""

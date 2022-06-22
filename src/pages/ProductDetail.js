@@ -38,48 +38,48 @@ function ProductDetail() {
         <div className="productContent row">
           {/* 左邊照片樣式 */}
           <div className="col-5 imgControl">
-            <Image.PreviewGroup></Image.PreviewGroup>
-
             <img
               src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
               alt=""
             />
-            <div>
-              <img
-                src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
-                alt=""
-              />
-            </div>
-            <div>
-              <img
-                src={require('../images/alden/ProductDetail/productDetailSideImgs6.png')}
-                alt=""
-              />
-            </div>
+            <Image.PreviewGroup>
+              <div>
+                <Image
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
+                  alt=""
+                />
+              </div>
+              <div>
+                <Image
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
+                  alt=""
+                />
+              </div>
+              <div>
+                <Image
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
+                  alt=""
+                />
+              </div>
+              <div>
+                <Image
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
+                  alt=""
+                />
+              </div>
+              <div>
+                <Image
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
+                  alt=""
+                />
+              </div>
+              <div>
+                <Image
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs6.png')}
+                  alt=""
+                />
+              </div>
+            </Image.PreviewGroup>
           </div>
           {/* 右邊產品細節 */}
           <div className="col-7">

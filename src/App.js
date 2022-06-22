@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-
 import Blog from './pages/Blog';
 import BookingDate from './pages/BookingDate';
 import BookingMap from './pages/BookingMap';
@@ -14,6 +13,7 @@ import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
 import Register from './pages/Register';
 import MeasurementTeaching from './pages/MeasurementTeaching';
+
 
 
 function App() {

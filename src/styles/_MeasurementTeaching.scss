@@ -5,27 +5,39 @@
 .VedioContainerFluid div {
   padding: 0;
 }
-// slick sliders arrows 箭頭樣式必加！
+//---------------------slick sliders arrows 箭頭樣式必加！---------------------
 .slick-prev {
   left: 3% !important;
   z-index: 1;
+  transform: scale(2);
 }
 .slick-next {
   right: 3% !important;
   z-index: 1;
+  transform: scale(2);
 }
 .lapel {
-  background-color: rgb(172, 172, 172);
-  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  // height: 100vh;
 }
+//---------------------vedi尺寸---------------------
 .vedio .reactPlayer {
   width: 100% !important;
   height: 100% !important;
+  object-fit: cover !important; 
 }
+//---------------------input尺寸---------------------
 .vedio input {
-  width:140px;
+  width: 140px;
   height: 80px;
 }
+//---------------------身高、體重欄位定位---------------------
+.heightAndWeightBox {
+  width: max-content;
+  top: 72%;
+  left: 41%;
+}
+//---------------------欄位定位---------------------
 .InputBox {
   top: 72%;
   left: 45%;
@@ -37,4 +49,33 @@
   font-size: 20px;
   margin-bottom: 20px;
   letter-spacing: 1px;
+}
+//---------------------最後一頁展現+送出buton---------------------
+.submitPageImgBox {
+  width: 100%;
+}
+.submitPageImgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+// --------form(蓋樣式)--------
+
+.submitPage .form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
+}
+.submitPage .form-select:focus {
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
+}
+.submitPage .registerInputBox {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 420px;
+  height: 745px;
 }

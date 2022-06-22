@@ -5,14 +5,37 @@ import AddInCart from '../components/alden/ProductDetail/AddInCart';
 import AddDetail from '../components/alden/ProductDetail/AddDetail';
 import { Image } from 'antd';
 import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', marginTop: '2px' }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: 'block', marginTop: '2px' }}
+      onClick={onClick}
+    />
+  );
+}
 
 function ProductDetail() {
   const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
+    dots: false,
     slidesToShow: 1,
     slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
   };
   return (
     <>
@@ -90,26 +113,44 @@ function ProductDetail() {
             </Image.PreviewGroup>
           </div>
           {/* 左邊照片樣式(手機板) */}
-          <div>
-            <h2> Single Item</h2>
+          <div className="sliderMobile d-block d-sm-none">
             <Slider {...settings}>
               <div>
-                <h3>1</h3>
+                <img
+                  src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
+                  alt=""
+                />
+              </div>
+
+              <div>
+                <img
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
+                  alt=""
+                />
               </div>
               <div>
-                <h3>2</h3>
+                <img
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
+                  alt=""
+                />
               </div>
               <div>
-                <h3>3</h3>
+                <img
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
+                  alt=""
+                />
               </div>
               <div>
-                <h3>4</h3>
+                <img
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
+                  alt=""
+                />
               </div>
               <div>
-                <h3>5</h3>
-              </div>
-              <div>
-                <h3>6</h3>
+                <img
+                  src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
+                  alt=""
+                />
               </div>
             </Slider>
           </div>
@@ -118,9 +159,13 @@ function ProductDetail() {
           <div className="col-sm-7">
             {/* 右上方區塊 */}
             <div className="topSection">
-              <div>
-                {/* 商品名 */}
+              {/* 商品名 */}
+              <div className="d-none d-sm-block">
                 <h2>Harrogate Gray Suit</h2>
+              </div>
+              {/* 商品名 */}
+              <div className="d-flex justify-content-center d-sm-none ">
+                <h2>產品介紹</h2>
               </div>
               {/* 商品敘述 */}
               <div>
@@ -129,7 +174,7 @@ function ProductDetail() {
                 </h5>
               </div>
               {/* 單價 */}
-              <div>
+              <div className="d-none d-sm-block">
                 <h4>NT $3500</h4>
               </div>
             </div>
@@ -139,7 +184,7 @@ function ProductDetail() {
               <div className="texture">
                 <div className="textureTitle">
                   <div>
-                    <h5>商品細節</h5>
+                    <h4>商品細節</h4>
                   </div>
                 </div>
                 {/* 顏色 */}
@@ -202,7 +247,8 @@ function ProductDetail() {
               </div>
               {/* 評論建立時間 */}
               <div className="date">
-                <h4>2022/06/06</h4>
+                <h3 className="d-none d-sm-block">2022/06/06</h3>
+                <h5 className="d-block d-sm-none">2022/06/06</h5>
               </div>
             </div>
             {/* 評論內容 */}
@@ -224,7 +270,8 @@ function ProductDetail() {
               </div>
               {/* 評論建立時間 */}
               <div className="date">
-                <h4>2022/06/06</h4>
+                <h3 className="d-none d-sm-block">2022/06/06</h3>
+                <h5 className="d-block d-sm-none">2022/06/06</h5>
               </div>
             </div>
             {/* 評論內容 */}
@@ -246,7 +293,8 @@ function ProductDetail() {
               </div>
               {/* 評論建立時間 */}
               <div className="date">
-                <h4>2022/06/06</h4>
+                <h3 className="d-none d-sm-block">2022/06/06</h3>
+                <h5 className="d-block d-sm-none">2022/06/06</h5>
               </div>
             </div>
             {/* 評論內容 */}
@@ -268,7 +316,8 @@ function ProductDetail() {
               </div>
               {/* 評論建立時間 */}
               <div className="date">
-                <h4>2022/06/06</h4>
+                <h3 className="d-none d-sm-block">2022/06/06</h3>
+                <h5 className="d-block d-sm-none">2022/06/06</h5>
               </div>
             </div>
             {/* 評論內容 */}

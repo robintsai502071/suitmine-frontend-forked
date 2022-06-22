@@ -1,6 +1,7 @@
 import { Button, Modal } from 'antd';
 import { useState } from 'react';
 import Accordion from './Accordion';
+import { Form } from 'antd';
 
 const AddDetail = () => {
   const [visible, setVisible] = useState(false);
@@ -10,12 +11,11 @@ const AddDetail = () => {
         客製化細節
       </Button>
       <Modal
-        title="Modal 1000px width"
         centered
         visible={visible}
         onOk={() => setVisible(false)}
         onCancel={() => setVisible(false)}
-        width={1000}
+        width={900}
         className={'popSelectDetail'}
         footer={null}
       >
@@ -47,18 +47,18 @@ const AddDetail = () => {
               </div>
               {/* 上方黑banner */}
               <div className="popBanner"></div>
-              <form action="">
+              <Form.Item name="radio-group" label="Radio.Group">
                 {/* 細節內容手風琴 */}
                 <div className="Accordion">
                   <Accordion />
                 </div>
-                {/* 儲存按鈕 */}
-                <div>
-                  <button type="button" class="btn btn-primary widthbtn">
-                    儲存細節
-                  </button>
-                </div>
-              </form>
+              </Form.Item>
+              {/* 儲存按鈕 */}
+              <div>
+                <button type="button" class="btn btn-primary widthbtn">
+                  儲存細節
+                </button>
+              </div>
             </div>
           </div>
         </div>

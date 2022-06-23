@@ -4,8 +4,11 @@ function SideBar(props) {
   return (
     <>
       <div className="main__sidebar">
-        <div className="main__sidebar__user-info mb-3">
-          <h5 className="main__sidebar__username mb-1">br502071</h5>
+        <div className="main__sidebar__user-info mb-3 d-flex align-items-center">
+          <figure className="main__sidebar__user-info__avatar">
+            <img className="main__sidebar__user-info__avatar__image" src="https://fakeimg.pl/250x100/" alt="" />
+          </figure>
+          <h5 className="main__sidebar__username mb-1 ms-1">br502071</h5>
         </div>
 
         <Accordion

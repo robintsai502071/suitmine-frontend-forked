@@ -4,7 +4,7 @@
 }
 .VedioContainerFluid {
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
   background-color: rgb(0, 0, 0);
 }
 //---------------------slick sliders arrows 箭頭樣式必加！---------------------
@@ -132,7 +132,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin-top: 27%;
+    margin-top: 12%;
   }
 }
 //---------------------最後一頁展現+送出buton---------------------
@@ -150,11 +150,21 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.submitPageImgBox .btn-check:focus + .btn, .btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(70, 70, 70, 0.25); 
+}
 //=====================最後一頁展現+送出buton RWD=====================
 @media screen and (max-width: 768px) {
   .positionBox {
+    margin-top: 5%;
     position: static !important;
     transform: translate(0, 0);
+    .registerBtn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 }
 // --------form(蓋樣式)--------

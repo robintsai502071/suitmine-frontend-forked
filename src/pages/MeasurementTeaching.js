@@ -22,7 +22,7 @@ const openNotification = (placement) => {
 //------------------- 下一頁函示 -------------------
 function SampleNextArrow(props) {
   // 傳入 fields, perPage
-  const { className, style, onClick, fields, perPage } = props;
+  const { className, style, onClick, fields, perPage, setPlaying } = props;
   return (
     //1.判斷input欄位是否有值
     //2.判斷現在在第幾頁
@@ -31,14 +31,16 @@ function SampleNextArrow(props) {
     <div
       className={className}
       style={
+        // 如果是在最後頁右側箭頭隱藏
         perPage === 6
           ? { ...style, display: 'none', marginTop: '2px' }
           : { ...style, display: 'block', marginTop: '2px' }
       }
       onClick={() => {
-        console.log(fields, perPage, !fields.shoulder_width && perPage === 0);
-        //判斷現在"input欄位有沒有填寫"和"確認現在頁數" 如果兩邊為真就直接return
+        // 判斷現在"input欄位有沒有填寫"和"確認現在頁數" 如果兩邊為真就直接return
+        console.log(perPage);
         if ((!fields.height || !fields.weight) && perPage === 0) {
+          //未填寫調用錯誤彈出視窗
           openNotification();
           return;
         }
@@ -63,7 +65,11 @@ function SampleNextArrow(props) {
           return;
         }
         //如果以上為真就不執行onClick()
+
         onClick();
+        const perpageArr = [];
+        perpageArr[perPage + 1] = true;
+        setPlaying(perpageArr);
       }}
     />
   );
@@ -75,7 +81,14 @@ function SamplePrevArrow(props) {
     <div
       className={className}
       style={
-        perPage === 0
+        // 如果是在第一頁左側箭頭隱藏 ，在最後一頁左側按鈕也隱藏
+        perPage === 6
+          ? // -------------------------------------------
+            perPage === 0
+            ? { ...style, display: 'none', marginTop: '2px' }
+            : { ...style, display: 'none', marginTop: '2px' }
+          : // -------------------------------------------
+          perPage === 0
           ? { ...style, display: 'none', marginTop: '2px' }
           : { ...style, display: 'block', marginTop: '2px' }
       }
@@ -107,11 +120,16 @@ function MeasurementTeaching() {
   // -------------------現在在第幾頁狀態-----------------------
   const [perPage, setperPage] = useState(0);
 
-  // -------------------錯誤訊息狀態狀態-----------------------
-  // const [fieldErrors, setFieldErrors] = useState('請填寫欄位');
-
   // -------------------影片播放狀態-----------------------
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState([
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]);
+  // console.log(playing);
 
   // -------------------專門處理每個欄位的輸入用函示-----------------------
   let handleFieldChange = (e) => {
@@ -119,14 +137,11 @@ function MeasurementTeaching() {
     // 設定回狀態
     setFields(updatedFields);
   };
-  // -------------------處理表單送出的函示-----------------------
-  let handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  // -------------------Slider設定檔-----------------------
+  // -------------------Slider套件設定-----------------------
   const settings = {
     dots: false,
+    //禁止滑動，更換投影片
+    swipe: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     //向下一頁傳入測量狀態、現在第幾頁狀態
@@ -141,7 +156,7 @@ function MeasurementTeaching() {
     afterChange: (current) => {
       // ----------- 設定現在頁數 -----------
       setperPage(current);
-      console.log(current);
+      // console.log(current);
     },
   };
 
@@ -149,155 +164,153 @@ function MeasurementTeaching() {
     <>
       <div className="header"></div>
       <div className="container-fluid VedioContainerFluid">
-        <form onSubmit={handleSubmit} method="POST">
-          <Slider {...settings} className="lapel">
-            {/* -------------------身高體重影片欄位----------------------- */}
-            <div className="vedio">
-              <ReactPlayer
-                className="reactPlayer"
-                playing={playing}
-                controls={true}
-                url={IntroductoryVideo}
-              />
-              <div className="heightAndWeightBox d-flex">
-                <div className="heightInputBox me-md-2">
-                  <p>請填入身高(CM)</p>
-                  <input
-                    placeholder="0"
-                    type="number"
-                    name="height"
-                    style={inputFontSize}
-                    onChange={handleFieldChange}
-                    value={fields.height}
-                    required
-                  />
-                </div>
-                <div className="weightInputBox ms-md-2">
-                  <p>請填入體重(KG)</p>
-                  <input
-                    placeholder="0"
-                    type="number"
-                    name="weight"
-                    style={inputFontSize}
-                    onChange={handleFieldChange}
-                    value={fields.weight}
-                    required
-                  />
-                </div>
-              </div>
-            </div>
-            {/* -------------------肩寬影片欄位----------------------- */}
-            <div className="vedio ">
-              <ReactPlayer
-                className="reactPlayer"
-                playing={playing}
-                controls={true}
-                url={shoulderVideo}
-              />
-              <div className="InputBox ">
-                <p>請填入您的肩寬(CM)</p>
-                <input
-                  placeholder="0"
-                  type="number"
-                  name="shoulder_width"
-                  style={inputFontSize}
-                  onChange={handleFieldChange}
-                  value={fields.shoulder_width}
-                  required
-                />
-              </div>
-            </div>
-            {/* -------------------胸圍影片欄位----------------------- */}
-            <div className="vedio ">
-              <ReactPlayer
-                className="reactPlayer"
-                playing={false}
-                controls={true}
-                url={chestVideo}
-              />
-              <div className="InputBox">
-                <p>請填入您的胸圍(CM)</p>
-                <input
-                  placeholder="0"
-                  type="number"
-                  name="chest"
-                  style={inputFontSize}
-                  onChange={handleFieldChange}
-                  value={fields.chest}
-                  required
-                />
-              </div>
-            </div>
-            {/* -------------------臂長影片欄位----------------------- */}
-            <div className="vedio">
-              <ReactPlayer
-                className="reactPlayer"
-                playing={false}
-                controls={true}
-                url={armsVideo}
-              />
-              <div className="InputBox ">
-                <p>請填入您的臂長(CM)</p>
-                <input
-                  placeholder="0"
-                  type="number"
-                  name="arm_length"
-                  style={inputFontSize}
-                  onChange={handleFieldChange}
-                  value={fields.arm_length}
-                  required
-                />
-              </div>
-            </div>
-            {/* -------------------腰圍影片欄位----------------------- */}
-            <div className="vedio">
-              <ReactPlayer
-                className="reactPlayer"
-                playing={false}
-                controls={true}
-                url={waistVideo}
-              />
-              <div className="InputBox">
-                <p>請填入您的腰圍(CM)</p>
-                <input
-                  placeholder="0"
-                  type="number"
-                  name="waist"
-                  style={inputFontSize}
-                  onChange={handleFieldChange}
-                  value={fields.waist}
-                  required
-                />
-              </div>
-            </div>
-            {/* -------------------腿長影片欄位----------------------- */}
-            <div className="vedio">
-              <ReactPlayer
-                className="reactPlayer"
-                playing={false}
-                controls={true}
-                url={legVideo}
-              />
-              <div className="InputBox">
-                <p>請填入您的腿長(CM)</p>
-                <input
-                  placeholder="0"
-                  type="number"
-                  name="leg_length"
-                  style={inputFontSize}
-                  onChange={handleFieldChange}
-                  value={fields.leg_length}
-                  required
-                />
-              </div>
-            </div>
-            {/* -------------------最後一頁展現+送出buton----------------------- */}
-            <LastPageSubmit
-              fields={fields}
-              handleFieldChange={handleFieldChange}
+        <Slider {...settings} className="lapel">
+          {/* -------------------身高體重影片欄位----------------------- */}
+          <div className="vedio">
+            <ReactPlayer
+              className="reactPlayer"
+              playing={playing[0]}
+              controls={true}
+              url={IntroductoryVideo}
             />
-          </Slider>
-        </form>
+            <div className="heightAndWeightBox d-flex">
+              <div className="heightInputBox me-md-2">
+                <p>請填入身高(CM)</p>
+                <input
+                  placeholder="0"
+                  type="number"
+                  name="height"
+                  style={inputFontSize}
+                  onChange={handleFieldChange}
+                  value={fields.height}
+                  required
+                />
+              </div>
+              <div className="weightInputBox ms-md-2">
+                <p>請填入體重(KG)</p>
+                <input
+                  placeholder="0"
+                  type="number"
+                  name="weight"
+                  style={inputFontSize}
+                  onChange={handleFieldChange}
+                  value={fields.weight}
+                  required
+                />
+              </div>
+            </div>
+          </div>
+          {/* -------------------肩寬影片欄位----------------------- */}
+          <div className="vedio ">
+            <ReactPlayer
+              className="reactPlayer"
+              playing={playing[1]}
+              controls={true}
+              url={shoulderVideo}
+            />
+            <div className="InputBox ">
+              <p>請填入您的肩寬(CM)</p>
+              <input
+                placeholder="0"
+                type="number"
+                name="shoulder_width"
+                style={inputFontSize}
+                onChange={handleFieldChange}
+                value={fields.shoulder_width}
+                required
+              />
+            </div>
+          </div>
+          {/* -------------------胸圍影片欄位----------------------- */}
+          <div className="vedio ">
+            <ReactPlayer
+              className="reactPlayer"
+              playing={playing[2]}
+              controls={true}
+              url={chestVideo}
+            />
+            <div className="InputBox">
+              <p>請填入您的胸圍(CM)</p>
+              <input
+                placeholder="0"
+                type="number"
+                name="chest"
+                style={inputFontSize}
+                onChange={handleFieldChange}
+                value={fields.chest}
+                required
+              />
+            </div>
+          </div>
+          {/* -------------------臂長影片欄位----------------------- */}
+          <div className="vedio">
+            <ReactPlayer
+              className="reactPlayer"
+              playing={playing[3]}
+              controls={true}
+              url={armsVideo}
+            />
+            <div className="InputBox ">
+              <p>請填入您的臂長(CM)</p>
+              <input
+                placeholder="0"
+                type="number"
+                name="arm_length"
+                style={inputFontSize}
+                onChange={handleFieldChange}
+                value={fields.arm_length}
+                required
+              />
+            </div>
+          </div>
+          {/* -------------------腰圍影片欄位----------------------- */}
+          <div className="vedio">
+            <ReactPlayer
+              className="reactPlayer"
+              playing={playing[4]}
+              controls={true}
+              url={waistVideo}
+            />
+            <div className="InputBox">
+              <p>請填入您的腰圍(CM)</p>
+              <input
+                placeholder="0"
+                type="number"
+                name="waist"
+                style={inputFontSize}
+                onChange={handleFieldChange}
+                value={fields.waist}
+                required
+              />
+            </div>
+          </div>
+          {/* -------------------腿長影片欄位----------------------- */}
+          <div className="vedio">
+            <ReactPlayer
+              className="reactPlayer"
+              playing={playing[5]}
+              controls={true}
+              url={legVideo}
+            />
+            <div className="InputBox">
+              <p>請填入您的腿長(CM)</p>
+              <input
+                placeholder="0"
+                type="number"
+                name="leg_length"
+                style={inputFontSize}
+                onChange={handleFieldChange}
+                value={fields.leg_length}
+                required
+              />
+            </div>
+          </div>
+          {/* -------------------最後一頁展現+送出buton----------------------- */}
+          <LastPageSubmit
+            fields={fields}
+            handleFieldChange={handleFieldChange}
+          />
+        </Slider>
       </div>
     </>
   );

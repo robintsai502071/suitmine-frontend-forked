@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import 'antd/dist/antd.min.css'; // or 'antd/dist/antd.less'
 import './index.scss';
 import App from './App';
 

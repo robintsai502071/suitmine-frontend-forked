@@ -7,10 +7,18 @@ import Showsteps from '../components/alden/Showsteps';
 // import Form from 'react-bootstrap/Form';
 import { Select } from 'antd';
 import { Input } from 'antd';
-import { Radio } from 'antd';
+// import { Radio } from 'antd';
 import { Checkbox } from 'antd';
+import { useState } from 'react';
 
 function ShoppingCartChecking() {
+  const inVoiceitems = [
+    '電子發票-個人',
+    '電子發票-公司',
+    '捐贈發票',
+    '個人-手機載具',
+  ];
+  const [activedBut, setActivedBut] = useState('電子發票-個人');
   return (
     <body>
       {/* header */}
@@ -83,26 +91,33 @@ function ShoppingCartChecking() {
                     <h4>發票類型</h4>
                   </div>
                 </div>
-                <div className="middle radios">
-                  {/* <div>
-                    <h5>電子發票-個人</h5>
-                  </div>
-                  <div>
-                    <h5>電子發票-公司</h5>
-                  </div>
-                  <div>
-                    <h5>捐贈發票</h5>
-                  </div>
-                  <div>
-                    <h5>個人-手機條碼載具</h5>
-                  </div> */}
-                  <Radio.Group defaultValue="a" buttonStyle="solid">
-                    <Radio.Button value="a">電子發票-個人</Radio.Button>
-                    <Radio.Button value="b">電子發票-公司</Radio.Button>
-                    <Radio.Button value="c">捐贈發票</Radio.Button>
-                    <Radio.Button value="d">個人-手機條碼載具</Radio.Button>
-                  </Radio.Group>
-                </div>
+                <ul className="middle radios">
+                  {inVoiceitems.map((v, i) => {
+                    return (
+                      <li
+                        key={i}
+                        onClick={() => {
+                          setActivedBut(v);
+                        }}
+                      >
+                        <a
+                          href="#/"
+                          className={activedBut === v ? 'active' : ''}
+                        >
+                          {v}
+                          <div
+                            className={`${
+                              activedBut === v ? 'd-block' : 'd-none'
+                            } checkIcon`}
+                          >
+                            <div className="line1"></div>
+                            <div className="line2"></div>
+                          </div>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
                 <div className="middle d-flex  justify-content-between">
                   <div className="barCode">
                     <Input placeholder="請輸入手機條碼(限大寫英數字)" />

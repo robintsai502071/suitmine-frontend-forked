@@ -10,26 +10,22 @@ import 'slick-carousel/slick/slick-theme.css';
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div className="productDetail">
-      <div
-        className={className}
-        style={{ ...style, display: 'block', marginTop: '2px' }}
-        onClick={onClick}
-      />
-    </div>
+    <div
+      className={className}
+      style={{ ...style, display: 'block', marginTop: '2px' }}
+      onClick={onClick}
+    />
   );
 }
 
 function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
-    <div className="productDetail">
-      <div
-        className={className}
-        style={{ ...style, display: 'block', marginTop: '2px' }}
-        onClick={onClick}
-      />
-    </div>
+    <div
+      className={className}
+      style={{ ...style, display: 'block', marginTop: '2px' }}
+      onClick={onClick}
+    />
   );
 }
 
@@ -42,7 +38,7 @@ function ProductDetail() {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <div className="productDetail">
+    <>
       {/* header */}
       <div>
         <LayoutHeader />
@@ -340,7 +336,7 @@ function ProductDetail() {
       <div>
         <LayoutFooter />
       </div>
-    </div>
+    </>
   );
 }
 

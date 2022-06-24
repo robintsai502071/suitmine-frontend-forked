@@ -67,9 +67,10 @@ function SampleNextArrow(props) {
         //如果以上為真就不執行onClick()
 
         onClick();
-        const perpageArr = [];
-        perpageArr[perPage + 1] = true;
-        setPlaying(perpageArr);
+        // console.log('click', perPage);
+        // const perpageArr = [false, false, false, false, false, false];
+        // perpageArr[perPage + 1] = true;
+        // setPlaying(perpageArr);
       }}
     />
   );
@@ -121,14 +122,14 @@ function MeasurementTeaching() {
   const [perPage, setperPage] = useState(0);
 
   // -------------------影片播放狀態-----------------------
-  const [playing, setPlaying] = useState([
-    true,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ]);
+  // const [playing, setPlaying] = useState([
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  //   false,
+  // ]);
   // console.log(playing);
 
   // -------------------專門處理每個欄位的輸入用函示-----------------------
@@ -147,7 +148,7 @@ function MeasurementTeaching() {
     //向下一頁傳入測量狀態、現在第幾頁狀態
     nextArrow: (
       <SampleNextArrow
-        setPlaying={setPlaying}
+        // setPlaying={setPlaying}
         fields={fields}
         perPage={perPage}
       />
@@ -166,12 +167,13 @@ function MeasurementTeaching() {
       <div className="container-fluid VedioContainerFluid">
         <Slider {...settings} className="lapel">
           {/* -------------------身高體重影片欄位----------------------- */}
-          <div className="vedio">
+          <div className="vedio" key="sli-0">
             <ReactPlayer
               className="reactPlayer"
-              playing={playing[0]}
+              playing={false}
               controls={true}
               url={IntroductoryVideo}
+              key="rp-0"
             />
             <div className="heightAndWeightBox d-flex">
               <div className="heightInputBox me-md-2">
@@ -201,12 +203,13 @@ function MeasurementTeaching() {
             </div>
           </div>
           {/* -------------------肩寬影片欄位----------------------- */}
-          <div className="vedio ">
+          <div className="vedio " key="sli-1">
             <ReactPlayer
               className="reactPlayer"
-              playing={playing[1]}
+              playing={false}
               controls={true}
               url={shoulderVideo}
+              key="rp-1"
             />
             <div className="InputBox ">
               <p>請填入您的肩寬(CM)</p>
@@ -222,12 +225,13 @@ function MeasurementTeaching() {
             </div>
           </div>
           {/* -------------------胸圍影片欄位----------------------- */}
-          <div className="vedio ">
+          <div className="vedio " key="sli-2">
             <ReactPlayer
               className="reactPlayer"
-              playing={playing[2]}
+              playing={false}
               controls={true}
               url={chestVideo}
+              key="rp-2"
             />
             <div className="InputBox">
               <p>請填入您的胸圍(CM)</p>
@@ -243,12 +247,13 @@ function MeasurementTeaching() {
             </div>
           </div>
           {/* -------------------臂長影片欄位----------------------- */}
-          <div className="vedio">
+          <div className="vedio" key="sli-3">
             <ReactPlayer
               className="reactPlayer"
-              playing={playing[3]}
+              playing={false}
               controls={true}
               url={armsVideo}
+              key="rp-3"
             />
             <div className="InputBox ">
               <p>請填入您的臂長(CM)</p>
@@ -264,12 +269,13 @@ function MeasurementTeaching() {
             </div>
           </div>
           {/* -------------------腰圍影片欄位----------------------- */}
-          <div className="vedio">
+          <div className="vedio" key="sli-4">
             <ReactPlayer
               className="reactPlayer"
-              playing={playing[4]}
+              playing={false}
               controls={true}
               url={waistVideo}
+              key="rp-4"
             />
             <div className="InputBox">
               <p>請填入您的腰圍(CM)</p>
@@ -285,12 +291,13 @@ function MeasurementTeaching() {
             </div>
           </div>
           {/* -------------------腿長影片欄位----------------------- */}
-          <div className="vedio">
+          <div className="vedio" key="sli-5">
             <ReactPlayer
               className="reactPlayer"
-              playing={playing[5]}
+              playing={false}
               controls={true}
               url={legVideo}
+              key="rp-5"
             />
             <div className="InputBox">
               <p>請填入您的腿長(CM)</p>

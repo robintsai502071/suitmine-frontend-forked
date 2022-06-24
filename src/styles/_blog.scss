@@ -1,45 +1,46 @@
 // banner
-.blog-banner img{
+.Blog {
+  .blog-banner img {
     height: 50rem;
     object-fit: cover;
     object-position: center top;
     @media (max-width: 1000px) {
-        height: 30rem;
+      height: 30rem;
     }
-}
-.blog-banner h1{
+  }
+  .blog-banner h1 {
     line-height: 711px;
-   
-    text-shadow:  0.1em 0.1em 0.2em black;
+
+    text-shadow: 0.1em 0.1em 0.2em black;
     @media (max-width: 1000px) {
-        @include h3;
-        line-height: 380px;
+      @include h3;
+      line-height: 380px;
     }
     @media (max-width: 565px) {
-        @include h5
+      @include h5;
     }
-}
-// bloglist
-.blog h2{
+  }
+  // bloglist
+  .blog h2 {
     text-shadow: 0.1em 0.1em 0.2em black;
-}
-.card h6{
+  }
+  .bloglistCard h6 {
     display: none;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    text-shadow:  0.1em 0.1em 0.2em black;
+    transform: translate(-50%, -50%);
+    text-shadow: 0.1em 0.1em 0.2em black;
     z-index: 1;
- }
- .card a:hover h6{
-     display: block;
- }
-.card>a{
+  }
+  .card a:hover h6 {
+    display: block;
+  }
+  .card > a {
     display: block;
     position: relative;
     overflow: hidden; //圖片放大
-}
-.card>a:hover::after{
+  }
+  .card > a:hover::after {
     content: '';
     position: absolute;
     top: 0;
@@ -47,24 +48,24 @@
     bottom: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
-}
-.card>a:hover .card>h4{
-  display: block;
-  
-}
-.card-title:hover {
+  }
+  .card > a:hover .card > h4 {
+    display: block;
+  }
+  .card-title:hover {
     text-shadow: 0.1em 0.1em 0.2em black;
-}
-// 圖片放大
-.card img{
-    transform:scale(1,1);
+  }
+  // 圖片放大
+  .card img {
+    transform: scale(1, 1);
     transition: all 1s ease-out;
-}
-.card>a:hover img{
-    transform:scale(1.2,1.2);
-}
+  }
+  .card > a:hover img {
+    transform: scale(1.2, 1.2);
+  }
 
-// blogsidebar
-.blog-new a:hover{
+  // blogsidebar
+  .blog-new a:hover {
     text-decoration: underline !important;
+  }
 }

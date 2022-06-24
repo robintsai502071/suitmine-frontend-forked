@@ -7,18 +7,18 @@ import Bloglist from '../components/robert/BlogList';
 import BlogSidebar from '../components/robert/BlogSidebar';
 function Blog() {
   return (
-    <div>
+    <div className="Blog">
       <LayoutHeader />
       <BlogBanner />
       <LayoutMain />
       <div class="blog container mt-3 text-center">
-          <h2>SUITMINE BLOG</h2>
+        <h2>SUITMINE BLOG</h2>
         <div class="row">
           <div class="blog-list col-md-9 col-12">
             <Bloglist />
           </div>
           <div class="col-md-3 col-12">
-            <BlogSidebar/>
+            <BlogSidebar />
           </div>
         </div>
       </div>

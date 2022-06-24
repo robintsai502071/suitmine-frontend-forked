@@ -1,0 +1,111 @@
+
+.bgcImg {
+  background-image: url(../components/images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png);
+  background-repeat: no-repeat;
+  height: 100%;
+  background-size: cover;
+  z-index: -9999;
+}
+.registerRow {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+// ------------------打造屬於您的專屬西裝----------------------
+.registerAllTextBox {
+  padding-right: 150px;
+}
+.registerAllTextBox p {
+  color: #fff;
+  letter-spacing: 1px;
+}
+.registerTextBox {
+  width: 390px;
+  line-height: 26px;
+}
+.registerImgBox {
+  width: 248px;
+  height: 145px;
+  background-color: #fff;
+  margin-top: 35px;
+}
+.registerImgBox img {
+  width: 100%;
+  object-fit: cover;
+}
+// ==================打造屬於您的專屬西裝RWD==================
+@media screen and (max-width: 768px) {
+  .registerTitleCol{
+    padding: 0;
+    margin-bottom: 80px;
+  }
+}
+@media screen and (max-width: 465px) {
+  .registerAllTextBox{
+    padding: 0;
+    margin-bottom: 80px;
+  }
+  .registerTitleBox p{
+    font-size: 33px;
+  }
+  .registerTitleBox{
+    width: 350px;
+  }
+  .registerTextBox{
+    width: 350px;
+  }
+}
+
+// ------------------form表單----------------------
+.registerInputCol {
+  padding-left: 150px;
+}
+.registerInputBox {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 420px;
+  height: 680px;
+}
+.registerInputBox form {
+  width: 80%;
+}
+.registerBtn {
+  width: 180px;
+  height: 40px;
+  background-color: #000;
+  border-radius: 0;
+}
+.registerBtn p {
+  color: #fff;
+}
+// --------form(蓋樣式)--------
+
+.registerRow .form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #6161617c;
+   outline: 0; 
+   box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062); 
+}
+.registerRow .form-select:focus {
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062); 
+
+}
+// ==================form表單RWD==================
+@media screen and (max-width: 768px) {
+  .registerInputCol{
+    padding: 0;
+  }
+}
+@media screen and (max-width: 465px) {
+  .registerInputBox{
+    width: 350px;
+  }
+}
+
+// ------------------header----------------------
+.footer {
+  height: 200px;
+  background-color: rgb(143, 3, 3);
+}

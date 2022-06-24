@@ -6,7 +6,7 @@ function BlogList() {
     <div className="card-group">
       <div className="row justify-content-center g-4">
         <div className="col-md-9 col-12 ">
-          <div className="card border-0 ">
+          <div className="card bloglistCard border-0 ">
             <a href="#" className="position-relative">
               <img src={blogimg} className="card-img-top" alt="..." />
               <h6 className="text-white position-absolute ">READ MORE</h6>
@@ -30,7 +30,7 @@ function BlogList() {
         </div>
 
         <div className="col-lg-4 col-md-6 col-12">
-          <div className="card border-0">
+          <div className="card bloglistCard border-0">
             <a href="#">
               <img src={blogimg} className="card-img-top" alt="..." />
               <h6 className="text-white position-absolute ">READ MORE</h6>
@@ -53,7 +53,7 @@ function BlogList() {
           </div>
         </div>
         <div className="col-lg-4 col-md-6 col-12">
-          <div className="card border-0">
+          <div className="card bloglistCard border-0">
             <a href="#">
               <img src={blogimg} className="card-img-top" alt="..." />
               <h6 className="text-white position-absolute ">READ MORE</h6>
@@ -76,7 +76,7 @@ function BlogList() {
           </div>
         </div>
         <div className="col-lg-4 col-md-6 col-12">
-          <div className="card border-0">
+          <div className="card bloglistCard border-0">
             <a href="#">
               <img src={blogimg} className="card-img-top" alt="..." />
               <h6 className="text-white position-absolute ">READ MORE</h6>
@@ -99,7 +99,7 @@ function BlogList() {
           </div>
         </div>
         <div className="col-lg-4 col-md-6 col-12">
-          <div className="card border-0">
+          <div className="card bloglistCard border-0">
             <a href="#">
               <img src={blogimg} className="card-img-top" alt="..." />
               <h6 className="text-white position-absolute ">READ MORE</h6>
@@ -122,7 +122,7 @@ function BlogList() {
           </div>
         </div>
         <div className="col-lg-4 col-md-6 col-12">
-          <div className="card border-0">
+          <div className="card bloglistCard border-0">
             <a href="#">
               <img src={blogimg} className="card-img-top" alt="..." />
               <h6 className="text-white position-absolute ">READ MORE</h6>
@@ -145,7 +145,7 @@ function BlogList() {
           </div>
         </div>
         <div className="col-lg-4 col-md-6 col-12">
-          <div className="card border-0">
+          <div className="card bloglistCard border-0">
             <a href="#">
               <img src={blogimg} className="card-img-top" alt="..." />
               <h6 className="text-white position-absolute ">READ MORE</h6>

@@ -5,10 +5,10 @@ import LayoutFooter from '../components/robert/LayoutFooter';
 import GiftCardForm from '../components/robert/GiftCardForm';
 import GiftCardFormBg from '../components/robert/GiftCardBanner';
 import GiftCardBg from '../components/robert/GiftCardBg';
-import GiftCardFooter from '../components/robert/GiftCardFooter'
+import GiftCardFooter from '../components/robert/GiftCardFooter';
 function GiftCard() {
   return (
-    <div>
+    <div className="GiftCard">
       <LayoutHeader />
       <GiftCardFormBg />
       <LayoutMain />

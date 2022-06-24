@@ -1,0 +1,100 @@
+.banner {
+  height: 860px;
+  background-image: url('../images/robin/Custom/banner/banner-background-image.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  &__wrapper {
+    &__model {
+      &__title {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    &__controller {
+      width: 200px;
+      right: 6%;
+      top: 50%;
+      transform: translateY(-50%);
+      text-align: center;
+    }
+  }
+}
+// slick sliders arrows 箭頭樣式必加！
+.slick-prev {
+  left: 3% !important;
+  z-index: 1;
+}
+.slick-next {
+  right: 3% !important;
+  z-index: 1;
+}
+.banner-rwd-bg {
+  background-image: url('../images/robin/Custom/banner/banner-background-image.jpg');
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.banner-rwd__slider {
+  .slick-prev {
+    transform: scale(4);
+    background-color: transparent !important;
+    color: white !important;
+  }
+  .slick-next {
+    transform: scale(4);
+  }
+}
+
+@media screen and (max-width: 476px) {
+  .banner-rwd__slider {
+    .slick-prev {
+      transform: scale(2);
+    }
+    .slick-next {
+      transform: scale(2);
+    }
+  }
+}
+
+// ******** intro1 ********
+.intro1__lightbox__thumb__btn {
+  bottom: 0;
+  right: 0;
+}
+
+// ******** changeColorBlock ******** //
+.changeColorBlock__wrapper {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+// .changeColorBtns__link {
+//   width: 18px;
+//   height: 18px;
+// }
+.changeColorBtns__link__image {
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  outline: 1px solid #000;
+}
+
+@media screen and (min-width: 996px) {
+  .changeColorBlock__wrapper {
+    width: 260px;
+    left: 5%;
+    transform: translateX(0%);
+  }
+  .changeColorBlock__title {
+    @include h2;
+    position: absolute;
+    top: 50%;
+    right: 13%;
+    color: white;
+    text-shadow: 0 2px 2px #000;
+    transform: translateY(50%);
+  }
+}

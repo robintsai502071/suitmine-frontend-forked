@@ -1,0 +1,74 @@
+// OrderListDisplay.js
+.order-list__btns {
+  background-color: $light-gray;
+  & > * {
+    padding: 1rem 0;
+    flex-grow: 1;
+    width: 0;
+    text-align: center;
+    color: $dark-gray;
+    &.active {
+      background-color: #ccc;
+    }
+  }
+}
+
+// OrderListDisplayItem.js
+.order-list-display-item {
+  margin: 1rem 0;
+  border: 1px solid $light-gray;
+  &__wrapper {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid $light-gray;
+    &__number {
+      @include text;
+      color: $dark-gray;
+    }
+    &__status {
+      @include text;
+      color: $dark-gray;
+    }
+  }
+  &__body {
+    padding: 1rem 0;
+    border-bottom: 1px solid $light-gray;
+    &__info {
+      color: $dark-gray;
+    }
+  }
+  &__body__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    &__image {
+      width: 130px;
+      height: 130px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  &__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .order-list-display-item {
+    &__body__info {
+      margin-left: 1rem;
+    }
+
+    &__body__wrapper__image {
+      width: 100px;
+      height: 100px;
+    }
+  }
+}

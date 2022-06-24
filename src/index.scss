@@ -3,6 +3,7 @@
 @import './styles/reset';
 @import './styles/global';
 
+
 //cusomerService.sass
 @import './styles/customerService';
 
@@ -25,9 +26,18 @@
 
 // 洧
 @import './styles/_member';
+@import './styles/_memberMobile';
+@import './styles/_changePassword.scss';
+@import './styles/_orderList.scss';
+@import './styles/_myGiftCard.scss';
+@import './styles/_myFavorties.scss';
+@import './styles/_OrderDetail';
+
+// 洧 CustomizeSilent
+@import './styles/_customizeSlient';
 
 // layout.scss
-@import './styles/layout';
+@import './styles/_layout';
 // giftcard
 @import './styles/giftcard';
 // blog

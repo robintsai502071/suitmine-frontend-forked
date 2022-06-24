@@ -170,6 +170,113 @@ h6 {
   display: none;
 }
 
+//btns
+//黑底白字按鈕，請在各頁面@include到各按鈕中
+@mixin blackbtn {
+  background-color: black;
+  color: white;
+}
+
+//白底黑字按鈕，請在各頁面@include到各按鈕中
+@mixin whitebtn {
+  background-color: white;
+  color: black;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: $dark-gray;
+  border-color: $dark-gray;
+}
+
+.btn-check:checked + .btn-primary,
+.btn-check:active + .btn-primary,
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+}
+
+.btn-check:checked + .btn-primary:focus,
+.btn-check:active + .btn-primary:focus,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem $dark-gray;
+}
+
+.btn-check:focus + .btn-primary,
+.btn-primary:focus {
+  color: #fff;
+  background-color: black;
+  border-color: black;
+  box-shadow: 0 0 0 0.25rem $dark-gray;
+}
+
+.widthbtn {
+  border: 1px solid black;
+  border-radius: 0%;
+  width: 100%;
+  // background-color: black;
+  //btn hover color
+  &:hover {
+    background-color: $btn-hover-color;
+    background-color: $dark-gray;
+  }
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #212529;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem $light-gray;
+}
+
+.form-control:focus {
+  border-color: $light-gray;
+}
+.form-control {
+  border-radius: 0;
+}
+
+.ant-select {
+  width: 100%;
+  font-size: 1em;
+}
+
+//selectAntd
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: $dark-gray;
+  border-right-width: 1px;
+}
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  color: rgba(0, 0, 0, 0.85);
+  font-weight: 600;
+  background-color: $light-gray;
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input)
+  .ant-select-selector {
+  border-color: $light-gray;
+  box-shadow: 0 0 0 2px $light-gray;
+}
+
+//texyareaAntd : focus hover
+.ant-input:focus,
+.ant-input-focused {
+  border-color: $light-gray;
+  box-shadow: 0 0 0 2px $light-gray;
+  border-right-width: 1px;
+  outline: 0;
+}
+
+.ant-input:hover {
+  border-color: $light-gray;
+  border-right-width: 1px;
+}
 // 取消 accordian-item 的 border
 .accordion-item {
   border: none;

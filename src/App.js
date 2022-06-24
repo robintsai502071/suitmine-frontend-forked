@@ -10,11 +10,13 @@ import Measurement from './pages/Measurement';
 import Member from './pages/Member';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
-import ShoppingCart from './pages/ShoppingCart';
+// import ShoppingCart from './pages/ShoppingCart';
 import Register from './pages/Register';
 import MeasurementTeaching from './pages/MeasurementTeaching';
-
-
+import ShoppingCartChecking from './pages/ShoppingCartChecking';
+import ShoppingCartPayment from './pages/ShoppingCartPayment';
+import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
+import ShoppingCartFinish from './pages/ShoppingCartFinish';
 
 function App() {
   return (
@@ -36,8 +38,20 @@ function App() {
           <BookingDate />
         </Route>
 
-        <Route path="/shopping-cart">
-          <ShoppingCart />
+        <Route path="/shopping-cart-checking">
+          <ShoppingCartChecking />
+        </Route>
+
+        <Route path="/shopping-cart-payment">
+          <ShoppingCartPayment />
+        </Route>
+
+        <Route path="/shopping-cart-consumerdetail">
+          <ShoppingCartConsumerDetail />
+        </Route>
+
+        <Route path="/shopping-cart-finish">
+          <ShoppingCartFinish />
         </Route>
 
         <Route path="/booking-map">

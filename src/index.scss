@@ -3,6 +3,17 @@
 @import './styles/reset';
 @import './styles/global';
 
+//cusomerService.sass
+@import './styles/customerService';
+
+//_shoppingcart.scss
+@import './styles/shoppingCartChecking';
+@import './styles/shoppingCartPayment';
+@import './styles/shoppingCartConsumerDetail';
+@import './styles/shoppingCartFinish';
+
+//productDetail.scss
+@import './styles/productDetail';
 // -----------productList-----------
 @import './styles/productList'; 
 // -----------bookingMap-----------
@@ -12,3 +23,12 @@
 // -----------MeasurementTeaching-----------
 @import './styles/MeasurementTeaching';
 
+// 洧
+@import './styles/_member';
+
+// layout.scss
+@import './styles/layout';
+// giftcard
+@import './styles/giftcard';
+// blog
+@import './styles/blog';

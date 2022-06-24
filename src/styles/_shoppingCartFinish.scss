@@ -1,699 +1,701 @@
-@mixin itemsText {
-  div {
-    height: 33%;
-    text-align: end;
-    line-height: 3rem;
-  }
-}
-
-@mixin subtotalblockstyle {
-  padding: 5%;
-  height: $blockHeight;
-  background-color: $light-gray;
-}
-
-//商品數量
-.countBtn {
-  div {
-    width: 23%;
-    height: 9%;
-    border: 1px $light-gray solid;
-  }
-  .number {
-    border-left: 0;
-    border-right: 0;
-  }
-  .reduce {
-    border-radius: 20% 0 0 20%;
-    background-color: $dark-gray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 4%;
-    color: white;
-  }
-  .plus {
-    border-radius: 0 20% 20% 0;
-    background-color: $dark-gray;
-    color: white;
+.shopingCart {
+  @mixin itemsText {
+    div {
+      height: 33%;
+      text-align: end;
+      line-height: 3rem;
+    }
   }
 
-  .plus:hover,
-  .reduce:hover {
+  @mixin subtotalblockstyle {
+    padding: 5%;
+    height: $blockHeight;
     background-color: $light-gray;
   }
-  .reduce:active,
-  .plus:active {
-    border: 1px solid $light-gray;
-    background-color: white;
-    color: $light-gray;
-  }
-}
 
-//checkbox
-.form-check-input:focus {
-  border-color: $dark-gray;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem $light-gray;
-}
-.form-check-input:checked {
-  background-color: $dark-gray;
-  border-color: $light-gray;
-}
-.form-check-input[type='checkbox'] {
-  border-radius: 50%;
-}
-.itslabel {
-  display: flex;
-  align-items: center;
-  label {
-    margin-left: 1rem;
-    // color: red;
-  }
-}
-.form-check-input {
-  width: 2em;
-  height: 2em;
-}
-
-//流程圖
-.showSteps {
-  margin: 18% auto 3% auto;
-  width: 70%;
-}
-
-.ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon {
-  background: $dark-gray;
-  padding: 8px;
-}
-
-.ant-steps-item-finish .ant-steps-item-icon {
-  background-color: $dark-gray;
-  border-color: $light-gray;
-  padding: 6px;
-}
-
-.ant-steps-item-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 8px 0 0;
-  font-size: 30px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
-    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  line-height: 32px;
-  text-align: center;
-  border: 1px solid rgba(0, 0, 0, 0.25);
-  border-radius: 50%;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
-  color: white;
-}
-
-.ant-steps-item-finish
-  > .ant-steps-item-container
-  > .ant-steps-item-content
-  > .ant-steps-item-title::after {
-  background-color: $dark-gray;
-}
-
-.ant-steps-item-wait .ant-steps-item-icon {
-  background-color: $light-gray;
-  border-color: $light-gray;
-  padding: 13px;
-}
-
-.ant-steps-item-process .ant-steps-item-icon {
-  border-color: $dark-gray;
-}
-
-.ant-steps-item-process
-  > .ant-steps-item-container
-  > .ant-steps-item-icon
-  .ant-steps-icon {
-  font-size: 40px;
-}
-
-$blockHeight: 300px;
-// checking
-.checking {
-  // height: 800px;
-  border: 1px solid $light-gray;
-  //全選
-  .allselect {
-    padding: 1% 5%;
-    height: 120px;
-    border: 1px solid $light-gray;
-  }
-
-  //商品內容
-  .productDetail {
-    margin: 0%;
-    height: $blockHeight;
-    border: 1px solid $light-gray;
+  //商品數量
+  .countBtn {
     div {
+      width: 23%;
+      height: 9%;
+      border: 1px $light-gray solid;
+    }
+    .number {
+      border-left: 0;
+      border-right: 0;
+    }
+    .reduce {
+      border-radius: 20% 0 0 20%;
+      background-color: $dark-gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 4%;
+      color: white;
+    }
+    .plus {
+      border-radius: 0 20% 20% 0;
+      background-color: $dark-gray;
+      color: white;
+    }
+
+    .plus:hover,
+    .reduce:hover {
+      background-color: $light-gray;
+    }
+    .reduce:active,
+    .plus:active {
+      border: 1px solid $light-gray;
+      background-color: white;
+      color: $light-gray;
+    }
+  }
+
+  //checkbox
+  .form-check-input:focus {
+    border-color: $dark-gray;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem $light-gray;
+  }
+  .form-check-input:checked {
+    background-color: $dark-gray;
+    border-color: $light-gray;
+  }
+  .form-check-input[type='checkbox'] {
+    border-radius: 50%;
+  }
+  .itslabel {
+    display: flex;
+    align-items: center;
+    label {
+      margin-left: 1rem;
+      // color: red;
+    }
+  }
+  .form-check-input {
+    width: 2em;
+    height: 2em;
+  }
+
+  //流程圖
+  .showSteps {
+    margin: 18% auto 3% auto;
+    width: 70%;
+  }
+
+  .ant-steps-item-process > .ant-steps-item-container > .ant-steps-item-icon {
+    background: $dark-gray;
+    padding: 8px;
+  }
+
+  .ant-steps-item-finish .ant-steps-item-icon {
+    background-color: $dark-gray;
+    border-color: $light-gray;
+    padding: 6px;
+  }
+
+  .ant-steps-item-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 8px 0 0;
+    font-size: 30px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+      'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+      'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    line-height: 32px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  .ant-steps-item-finish .ant-steps-item-icon > .ant-steps-icon {
+    color: white;
+  }
+
+  .ant-steps-item-finish
+    > .ant-steps-item-container
+    > .ant-steps-item-content
+    > .ant-steps-item-title::after {
+    background-color: $dark-gray;
+  }
+
+  .ant-steps-item-wait .ant-steps-item-icon {
+    background-color: $light-gray;
+    border-color: $light-gray;
+    padding: 13px;
+  }
+
+  .ant-steps-item-process .ant-steps-item-icon {
+    border-color: $dark-gray;
+  }
+
+  .ant-steps-item-process
+    > .ant-steps-item-container
+    > .ant-steps-item-icon
+    .ant-steps-icon {
+    font-size: 40px;
+  }
+
+  $blockHeight: 300px;
+  // checking
+  .checking {
+    // height: 800px;
+    border: 1px solid $light-gray;
+    //全選
+    .allselect {
+      padding: 1% 5%;
+      height: 120px;
+      border: 1px solid $light-gray;
+    }
+
+    //商品內容
+    .productDetail {
+      margin: 0%;
+      height: $blockHeight;
+      border: 1px solid $light-gray;
+      div {
+        // border: 1px solid red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      //商品名&客製化按鈕
+      div:nth-child(3) {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        div {
+          margin: 15% 0 15% 0;
+        }
+        button {
+          width: 70%;
+          font-size: 0.4rem;
+          height: 10%;
+        }
+      }
+
+      div:last-child {
+        h4 {
+          color: red;
+        }
+      }
+    }
+
+    //總和計算
+    .subtotalblock {
+      @include subtotalblockstyle;
+      // 加總過程
+      .pricelist {
+        height: 80%;
+
+        // 項目條列
+        .items {
+          @include itemsText;
+        }
+        //項目金額
+        .itemsPrice {
+          @include itemsText;
+        }
+      }
+      // 灰線條
+      .grayline {
+        display: flex;
+        flex-direction: row;
+        height: 2px;
+        div:last-child {
+          background-color: $dark-gray;
+        }
+      }
+      // 小計
+      .total {
+        height: 20%;
+
+        div {
+          @include itemsText;
+        }
+        h4 {
+          color: red;
+        }
+      }
+    }
+  }
+
+  // 下方按鈕
+  .btnsbar {
+    height: 30%;
+  }
+
+  // ---------------------payment------------------------
+
+  .showStepsPayment {
+    margin-bottom: 7%;
+  }
+
+  .delivery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > div {
+      height: 80px;
       // border: 1px solid red;
+      width: 90%;
+      display: flex;
+      align-items: center;
+      padding-left: 5%;
+      padding-right: 5%;
+      border: 1px solid $light-gray;
+      border-bottom: 0;
+      border-right: 0;
+      border-left: 0;
+    }
+    & > div:first-child,
+    & > div:last-child {
+      width: 100%;
+      border-bottom: 1px solid $light-gray;
+    }
+    & > div:nth-child(2) {
+      border-top: 0;
+    }
+    & > div:nth-child(5) {
+      border-bottom: 0;
+    }
+    & > div:last-child {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  // ----------------ShoppingCartConsumerDetail---------------
+  @mixin blockTobeCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .main {
+    background-color: $light-gray;
+    border: 1px solid $light-gray;
+    .receiverBlock,
+    .invoiceBlock {
+      & > div {
+        height: 80px;
+        width: 90%;
+        border: 1px $light-gray solid;
+        border-right: 0;
+        border-left: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 5%;
+      }
+    }
+    .receiverBlock {
+      @include blockTobeCenter;
+      background-color: white;
+      margin-bottom: 10%;
+      width: 100%;
+      & > div:first-child {
+        width: 100%;
+      }
+      & > div:nth-child(2) {
+        border-top: 0;
+        border-bottom: 0;
+      }
+      & > div:nth-child(3) {
+        border-bottom: 0;
+      }
+      // 文字內容
+    }
+    .invoiceBlock {
+      background-color: white;
+      @include blockTobeCenter;
+
+      .middle {
+        border-top: 0;
+        border-bottom: 0;
+      }
+
+      & > div:first-child {
+        width: 100%;
+      }
+      & > div:last-child {
+        width: 100%;
+        background-color: $light-gray;
+      }
+    }
+  }
+
+  //Input調整
+  .phoneNumber {
+    .ant-input:placeholder-shown {
+      text-overflow: ellipsis;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+    }
+  }
+
+  .barCode {
+    width: 45%;
+    .ant-input:placeholder-shown {
+      text-overflow: ellipsis;
+      border-top: 0;
+      border-right: 0;
+      border-left: 0;
+    }
+  }
+
+  //radios
+
+  .radios {
+    margin-top: 3%;
+    display: flex;
+    justify-content: space-around;
+    li {
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      text-align: center;
+      margin-left: 2%;
+      margin-right: 2%;
+      border: 1px solid $light-gray;
+      height: 100%;
+
+      a {
+        display: block;
+        color: $light-gray;
+        font-size: 1.2rem;
+        padding: 25px 16px;
+        width: 199px;
+        border-radius: 5px;
+        &:hover {
+          background-color: $light-gray;
+          color: $dark-gray;
+          color: $dark-gray;
+        }
+        &:active {
+          color: #000;
+        }
+      }
+
+      // 勾勾
+      .checkIcon {
+        height: 40px;
+        width: 40px;
+        background-color: #727272;
+        position: absolute;
+        right: -18px;
+        bottom: -18px;
+        transform: rotate(45deg);
+        .line1 {
+          position: absolute;
+          height: 3px;
+          width: 21%;
+          top: 54%;
+          left: 9%;
+          right: 0%;
+          bottom: 0%;
+          background-color: white;
+          transform: rotate(13deg);
+          border-radius: 0 5px 4px 0;
+        }
+        .line2 {
+          position: absolute;
+          height: 3px;
+          width: 29%;
+          top: 43%;
+          left: 7%;
+          right: -1%;
+          bottom: 0%;
+          background-color: white;
+          transform: rotate(72deg);
+        }
+      }
+    }
+  }
+
+  //點擊後樣式
+  .active {
+    border: 2px solid $dark-gray;
+    color: black !important;
+  }
+
+  // ----------------------ShoppingCartFinish-------------------------
+
+  .info {
+    border: 1px solid $light-gray;
+
+    & > div:last-child {
+      border: 0;
+    }
+    & > div {
+      height: 80px;
+      width: 90%;
+      border-bottom: 1px solid $light-gray;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .finishImg {
+    margin-left: -10%;
+  }
+
+  .finishNumber {
+    margin-left: 10%;
+  }
+
+  // ------------------------checkingMobile------------------------
+
+  // 各Wed頁面d-none
+  @media (max-width: 375px) {
+    .checkingWeb,
+    .consumerDetailWeb,
+    .paymentWeb,
+    .finishWeb,
+    .footerMobile {
+      display: none;
+    }
+  }
+
+  //各Moile頁面d-block
+  @media (min-width: 375px) {
+    .checkingMobile,
+    .paymentMobile,
+    .consumerDetailMobile,
+    .finishMobile,
+    .footerMobile {
+      display: block;
+      padding: 0;
+      margin: 0;
+      background-color: $light-gray;
+      height: 2000px;
+    }
+  }
+
+  //mobile欄位設定
+  @mixin mobileBlockSetting {
+    height: 80px;
+    border-bottom: 1px solid $light-gray;
+    background-color: white;
+  }
+
+  .backBar {
+    @include mobileBlockSetting;
+    .backBtn {
+      position: relative;
+      & > div {
+        height: 3px;
+        width: 25%;
+        background-color: $dark-gray;
+        position: absolute;
+        right: 45%;
+        top: 50%;
+      }
+      & > div:first-child {
+        transform: rotate(130deg);
+        right: 57%;
+        top: 40%;
+      }
+      & > div:last-child {
+        transform: rotate(50deg);
+        right: 57%;
+        top: 61%;
+      }
+    }
+    .backBtn:hover div {
+      background-color: $light-gray;
+    }
+  }
+
+  .productsMobile {
+    @include mobileBlockSetting;
+    padding: 10px 0 10px 0;
+    height: 150px;
+    margin: 0%;
+    & > div {
+      // border: blue 1px solid;
+      padding: 0%;
+    }
+    & > div:first-child,
+  //商品照片
+  div:nth-child(2) {
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    //商品名&客製化按鈕
+    // 文字敘述
     div:nth-child(3) {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
       div {
-        margin: 15% 0 15% 0;
+        height: 30%;
       }
-      button {
-        width: 70%;
-        font-size: 0.4rem;
-        height: 10%;
+      // 商品名
+      div:first-child {
+        padding: 6%;
+        h5 {
+          font-size: small;
+        }
+      }
+      //客製化按鈕
+      div:nth-child(2) {
+        .widthbtn {
+          width: 53%;
+          height: 66%;
+          line-height: 6px;
+          font-size: xx-small;
+        }
       }
     }
-
+    //刪除、數量
     div:last-child {
-      h4 {
-        color: red;
+      & > div {
+        height: 33%;
+        display: flex;
+        justify-content: end;
+        align-items: flex-end;
+      }
+      & > div:first-child {
+        text-align: right;
+        padding: 5%;
+        padding-right: 7%;
+        h5 {
+          font-size: small;
+        }
       }
     }
   }
-
-  //總和計算
-  .subtotalblock {
-    @include subtotalblockstyle;
-    // 加總過程
-    .pricelist {
-      height: 80%;
-
-      // 項目條列
-      .items {
-        @include itemsText;
-      }
-      //項目金額
-      .itemsPrice {
-        @include itemsText;
-      }
-    }
-    // 灰線條
-    .grayline {
-      display: flex;
-      flex-direction: row;
-      height: 2px;
-      div:last-child {
-        background-color: $dark-gray;
-      }
-    }
-    // 小計
-    .total {
-      height: 20%;
-
-      div {
-        @include itemsText;
-      }
-      h4 {
-        color: red;
-      }
-    }
+  .countingMoble {
+    @include mobileBlockSetting;
+    height: 270px;
+    padding: 4% 4% 8% 4%;
   }
-}
 
-// 下方按鈕
-.btnsbar {
-  height: 30%;
-}
-
-// ---------------------payment------------------------
-
-.showStepsPayment {
-  margin-bottom: 7%;
-}
-
-.delivery {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  & > div {
-    height: 80px;
-    // border: 1px solid red;
-    width: 90%;
-    display: flex;
-    align-items: center;
-    padding-left: 5%;
-    padding-right: 5%;
-    border: 1px solid $light-gray;
-    border-bottom: 0;
-    border-right: 0;
-    border-left: 0;
-  }
-  & > div:first-child,
-  & > div:last-child {
-    width: 100%;
-    border-bottom: 1px solid $light-gray;
-  }
-  & > div:nth-child(2) {
-    border-top: 0;
-  }
-  & > div:nth-child(5) {
-    border-bottom: 0;
-  }
-  & > div:last-child {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-// ----------------ShoppingCartConsumerDetail---------------
-@mixin blockTobeCenter {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.main {
-  background-color: $light-gray;
-  border: 1px solid $light-gray;
-  .receiverBlock,
-  .invoiceBlock {
-    & > div {
-      height: 80px;
-      width: 90%;
-      border: 1px $light-gray solid;
-      border-right: 0;
-      border-left: 0;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      padding: 5%;
-    }
-  }
-  .receiverBlock {
-    @include blockTobeCenter;
-    background-color: white;
-    margin-bottom: 10%;
-    width: 100%;
-    & > div:first-child {
-      width: 100%;
-    }
-    & > div:nth-child(2) {
-      border-top: 0;
-      border-bottom: 0;
-    }
-    & > div:nth-child(3) {
-      border-bottom: 0;
-    }
-    // 文字內容
-  }
-  .invoiceBlock {
-    background-color: white;
-    @include blockTobeCenter;
-
-    .middle {
-      border-top: 0;
-      border-bottom: 0;
-    }
-
-    & > div:first-child {
-      width: 100%;
-    }
-    & > div:last-child {
-      width: 100%;
-      background-color: $light-gray;
-    }
-  }
-}
-
-//Input調整
-.phoneNumber {
-  .ant-input:placeholder-shown {
-    text-overflow: ellipsis;
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-  }
-}
-
-.barCode {
-  width: 45%;
-  .ant-input:placeholder-shown {
-    text-overflow: ellipsis;
-    border-top: 0;
-    border-right: 0;
-    border-left: 0;
-  }
-}
-
-//radios
-
-.radios {
-  margin-top: 3%;
-  display: flex;
-  justify-content: space-around;
-  li {
-    overflow: hidden;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    text-align: center;
-    margin-left: 2%;
-    margin-right: 2%;
-    border: 1px solid $light-gray;
-    height: 100%;
-
-    a {
-      display: block;
-      color: $light-gray;
-      font-size: 1.2rem;
-      padding: 25px 16px;
-      width: 199px;
-      border-radius: 5px;
-      &:hover {
-        background-color: $light-gray;
-        color: $dark-gray;
-        color: $dark-gray;
-      }
-      &:active {
-        color: #000;
-      }
-    }
-
-    // 勾勾
-    .checkIcon {
-      height: 40px;
-      width: 40px;
-      background-color: #727272;
-      position: absolute;
-      right: -18px;
-      bottom: -18px;
-      transform: rotate(45deg);
-      .line1 {
-        position: absolute;
-        height: 3px;
-        width: 21%;
-        top: 54%;
-        left: 9%;
-        right: 0%;
-        bottom: 0%;
-        background-color: white;
-        transform: rotate(13deg);
-        border-radius: 0 5px 4px 0;
-      }
-      .line2 {
-        position: absolute;
-        height: 3px;
-        width: 29%;
-        top: 43%;
-        left: 7%;
-        right: -1%;
-        bottom: 0%;
-        background-color: white;
-        transform: rotate(72deg);
-      }
-    }
-  }
-}
-
-//點擊後樣式
-.active {
-  border: 2px solid $dark-gray;
-  color: black !important;
-}
-
-// ----------------------ShoppingCartFinish-------------------------
-
-.info {
-  border: 1px solid $light-gray;
-
-  & > div:last-child {
-    border: 0;
-  }
-  & > div {
-    height: 80px;
-    width: 90%;
-    border-bottom: 1px solid $light-gray;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-  }
-}
-
-.finishImg {
-  margin-left: -10%;
-}
-
-.finishNumber {
-  margin-left: 10%;
-}
-
-// ------------------------checkingMobile------------------------
-
-// 各Wed頁面d-none
-@media (max-width: 375px) {
-  .checkingWeb,
-  .consumerDetailWeb,
-  .paymentWeb,
-  .finishWeb,
-  .footerMobile {
-    display: none;
-  }
-}
-
-//各Moile頁面d-block
-@media (min-width: 375px) {
-  .checkingMobile,
-  .paymentMobile,
-  .consumerDetailMobile,
-  .finishMobile,
-  .footerMobile {
-    display: block;
-    padding: 0;
-    margin: 0;
-    background-color: $light-gray;
-    height: 2000px;
-  }
-}
-
-//mobile欄位設定
-@mixin mobileBlockSetting {
-  height: 80px;
-  border-bottom: 1px solid $light-gray;
-  background-color: white;
-}
-
-.backBar {
-  @include mobileBlockSetting;
-  .backBtn {
-    position: relative;
-    & > div {
-      height: 3px;
-      width: 25%;
-      background-color: $dark-gray;
-      position: absolute;
-      right: 45%;
-      top: 50%;
-    }
-    & > div:first-child {
-      transform: rotate(130deg);
-      right: 57%;
-      top: 40%;
-    }
-    & > div:last-child {
-      transform: rotate(50deg);
-      right: 57%;
-      top: 61%;
-    }
-  }
-  .backBtn:hover div {
-    background-color: $light-gray;
-  }
-}
-
-.productsMobile {
-  @include mobileBlockSetting;
-  padding: 10px 0 10px 0;
-  height: 150px;
-  margin: 0%;
-  & > div {
-    // border: blue 1px solid;
-    padding: 0%;
-  }
-  & > div:first-child,
-  //商品照片
-  div:nth-child(2) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  // 文字敘述
-  div:nth-child(3) {
+  // 手機板商品數量
+  .countBtnMobile {
+    padding-right: 6%;
     div {
-      height: 30%;
+      width: 23%;
+      height: 60%;
+      border: 1px #ececec solid;
     }
-    // 商品名
-    div:first-child {
-      padding: 6%;
-      h5 {
-        font-size: small;
-      }
-    }
-    //客製化按鈕
-    div:nth-child(2) {
-      .widthbtn {
-        width: 53%;
-        height: 66%;
-        line-height: 6px;
-        font-size: xx-small;
-      }
+    div:last-child {
+      padding-left: 7%;
+      padding-top: 3%;
     }
   }
-  //刪除、數量
-  div:last-child {
-    & > div {
-      height: 33%;
+
+  //小計
+  .countingMoble .row {
+    height: 25%;
+    div {
       display: flex;
       justify-content: end;
-      align-items: flex-end;
+      align-items: center;
+      padding: 0%;
+      h5 {
+        color: $dark-gray;
+      }
+    }
+    div:last-child {
+      padding-right: 5%;
+    }
+  }
+
+  .garyline {
+    border-bottom: 1px solid $dark-gray;
+  }
+
+  //最下方Fix
+
+  .downHere {
+    @include mobileBlockSetting;
+    width: 100%;
+    position: fixed;
+    bottom: 0%;
+    margin: 0%;
+    div {
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .allselectMobile {
+    margin-top: 12%;
+    margin-right: -17%;
+  }
+
+  .BtnMobile {
+    height: 40%;
+    width: 75%;
+    background-color: $light-gray;
+    border-radius: 15px;
+    color: $dark-gray;
+    cursor: pointer;
+  }
+
+  .BtnMobile:hover {
+    background-color: $dark-gray;
+    color: white;
+  }
+
+  // ------------------------paymentMobile----------------------
+
+  .paymentlist {
+    @include mobileBlockSetting;
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0%;
+      h5 {
+        color: $dark-gray;
+      }
     }
     & > div:first-child {
-      text-align: right;
-      padding: 5%;
-      padding-right: 7%;
+      padding-left: 5%;
+    }
+    & > div:last-child {
+      padding-right: 5%;
+    }
+  }
+
+  // ------------------------consumerDetailMobile----------------
+
+  .detailInput {
+    @include mobileBlockSetting;
+    display: flex;
+    justify-content: center;
+    padding: 0%;
+  }
+
+  // -------------------------finishMobile----------------------
+  .lastTotal,
+  .receiver {
+    background-color: $light-gray;
+    border: 1px solid $light-gray;
+    div {
+      @include mobileBlockSetting;
+      height: 55px;
+      border: 1px solid $light-gray;
       h5 {
-        font-size: small;
+        padding-right: 5%;
+        padding-left: 5%;
+        padding-top: 1%;
       }
     }
   }
-}
-.countingMoble {
-  @include mobileBlockSetting;
-  height: 270px;
-  padding: 4% 4% 8% 4%;
-}
 
-// 手機板商品數量
-.countBtnMobile {
-  padding-right: 6%;
-  div {
-    width: 23%;
-    height: 60%;
-    border: 1px #ececec solid;
-  }
-  div:last-child {
-    padding-left: 7%;
+  .lastTotal div {
+    display: flex;
+    justify-content: space-between;
     padding-top: 3%;
   }
-}
-
-//小計
-.countingMoble .row {
-  height: 25%;
-  div {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    padding: 0%;
-    h5 {
-      color: $dark-gray;
-    }
-  }
-  div:last-child {
-    padding-right: 5%;
-  }
-}
-
-.garyline {
-  border-bottom: 1px solid $dark-gray;
-}
-
-//最下方Fix
-
-.downHere {
-  @include mobileBlockSetting;
-  width: 100%;
-  position: fixed;
-  bottom: 0%;
-  margin: 0%;
-  div {
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-.allselectMobile {
-  margin-top: 12%;
-  margin-right: -17%;
-}
-
-.BtnMobile {
-  height: 40%;
-  width: 75%;
-  background-color: $light-gray;
-  border-radius: 15px;
-  color: $dark-gray;
-  cursor: pointer;
-}
-
-.BtnMobile:hover {
-  background-color: $dark-gray;
-  color: white;
-}
-
-// ------------------------paymentMobile----------------------
-
-.paymentlist {
-  @include mobileBlockSetting;
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0%;
-    h5 {
-      color: $dark-gray;
-    }
-  }
-  & > div:first-child {
-    padding-left: 5%;
-  }
-  & > div:last-child {
-    padding-right: 5%;
-  }
-}
-
-// ------------------------consumerDetailMobile----------------
-
-.detailInput {
-  @include mobileBlockSetting;
-  display: flex;
-  justify-content: center;
-  padding: 0%;
-}
-
-// -------------------------finishMobile----------------------
-.lastTotal,
-.receiver {
-  background-color: $light-gray;
-  border: 1px solid $light-gray;
-  div {
-    @include mobileBlockSetting;
-    height: 55px;
-    border: 1px solid $light-gray;
-    h5 {
-      padding-right: 5%;
-      padding-left: 5%;
-      padding-top: 1%;
-    }
-  }
-}
-
-.lastTotal div {
-  display: flex;
-  justify-content: space-between;
-  padding-top: 3%;
 }

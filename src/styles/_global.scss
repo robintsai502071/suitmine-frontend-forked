@@ -31,6 +31,18 @@ ul {
   // color: $color-font;
 }
 
+@mixin eng-text {
+  font-style: normal;
+  font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin eng-title-text {
+  font-style: normal;
+  font-family: 'Nuosu SIL', serif;
+  letter-spacing: $letter-spacing;
+}
+
 h1 {
   @include text;
   font-weight: 500;
@@ -66,7 +78,6 @@ h6 {
   font-weight: 500;
   font-size: 1rem;
 }
-
 
 @mixin h1 {
   @include text;
@@ -152,4 +163,36 @@ h6 {
   font-size: 0.875rem;
 }
 
+// 洧
+// ******** 覆蓋 accordian 樣式 ******** //
+// 取消 accordian 的 arrow
+.accordion-button::after {
+  display: none;
+}
 
+// 取消 accordian-item 的 border
+.accordion-item {
+  border: none;
+}
+
+.accordion-body {
+  padding: 0;
+  & a {
+    padding: 1rem 1rem 1rem 1.5rem;
+    color: $dark-gray;
+  }
+}
+
+.accordion-button:focus {
+  z-index: 3;
+  /* border-color: #86b7fe; */
+  outline: 0;
+  box-shadow: none;
+}
+
+// 覆蓋點選之後的背景色
+.accordion-button:not(.collapsed) {
+  color: $dark-gray;
+  background-color: $light-gray;
+  box-shadow: none;
+}

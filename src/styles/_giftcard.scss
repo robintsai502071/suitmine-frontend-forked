@@ -1,0 +1,113 @@
+/* banner */
+.giftcard-banner{
+    height: 700px;
+    background: url('../images/robert/giftCard/backgroung-image.png') no-repeat center center;
+    background-size: cover;
+  }
+  .giftcard-banner::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .giftcard-banner h1{
+    line-height: 1.5;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 150px;
+  }
+  .mobile-bg{
+    height: 225px;
+    background: url('../images/robert/giftCard/mobile-bg.png') no-repeat center center;
+    background-size: cover;
+  }
+  .mobile-bg::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .mobile-bg h1{
+    @include h4;
+    line-height: 1.5;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 30px;
+  }
+  .mobile-bg img{
+    width: 150px;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 30px;
+  }
+  /* giftcardbg2 */
+.giftcard-bg2{
+    height: 700px;
+    background: url('../images/robert/giftCard/Vector.png') no-repeat center center;
+    background-size: cover;
+  }
+  .ruler{
+    top: -50px;
+  }
+  .ruler2{
+    right: 0;
+    bottom: -20px;
+  }
+  .tailor-img{
+    right: 20%;
+    top: 50px;
+    z-index: 1;
+  }
+  .giftcard-card{
+    bottom: 50px;
+    left: 30%;
+    box-shadow: 10px 5px 5px #ccc;
+  }
+  .card h2{
+      left: 50%;
+      transform: translateX(-50%);
+      top: -35px;
+  }
+  .card p{
+    text-shadow:  1px 1px 1px #ccc;
+    line-height: 1.5;
+  }
+  /* giftcard-footer */
+.giftcard-footer img{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+  .giftcard-footer h1{
+    top: 50%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+    @media (max-width:1000px) {
+        @include h3;
+    }
+    @media (max-width: 645px) {
+        @include h5;
+    }
+  }
+  .giftcard-footer button{
+      @include h2;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    @media  (max-width: 1000px) {
+        @include h4;
+    }
+    @media (max-width: 645px) {
+        @include h6;
+    }
+  }

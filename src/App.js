@@ -12,7 +12,6 @@ import Member from './pages/Member/Member';
 import MemberMobileView from './pages/Member/MemberMobileView';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
-import ShoppingCart from './pages/ShoppingCart';
 import ChangePassword from './pages/Member/ChangePassword';
 import OrderList from './pages/Member/OrderList';
 import MyGiftCard from './pages/Member/MyGiftCard';

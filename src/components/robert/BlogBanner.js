@@ -9,10 +9,9 @@ function BlogBanner() {
     <div className="blog-banner">
       <Carousel variant="dark">
         <Carousel.Item>
-           <img className="d-block w-100 " src={banner1} alt="First slide" />
+          <img className="d-block w-100 " src={banner1} alt="First slide" />
           <Carousel.Caption>
             <h1 className="text-white ">新季節 新時尚</h1>
-           
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>

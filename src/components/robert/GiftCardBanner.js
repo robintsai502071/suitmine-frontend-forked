@@ -1,6 +1,4 @@
 import React from 'react';
-import mobileimg from '../../images/robert/giftCard/mobile-img.png';
-
 function GiftCardBanner() {
   return (
     <div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from '../../images/robert/layout/LOGO.svg'
-
+import logo from '../../images/robert/layout/LOGO.svg';
 
 const LayoutHeader = () => {
   return (
@@ -14,19 +13,19 @@ const LayoutHeader = () => {
           <span></span>
 
           <ul className="menu">
-            <a href="#">
+            <a href="#/">
               <li>商品總覽</li>
             </a>
-            <a href="#">
+            <a href="#/">
               <li>門市據點</li>
             </a>
-            <a href="#">
+            <a href="#/">
               <li>會員中心</li>
             </a>
-            <a href="#">
+            <a href="#/">
               <li>部落格</li>
             </a>
-            <a href="#">
+            <a href="#/">
               <li>禮物卡</li>
             </a>
           </ul>
@@ -42,27 +41,27 @@ const LayoutHeader = () => {
 
       <ul className="header-menu w-50  justify-content-between align-item-center d-none d-md-flex me-5 py-2">
         <li>
-          <a href="" className="btn text-white">
+          <a href="#/" className="btn text-white">
             商品總覽
           </a>
         </li>
         <li>
-          <a href="" className="btn text-white">
+          <a href="#/" className="btn text-white">
             門市據點
           </a>
         </li>
         <li>
-          <a href="" className="btn text-white">
+          <a href="#/" className="btn text-white">
             會員中心
           </a>
         </li>
         <li>
-          <a href="" className="btn text-white">
+          <a href="#/" className="btn text-white">
             部落格
           </a>
         </li>
         <li>
-          <a href="" className="btn text-white">
+          <a href="#/" className="btn text-white">
             禮物卡
           </a>
         </li>

@@ -41,7 +41,11 @@ function GiftCardBg() {
           data-aos-duration="1000"
         >
           <div
+<<<<<<< HEAD
+            className="giftcard-card card position-relative"
+=======
             className="card giftcardCard position-relative"
+>>>>>>> dev
             style={{
               width: '30rem',
               height: '15rem',

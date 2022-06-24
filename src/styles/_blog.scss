@@ -23,24 +23,24 @@
   // bloglist
   .blog h2 {
     text-shadow: 0.1em 0.1em 0.2em black;
-  }
-  .bloglistCard h6 {
+}
+.blog-card h6{
     display: none;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-shadow: 0.1em 0.1em 0.2em black;
     z-index: 1;
-  }
-  .card a:hover h6 {
-    display: block;
-  }
-  .card > a {
+ }
+ .blog-card a:hover h6{
+     display: block;
+ }
+.blog-card>a{
     display: block;
     position: relative;
     overflow: hidden; //圖片放大
-  }
-  .card > a:hover::after {
+}
+.blog-card>a:hover::after{
     content: '';
     position: absolute;
     top: 0;
@@ -48,21 +48,22 @@
     bottom: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.5);
-  }
-  .card > a:hover .card > h4 {
-    display: block;
-  }
-  .card-title:hover {
+}
+.blog-card>a:hover .card>h4{
+  display: block;
+  
+}
+.card-title:hover {
     text-shadow: 0.1em 0.1em 0.2em black;
-  }
-  // 圖片放大
-  .card img {
-    transform: scale(1, 1);
+}
+// 圖片放大
+.blog-card img{
+    transform:scale(1,1);
     transition: all 1s ease-out;
-  }
-  .card > a:hover img {
-    transform: scale(1.2, 1.2);
-  }
+}
+.blog-card>a:hover img{
+    transform:scale(1.2,1.2);
+}
 
   // blogsidebar
   .blog-new a:hover {

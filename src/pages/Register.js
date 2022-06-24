@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from '../components/bao/register/Form';
 
 function Register() {
   return (
@@ -27,82 +28,7 @@ function Register() {
                   <div className="mx-auto pb-5">
                     <p className="h3">成為我們的會員</p>
                   </div>
-                  <form
-                    action=""
-                    className=" mx-auto d-flex flex-column justify-content-center"
-                  >
-                    <div class="mb-3 mx-1">
-                      <label for="exampleFormControlInput1" class="form-label">
-                        您的姓名
-                      </label>
-                      <input
-                        type="name"
-                        class="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="請輸入姓名"
-                      ></input>
-                    </div>
-                    <div class="mb-3 mx-1">
-                      <label for="exampleFormControlInput1" class="form-label">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        class="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="name@example.com"
-                      ></input>
-                    </div>
-                    <div class="mb-3 mx-1">
-                      <label for="exampleFormControlInput1" class="form-label">
-                        請輸入密碼
-                      </label>
-                      <input
-                        type="passworld"
-                        class="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="請輸入密碼"
-                      ></input>
-                    </div>
-                    <div class="mb-3 mx-1">
-                      <label for="exampleFormControlInput1" class="form-label">
-                        再次確認密碼
-                      </label>
-                      <input
-                        type="passworld"
-                        class="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="請輸入密碼"
-                      ></input>
-                    </div>
-                    <div class="mb-3 mx-1">
-                      <label for="exampleFormControlInput1" class="form-label">
-                        請選擇性別
-                      </label>
-                      <select
-                        class="form-select"
-                        aria-label="Default select example"
-                      >
-                        <option selected>請選擇性別</option>
-                        <option value="男">男</option>
-                        <option value="女">女</option>
-                      </select>
-                    </div>
-                    <div class="mb-3 mx-1">
-                      <label for="exampleFormControlInput1" class="form-label">
-                        年齡
-                      </label>
-                      <input
-                        type="age"
-                        class="form-control"
-                        id="exampleFormControlInput1"
-                        placeholder="請輸入年齡"
-                      ></input>
-                    </div>
-                    <div type="submit" className="btn registerBtn mx-auto mt-3">
-                      <p>下一頁</p>
-                    </div>
-                  </form>
+                  <Form />
                 </div>
               </div>
             </div>

@@ -62,6 +62,7 @@ const ProductTypeBar = () => {
         width: 229,
       }}
       items={items}
+      className="ProductTypeBar"
     />
   );
 };

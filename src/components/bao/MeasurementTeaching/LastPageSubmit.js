@@ -1,6 +1,5 @@
 import React from 'react';
 import LastPageBgc from '../../images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png';
-import { useState } from 'react';
 
 function LastPageSubmit(props) {
   const { fields, handleFieldChange } = props;

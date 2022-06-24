@@ -46,7 +46,7 @@
 }
 /* ===========材質展示switchButton RWD=========== */
 @media screen and (max-width: 768px) {
-  .switchButton{
+  .switchButton {
     margin-right: 0 !important;
   }
 }
@@ -58,10 +58,10 @@
   .RWDFilterBar .select {
     width: 98% !important;
   }
-  .ant-select-selection-item{
+  .ant-select-selection-item {
     padding-left: 0%;
   }
-  .ant-select-suffix svg{
+  .ant-select-suffix svg {
     margin-right: 10px;
   }
 }
@@ -91,55 +91,106 @@
 .ant-space-vertical {
   width: 100%;
 }
-html {
-  --antd-wave-shadow-color: #001e3a;
-}
 .ant-btn-primary:active {
   color: #fff;
-  border-color:  #000000;
-  background:  #000000;
+  border-color: #000000;
+  background: #000000;
 }
-.ant-btn-primary:hover, .ant-btn-primary:focus {
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
   color: #fff;
   border-color: $btn-hover-color;
   background: $btn-hover-color;
 }
 /* -----------商品種類篩選抽屜(蓋)----------- */
-.ant-menu-light .ant-menu-item:hover,
-.ant-menu-light .ant-menu-item-active,
-.ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
-.ant-menu-light .ant-menu-submenu-active,
-.ant-menu-light .ant-menu-submenu-title:hover {
-  color: #00101f;
-}
 .productTypeBar {
   margin: 0%;
   width: 90%;
 }
-.ant-menu-sub {
+  .ProductTypeBar .ant-menu-item:hover,
+  .ProductTypeBar .ant-menu-item-active,
+  .ProductTypeBar .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+  .ProductTypeBar .ant-menu-submenu-active,
+  .ProductTypeBar .ant-menu-submenu-title:hover {
+    color: #00101f;
+  }
+  .ProductTypeBar .ant-menu-sub {
+    width: 100%;
+  }
+  .ProductTypeBar {
+    width: 100% !important;
+  }
+  .ProductTypeBar .ant-menu-submenu-title {
+    width: 100%;
+  }
+  .ProductTypeBar .ant-menu-submenu-selected {
+    color: $btn-hover-color;
+  }
+  .ProductTypeBar .ant-menu-item-selected {
+    color: $btn-hover-color;
+  }
+  .ProductTypeBar .ant-menu-item:active,
+  .ProductTypeBar .ant-menu-submenu-title:active {
+    background: #747474;
+  }
+  .ProductTypeBar .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: #ebebeb;
+  }
+  .ProductTypeBar .ant-menu-submenu-arrow::before,
+  .ProductTypeBar .ant-menu-submenu-arrow::after {
+    position: absolute;
+    width: 6px;
+    height: 1.5px;
+    background-color: #000;
+    border-radius: 2px;
+    transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+      color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    content: '';
+  }
+  .ProductTypeBar .ant-menu-vertical .ant-menu-item::after,
+  .ProductTypeBar .ant-menu-vertical-left .ant-menu-item::after,
+  .ProductTypeBar .ant-menu-vertical-right .ant-menu-item::after,
+  .ProductTypeBar .ant-menu-inline .ant-menu-item::after {
+    border-right: 3px solid #000000;
+  }
+
+/* ==================商品種類篩選抽屜RWD(蓋)================== */
+.RWDProductTypeBarDrawer .ant-drawer-content-wrapper {
+  width: 85% !important;
+}
+.RWDProductTypeBar .ant-menu-item:hover,
+.RWDProductTypeBar .ant-menu-item-active,
+.RWDProductTypeBar .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.RWDProductTypeBar .ant-menu-submenu-active,
+.RWDProductTypeBar .ant-menu-submenu-title:hover {
+  color: #00101f;
+}
+.RWDProductTypeBar .ant-menu-sub {
   width: 100%;
 }
-.ant-menu {
+.RWDProductTypeBar {
   width: 100% !important;
 }
-.ant-menu-submenu-title {
+.RWDProductTypeBar .ant-menu-submenu-title {
   width: 100%;
 }
-.ant-menu-submenu-selected {
+.RWDProductTypeBar .ant-menu-submenu-selected {
   color: $btn-hover-color;
 }
-.ant-menu-item-selected {
+.RWDProductTypeBar .ant-menu-item-selected {
   color: $btn-hover-color;
 }
-.ant-menu-item:active,
-.ant-menu-submenu-title:active {
+.RWDProductTypeBar .ant-menu-item:active,
+.RWDProductTypeBar .ant-menu-submenu-title:active {
   background: #747474;
 }
-.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+.RWDProductTypeBar .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
   background-color: #ebebeb;
 }
-.ant-menu-submenu-arrow::before,
-.ant-menu-submenu-arrow::after {
+.RWDProductTypeBar .ant-menu-submenu-arrow::before,
+.RWDProductTypeBar .ant-menu-submenu-arrow::after {
   position: absolute;
   width: 6px;
   height: 1.5px;
@@ -151,17 +202,13 @@ html {
     color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
   content: '';
 }
-.ant-menu-vertical .ant-menu-item::after,
-.ant-menu-vertical-left .ant-menu-item::after,
-.ant-menu-vertical-right .ant-menu-item::after,
-.ant-menu-inline .ant-menu-item::after {
+.RWDProductTypeBar .ant-menu-vertical .ant-menu-item::after,
+.RWDProductTypeBar .ant-menu-vertical-left .ant-menu-item::after,
+.RWDProductTypeBar .ant-menu-vertical-right .ant-menu-item::after,
+.RWDProductTypeBar .ant-menu-inline .ant-menu-item::after {
   border-right: 3px solid #000000;
 }
 
-/* ==================商品種類篩選抽屜RWD(蓋)================== */
-.ant-drawer-content-wrapper {
-  width: 340px !important;
-}
 /* -----------商品列表----------- */
 .cardSize {
   padding: 0%;
@@ -186,7 +233,6 @@ html {
   margin-bottom: 40px;
   text-decoration: none;
   color: #000;
-  
 }
 .imgBox:hover:after {
   content: '';

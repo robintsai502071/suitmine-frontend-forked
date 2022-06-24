@@ -77,8 +77,10 @@ const ProductTypeBar = () => {
         width={500}
         onClose={onClose}
         visible={visible}
+        className="RWDProductTypeBarDrawer"
       >
         <Menu
+          className="RWDProductTypeBar"
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}

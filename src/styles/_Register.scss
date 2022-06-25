@@ -106,6 +106,12 @@
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
 }
+// --------上傳按鈕(蓋樣式)--------
+.ant-btn:active {
+  color: #000000;
+  border-color: #000000;
+  background: #fff;
+}
 // ==================form表單RWD==================
 @media screen and (max-width: 768px) {
   .registerInputCol {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import UploadImg from './UploadImg';
 
 //--------- 下拉式選單陣列 ---------
 const genderArr = ['男士', '女士', '不提供'];
@@ -11,9 +12,10 @@ function Form() {
     email: '',
     password: '',
     confirmPassword: '',
-    member: '男',
+    gender: '男',
     age: '',
   });
+  console.log(member);
   //--------- 保存誤訊息狀態 ---------
 
   const [errorMessage, seterrorMessage] = useState({
@@ -34,7 +36,20 @@ function Form() {
     // 防止表單直接送出
     e.preventDefault();
     setMember({ ...member, [e.target.name]: e.target.value });
+
+    // 密碼與確認密碼篩選錯誤訊息
+    // 作客製/自訂驗証
+    if (member.password !== member.confirmPassword) {
+      //自訂並取代原有錯誤訊息
+      const updatePasswordDoubleCheakErrorMessage = {
+        ...errorMessage,
+        password: '密碼與確認密碼輸入值不同',
+        confirmPassword: '密碼與確認密碼輸入值不同',
+      };
+      seterrorMessage(updatePasswordDoubleCheakErrorMessage);
+    }
   };
+
   //--------- 表單錯誤事件(有不合法的驗証情況出現時觸發) ---------
 
   const handleInvalid = (e) => {
@@ -66,12 +81,13 @@ function Form() {
       <form
         //--- 表單送出事件 ---
         onSubmit={handleSubmit}
-        //--- 表單無效事件 ---
+        //--- 表單錯誤事件 ---
         onInvalid={handleInvalid}
         //--- 表單錯誤更正事件 ---
         onChange={handleFormChange}
         className=" mx-auto d-flex flex-column justify-content-center"
       >
+        {/* 您的姓名 */}
         <div class="mb-3 mx-1">
           <label for="exampleFormControlInput1" class="form-label">
             您的姓名
@@ -90,6 +106,7 @@ function Form() {
             <p>{errorMessage.username && errorMessage.username}</p>
           </div>
         </div>
+        {/* Email */}
         <div class="mb-3 mx-1">
           <label for="exampleFormControlInput1" class="form-label">
             Email
@@ -108,6 +125,7 @@ function Form() {
             <p>{errorMessage.email && errorMessage.email}</p>
           </div>
         </div>
+        {/* 請輸入密碼 */}
         <div class="mb-3 mx-1">
           <label for="exampleFormControlInput1" class="form-label">
             請輸入密碼
@@ -129,6 +147,7 @@ function Form() {
             <p>{errorMessage.password && errorMessage.password}</p>
           </div>
         </div>
+        {/* 再次確認密碼 */}
         <div class="mb-3 mx-1">
           <label for="exampleFormControlInput1" class="form-label">
             再次確認密碼
@@ -153,7 +172,14 @@ function Form() {
           <label for="exampleFormControlInput1" class="form-label">
             請選擇性別
           </label>
-          <select class="form-select" aria-label="Default select example">
+          <select
+            type="text"
+            class="form-select"
+            aria-label="Default select example "
+            name="gender"
+            value={member.gender}
+            onChange={handleChange}
+          >
             {/* 用map將 genderArr 跑出所有選項*/}
             {genderArr.map((v, i) => {
               return (
@@ -181,6 +207,13 @@ function Form() {
           <div className="errorMessage mt-2">
             <p>{errorMessage.age && errorMessage.age}</p>
           </div>
+        </div>
+        {/* 上傳大頭貼 */}
+        <div class="mb-3 mx-1 d-flex flex-column">
+          <label for="exampleFormControlInput1" class="form-label">
+            上傳大頭貼
+          </label>
+          <UploadImg />
         </div>
         <button className="btn registerBtn mx-auto mt-3" type="submit">
           <p>送出</p>

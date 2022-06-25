@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../../../../utils/config';
 //--------- 下拉式選單陣列 ---------
 const genderArr = ['男士', '女士', '不提供'];
 
@@ -34,7 +35,7 @@ function Form() {
   };
   //--------- 表單上傳圖片函示 ---------
 
-  // 抓取上傳圖片事件
+  // --- 抓取上傳圖片事件 ---
   const handlePhoto = (e) => {
     // 陣列的索引0(因為只會上傳一張圖片)
     setMember({ ...member, photo: e.target.files[0] });
@@ -47,19 +48,18 @@ function Form() {
     e.preventDefault();
     setMember({ ...member, [e.target.name]: e.target.value });
 
-    // 密碼與確認密碼篩選錯誤訊息
+    // --- 密碼與確認密碼篩選錯誤訊息 ---
     // 作客製/自訂驗証
     if (member.password !== member.confirmPassword) {
       //自訂並取代原有錯誤訊息
       const updatePasswordDoubleCheakErrorMessage = {
         ...errorMessage,
-        password: '密碼與確認密碼輸入值不同',
         confirmPassword: '密碼與確認密碼輸入值不同',
       };
       seterrorMessage(updatePasswordDoubleCheakErrorMessage);
     }
 
-    //如果表單有圖片，會用 FormData 的方式來上傳
+    //--- 如果表單有圖片，會用 FormData 的方式來上傳 ---
     try {
       let formData = new FormData();
       formData.append('username', member.username);
@@ -70,7 +70,9 @@ function Form() {
       formData.append('age', member.age);
       formData.append('photo', member.photo);
 
-      //送去後端
+      //--- 送去後端 ---
+      let response = axios.post(`${API_URL}/auth/register`, formData);
+      console.log(response.data);
     } catch (e) {
       console.error(e);
     }
@@ -157,7 +159,7 @@ function Form() {
             請輸入密碼
           </label>
           <input
-            type="text"
+            type="password"
             name="password"
             value={member.password}
             onChange={handleChange}
@@ -179,7 +181,7 @@ function Form() {
             再次確認密碼
           </label>
           <input
-            type="text"
+            type="password"
             name="confirmPassword"
             value={member.confirmPassword}
             onChange={handleChange}
@@ -241,10 +243,10 @@ function Form() {
           </label>
           <div class="input-group mb-3">
             <input
+              type="file"
               name="photo"
               value={member.photo}
               onChange={handlePhoto}
-              type="file"
               class="form-control"
               id="inputGroupFile02"
             />

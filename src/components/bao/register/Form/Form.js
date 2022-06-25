@@ -37,7 +37,9 @@ function Form() {
   //--------- 表單上傳圖片函示 ---------
 
   // --- 抓取上傳圖片事件 ---
+
   const handlePhoto = (e) => {
+    e.preventDefault();
     // 陣列的索引0(因為只會上傳一張圖片)
     setMember({ ...member, photo: e.target.files[0] });
   };
@@ -47,17 +49,6 @@ function Form() {
   const handleSubmit = async (e) => {
     // 防止表單直接送出
     e.preventDefault();
-
-    // --- 密碼與確認密碼篩選錯誤訊息 ---
-    // 作客製/自訂驗証
-    if (member.password !== member.confirmPassword) {
-      //自訂並取代原有錯誤訊息
-      const updatePasswordDoubleCheakErrorMessage = {
-        ...errorMessage,
-        confirmPassword: '密碼與確認密碼輸入值不同',
-      };
-      seterrorMessage(updatePasswordDoubleCheakErrorMessage);
-    }
 
     //--- 如果表單有圖片，會用 FormData 的方式來上傳 ---
     try {
@@ -75,6 +66,17 @@ function Form() {
       console.log(response.data);
     } catch (e) {
       console.error(e);
+    }
+
+    // --- 密碼與確認密碼篩選錯誤訊息 ---
+    // 作客製/自訂驗証
+    if (member.password !== member.confirmPassword) {
+      //自訂並取代原有錯誤訊息
+      const updatePasswordDoubleCheakErrorMessage = {
+        ...errorMessage,
+        confirmPassword: '密碼與確認密碼輸入值不同',
+      };
+      seterrorMessage(updatePasswordDoubleCheakErrorMessage);
     }
   };
 
@@ -114,6 +116,7 @@ function Form() {
         //--- 表單錯誤更正事件 ---
         onChange={handleFormChange}
         className=" mx-auto d-flex flex-column justify-content-center"
+        target="framFile"
       >
         {/* 您的姓名 */}
         <div class="mb-3 mx-1">
@@ -245,7 +248,7 @@ function Form() {
             <input
               type="file"
               name="photo"
-              value={member.photo}
+              // value={member.photo}
               onChange={handlePhoto}
               class="form-control"
               id="inputGroupFile02"

@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import UploadImg from './UploadImg';
-
+import axios from 'axios';
 //--------- 下拉式選單陣列 ---------
 const genderArr = ['男士', '女士', '不提供'];
 
@@ -14,8 +13,10 @@ function Form() {
     confirmPassword: '',
     gender: '男',
     age: '',
+    photo: '',
   });
   console.log(member);
+
   //--------- 保存誤訊息狀態 ---------
 
   const [errorMessage, seterrorMessage] = useState({
@@ -24,15 +25,24 @@ function Form() {
     password: '',
     confirmPassword: '',
     age: '',
+    photo: '',
   });
   //--------- 表單更換函示 ---------
 
   const handleChange = (e) => {
     setMember({ ...member, [e.target.name]: e.target.value });
   };
+  //--------- 表單上傳圖片函示 ---------
+
+  // 抓取上傳圖片事件
+  const handlePhoto = (e) => {
+    // 陣列的索引0(因為只會上傳一張圖片)
+    setMember({ ...member, photo: e.target.files[0] });
+  };
+
   //--------- 表單送出函示 ---------
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // 防止表單直接送出
     e.preventDefault();
     setMember({ ...member, [e.target.name]: e.target.value });
@@ -47,6 +57,22 @@ function Form() {
         confirmPassword: '密碼與確認密碼輸入值不同',
       };
       seterrorMessage(updatePasswordDoubleCheakErrorMessage);
+    }
+
+    //如果表單有圖片，會用 FormData 的方式來上傳
+    try {
+      let formData = new FormData();
+      formData.append('username', member.username);
+      formData.append('email', member.email);
+      formData.append('password', member.password);
+      formData.append('confirmPassword', member.confirmPassword);
+      formData.append('gender', member.gender);
+      formData.append('age', member.age);
+      formData.append('photo', member.photo);
+
+      //送去後端
+    } catch (e) {
+      console.error(e);
     }
   };
 
@@ -213,7 +239,16 @@ function Form() {
           <label for="exampleFormControlInput1" class="form-label">
             上傳大頭貼
           </label>
-          <UploadImg />
+          <div class="input-group mb-3">
+            <input
+              name="photo"
+              value={member.photo}
+              onChange={handlePhoto}
+              type="file"
+              class="form-control"
+              id="inputGroupFile02"
+            />
+          </div>
         </div>
         <button className="btn registerBtn mx-auto mt-3" type="submit">
           <p>送出</p>

@@ -33,6 +33,7 @@ function Form() {
   const handleChange = (e) => {
     setMember({ ...member, [e.target.name]: e.target.value });
   };
+
   //--------- 表單上傳圖片函示 ---------
 
   // --- 抓取上傳圖片事件 ---
@@ -46,7 +47,6 @@ function Form() {
   const handleSubmit = async (e) => {
     // 防止表單直接送出
     e.preventDefault();
-    setMember({ ...member, [e.target.name]: e.target.value });
 
     // --- 密碼與確認密碼篩選錯誤訊息 ---
     // 作客製/自訂驗証

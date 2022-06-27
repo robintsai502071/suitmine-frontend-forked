@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { API_URL } from '../../../utils/config'; 
+import { API_URL } from '../../../utils/config';
 
 function Form() {
   //--------- 會員狀態 ---------

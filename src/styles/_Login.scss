@@ -1,0 +1,129 @@
+.Login .bgcImg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -9999;
+}
+.Login .bgcImg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+.LoginRow{
+  height: 100vh;
+}
+// ------------------打造屬於您的專屬西裝----------------------
+.Login .registerAllTextBox {
+  padding-right: 150px;
+}
+.Login .registerAllTextBox p {
+  color: #fff;
+  letter-spacing: 1px;
+}
+.Login .registerTextBox {
+  width: 390px;
+  line-height: 26px;
+}
+.Login .registerImgBox {
+  width: 248px;
+  height: 145px;
+  background-color: #fff;
+  margin-top: 35px;
+}
+.Login .registerImgBox img {
+  width: 100%;
+  object-fit: cover;
+}
+// ------------------錯誤訊息----------------------
+.Login .errorMessage p{
+  font-size: 14px;
+  color: rgb(228, 0, 0);
+}
+
+
+// ==================打造屬於您的專屬西裝RWD==================
+@media screen and (max-width: 768px) {
+  .Login .registerTitleCol {
+    padding: 0;
+    margin-bottom: 80px;
+  }
+}
+@media screen and (max-width: 465px) {
+  .Login .registerAllTextBox {
+    padding: 0;
+    margin-bottom: 80px;
+  }
+  .Login .registerTitleBox p {
+    font-size: 33px;
+  }
+  .Login .registerTitleBox {
+    width: 350px;
+  }
+  .Login .registerTextBox {
+    width: 350px;
+  }
+}
+
+// ------------------form表單----------------------
+.Login .registerInputCol {
+  padding-left: 150px;
+}
+.Login .registerInputBox {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  width: 420px;
+  height: 100%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.Login .registerInputBox form {
+  width: 80%;
+}
+.Login .registerBtn {
+  width: 180px;
+  height: 40px;
+  background-color: #000;
+  border-radius: 0;
+}
+.Login .registerBtn p {
+  color: #fff;
+}
+// --------form(蓋樣式)--------
+
+.Login .registerRow .form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
+}
+.Login .registerRow .form-select:focus {
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
+}
+// --------上傳按鈕(蓋樣式)--------
+.Login .ant-btn:active {
+  color: #000000;
+  border-color: #000000;
+  background: #fff;
+}
+// ==================form表單RWD==================
+@media screen and (max-width: 768px) {
+  .Login .registerInputCol {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 465px) {
+  .Login .registerInputBox {
+    width: 350px;
+  }
+}
+

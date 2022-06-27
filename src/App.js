@@ -18,7 +18,7 @@ import MyGiftCard from './pages/Member/MyGiftCard';
 import MyFavorites from './pages/Member/MyFavorites';
 import OrderDetail from './pages/Member/OrderDetail';
 import CustomizeSlient from './pages/CustomizeSlient';
-import ShoppingCart from './pages/ShoppingCart';
+// import ShoppingCart from './pages/ShoppingCart';
 import Register from './pages/Register';
 import MeasurementTeaching from './pages/MeasurementTeaching';
 import ShoppingCartChecking from './pages/ShoppingCartChecking';

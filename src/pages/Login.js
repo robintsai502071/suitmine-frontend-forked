@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from '../components/bao/register/Form/Form';
+import Form from '../components/bao/Login/LoginForm';
 import RegisterBgImg from '../components/images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png';
 
 function Register() {

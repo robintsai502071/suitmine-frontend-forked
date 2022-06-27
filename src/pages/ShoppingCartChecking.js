@@ -1,5 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import { useState } from 'react';
 //引入各部件
 import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
@@ -9,6 +10,17 @@ import Form from 'react-bootstrap/Form';
 import ShoppingCartsample from '../images/alden/ShoppingCart/shoppingCartsample.png';
 
 function ShoppingCartChecking() {
+  // 全選按鈕狀態
+  const [selectAll, setSelectAll] = useState(false);
+
+  const handleClickSelectAll = () => {
+    if (selectAll === false) {
+      setSelectAll(true);
+    } else {
+      setSelectAll(false);
+    }
+  };
+
   return (
     <div className="shopingCart">
       <body>
@@ -37,14 +49,15 @@ function ShoppingCartChecking() {
                           id={`default-${type}`}
                           label={`全選`}
                           className="itslabel"
-                          checked
+                          onClick={handleClickSelectAll}
+                          checked={selectAll}
                         />
                       </div>
                     ))}
                   </Form>
                 </div>
 
-                {/* 商品部分 */}
+                {/* ----------------- 商品部分 ----------------- */}
                 <div className="productDetail row">
                   {/* 商品選擇紐 */}
                   <div className="col-1">
@@ -55,6 +68,8 @@ function ShoppingCartChecking() {
                             type={type}
                             id={`default-${type}`}
                             className="itslabel"
+                            // onClick={handleClickRadio}
+                            checked={selectAll ? selectAll : ''}
                           />
                         </div>
                       ))}
@@ -100,25 +115,25 @@ function ShoppingCartChecking() {
                     {/* 項目條列 */}
                     <div className="col-4 items">
                       <div>
-                        <h5>共1件商品 商品金額</h5>
+                        <h6>共1件商品 商品金額</h6>
                       </div>
                       <div>
-                        <h5>運費</h5>
+                        <h6>運費</h6>
                       </div>
                       <div>
-                        <h5>禮物卡</h5>
+                        <h6>禮物卡</h6>
                       </div>
                     </div>
                     <div className="col-2 itemsPrice">
                       {/* 項目金額 */}
                       <div>
-                        <h5>$1440</h5>
+                        <h6>$1440</h6>
                       </div>
                       <div>
-                        <h5>未選</h5>
+                        <h6>未選</h6>
                       </div>
                       <div>
-                        <h5>$0</h5>
+                        <h6>$0</h6>
                       </div>
                     </div>
                   </div>
@@ -296,7 +311,7 @@ function ShoppingCartChecking() {
           </div>
         </div>
 
-        {/* footer */}
+        {/*----------- footer -----------*/}
         <div className="footerMobile d-none d-sm-block">
           <LayoutFooter />
         </div>

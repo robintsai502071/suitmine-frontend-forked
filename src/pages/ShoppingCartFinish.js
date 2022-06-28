@@ -4,7 +4,6 @@ import 'antd/dist/antd.css';
 import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import Showsteps from '../components/alden/Showsteps';
-import Form from 'react-bootstrap/Form';
 //引入照片
 import ShoppingCartsample from '../images/alden/ShoppingCart/shoppingCartsample.png';
 

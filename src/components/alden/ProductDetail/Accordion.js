@@ -31,7 +31,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>Notch Slim</h6>
+                  <h6>標準領</h6>
                 </div>
               </div>
             </Radio.Button>
@@ -47,7 +47,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>Notch Wide</h6>
+                  <h6>修身領</h6>
                 </div>
               </div>
             </Radio.Button>
@@ -63,7 +63,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>Peak Wide</h6>
+                  <h6>劍領</h6>
                 </div>
               </div>
             </Radio.Button>
@@ -84,7 +84,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>Pocket Flap</h6>
+                  <h6>有蓋口袋</h6>
                 </div>
               </div>
             </Radio.Button>
@@ -99,7 +99,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>No Pocket Flaps</h6>
+                  <h6>無蓋口袋</h6>
                 </div>
               </div>
             </Radio.Button>
@@ -114,7 +114,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>P-Flaps Slanted</h6>
+                  <h6>有蓋斜袋</h6>
                 </div>
               </div>
             </Radio.Button>
@@ -129,7 +129,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>NP-Flaps Slanted</h6>
+                  <h6>無蓋斜袋</h6>
                 </div>
               </div>
             </Radio.Button>
@@ -150,7 +150,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>One</h6>
+                  <h6>單扣</h6>
                 </div>
               </div>
             </Radio.Button>
@@ -165,7 +165,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>Two</h6>
+                  <h6>雙扣</h6>
                 </div>
               </div>
             </Radio.Button>
@@ -180,7 +180,7 @@ const Accordion = () => {
                 </div>
                 {/* 細節名 */}
                 <div>
-                  <h6>Three</h6>
+                  <h6>三扣</h6>
                 </div>
               </div>
             </Radio.Button>

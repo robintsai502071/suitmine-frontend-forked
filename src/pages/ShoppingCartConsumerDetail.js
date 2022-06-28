@@ -81,7 +81,10 @@ function ShoppingCartChecking() {
                       <h5>取貨地址</h5>
                     </div>
                     <div>
-                      <Select placeholder="請選擇取貨地址" />
+                      <Input
+                        placeholder="請選擇取貨地址
+                      "
+                      />
                     </div>
                   </div>
                 </div>

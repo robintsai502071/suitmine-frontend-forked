@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
+import React, { useRef } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
@@ -95,6 +95,8 @@ function CustomizeSlient() {
   const [buttonPerPage, setButtonPerPage] = useState(0);
   const [doublePerPage, setDoublePerPage] = useState(0);
 
+  // -------- 顏色點擊狀態 --------
+  const [changeColor, setChangeColor] = useState([false, false, false]);
   return (
     <>
       <LayoutHeader />
@@ -452,11 +454,28 @@ function CustomizeSlient() {
       <div className="container my-5">
         <div className="changeColorBlock position-relative">
           <div className="position-relative">
+            {/* <!-- changeColorBlockRWD --> */}
             <img
               className="w-100 d-lg-none"
               src={require('../images/robin/Custom/changeFabricColor/main-mobile.png')}
               alt=""
             />
+            <img
+              className="h-100 position-absolute left-0"
+              src={require('../components/images/CustomizeSlient/西裝顏色/黑色.png')}
+              alt=""
+            />
+            <img
+              className="h-100 position-absolute left-0"
+              src={require('../components/images/CustomizeSlient/西裝顏色/藍色.png')}
+              alt=""
+            />
+            <img
+              className="h-100 position-absolute left-0"
+              src={require('../components/images/CustomizeSlient/西裝顏色/灰色.png')}
+              alt=""
+            />
+            {/* 原圖 */}
             <img
               className="w-100 d-none d-lg-block"
               src={require('../images/robin/Custom/changeFabricColor/main.png')}
@@ -464,75 +483,52 @@ function CustomizeSlient() {
             />
             <div className="changeColorBlock__wrapper position-absolute d-flex flex-column">
               <div className="changeColorBtn__title text-white mb-2">黑色</div>
-              <div className="changeColorBtns d-flex">
-                <a href="#" className="changeColorBtns__link d-block">
-                  <img
-                    className="w-100 changeColorBtns__link__image"
-                    src={require('../images/robin/Custom/changeFabricColor/btns/beige.webp')}
-                    alt=""
-                  />
-                </a>
-                <a
-                  href="#"
-                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
+              <div className="changeColorBtns d-flex justify-content-around">
+                <div
+                  onClick={() => {
+                    // changeColor.fill(false);
+                    const clolorArr = [true, false, false];
+                    setChangeColor(clolorArr);
+                    console.log(changeColor);
+                  }}
+                  className="changeColorBtns__link d-block ps-1"
                 >
                   <img
                     className="w-100 changeColorBtns__link__image"
                     src={require('../images/robin/Custom/changeFabricColor/btns/black.webp')}
                     alt=""
                   />
-                </a>
-                <a
-                  href="#"
-                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
+                </div>
+                <div
+                  onClick={() => {
+                    // changeColor.fill(false);
+                    const clolorArr = [false, true, false];
+                    setChangeColor(clolorArr);
+                    console.log(changeColor);
+                  }}
+                  className="changeColorBtns__link d-block ps-1 "
                 >
                   <img
                     className="w-100 changeColorBtns__link__image"
                     src={require('../images/robin/Custom/changeFabricColor/btns/blue.webp')}
                     alt=""
                   />
-                </a>
-                <a
-                  href="#"
-                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
-                >
-                  <img
-                    className="w-100 changeColorBtns__link__image"
-                    src={require('../images/robin/Custom/changeFabricColor/btns/brown.webp')}
-                    alt=""
-                  />
-                </a>
-                <a
-                  href="#"
-                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
+                </div>
+                <div
+                  onClick={() => {
+                    // changeColor.fill(false);
+                    const clolorArr = [false, false, true];
+                    setChangeColor(clolorArr);
+                    console.log(changeColor);
+                  }}
+                  className="changeColorBtns__link d-block ps-1 "
                 >
                   <img
                     className="w-100 changeColorBtns__link__image"
                     src={require('../images/robin/Custom/changeFabricColor/btns/burgundy.webp')}
                     alt=""
                   />
-                </a>
-
-                <a
-                  href="#"
-                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
-                >
-                  <img
-                    className="w-100 changeColorBtns__link__image"
-                    src={require('../images/robin/Custom/changeFabricColor/btns/charcoal.png')}
-                    alt=""
-                  />
-                </a>
-                <a
-                  href="#"
-                  className="changeColorBtns__link d-block ps-1 ps-lg-3"
-                >
-                  <img
-                    className="w-100 changeColorBtns__link__image"
-                    src={require('../images/robin/Custom/changeFabricColor/btns/purple.webp')}
-                    alt=""
-                  />
-                </a>
+                </div>
               </div>
             </div>
           </div>

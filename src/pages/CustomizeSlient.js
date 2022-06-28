@@ -7,6 +7,21 @@ import LayoutFooter from '../components/robert/LayoutFooter';
 import LayoutHeader from '../components/robert/LayoutHeader';
 import { Image } from 'antd';
 import { useState } from 'react';
+import CollarImg1 from '../components/images/CustomizeSlient/領子/單排釦/標準領.png';
+import CollarImg2 from '../components/images/CustomizeSlient/領子/單排釦/劍領.png';
+import CollarImg3 from '../components/images/CustomizeSlient/領子/單排釦/修身領.png';
+import CollarImg4 from '../components/images/CustomizeSlient/領子/雙排釦/標準領.png';
+import CollarImg5 from '../components/images/CustomizeSlient/領子/雙排釦/劍領.png';
+import CollarImg6 from '../components/images/CustomizeSlient/領子/雙排釦/修身領.png';
+import CollarImg7 from '../components/images/CustomizeSlient/領子/雙鈕扣/標準領.png';
+import CollarImg8 from '../components/images/CustomizeSlient/領子/雙鈕扣/劍領.png';
+import CollarImg9 from '../components/images/CustomizeSlient/領子/雙鈕扣/修身領.png';
+import ButtonImg1 from '../components/images/CustomizeSlient/鈕扣/單鈕扣.png';
+import ButtonImg2 from '../components/images/CustomizeSlient/鈕扣/雙排扣.png';
+import ButtonImg3 from '../components/images/CustomizeSlient/鈕扣/雙鈕扣.png';
+import DoubleImg1 from '../components/images/CustomizeSlient/口袋/標準口袋.png';
+import DoubleImg2 from '../components/images/CustomizeSlient/口袋/無蓋口袋.png';
+import DoubleImg3 from '../components/images/CustomizeSlient/口袋/斜蓋口袋.png';
 
 function CustomizeSlient() {
   function SampleNextArrow(props) {
@@ -29,16 +44,56 @@ function CustomizeSlient() {
       />
     );
   }
-  const settings = {
+
+  const settingsCollar = {
     dots: false,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    afterChange: (current) => {
+      setCollarPerPage(current);
+    },
   };
+  const settingsButton = {
+    dots: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    afterChange: (current) => {
+      setButtonPerPage(current);
+    },
+  };
+  const settingsDouble = {
+    dots: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    afterChange: (current) => {
+      setDoublePerPage(current);
+    },
+  };
+  const settingsRWD = {
+    dots: false,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    afterChange: (current) => {
+      setCollarPerPage(current);
+    },
+  };
+
   // lightbox
   const [visible, setVisible] = useState(false);
   const [visible2, setVisible2] = useState(false);
+
+  // -------- slider現在頁數狀態 --------
+  const [collarPerPage, setCollarPerPage] = useState(0);
+  const [buttonPerPage, setButtonPerPage] = useState(0);
+  const [doublePerPage, setDoublePerPage] = useState(0);
 
   return (
     <>
@@ -46,61 +101,252 @@ function CustomizeSlient() {
       {/* 桌機板 banner */}
       <div className="banner d-none d-lg-block">
         <div className="banner__wrapper mx-auto position-relative">
-          <figure className="banner__wrapper__model position-relative w-75 mx-auto">
+          <figure className="banner__wrapper__model position-relative w-75 mx-auto position-relative">
+            {/* ------------領子----------- */}
+            {buttonPerPage === 0 ? (
+              <img
+                src={CollarImg1}
+                alt=""
+                style={{ zIndex: 2 }}
+                className={
+                  collarPerPage === 0
+                    ? 'banner__wrapper__model__image position-absolute'
+                    : 'banner__wrapper__model__image position-absolute d-none'
+                }
+              />
+            ) : (
+              ''
+            )}
+            {buttonPerPage === 0 ? (
+              <img
+                src={CollarImg2}
+                alt=""
+                style={{ zIndex: 2 }}
+                className={
+                  collarPerPage === 1
+                    ? 'banner__wrapper__model__image position-absolute'
+                    : 'banner__wrapper__model__image position-absolute d-none'
+                }
+              />
+            ) : (
+              ''
+            )}
+            {buttonPerPage === 0 ? (
+              <img
+                src={CollarImg3}
+                alt=""
+                style={{ zIndex: 2 }}
+                className={
+                  collarPerPage === 2
+                    ? 'banner__wrapper__model__image position-absolute'
+                    : 'banner__wrapper__model__image position-absolute d-none'
+                }
+              />
+            ) : (
+              ''
+            )}
+            {buttonPerPage === 1 ? (
+              <img
+                src={CollarImg4}
+                alt=""
+                style={{ zIndex: 2 }}
+                className={
+                  collarPerPage === 0
+                    ? 'banner__wrapper__model__image position-absolute'
+                    : 'banner__wrapper__model__image position-absolute d-none'
+                }
+              />
+            ) : (
+              ''
+            )}
+            {buttonPerPage === 1 ? (
+              <img
+                src={CollarImg5}
+                alt=""
+                style={{ zIndex: 2 }}
+                className={
+                  collarPerPage === 1
+                    ? 'banner__wrapper__model__image position-absolute'
+                    : 'banner__wrapper__model__image position-absolute d-none'
+                }
+              />
+            ) : (
+              ''
+            )}
+            {buttonPerPage === 1 ? (
+              <img
+                src={CollarImg6}
+                alt=""
+                style={{ zIndex: 2 }}
+                className={
+                  collarPerPage === 2
+                    ? 'banner__wrapper__model__image position-absolute'
+                    : 'banner__wrapper__model__image position-absolute d-none'
+                }
+              />
+            ) : (
+              ''
+            )}
+            {buttonPerPage === 2 ? (
+              <img
+                src={CollarImg7}
+                alt=""
+                style={{ zIndex: 2 }}
+                className={
+                  collarPerPage === 0
+                    ? 'banner__wrapper__model__image position-absolute'
+                    : 'banner__wrapper__model__image position-absolute d-none'
+                }
+              />
+            ) : (
+              ''
+            )}
+            {buttonPerPage === 2 ? (
+              <img
+                src={CollarImg8}
+                alt=""
+                style={{ zIndex: 2 }}
+                className={
+                  collarPerPage === 1
+                    ? 'banner__wrapper__model__image position-absolute'
+                    : 'banner__wrapper__model__image position-absolute d-none'
+                }
+              />
+            ) : (
+              ''
+            )}
+            {buttonPerPage === 2 ? (
+              <img
+                src={CollarImg9}
+                alt=""
+                style={{ zIndex: 2 }}
+                className={
+                  collarPerPage === 2
+                    ? 'banner__wrapper__model__image position-absolute'
+                    : 'banner__wrapper__model__image position-absolute d-none'
+                }
+              />
+            ) : (
+              ''
+            )}
+
+            {/* ------------鈕扣----------- */}
+            <img
+              src={ButtonImg1}
+              alt=""
+              style={{ zIndex: 1 }}
+              className={
+                buttonPerPage === 0
+                  ? 'banner__wrapper__model__image position-absolute'
+                  : 'banner__wrapper__model__image position-absolute d-none'
+              }
+            />
+            <img
+              src={ButtonImg2}
+              alt=""
+              style={{ zIndex: 1 }}
+              className={
+                buttonPerPage === 1
+                  ? 'banner__wrapper__model__image position-absolute'
+                  : 'banner__wrapper__model__image position-absolute d-none'
+              }
+            />
+            <img
+              src={ButtonImg3}
+              alt=""
+              style={{ zIndex: 1 }}
+              className={
+                buttonPerPage === 2
+                  ? 'banner__wrapper__model__image position-absolute'
+                  : 'banner__wrapper__model__image position-absolute d-none'
+              }
+            />
+            {/* ------------口袋----------- */}
+            <img
+              src={DoubleImg1}
+              alt=""
+              style={{ zIndex: 3 }}
+              className={
+                doublePerPage === 0
+                  ? 'banner__wrapper__model__image position-absolute'
+                  : 'banner__wrapper__model__image position-absolute d-none'
+              }
+            />
+            <img
+              src={DoubleImg2}
+              alt=""
+              style={{ zIndex: 3 }}
+              className={
+                doublePerPage === 1
+                  ? 'banner__wrapper__model__image position-absolute'
+                  : 'banner__wrapper__model__image position-absolute d-none'
+              }
+            />
+            <img
+              src={DoubleImg3}
+              alt=""
+              style={{ zIndex: 3 }}
+              className={
+                doublePerPage === 2
+                  ? 'banner__wrapper__model__image position-absolute'
+                  : 'banner__wrapper__model__image position-absolute d-none'
+              }
+            />
+
+            {/* ------------最底層----------- */}
             <img
               src={require('../images/robin/Custom/banner/main.png')}
               alt=""
               className="banner__wrapper__model__image"
             />
-            <h1 className="banner__wrapper__model__title text-white position-absolute">
+            <h1
+              style={{ zIndex: 5 }}
+              className="banner__wrapper__model__title text-white position-absolute"
+            >
               你的風格<span className="d-block">自己作主</span>
             </h1>
             <div className="banner__wrapper__controller position-absolute">
-              <Slider {...settings} className="lapel">
+              <Slider {...settingsCollar} className="lapel">
                 <div>
                   <h4 className="text-white">標準領</h4>
                 </div>
                 <div>
-                  <h4 className="text-white">修身領</h4>
-                </div>
-                <div>
                   <h4 className="text-white">劍領</h4>
                 </div>
+                <div>
+                  <h4 className="text-white">修身領</h4>
+                </div>
               </Slider>
-              <Slider {...settings} className="buttons my-4">
+              <Slider {...settingsButton} className="buttons my-4">
                 <div>
                   <h4 className="text-white">單鈕扣</h4>
                 </div>
                 <div>
-                  <h4 className="text-white">雙鈕扣</h4>
-                </div>
-                <div>
                   <h4 className="text-white">雙排扣</h4>
                 </div>
+                <div>
+                  <h4 className="text-white">雙鈕扣</h4>
+                </div>
               </Slider>
-              <Slider {...settings} className="pockets">
+              <Slider {...settingsDouble} className="pockets">
                 <div>
                   <h4 className="text-white">標準口袋</h4>
                 </div>
                 <div>
-                  <h4 className="text-white">斜蓋口袋</h4>
-                </div>
-                <div>
-                  <h4 className="text-white">無蓋斜口袋</h4>
-                </div>
-                <div>
                   <h4 className="text-white">無蓋口袋</h4>
+                </div>
+                <div>
+                  <h4 className="text-white">斜蓋口袋</h4>
                 </div>
               </Slider>
             </div>
           </figure>
         </div>
       </div>
-
       {/* 手機板 banner */}
       <div className="container d-lg-none banner-rwd-bg">
         <div className="banner-rwd">
-          <Slider {...settings} className="banner-rwd__slider">
+          <Slider {...settingsRWD} className="banner-rwd__slider">
             <div className="position-relative">
               <img
                 src={require('../images/robin/Custom/banner/RWD/1.png')}

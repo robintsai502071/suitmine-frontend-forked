@@ -461,17 +461,29 @@ function CustomizeSlient() {
               alt=""
             />
             <img
-              className="h-100 position-absolute left-0"
+              className={
+                changeColor[0] === true
+                  ? 'h-100 position-absolute left-0'
+                  : 'h-100 position-absolute left-0 d-none'
+              }
               src={require('../components/images/CustomizeSlient/西裝顏色/黑色.png')}
               alt=""
             />
             <img
-              className="h-100 position-absolute left-0"
+              className={
+                changeColor[1] === true
+                  ? 'h-100 position-absolute left-0'
+                  : 'h-100 position-absolute left-0 d-none'
+              }
               src={require('../components/images/CustomizeSlient/西裝顏色/藍色.png')}
               alt=""
             />
             <img
-              className="h-100 position-absolute left-0"
+              className={
+                changeColor[2] === true
+                  ? 'h-100 position-absolute left-0'
+                  : 'h-100 position-absolute left-0 d-none'
+              }
               src={require('../components/images/CustomizeSlient/西裝顏色/灰色.png')}
               alt=""
             />
@@ -482,16 +494,14 @@ function CustomizeSlient() {
               alt=""
             />
             <div className="changeColorBlock__wrapper position-absolute d-flex flex-column">
-              <div className="changeColorBtn__title text-white mb-2">黑色</div>
-              <div className="changeColorBtns d-flex justify-content-around">
+              <div className=" changeColorBtns d-flex justify-content-around">
                 <div
                   onClick={() => {
                     // changeColor.fill(false);
-                    const clolorArr = [true, false, false];
-                    setChangeColor(clolorArr);
-                    console.log(changeColor);
+                    const clolorArrA = [true, false, false];
+                    setChangeColor(clolorArrA);
                   }}
-                  className="changeColorBtns__link d-block ps-1"
+                  className="btn changeColorBtns__link d-block ps-1"
                 >
                   <img
                     className="w-100 changeColorBtns__link__image"
@@ -502,11 +512,10 @@ function CustomizeSlient() {
                 <div
                   onClick={() => {
                     // changeColor.fill(false);
-                    const clolorArr = [false, true, false];
-                    setChangeColor(clolorArr);
-                    console.log(changeColor);
+                    const clolorArrB = [false, true, false];
+                    setChangeColor(clolorArrB);
                   }}
-                  className="changeColorBtns__link d-block ps-1 "
+                  className="btn changeColorBtns__link d-block ps-1 "
                 >
                   <img
                     className="w-100 changeColorBtns__link__image"
@@ -517,15 +526,14 @@ function CustomizeSlient() {
                 <div
                   onClick={() => {
                     // changeColor.fill(false);
-                    const clolorArr = [false, false, true];
-                    setChangeColor(clolorArr);
-                    console.log(changeColor);
+                    const clolorArrC = [false, false, true];
+                    setChangeColor(clolorArrC);
                   }}
-                  className="changeColorBtns__link d-block ps-1 "
+                  className="btn changeColorBtns__link d-block ps-1 "
                 >
                   <img
                     className="w-100 changeColorBtns__link__image"
-                    src={require('../images/robin/Custom/changeFabricColor/btns/burgundy.webp')}
+                    src={require('../images/robin/Custom/changeFabricColor/btns/gray.webp')}
                     alt=""
                   />
                 </div>

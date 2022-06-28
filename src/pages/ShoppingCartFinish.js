@@ -41,12 +41,13 @@ function ShoppingCartChecking() {
                     <img src={ShoppingCartsample} alt="" />
                   </div>
                   {/* 商品名&客製化按鈕 */}
-                  <div className="col-2">
+                  <div className="col-4">
                     <div>
                       <p4>Hayle Sharkskin Dark Navy Suit</p4>
                     </div>
+                    <h6>客製化 : 標準領/有袋口袋/單扣</h6>
                   </div>
-                  <div className="col-3"></div>
+                  <div className="col-1"></div>
                   {/* 商品數量 */}
                   <div className="col-2 finishNumber">
                     <div className="reduce d-none">

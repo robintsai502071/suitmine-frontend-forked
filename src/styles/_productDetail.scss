@@ -83,7 +83,6 @@
     }
   }
 }
-
 // 商品內容
 .productContentBox {
   @include window {
@@ -423,14 +422,12 @@
     }
   }
   .popBanner {
-    height: 60px;
+    height: 45px;
     background-color: black;
-    margin-top: 8%;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
   }
   //細節內容手風琴
   .Accordion {
-    margin-bottom: 20px;
     .ant-collapse > .ant-collapse-item > .ant-collapse-header {
       height: 45px;
       align-items: center;
@@ -458,10 +455,15 @@
       .ant-radio-button-wrapper:hover div:last-child {
         background-color: black;
       }
-
-      .ant-radio-button-wrapper:focus-within {
-        box-shadow: 0 0 0 3px $dark-gray;
+      .ant-radio-button-wrapper{
+        border: 3px solid rgba(255, 255, 255, 0);
         padding: 0;
+        box-sizing: content-box;
+      }
+      .ant-radio-button-wrapper:focus-within {
+        border: 3px solid black;
+        padding: 0;
+        box-sizing: content-box;
       }
       .ant-radio-button-wrapper {
         padding: 0;
@@ -555,4 +557,12 @@
       right: 37px;
     }
   }
+}
+
+.selectBorder{
+  border: 3px solid black !important; 
+}
+.selectColor{
+  background-color: #000000 !important;
+  width: 100%;
 }

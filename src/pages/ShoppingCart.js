@@ -13,6 +13,7 @@ import Finish from '../components/alden/ShoppingCart/finish';
 
 function ShoppingCartChecking() {
   const [steps, setTotal] = useState(0);
+  console.log(steps);
   return (
     <div className="shopingCart">
       <body>
@@ -42,9 +43,33 @@ function ShoppingCartChecking() {
         <div className="container">
           <div className="row">
             <div className="btnsbar my-5 d-flex  justify-content-between col-10 m-auto">
+              {/* 繼續購物 */}
+              <button
+                href="#top"
+                class={
+                  steps === 0
+                    ? 'btn btn-primary widthbtn'
+                    : 'btn btn-primary widthbtn d-none'
+                }
+                onClick={() => {
+                  if (steps <= 0) {
+                    return setTotal(0);
+                  } else {
+                    setTotal(steps - 1);
+                  }
+                }}
+              >
+                繼續購物
+              </button>
+
+              {/* 上一步 */}
               <a
                 href="#top"
-                class="btn btn-primary widthbtn"
+                class={
+                  steps === 0
+                    ? 'btn btn-primary widthbtn d-none'
+                    : 'btn btn-primary widthbtn'
+                }
                 onClick={() => {
                   if (steps <= 0) {
                     return setTotal(0);
@@ -55,15 +80,33 @@ function ShoppingCartChecking() {
               >
                 上一步
               </a>
+
+              {/* 下一步 */}
               <a
                 href="#top"
-                class="btn btn-primary widthbtn"
+                class={
+                  steps === 3
+                    ? 'btn btn-primary widthbtn d-none'
+                    : 'btn btn-primary widthbtn'
+                }
                 onClick={() => {
                   steps >= 3 ? setTotal(3) : setTotal(steps + 1);
                 }}
               >
                 下一步
               </a>
+
+              {/* 查看訂單 */}
+              <button
+                href="#top"
+                class={
+                  steps === 3
+                    ? 'btn btn-primary widthbtn'
+                    : 'btn btn-primary widthbtn d-none'
+                }
+              >
+                查看訂單
+              </button>
             </div>
           </div>
         </div>

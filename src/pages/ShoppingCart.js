@@ -42,8 +42,8 @@ function ShoppingCartChecking() {
         <div className="container">
           <div className="row">
             <div className="btnsbar my-5 d-flex  justify-content-between col-10 m-auto">
-              <button
-                type="button"
+              <a
+                href="#top"
                 class="btn btn-primary widthbtn"
                 onClick={() => {
                   if (steps <= 0) {
@@ -53,17 +53,17 @@ function ShoppingCartChecking() {
                   }
                 }}
               >
-                繼續購物
-              </button>
-              <button
-                type="button"
+                上一步
+              </a>
+              <a
+                href="#top"
                 class="btn btn-primary widthbtn"
                 onClick={() => {
                   steps >= 3 ? setTotal(3) : setTotal(steps + 1);
                 }}
               >
                 下一步
-              </button>
+              </a>
             </div>
           </div>
         </div>

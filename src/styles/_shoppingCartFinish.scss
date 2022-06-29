@@ -710,6 +710,7 @@
       display: none;
     }
   }
+  //流程樣式
   .ant-steps
     .ant-steps-item:not(.ant-steps-item-active):not(.ant-steps-item-process)
     > .ant-steps-item-container[role='button']:hover
@@ -736,5 +737,16 @@
     > .ant-steps-item-container[role='button']:hover
     .ant-steps-item-description {
     color: $dark-gray;
+  }
+  //下方按鈕樣式
+  .btn-check:focus + .btn-primary,
+  .btn-primary:focus {
+    box-shadow: 0 0 0 0.1rem #727272;
+  }
+  .widthbtn {
+    letter-spacing: 0.5rem;
+    @include mobile {
+      display: none;
+    }
   }
 }

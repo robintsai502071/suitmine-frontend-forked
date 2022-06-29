@@ -11,6 +11,7 @@ import Measurement from './pages/Measurement';
 import Member from './pages/Member/Member';
 import MemberMobileView from './pages/Member/MemberMobileView';
 import ProductDetail from './pages/ProductDetail';
+import ProductDetailUpdate from './pages/ProductDetail_update';
 import ProductList from './pages/ProductList';
 import ChangePassword from './pages/Member/ChangePassword';
 import OrderList from './pages/Member/OrderList';
@@ -120,6 +121,10 @@ function App() {
 
         <Route path="/product-detail">
           <ProductDetail />
+        </Route>
+
+        <Route path="/ProductDetail_update">
+          <ProductDetailUpdate />
         </Route>
 
         <Route path="/product-list">

@@ -156,22 +156,22 @@ function ProductDetail() {
           </div>
 
           {/* 右邊產品細節 */}
-          <div className="col-sm-7">
+          <div className="col-sm-7 d-flex flex-column justify-content-between">
             {/* 右上方區塊 */}
             <div className="topSection">
               {/* 商品名 */}
               <div className="d-none d-sm-block">
-                <h2>Harrogate Gray Suit</h2>
+                <h4 className="text-nowrap">Harrogate Gray Suit</h4>
               </div>
               {/* 商品名 */}
               <div className="d-flex justify-content-center d-sm-none ">
                 <h2>產品介紹</h2>
               </div>
               {/* 商品敘述 */}
-              <div>
-                <h5>
+              <div className=" productNarrative">
+                <h6>
                   現在，正視羅蘭特灰西裝的問題，是非常非常重要的。因為，羅蘭特灰西裝勢必能夠左右未來。羅蘭特灰西裝絕對是史無前例的。我們需要淘汰舊有的觀念，羅蘭特灰西裝似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。
-                </h5>
+                </h6>
               </div>
               {/* 單價 */}
               <div className="d-none d-sm-block">

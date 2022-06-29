@@ -40,8 +40,9 @@ const Accordion = () => {
   };
   return (
     <>
-      <Collapse>
-        <Panel header="This is panel header 1" key="1">
+      <Collapse defaultActiveKey={['1', '2', '3']}>
+        {/* -------------- 領子 --------------*/}
+        <Panel header="客製化領子" key="1" accordion="false">
           <div className="detailContents">
             <Radio.Group name="collar" onChange={handleCollarChange}>
               <Radio.Button
@@ -88,7 +89,10 @@ const Accordion = () => {
                   </div>
                 </div>
               </Radio.Button>
-              <Radio.Button value="劍領">
+              <Radio.Button
+                value="劍領"
+                className={productDetails.collar === '劍領' && 'selectBorder'}
+              >
                 <div>
                   {/* 細節圖片 */}
                   <div>
@@ -98,7 +102,11 @@ const Accordion = () => {
                     />
                   </div>
                   {/* 細節名 */}
-                  <div>
+                  <div
+                    className={
+                      productDetails.collar === '劍領' && 'selectColor'
+                    }
+                  >
                     <h6>劍領</h6>
                   </div>
                 </div>
@@ -106,10 +114,16 @@ const Accordion = () => {
             </Radio.Group>
           </div>
         </Panel>
-        <Panel header="This is panel header 2" key="2">
+        {/* -------------- 口袋 --------------*/}
+        <Panel header="客製化口袋" key="2" accordion="false">
           <div className="detailContents">
             <Radio.Group name="pocket" onChange={handlePocketChange}>
-              <Radio.Button value="有蓋口袋">
+              <Radio.Button
+                value="有蓋口袋"
+                className={
+                  productDetails.pocket === '有蓋口袋' && 'selectBorder'
+                }
+              >
                 <div>
                   {/* 細節圖片 */}
                   <div>
@@ -119,12 +133,21 @@ const Accordion = () => {
                     />
                   </div>
                   {/* 細節名 */}
-                  <div>
+                  <div
+                    className={
+                      productDetails.pocket === '有蓋口袋' && 'selectColor'
+                    }
+                  >
                     <h6>有蓋口袋</h6>
                   </div>
                 </div>
               </Radio.Button>
-              <Radio.Button value="無蓋口袋">
+              <Radio.Button
+                value="無蓋口袋"
+                className={
+                  productDetails.pocket === '無蓋口袋' && 'selectBorder'
+                }
+              >
                 <div>
                   {/* 細節圖片 */}
                   <div>
@@ -134,12 +157,21 @@ const Accordion = () => {
                     />
                   </div>
                   {/* 細節名 */}
-                  <div>
+                  <div
+                    className={
+                      productDetails.pocket === '無蓋口袋' && 'selectColor'
+                    }
+                  >
                     <h6>無蓋口袋</h6>
                   </div>
                 </div>
               </Radio.Button>
-              <Radio.Button value="有蓋斜袋">
+              <Radio.Button
+                value="有蓋斜袋"
+                className={
+                  productDetails.pocket === '有蓋斜袋' && 'selectBorder'
+                }
+              >
                 <div>
                   {/* 細節圖片 */}
                   <div>
@@ -149,12 +181,21 @@ const Accordion = () => {
                     />
                   </div>
                   {/* 細節名 */}
-                  <div>
+                  <div
+                    className={
+                      productDetails.pocket === '有蓋斜袋' && 'selectColor'
+                    }
+                  >
                     <h6>有蓋斜袋</h6>
                   </div>
                 </div>
               </Radio.Button>
-              <Radio.Button value="無蓋斜袋">
+              <Radio.Button
+                value="無蓋斜袋"
+                className={
+                  productDetails.pocket === '無蓋斜袋' && 'selectBorder'
+                }
+              >
                 <div>
                   {/* 細節圖片 */}
                   <div>
@@ -164,7 +205,11 @@ const Accordion = () => {
                     />
                   </div>
                   {/* 細節名 */}
-                  <div>
+                  <div
+                    className={
+                      productDetails.pocket === '無蓋斜袋' && 'selectColor'
+                    }
+                  >
                     <h6>無蓋斜袋</h6>
                   </div>
                 </div>
@@ -172,10 +217,14 @@ const Accordion = () => {
             </Radio.Group>
           </div>
         </Panel>
-        <Panel header="This is panel header 3" key="3">
+        {/* -------------- 釦子 --------------*/}
+        <Panel header="客製化鈕扣" key="3" accordion="false">
           <div className="detailContents">
             <Radio.Group name="button" onChange={handleButtonChange}>
-              <Radio.Button value="單扣">
+              <Radio.Button
+                value="單扣"
+                className={productDetails.button === '單扣' && 'selectBorder'}
+              >
                 <div>
                   {/* 細節圖片 */}
                   <div>
@@ -185,12 +234,19 @@ const Accordion = () => {
                     />
                   </div>
                   {/* 細節名 */}
-                  <div>
+                  <div
+                    className={
+                      productDetails.button === '單扣' && 'selectColor'
+                    }
+                  >
                     <h6>單扣</h6>
                   </div>
                 </div>
               </Radio.Button>
-              <Radio.Button value="雙扣">
+              <Radio.Button
+                value="雙扣"
+                className={productDetails.button === '雙扣' && 'selectBorder'}
+              >
                 <div>
                   {/* 細節圖片 */}
                   <div>
@@ -200,12 +256,19 @@ const Accordion = () => {
                     />
                   </div>
                   {/* 細節名 */}
-                  <div>
+                  <div
+                    className={
+                      productDetails.button === '雙扣' && 'selectColor'
+                    }
+                  >
                     <h6>雙扣</h6>
                   </div>
                 </div>
               </Radio.Button>
-              <Radio.Button value="三扣">
+              <Radio.Button
+                value="三扣"
+                className={productDetails.button === '三扣' && 'selectBorder'}
+              >
                 <div>
                   {/* 細節圖片 */}
                   <div>
@@ -215,7 +278,11 @@ const Accordion = () => {
                     />
                   </div>
                   {/* 細節名 */}
-                  <div>
+                  <div
+                    className={
+                      productDetails.button === '三扣' && 'selectColor'
+                    }
+                  >
                     <h6>三扣</h6>
                   </div>
                 </div>

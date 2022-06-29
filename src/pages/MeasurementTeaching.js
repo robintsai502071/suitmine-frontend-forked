@@ -82,7 +82,6 @@ function SamplePrevArrow(props) {
     <div
       className={className}
       style={
-        
         // 如果是在第一頁左側箭頭隱藏 ，在最後一頁左側按鈕也隱藏
         perPage === 6
           ? // -------------------------------------------

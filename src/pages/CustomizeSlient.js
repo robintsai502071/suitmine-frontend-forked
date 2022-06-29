@@ -456,15 +456,10 @@ function CustomizeSlient() {
           <div className="position-relative">
             {/* <!-- changeColorBlockRWD --> */}
             <img
-              className="w-100 d-lg-none"
-              src={require('../images/robin/Custom/changeFabricColor/main-mobile.png')}
-              alt=""
-            />
-            <img
               className={
                 changeColor[0] === true
-                  ? 'h-100 position-absolute left-0'
-                  : 'h-100 position-absolute left-0 d-none'
+                  ? 'w-100 d-lg-none position-absolute'
+                  : 'w-100 d-lg-none d-none position-absolute'
               }
               src={require('../components/images/CustomizeSlient/西裝顏色/黑色.png')}
               alt=""
@@ -472,7 +467,40 @@ function CustomizeSlient() {
             <img
               className={
                 changeColor[1] === true
-                  ? 'h-100 position-absolute left-0'
+                  ? 'w-100 d-lg-none position-absolute'
+                  : 'w-100 d-lg-none d-none position-absolute'
+              }
+              src={require('../components/images/CustomizeSlient/西裝顏色/藍色.png')}
+              alt=""
+            />
+            <img
+              className={
+                changeColor[2] === true
+                  ? 'w-100 d-lg-none position-absolute'
+                  : 'w-100 d-lg-none d-none position-absolute'
+              }
+              src={require('../components/images/CustomizeSlient/西裝顏色/灰色.png')}
+              alt=""
+            />
+            <img
+              className="w-100 d-lg-none "
+              src={require('../components/images/CustomizeSlient/西裝顏色/黑色.png')}
+              alt=""
+            />
+            {/* <!-- changeColorBlock桌機板 --> */}
+            <img
+              className={
+                changeColor[0] === true
+                  ? 'h-100 position-absolute d-lg-flex d-none left-0'
+                  : 'h-100 position-absolute left-0 d-none'
+              }
+              src={require('../components/images/CustomizeSlient/西裝顏色/黑色.png')}
+              alt=""    
+            />
+            <img
+              className={
+                changeColor[1] === true
+                  ? 'h-100 position-absolute d-lg-flex d-none left-0'
                   : 'h-100 position-absolute left-0 d-none'
               }
               src={require('../components/images/CustomizeSlient/西裝顏色/藍色.png')}
@@ -481,7 +509,7 @@ function CustomizeSlient() {
             <img
               className={
                 changeColor[2] === true
-                  ? 'h-100 position-absolute left-0'
+                  ? 'h-100 position-absolute d-lg-flex d-none left-0'
                   : 'h-100 position-absolute left-0 d-none'
               }
               src={require('../components/images/CustomizeSlient/西裝顏色/灰色.png')}
@@ -497,7 +525,6 @@ function CustomizeSlient() {
               <div className=" changeColorBtns d-flex justify-content-around">
                 <div
                   onClick={() => {
-                    // changeColor.fill(false);
                     const clolorArrA = [true, false, false];
                     setChangeColor(clolorArrA);
                   }}

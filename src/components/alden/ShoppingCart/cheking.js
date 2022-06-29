@@ -1,7 +1,7 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 //引入各部件
-import Showsteps from '../Showsteps';
+// import Showsteps from '../Showsteps';
 import Form from 'react-bootstrap/Form';
 //引入照片
 import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCartsample.png';
@@ -13,10 +13,6 @@ function Cheking() {
       <div className="container-fluid checkingWeb">
         <div className="row">
           <div className="col-7 m-auto">
-            {/* 流程 */}
-            <div className="showSteps">
-              <Showsteps />
-            </div>
             {/* 中間部分(checking) */}
             <div className="checking my-5">
               {/* 全選 */}

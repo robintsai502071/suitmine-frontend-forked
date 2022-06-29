@@ -1,7 +1,6 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 //引入各部件
-import Showsteps from '../../alden/Showsteps';
 import Form from 'react-bootstrap/Form';
 import { Select } from 'antd';
 
@@ -12,10 +11,6 @@ function payment() {
       <div className="container-fluid paymentWeb">
         <div className="row">
           <div className="col-7 m-auto">
-            {/* 流程 */}
-            <div className="showSteps showStepsPayment">
-              <Showsteps />
-            </div>
             {/* 中間部分(payment) */}
             <div className="checking">
               {/* 取貨方式 */}

@@ -11,10 +11,7 @@ import Measurement from './pages/Measurement';
 import Member from './pages/Member';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
-import ShoppingCartChecking from './pages/ShoppingCartChecking';
-import ShoppingCartPayment from './pages/ShoppingCartPayment';
-import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
-import ShoppingCartFinish from './pages/ShoppingCartFinish';
+import ShoppingCart from './pages/ShoppingCart';
 
 function App() {
   return (
@@ -28,20 +25,8 @@ function App() {
           <BookingDate />
         </Route>
 
-        <Route path="/shopping-cart-checking">
-          <ShoppingCartChecking />
-        </Route>
-
-        <Route path="/shopping-cart-payment">
-          <ShoppingCartPayment />
-        </Route>
-
-        <Route path="/shopping-cart-consumerdetail">
-          <ShoppingCartConsumerDetail />
-        </Route>
-
-        <Route path="/shopping-cart-finish">
-          <ShoppingCartFinish />
+        <Route path="/shopping-cart">
+          <ShoppingCart />
         </Route>
 
         <Route path="/booking-map">

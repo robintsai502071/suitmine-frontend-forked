@@ -2,7 +2,6 @@ import React from 'react';
 import 'antd/dist/antd.css';
 //引入各部件
 import { useState } from 'react';
-import Showsteps from '../Showsteps';
 import { Input } from 'antd';
 import { Checkbox } from 'antd';
 import 'antd/dist/antd.css';
@@ -22,10 +21,6 @@ function ConsumerDetail() {
       <div className="container-fluid consumerDetailWeb">
         <div className="row">
           <div className="col-7 m-auto">
-            {/* 流程 */}
-            <div className="showSteps showStepsPayment">
-              <Showsteps />
-            </div>
             {/* 中間部分(consumerDetail) */}
             {/* 填寫資料 */}
             <div className="totalAndcounts d-flex justify-content-center align-items-center flex-column">

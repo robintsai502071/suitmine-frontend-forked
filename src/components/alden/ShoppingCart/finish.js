@@ -1,6 +1,5 @@
 import React from 'react';
 import 'antd/dist/antd.css';
-import Showsteps from '../Showsteps';
 //引入照片
 import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCartsample.png';
 
@@ -11,10 +10,6 @@ function Finish() {
       <div className="container-fluid finishWeb">
         <div className="row">
           <div className="col-7 m-auto">
-            {/* 流程 */}
-            <div className="showSteps">
-              <Showsteps />
-            </div>
             <div className="py-5">
               <h5>
                 親愛的<span className="text-danger">XXX</span>

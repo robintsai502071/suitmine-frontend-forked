@@ -70,6 +70,7 @@ const Accordion = () => {
           </Radio.Group>
         </div>
       </Panel>
+
       <Panel header="口袋" key="2">
         <div className="detailContents">
           <Radio.Group>
@@ -136,6 +137,7 @@ const Accordion = () => {
           </Radio.Group>
         </div>
       </Panel>
+
       <Panel header="扣子" key="3">
         <div className="detailContents">
           <Radio.Group>

@@ -1,7 +1,6 @@
 import { Button, Modal } from 'antd';
 import { useState } from 'react';
 import Accordion from './Accordion';
-import { Form } from 'antd';
 
 const AddDetail = () => {
   const [visible, setVisible] = useState(false);
@@ -47,12 +46,12 @@ const AddDetail = () => {
               </div>
               {/* 上方黑banner */}
               <div className="popBanner"></div>
-              <Form.Item name="radio-group" label="Radio.Group">
-                {/* 細節內容手風琴 */}
-                <div className="Accordion">
-                  <Accordion />
-                </div>
-              </Form.Item>
+
+              {/* 細節內容手風琴 */}
+              <div className="Accordion">
+                <Accordion />
+              </div>
+
               {/* 儲存按鈕 */}
               <div>
                 <button type="button" class="btn btn-primary widthbtn">

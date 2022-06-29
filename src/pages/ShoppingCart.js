@@ -12,7 +12,7 @@ import Payment from '../components/alden/ShoppingCart/payment';
 import Finish from '../components/alden/ShoppingCart/finish';
 
 function ShoppingCartChecking() {
-  const [steps, setTotal] = useState(0);
+  const [steps, setSteps] = useState(0);
   console.log(steps);
   return (
     <div className="shopingCart">
@@ -53,9 +53,9 @@ function ShoppingCartChecking() {
                 }
                 onClick={() => {
                   if (steps <= 0) {
-                    return setTotal(0);
+                    return setSteps(0);
                   } else {
-                    setTotal(steps - 1);
+                    setSteps(steps - 1);
                   }
                 }}
               >
@@ -72,9 +72,9 @@ function ShoppingCartChecking() {
                 }
                 onClick={() => {
                   if (steps <= 0) {
-                    return setTotal(0);
+                    return setSteps(0);
                   } else {
-                    setTotal(steps - 1);
+                    setSteps(steps - 1);
                   }
                 }}
               >
@@ -90,7 +90,7 @@ function ShoppingCartChecking() {
                     : 'btn btn-primary widthbtn'
                 }
                 onClick={() => {
-                  steps >= 3 ? setTotal(3) : setTotal(steps + 1);
+                  steps >= 3 ? setSteps(3) : setSteps(steps + 1);
                 }}
               >
                 下一步

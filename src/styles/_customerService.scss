@@ -1,0 +1,99 @@
+//預設RWD-375
+@mixin mobile {
+  @media (max-width: 576px) {
+    @content;
+  }
+}
+//預設每段高度
+$btnheight: 3%;
+
+@mixin blockheight {
+  margin: $btnheight auto $btnheight auto;
+}
+
+//按鈕
+.btnhere {
+  @include blockheight // background-color: red;
+;
+}
+
+.widthbtn {
+  @include blackbtn;
+  width: 40%;
+  @include mobile {
+    width: 100%;
+  }
+}
+
+//表單行高
+.formbackground {
+  form div {
+    @include blockheight;
+  }
+
+  form div div {
+    @include blockheight;
+  }
+}
+
+//customerServiceBanner
+
+.customerServiceBanner {
+  // border: 5px solid black;
+  padding: 0%;
+  .bannerweb {
+    img {
+      max-height: 300px;
+    }
+    // border: 5px solid red;
+    @include mobile {
+      display: none;
+    }
+  }
+  .bannermobile {
+    img {
+      min-height: 150px;
+      width: 100%;
+    }
+    // border: 5px solid green;
+    @include mobile {
+      // border: 5px solid blue;
+    }
+  }
+}
+
+//標題(聯絡我們)
+.contactUs {
+  text-align: center;
+  margin-bottom: 5%;
+  @include mobile {
+    margin: 12.3%;
+  }
+}
+
+// ruler
+
+.rulers {
+  width: 15%;
+  position: absolute;
+  @include mobile {
+    display: none;
+  }
+  // z-index: -1;
+}
+.rulersLeft {
+  left: 0%;
+  bottom: -10%;
+}
+.rulersRight {
+  right: 0%;
+  bottom: -25%;
+}
+
+.footer {
+  margin-top: 10%;
+}
+
+.customerServiceBanner {
+  margin-bottom: 10%;
+}

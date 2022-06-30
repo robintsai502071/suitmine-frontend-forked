@@ -1,10 +1,10 @@
 import { Button, Modal } from 'antd';
 import { useState } from 'react';
 import Accordion from './Accordion';
-import { Form } from 'antd';
 
 const AddDetail = () => {
   const [visible, setVisible] = useState(false);
+
   return (
     <>
       <Button type="primary" onClick={() => setVisible(true)}>
@@ -30,10 +30,9 @@ const AddDetail = () => {
               <div className="popBanner"></div>
               {/* 細節內容手風琴 */}
               <div className="Accordion">
-                <Accordion />
+                <Accordion setVisible={setVisible} />
               </div>
               {/* 儲存按鈕 */}
-              
             </div>
           </div>
         </div>

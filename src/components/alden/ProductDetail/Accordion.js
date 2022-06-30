@@ -2,7 +2,9 @@ import { Radio, Collapse } from 'antd';
 import { useState } from 'react';
 const { Panel } = Collapse;
 
-const Accordion = () => {
+const Accordion = (props) => {
+  // ----------- 解構 -----------
+  const { setVisible } = props;
   //----------- 設定商品的細節狀態 -----------
   const [productDetails, setProductDetails] = useState({
     collar: '',
@@ -37,6 +39,13 @@ const Accordion = () => {
       [e.target.name]: e.target.value,
     };
     setProductDetails(updateProductDetails);
+  };
+  const localStorageSetItem = () => {
+    localStorage.removeItem('商品客製化(要改商品變數)');
+    localStorage.setItem(
+      '商品客製化(要改商品變數)',
+      JSON.stringify(productDetails)
+    );
   };
   return (
     <>
@@ -292,7 +301,11 @@ const Accordion = () => {
         </Panel>
       </Collapse>
       <div>
-        <button type="button" class="btn btn-primary widthbtn">
+        <button
+          onCancel={(() => setVisible(false), localStorageSetItem)}
+          type="button"
+          class="btn btn-primary widthbtn"
+        >
           儲存細節
         </button>
       </div>

@@ -144,9 +144,12 @@
     border: 1px solid $light-gray;
     //全選
     .allselect {
-      padding: 1% 5%;
+      padding: 1% 2.3%;
       height: 120px;
       border: 1px solid $light-gray;
+      display: flex;
+      align-items: center;
+      padding-top: 3%;
     }
 
     //商品內容
@@ -166,7 +169,7 @@
         flex-direction: column;
         text-align: center;
         div {
-          margin: 15% 0 15% 0;
+          margin: 0% 0 15% 0;
         }
         button {
           width: 70%;
@@ -475,7 +478,7 @@
       padding: 0;
       margin: 0;
       background-color: $light-gray;
-      height: 2000px;
+      height: 100%;
     }
   }
 

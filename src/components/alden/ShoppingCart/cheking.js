@@ -6,6 +6,27 @@ import SubtotalBlockWeb from '../ShoppingCart/cheking/SubtotalBlockWeb';
 import MapProductWeb from './cheking/MapProductWeb';
 
 function Cheking() {
+  //商品
+  const products = [
+    {
+      id: 1,
+      photo: ShoppingCartsample,
+      proName: 'Hayle Sharkskin Dark Navy Suit',
+      button: '單扣',
+      pocket: '有領口袋',
+      lapel: '標準領',
+      price: 1440,
+    },
+    {
+      id: 1,
+      photo: ShoppingCartsample,
+      proName: 'Hayle Sharkskin Dark Navy Suit2222',
+      button: '單扣2',
+      pocket: '有領口袋1',
+      lapel: '標準領3',
+      price: 1330,
+    },
+  ];
   return (
     <>
       {/* checkingWeb */}
@@ -32,8 +53,22 @@ function Cheking() {
               </div>
 
               {/* 商品部分 */}
-              <MapProductWeb />
-              <MapProductWeb />
+              {products.map((product, i) => {
+                const { id, photo, proName, button, pocket, lapel, price } =
+                  product;
+                return (
+                  <MapProductWeb
+                    key={id}
+                    id={id}
+                    photo={photo}
+                    proName={proName}
+                    button={button}
+                    pocket={pocket}
+                    lapel={lapel}
+                    price={price}
+                  />
+                );
+              })}
 
               {/* 總和計算 */}
               <SubtotalBlockWeb />

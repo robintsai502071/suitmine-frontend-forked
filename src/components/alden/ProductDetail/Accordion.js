@@ -4,7 +4,7 @@ const { Panel } = Collapse;
 
 const Accordion = (props) => {
   // ----------- 解構 -----------
-  const { setVisible } = props;
+  const { handleOk } = props;
   //----------- 設定商品的細節狀態 -----------
   const [productDetails, setProductDetails] = useState({
     collar: '',
@@ -41,11 +41,8 @@ const Accordion = (props) => {
     setProductDetails(updateProductDetails);
   };
   const localStorageSetItem = () => {
-    localStorage.removeItem('商品客製化(要改商品變數)');
-    localStorage.setItem(
-      '商品客製化(要改商品變數)',
-      JSON.stringify(productDetails)
-    );
+    localStorage.removeItem('商品客製化');
+    localStorage.setItem('商品客製化', JSON.stringify(productDetails));
   };
   return (
     <>
@@ -302,7 +299,10 @@ const Accordion = (props) => {
       </Collapse>
       <div>
         <button
-          onCancel={(() => setVisible(false), localStorageSetItem)}
+          onClick={() => {
+            localStorageSetItem();
+            handleOk();
+          }}
           type="button"
           class="btn btn-primary widthbtn"
         >

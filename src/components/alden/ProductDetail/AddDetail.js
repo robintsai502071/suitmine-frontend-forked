@@ -1,20 +1,33 @@
 import { Button, Modal } from 'antd';
 import { useState } from 'react';
 import Accordion from './Accordion';
+import { Form } from 'antd';
 
 const AddDetail = () => {
-  const [visible, setVisible] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   return (
     <>
-      <Button type="primary" onClick={() => setVisible(true)}>
+      <Button type="primary" onClick={showModal}>
         客製化細節
       </Button>
       <Modal
         centered
-        visible={visible}
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
+        visible={isModalVisible}
+        onOk={handleOk}
+        onCancel={handleCancel}
         width={900}
         className={'popSelectDetail'}
         footer={null}
@@ -28,11 +41,12 @@ const AddDetail = () => {
               </div>
               {/* 上方黑banner */}
               <div className="popBanner"></div>
-              {/* 細節內容手風琴 */}
-              <div className="Accordion">
-                <Accordion setVisible={setVisible} />
-              </div>
-              {/* 儲存按鈕 */}
+              <Form.Item name="radio-group" label="Radio.Group">
+                {/* 細節內容手風琴 */}
+                <div className="Accordion">
+                  <Accordion handleOk={handleOk} />
+                </div>
+              </Form.Item>
             </div>
           </div>
         </div>

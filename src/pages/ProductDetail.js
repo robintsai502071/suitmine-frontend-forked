@@ -3,6 +3,7 @@ import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import AddInCart from '../components/alden/ProductDetail/AddInCart';
 import AddDetail from '../components/alden/ProductDetail/AddDetail';
+import ProductTabs from '../components/alden/ProductDetail/ProductTabs/ProductTabs';
 import { Image } from 'antd';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -233,101 +234,7 @@ function ProductDetail() {
 
       {/* 評論  */}
       <div className="container-fluid comment">
-        {/* 評論區塊 */}
-        <div className="commentContainer">
-          <div className="commentBlock">
-            {/* 使用者訊息 */}
-            <div className="topSection">
-              {/* 使用者照片ID */}
-              <div>
-                <div className="photo"></div>
-                <div className="userName">
-                  <h4>cklasjl23412341</h4>
-                </div>
-              </div>
-              {/* 評論建立時間 */}
-              <div className="date">
-                <h4 className="d-none d-sm-block">2022/06/06</h4>
-                <h5 className="d-block d-sm-none">2022/06/06</h5>
-              </div>
-            </div>
-            {/* 評論內容 */}
-            <div className="buttonSection">
-              <h5>
-                問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。{' '}
-              </h5>
-            </div>
-          </div>
-          <div className="commentBlock">
-            {/* 使用者訊息 */}
-            <div className="topSection">
-              {/* 使用者照片ID */}
-              <div>
-                <div className="photo"></div>
-                <div className="userName">
-                  <h4>cklasjl23412341</h4>
-                </div>
-              </div>
-              {/* 評論建立時間 */}
-              <div className="date">
-                <h4 className="d-none d-sm-block">2022/06/06</h4>
-                <h5 className="d-block d-sm-none">2022/06/06</h5>
-              </div>
-            </div>
-            {/* 評論內容 */}
-            <div className="buttonSection">
-              <h5>
-                問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。{' '}
-              </h5>
-            </div>
-          </div>
-          <div className="commentBlock">
-            {/* 使用者訊息 */}
-            <div className="topSection">
-              {/* 使用者照片ID */}
-              <div>
-                <div className="photo"></div>
-                <div className="userName">
-                  <h4>cklasjl23412341</h4>
-                </div>
-              </div>
-              {/* 評論建立時間 */}
-              <div className="date">
-                <h4 className="d-none d-sm-block">2022/06/06</h4>
-                <h5 className="d-block d-sm-none">2022/06/06</h5>
-              </div>
-            </div>
-            {/* 評論內容 */}
-            <div className="buttonSection">
-              <h5>
-                問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。{' '}
-              </h5>
-            </div>
-          </div>
-          <div className="commentBlock">
-            {/* 使用者訊息 */}
-            <div className="topSection">
-              {/* 使用者照片ID */}
-              <div>
-                <div className="photo"></div>
-                <div className="userName">
-                  <h4>cklasjl23412341</h4>
-                </div>
-              </div>
-              {/* 評論建立時間 */}
-              <div className="date">
-                <h4 className="d-none d-sm-block">2022/06/06</h4>
-                <h5 className="d-block d-sm-none">2022/06/06</h5>
-              </div>
-            </div>
-            {/* 評論內容 */}
-            <div className="buttonSection">
-              <h5>
-                問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。
-              </h5>
-            </div>
-          </div>
-        </div>
+        <ProductTabs />
         {/* 頁數 */}
         <div className="pages"></div>
       </div>

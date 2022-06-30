@@ -16,12 +16,10 @@ function ProductList() {
 
   //搜尋練習
   const [searchTerm, setSearchTerm] = useState('');
-  //價格排序
-  const [price, setPrice] = useState([1,2,3]);
-
+  
   //錯誤訊息用
   const [error, setError] = useState('');
-  
+
   //商品分頁頁碼功能
   //pageNow目前在第幾頁進來是第一頁 預設是一
   const [pageNow, setPageNow] = useState(1);
@@ -29,11 +27,9 @@ function ProductList() {
   const [perPage, setPerPage] = useState(12);
   //pageTotal總共幾頁
   const [pageTotal, setPageTotal] = useState(1);
-  
-  console.log(price);
 
- 
-  
+  // console.log(price);
+
   //拿後端商品資料
   useEffect(() => {
     let getProduct = async () => {
@@ -83,7 +79,7 @@ function ProductList() {
             {/* <!------------商品顏色、價格 篩選列表------------> */}
             <div className="col-12 filterBar d-flex justify-content-between align-items-center">
               <ul className="align-items-center d-md-flex d-none py-3 mx-3">
-                <FilterBar product={product} price={price} setPrice={setPrice}/>
+                <FilterBar product={product} setProduct={setProduct} />
               </ul>
               {/* <!============= 商品種類篩選抽屜 =============> */}
               <div className="d-md-none ">

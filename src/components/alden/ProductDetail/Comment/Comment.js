@@ -35,6 +35,10 @@ function Comment() {
         <div className="commentTitle">
           <div className="commentTitleBottomBorder">
             <h3>顧客評論</h3>
+            <div>
+              <i class="fa-solid fa-sort-up"></i>時間
+              <i class="fa-solid fa-sort-down"></i>
+            </div>
           </div>
         </div>
         {/* 評論區塊 */}

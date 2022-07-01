@@ -7,7 +7,7 @@ import Videobg from '../../../images/sol/header_video.mp4';
 function VideoBG() {
   return (
     <>
-      <div className="main">
+      <div className="main1">
         <div className="overlay">
           <video className="video1" src={Videobg} autoPlay loop muted />
           <div className="content">

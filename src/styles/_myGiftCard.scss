@@ -1,0 +1,35 @@
+.my-gift-card-display-item {
+  margin: 0.5rem 0;
+  border: 1px solid $light-gray;
+}
+
+.my-gift-card-display-item__image-wrapper {
+  width: 250px;
+  height: 120px;
+}
+
+.my-gift-card-display-item__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.my-gift-card-display-item__info {
+  & > * {
+    @include text;
+  }
+}
+
+@media screen and (max-width: 474px) {
+  .my-gift-card-display-item__image-wrapper {
+    width: 150px;
+    height: 90px;
+  }
+  .my-gift-list__header__title {
+    @include h6;
+  }
+  .my-gift-card-display-item__wrapper {
+    margin-left: 1rem;
+  }
+}

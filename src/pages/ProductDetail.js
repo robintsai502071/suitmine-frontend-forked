@@ -3,7 +3,7 @@ import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import AddInCart from '../components/alden/ProductDetail/AddInCart';
 import AddDetail from '../components/alden/ProductDetail/AddDetail';
-import ProductTabs from '../components/alden/ProductDetail/ProductTabs/ProductTabs';
+import Comment from '../components/alden/ProductDetail/Comment/Comment';
 import { Image } from 'antd';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -40,208 +40,203 @@ function ProductDetail() {
   };
   return (
     <>
-      {/* header */}
-      <div>
-        <LayoutHeader />
-      </div>
-      {/* 背景圖片 */}
-      <div className="container-fluid productDetailBanner">
-        <img
-          src={require('../images/alden/ProductDetail/productDetailBannerImg.png')}
-          alt=""
-        />
-        <div className="fliter"></div>
-        <div className="productName">
-          <h1>Harrogate Gray Suit</h1>
+      <div className="container-fluid ProductDetailmain">
+        {/* header */}
+        <div>
+          <LayoutHeader />
         </div>
-      </div>
-      {/* 背景圖片(手機板) */}
-      <div className="container-fluid productDetailBannerMobile imgControl">
-        <img
-          src={require('../images/alden/ProductDetail/productDetailBannerImgMobile.png')}
-          alt=""
-        />
-        <div className="productName">
-          <h2>Harrogate Gray Suit</h2>
+        {/* 背景圖片 */}
+        <div className="container-fluid productDetailBanner">
+          <img
+            src={require('../images/alden/ProductDetail/productDetailBannerImg.png')}
+            alt=""
+          />
+          <div className="fliter"></div>
+          <div className="productName">
+            <h1>Harrogate Gray Suit</h1>
+          </div>
         </div>
-      </div>
-      {/* 商品內容 */}
-      <div className="container-fluid productContentBox">
-        <div className="productContent row">
-          {/* 左邊照片樣式(電腦版) */}
-          <div className="col-5 imgControl d-none d-sm-block">
-            <img
-              src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
-              alt=""
-            />
-            <Image.PreviewGroup>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs6.png')}
-                  alt=""
-                />
-              </div>
-            </Image.PreviewGroup>
+        {/* 背景圖片(手機板) */}
+        <div className="container-fluid productDetailBannerMobile imgControl">
+          <img
+            src={require('../images/alden/ProductDetail/productDetailBannerImgMobile.png')}
+            alt=""
+          />
+          <div className="productName">
+            <h2>Harrogate Gray Suit</h2>
           </div>
-          {/* 左邊照片樣式(手機板) */}
-          <div className="sliderMobile d-block d-sm-none">
-            <Slider {...settings}>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
-                  alt=""
-                />
-              </div>
-
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
-                  alt=""
-                />
-              </div>
-            </Slider>
-          </div>
-
-          {/* 右邊產品細節 */}
-          <div className="col-sm-7 d-flex flex-column justify-content-between">
-            {/* 右上方區塊 */}
-            <div className="topSection">
-              {/* 商品名 */}
-              <div className="d-none d-sm-block">
-                <h4 className="text-nowrap">Harrogate Gray Suit</h4>
-              </div>
-              {/* 商品名 */}
-              <div className="d-flex justify-content-center d-sm-none ">
-                <h2>產品介紹</h2>
-              </div>
-              {/* 商品敘述 */}
-              <div className=" productNarrative">
-                <h6>
-                  現在，正視羅蘭特灰西裝的問題，是非常非常重要的。因為，羅蘭特灰西裝勢必能夠左右未來。羅蘭特灰西裝絕對是史無前例的。我們需要淘汰舊有的觀念，羅蘭特灰西裝似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。
-                </h6>
-              </div>
-              {/* 單價 */}
-              <div className="d-none d-sm-block">
-                <h4>NT $3500</h4>
-              </div>
+        </div>
+        {/*---------- 商品內容 ----------*/}
+        <div className="container-fluid productContentBox">
+          <div className="productContent row">
+            {/*---------- 左邊照片樣式(電腦版) ----------*/}
+            <div className="col-5 imgControl d-none d-sm-block">
+              <img
+                src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
+                alt=""
+              />
+              <Image.PreviewGroup>
+                <div>
+                  <Image
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs6.png')}
+                    alt=""
+                  />
+                </div>
+              </Image.PreviewGroup>
             </div>
-            {/* 右下方區塊 */}
-            <div className="bottomSection">
-              {/* 材質 */}
-              <div className="texture">
-                <div className="textureTitle">
-                  <div>
-                    <h4>商品細節</h4>
-                  </div>
-                </div>
-                {/* 顏色 */}
+            {/*---------- 左邊照片樣式(手機板) ----------*/}
+            <div className="sliderMobile d-block d-sm-none">
+              <Slider {...settings}>
                 <div>
-                  <div>
-                    <h5>顏色</h5>
-                  </div>
-                  <div>
-                    <h5>灰</h5>
-                  </div>
+                  <img
+                    src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
+                    alt=""
+                  />
                 </div>
-                {/* 花紋 */}
+
                 <div>
-                  <div>
-                    <h5>花紋</h5>
-                  </div>
-                  <div>
-                    <h5>線條</h5>
-                  </div>
+                  <img
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
+                    alt=""
+                  />
                 </div>
+                <div>
+                  <img
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <img
+                    src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
+                    alt=""
+                  />
+                </div>
+              </Slider>
+            </div>
+            {/*---------- 右邊產品細節 ----------*/}
+            <div className="col-sm-7 d-flex flex-column justify-content-between">
+              {/* 右上方區塊 */}
+              <div className="topSection">
+                {/* 商品名 */}
+                <div className="d-none d-sm-block">
+                  <h4 className="text-nowrap">Harrogate Gray Suit</h4>
+                </div>
+                {/* 商品名 */}
+                <div className="d-flex justify-content-center d-sm-none ">
+                  <h2>產品介紹</h2>
+                </div>
+                {/* 商品敘述 */}
+                <div className=" productNarrative">
+                  <h6>
+                    現在，正視羅蘭特灰西裝的問題，是非常非常重要的。因為，羅蘭特灰西裝勢必能夠左右未來。羅蘭特灰西裝絕對是史無前例的。我們需要淘汰舊有的觀念，羅蘭特灰西裝似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。
+                  </h6>
+                </div>
+                {/* 單價 */}
+                <div className="d-none d-sm-block">
+                  <h4>NT $3500</h4>
+                </div>
+              </div>
+              {/* 右下方區塊 */}
+              <div className="bottomSection">
                 {/* 材質 */}
-                <div>
-                  <div>
-                    <h5>材質</h5>
+                <div className="texture">
+                  <div className="textureTitle">
+                    <div>
+                      <h4>商品細節</h4>
+                    </div>
                   </div>
+                  {/* 顏色 */}
                   <div>
-                    <h5>95%羊毛，5%克什米爾</h5>
+                    <div>
+                      <h5>顏色</h5>
+                    </div>
+                    <div>
+                      <h5>灰</h5>
+                    </div>
+                  </div>
+                  {/* 花紋 */}
+                  <div>
+                    <div>
+                      <h5>花紋</h5>
+                    </div>
+                    <div>
+                      <h5>線條</h5>
+                    </div>
+                  </div>
+                  {/* 材質 */}
+                  <div>
+                    <div>
+                      <h5>材質</h5>
+                    </div>
+                    <div>
+                      <h5>95%羊毛，5%克什米爾</h5>
+                    </div>
                   </div>
                 </div>
-              </div>
-              {/* 按鈕 */}
-              <div className="btns">
-                {/* 客製化細節 */}
-                <div className="addDetail">
-                  <AddDetail />
-                </div>
-                {/* 加入購物車 */}
-                <div className="addInCart">
-                  <AddInCart />
+                {/* 按鈕 */}
+                <div className="btns">
+                  {/* 客製化細節 */}
+                  <div className="addDetail">
+                    <AddDetail />
+                  </div>
+                  {/* 加入購物車 */}
+                  <div className="addInCart">
+                    <AddInCart />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* 評論  */}
-      <div className="container-fluid comment">
-        <ProductTabs />
-        {/* 頁數 */}
-        <div className="pages"></div>
-      </div>
-
-      {/* footer */}
-      <div>
-        <LayoutFooter />
+        {/* ---------- 評論 ----------*/}
+        <Comment />
+        {/* footer */}
+        <div>
+          <LayoutFooter />
+        </div>
       </div>
     </>
   );

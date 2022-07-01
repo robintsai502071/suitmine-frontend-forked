@@ -50,8 +50,23 @@
       color: $light-gray;
     }
   }
-  .delBtn {
-    margin-right: -30%;
+  .lastOne {
+    position: relative;
+    .delBtn {
+      position: absolute;
+      // margin-right: -30%;
+      right: 10px;
+      top: -10px;
+      height: 20px;
+      width: 20px;
+      background-image: url('../images//alden/ShoppingCart/image\ 46.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      cursor: pointer;
+    }
+    .delBtn:hover {
+      background-image: url('../images//alden/ShoppingCart/image\ 44.png');
+    }
   }
 
   //checkbox

@@ -79,9 +79,10 @@ function MapProductWeb(props) {
           </div>
         </div>
         {/* 單品總額 */}
-        <div className="col-2 flex-column">
-          <h4 className="mt-5">${price}</h4>
-          <h6 className="mt-4 delBtn">刪除</h6>
+        <div className="col-2 flex-column lastOne">
+          <h4 className="">${price}</h4>
+          {/* 刪除 */}
+          <div className="mt-4 delBtn"></div>
         </div>
       </div>
     </>

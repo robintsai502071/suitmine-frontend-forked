@@ -74,20 +74,10 @@ function Cheking() {
   const initState = (productArray) => {
     return productArray.map((v) => ({ ...v, count: 1 }));
   };
-  // 傳入products陣列，回傳 [1,1....]
-  // const initState = (productArray) => {
-  //   const state = [];
-
-  //   for (let i = 0; i < productArray.length; i++) {
-  //     state.push(1);
-  //   }
-
-  //   return state;
-  // };
 
   // 商品增減按鈕
   const [productsInOrder, setProductsInOrder] = useState(initState(products));
-
+  console.log(productsInOrder);
   //商品總數
   const totalNumber = () => {
     let result = 0;
@@ -165,16 +155,12 @@ function Cheking() {
                     price={price}
                     newProductCounts={newProductCounts}
                     setproductCounts={(newCount) => {
-                      // 1. 從目前的狀態"拷貝"出一個新的變數值(陣列/物件)
-                      // 注意要用map，因為要深拷貝到第一層的物件
                       const newProductsInOrder = productsInOrder.map((v) => {
                         return { ...v };
                       });
 
-                      // 2. 在拷貝出來的新變數(or常數)值(陣列/物件)上作處理
                       newProductsInOrder[i].count = newCount < 1 ? 1 : newCount;
 
-                      // 3. 設定回原本的狀態中
                       setProductsInOrder(newProductsInOrder);
                     }}
                   />

@@ -40,9 +40,9 @@ function GiftCard(props) {
           <h6>{message}</h6>
         </div>
         {/* 單品總額 */}
-        <div className="col-2 flex-column">
-          <h4 className="mt-5">${amount}</h4>
-          <h6 className="mt-4 delBtn">刪除</h6>
+        <div className="col-2 flex-column lastOne">
+          <h4 className="">${amount}</h4>
+          <div className="mt-4 delBtn"></div>
         </div>
       </div>
     </>

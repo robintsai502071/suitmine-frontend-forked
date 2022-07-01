@@ -1,63 +1,34 @@
 import React from 'react';
-const data = [
-  {
-    id: 1,
-    photo: '',
-    email: 'qazwsx6120p@gmail.com',
-    date: '2022/06/06',
-    content:
-      '問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。',
-  },
-  {
-    id: 2,
-    photo: '',
-    email: 'qazwsx6120p@gmail.com',
-    date: '2022/06/06',
-    content:
-      '問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。',
-  },
-  {
-    id: 3,
-    photo: '',
-    email: 'qazwsx6120p@gmail.com',
-    date: '2022/06/06',
-    content: '幹你娘爛商品',
-  },
-  {
-    id: 4,
-    photo: '',
-    email: 'qazwsx6120p@gmail.com',
-    date: '2022/06/06',
-    content:
-      '問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。',
-  },
-  {
-    id: 5,
-    photo: '',
-    email: 'qazwsx6120p@gmail.com',
-    date: '2022/06/06',
-    content:
-      '問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。',
-  },
-  {
-    id: 6,
-    photo: '',
-    email: 'qazwsx6120p@gmail.com',
-    date: '2022/06/06',
-    content:
-      '問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。',
-  },
-  {
-    id: 7,
-    photo: '',
-    email: 'qazwsx6120p@gmail.com',
-    date: '2022/06/06',
-    content:
-      '問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。',
-  },
-];
+import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { API_URL } from '../../../../utils/config';
+// ----- 假資料 -----
 
 function Comment() {
+  // ----- 全部評論狀態 -----
+  const [comment, setComment] = useState([]);
+
+  // ----- 全部評論狀態 -----
+  const [error, setError] = useState('');
+
+  // ----- 從後端傳送資料評論過來 -----
+  const commentAxios = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/prodetail/`);
+      console.log('response', response);
+      //確保資料一定是陣列
+      setComment(response.data);
+    } catch (e) {
+      setError(e.message);
+    }
+  };
+  // ----- 刷新頁面 -----
+  useEffect(() => {
+    // 呼叫 commentAxios 像伺服器要資料
+    commentAxios();
+  }, []);
+  console.log(comment);
   return (
     <>
       <div className="container-fluid comment ">
@@ -67,7 +38,7 @@ function Comment() {
           </div>
         </div>
         {/* 評論區塊 */}
-        {data.map((v, i) => {
+        {comment.map((v, i) => {
           return (
             <div key={v.id} className="commentContainer">
               <div className="commentBlock">
@@ -77,18 +48,18 @@ function Comment() {
                   <div>
                     <div className="photo"></div>
                     <div className="userName">
-                      <h4>{v.email}</h4>
+                      <h4>{v.name}</h4>
                     </div>
                   </div>
                   {/* 評論建立時間 */}
                   <div className="date">
-                    <h4 className="d-none d-sm-block">{v.date}</h4>
-                    <h5 className="d-block d-sm-none">{v.date}</h5>
+                    <h4 className="d-none d-sm-block">{v.commentCreateTime}</h4>
+                    <h5 className="d-block d-sm-none">{v.commentCreateTime}</h5>
                   </div>
                 </div>
                 {/* 評論內容 */}
                 <div className="buttonSection">
-                  <h5>{v.content}</h5>
+                  <h5>{v.commentContent}</h5>
                 </div>
               </div>
             </div>

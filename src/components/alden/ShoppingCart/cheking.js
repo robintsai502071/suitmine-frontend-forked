@@ -149,10 +149,10 @@ function Cheking() {
               </div>
 
               {/* 商品列表 */}
-              {/* {products.map((product, i) => {
+              {products.map((product, i) => {
                 const { id, photo, proName, button, pocket, lapel, price } =
                   product;
-                const newProductCounts = productCounts[i];
+                const newProductCounts = productsInOrder[i].count;
                 return (
                   <MapProductWeb
                     key={id}
@@ -166,16 +166,20 @@ function Cheking() {
                     newProductCounts={newProductCounts}
                     setproductCounts={(newCount) => {
                       // 1. 從目前的狀態"拷貝"出一個新的變數值(陣列/物件)
-                      const newCounts = [...productCounts];
+                      // 注意要用map，因為要深拷貝到第一層的物件
+                      const newProductsInOrder = productsInOrder.map((v) => {
+                        return { ...v };
+                      });
+
                       // 2. 在拷貝出來的新變數(or常數)值(陣列/物件)上作處理
-                      // 限制最少買1樣產品
-                      newCounts[i] = newCount < 1 ? 1 : newCount;
+                      newProductsInOrder[i].count = newCount < 1 ? 1 : newCount;
+
                       // 3. 設定回原本的狀態中
-                      setproductCounts(newCounts);
+                      setProductsInOrder(newProductsInOrder);
                     }}
                   />
                 );
-              })} */}
+              })}
 
               {/* 禮物卡 */}
               {giftCard.map((giftcards, i) => {

@@ -37,6 +37,15 @@ function Cheking() {
       lapel: '標準領3',
       price: 3,
     },
+    {
+      id: 4,
+      photo: ShoppingCartsample,
+      proName: 'Hayle Sharkskin Dark Navy Suit2222',
+      button: '單扣2',
+      pocket: '有領口袋1',
+      lapel: '標準領3',
+      price: 5,
+    },
   ];
 
   //禮物卡
@@ -61,26 +70,29 @@ function Cheking() {
     },
   ];
 
-  // 傳入products陣列，回傳 [1,1....]
+  //在原product的物件中新增count屬性
   const initState = (productArray) => {
-    const state = [];
-
-    for (let i = 0; i < productArray.length; i++) {
-      state.push(1);
-    }
-
-    return state;
+    return productArray.map((v) => ({ ...v, count: 1 }));
   };
+  // 傳入products陣列，回傳 [1,1....]
+  // const initState = (productArray) => {
+  //   const state = [];
+
+  //   for (let i = 0; i < productArray.length; i++) {
+  //     state.push(1);
+  //   }
+
+  //   return state;
+  // };
 
   // 商品增減按鈕
-  const [productCounts, setproductCounts] = useState(initState(products));
+  const [productsInOrder, setProductsInOrder] = useState(initState(products));
 
   //商品總數
   const totalNumber = () => {
     let result = 0;
-
-    for (let i = 0; i < productCounts.length; i++) {
-      result += productCounts[i];
+    for (let i = 0; i < productsInOrder.length; i++) {
+      result += productsInOrder[i].count;
     }
 
     return result;
@@ -90,8 +102,8 @@ function Cheking() {
   const totalPrice = () => {
     let result = 0;
 
-    for (let i = 0; i < productCounts.length; i++) {
-      result += productCounts[i] * products[i].price;
+    for (let i = 0; i < productsInOrder.length; i++) {
+      result += productsInOrder[i].count * productsInOrder[i].price;
     }
 
     return result;
@@ -137,7 +149,7 @@ function Cheking() {
               </div>
 
               {/* 商品列表 */}
-              {products.map((product, i) => {
+              {/* {products.map((product, i) => {
                 const { id, photo, proName, button, pocket, lapel, price } =
                   product;
                 const newProductCounts = productCounts[i];
@@ -163,7 +175,7 @@ function Cheking() {
                     }}
                   />
                 );
-              })}
+              })} */}
 
               {/* 禮物卡 */}
               {giftCard.map((giftcards, i) => {

@@ -1,15 +1,8 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
 function MapProductWeb(props) {
-  // 商品增減按鈕
-  const [productCounts, setproductCounts] = useState(1);
-  const reduce = () => {
-    productCounts <= 1
-      ? setproductCounts(1)
-      : setproductCounts(productCounts - 1);
-  };
   //商品內容
   //EX:
   //   id: 1,
@@ -19,7 +12,23 @@ function MapProductWeb(props) {
   //   pocket: '有領口袋',
   //   lapel: '標準領',
   //   price: 1440,
-  const { photo, proName, button, pocket, lapel, price } = props;
+  const {
+    photo,
+    proName,
+    button,
+    pocket,
+    lapel,
+    price,
+    newProductCounts,
+    setproductCounts,
+  } = props;
+
+  //減按鈕不小於一
+  const reduce = () => {
+    newProductCounts <= 1
+      ? setproductCounts(1)
+      : setproductCounts(newProductCounts - 1);
+  };
 
   return (
     <>
@@ -58,12 +67,12 @@ function MapProductWeb(props) {
             <p>-</p>
           </div>
           <div className="number">
-            <p>{productCounts}</p>
+            <p>{newProductCounts}</p>
           </div>
           <div
             className="plus"
             onClick={() => {
-              setproductCounts(productCounts + 1);
+              setproductCounts(newProductCounts + 1);
             }}
           >
             <p>+</p>

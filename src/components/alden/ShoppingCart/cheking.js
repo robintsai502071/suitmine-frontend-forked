@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCartsample.png';
 import SubtotalBlockWeb from '../ShoppingCart/cheking/SubtotalBlockWeb';
 import MapProductWeb from './cheking/MapProductWeb';
+import { useState } from 'react';
 
 function Cheking() {
   //商品
@@ -15,18 +16,63 @@ function Cheking() {
       button: '單扣',
       pocket: '有領口袋',
       lapel: '標準領',
-      price: 1440,
+      price: 2,
     },
     {
-      id: 1,
+      id: 2,
       photo: ShoppingCartsample,
       proName: 'Hayle Sharkskin Dark Navy Suit2222',
       button: '單扣2',
       pocket: '有領口袋1',
       lapel: '標準領3',
-      price: 1330,
+      price: 5,
+    },
+    {
+      id: 3,
+      photo: ShoppingCartsample,
+      proName: 'Hayle Sharkskin Dark Navy Suit2222',
+      button: '單扣2',
+      pocket: '有領口袋1',
+      lapel: '標準領3',
+      price: 3,
     },
   ];
+  // 傳入products陣列，回傳 [1,1....]
+  const initState = (productArray) => {
+    const state = [];
+
+    for (let i = 0; i < productArray.length; i++) {
+      state.push(1);
+    }
+
+    return state;
+  };
+
+  // 商品增減按鈕
+  const [productCounts, setproductCounts] = useState(initState(products));
+
+  //總數
+  const totalNumber = () => {
+    let result = 0;
+
+    for (let i = 0; i < productCounts.length; i++) {
+      result += productCounts[i];
+    }
+
+    return result;
+  };
+
+  //總額
+  const totalPrice = () => {
+    let result = 0;
+
+    for (let i = 0; i < productCounts.length; i++) {
+      result += productCounts[i] * products[i].price;
+    }
+
+    return result;
+  };
+
   return (
     <>
       {/* checkingWeb */}
@@ -56,6 +102,7 @@ function Cheking() {
               {products.map((product, i) => {
                 const { id, photo, proName, button, pocket, lapel, price } =
                   product;
+                const newProductCounts = productCounts[i];
                 return (
                   <MapProductWeb
                     key={id}
@@ -66,12 +113,25 @@ function Cheking() {
                     pocket={pocket}
                     lapel={lapel}
                     price={price}
+                    newProductCounts={newProductCounts}
+                    setproductCounts={(newCount) => {
+                      // 1. 從目前的狀態"拷貝"出一個新的變數值(陣列/物件)
+                      const newCounts = [...productCounts];
+                      // 2. 在拷貝出來的新變數(or常數)值(陣列/物件)上作處理
+                      // 限制最少買1樣產品
+                      newCounts[i] = newCount < 1 ? 1 : newCount;
+                      // 3. 設定回原本的狀態中
+                      setproductCounts(newCounts);
+                    }}
                   />
                 );
               })}
 
               {/* 總和計算 */}
-              <SubtotalBlockWeb />
+              <SubtotalBlockWeb
+                totalNumber={totalNumber()}
+                totalPrice={totalPrice()}
+              />
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCarts
 import SubtotalBlockWeb from '../ShoppingCart/cheking/SubtotalBlockWeb';
 import MapProductWeb from './cheking/MapProductWeb';
 import { useState } from 'react';
+import GiftCard from './cheking/GiftCard';
 
 function Cheking() {
   //商品
@@ -37,6 +38,29 @@ function Cheking() {
       price: 3,
     },
   ];
+
+  //禮物卡
+  const giftCard = [
+    {
+      id: 1,
+      receiver: '小帥氣',
+      amount: 500,
+      message: '生日快樂500元送你',
+    },
+    {
+      id: 2,
+      receiver: '小美麗',
+      amount: 800,
+      message: '800元給你買西裝喔',
+    },
+    {
+      id: 3,
+      receiver: '小快樂',
+      amount: 20,
+      message: '不無小補',
+    },
+  ];
+
   // 傳入products陣列，回傳 [1,1....]
   const initState = (productArray) => {
     const state = [];
@@ -51,7 +75,7 @@ function Cheking() {
   // 商品增減按鈕
   const [productCounts, setproductCounts] = useState(initState(products));
 
-  //總數
+  //商品總數
   const totalNumber = () => {
     let result = 0;
 
@@ -62,7 +86,7 @@ function Cheking() {
     return result;
   };
 
-  //總額
+  //商品總額
   const totalPrice = () => {
     let result = 0;
 
@@ -70,6 +94,20 @@ function Cheking() {
       result += productCounts[i] * products[i].price;
     }
 
+    return result;
+  };
+
+  //禮物卡總數
+  const giftCardCounts = giftCard.length;
+
+  //禮物卡總額
+  const giftCardTotal = () => {
+    let result = 0;
+
+    for (let i = 0; i < giftCard.length; i++) {
+      result += giftCard[i].amount;
+    }
+    console.log('sum', result);
     return result;
   };
 
@@ -98,7 +136,7 @@ function Cheking() {
                 </Form>
               </div>
 
-              {/* 商品部分 */}
+              {/* 商品列表 */}
               {products.map((product, i) => {
                 const { id, photo, proName, button, pocket, lapel, price } =
                   product;
@@ -127,10 +165,25 @@ function Cheking() {
                 );
               })}
 
+              {/* 禮物卡 */}
+              {giftCard.map((giftcards, i) => {
+                const { id, receiver, amount, message } = giftcards;
+                return (
+                  <GiftCard
+                    id={id}
+                    receiver={receiver}
+                    amount={amount}
+                    message={message}
+                  />
+                );
+              })}
+
               {/* 總和計算 */}
               <SubtotalBlockWeb
                 totalNumber={totalNumber()}
                 totalPrice={totalPrice()}
+                giftCardTotal={giftCardTotal()}
+                giftCardCounts={giftCardCounts}
               />
             </div>
           </div>

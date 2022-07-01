@@ -1,7 +1,10 @@
 import React from 'react';
 
 function SubtotalBlockWeb(props) {
-  const { totalNumber, totalPrice } = props;
+  const { totalNumber, totalPrice, giftCardTotal, giftCardCounts } = props;
+
+  const totalCounts = totalNumber + giftCardCounts;
+  const sum = giftCardTotal + totalPrice;
   return (
     <>
       <div className="subtotalblock">
@@ -11,13 +14,13 @@ function SubtotalBlockWeb(props) {
           {/* 項目條列 */}
           <div className="col-4 items">
             <div>
-              <h5>共{totalNumber}件商品 商品金額</h5>
+              <h5>共{totalCounts}件商品 商品金額</h5>
             </div>
             <div>
               <h5>運費</h5>
             </div>
             <div>
-              <h5>禮物卡</h5>
+              <h5>使用禮物卡</h5>
             </div>
           </div>
           <div className="col-2 itemsPrice">
@@ -48,7 +51,7 @@ function SubtotalBlockWeb(props) {
           </div>
           <div className="col-2">
             <div>
-              <h4>{totalPrice}</h4>
+              <h4>{sum}</h4>
             </div>
           </div>
         </div>

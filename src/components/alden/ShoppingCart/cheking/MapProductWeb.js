@@ -51,10 +51,10 @@ function MapProductWeb(props) {
         <div className="col-2">
           <img src={photo} alt="" />
         </div>
-        {/* 商品名&客製化按鈕 */}
+        {/* 客製化內容 */}
         <div className="col-4">
           <div>
-            <p4>{proName}</p4>
+            <h5>{proName}</h5>
           </div>
           <h6>
             客製化 : {button}/{pocket}/{lapel}

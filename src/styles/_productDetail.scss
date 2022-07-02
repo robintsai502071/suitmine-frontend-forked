@@ -673,6 +673,9 @@
   }
 }
 // ---------------arrowSize------------------
-.arrowSize{
+.arrowSize {
   font-size: 23px;
+}
+.arrowBox {
+  z-index: 999;
 }

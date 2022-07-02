@@ -24,6 +24,7 @@ function Comment() {
 
   //----- perPage 每頁多少項目 -----
   const [pageTotal, setPageTotal] = useState(1); //初始化1，至少會有1頁
+
   //----- 每頁第一筆商品索引與最後一筆商品索引 -----
   const [firstIndex, setFirstIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(0);
@@ -39,6 +40,7 @@ function Comment() {
       // state users必須保持為陣列，不然map會發生中斷錯誤
       if (Array.isArray(response.data)) {
         setComment(response.data);
+
         //總頁數 = 資料的總長度/每頁有幾筆 EX:10筆/每頁5筆 = 2頁
         setPageTotal(Math.ceil(response.data.length / perPage));
       } else {
@@ -62,6 +64,8 @@ function Comment() {
     setLastIndex(pageNow * perPage - 1);
   }, [pageNow]);
 
+  console.log(comment);
+
   return (
     <>
       <div className="container-fluid comment ">
@@ -72,13 +76,25 @@ function Comment() {
             </div>
             <div className="arrowTimeAscBox d-flex align-items-center">
               <i
-                onClick={() => {}}
-                class=" fa-solid fa-sort-up arrowSize mt-2"
+                onClick={() => {
+                  let newOrderComment = comment.sort((a, b) => {
+                    return a.commentCreateTime - b.commentCreateTime;
+                  });
+                  setComment(newOrderComment);
+                  console.log(comment);
+                }}
+                class=" fa-solid fa-sort-up arrowSize mt-2 "
               ></i>
               <p className="mx-3">依時間排序</p>
               <i
-                onClick={() => {}}
-                class=" fa-solid fa-sort-down arrowSize mb-2"
+                onClick={() => {
+                  let newOrderComment = comment.sort((a, b) => {
+                    return a.commentCreateTime - b.commentCreateTime;
+                  });
+                  setComment(newOrderComment);
+                  console.log(comment);
+                }}
+                class=" fa-solid fa-sort-down arrowSize mb-2 "
               ></i>
             </div>
           </div>

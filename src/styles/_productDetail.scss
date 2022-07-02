@@ -302,9 +302,9 @@
       border-bottom: 1px solid $dark-gray;
       padding: 3%;
       padding-bottom: 0%;
-      height: 350px;
+      height: 300px;
       @include mobile375 {
-        height: 360px;
+        height: 300px;
       }
       h3 {
         @include mobile {

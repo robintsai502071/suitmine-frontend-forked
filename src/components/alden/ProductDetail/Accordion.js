@@ -41,8 +41,17 @@ const Accordion = (props) => {
     setProductDetails(updateProductDetails);
   };
   const localStorageSetItem = () => {
-    localStorage.removeItem('商品客製化');
-    localStorage.setItem('商品客製化', JSON.stringify(productDetails));
+    let obj = {};
+    obj = { ...productDetails }; //<--要再增加商品id
+
+    // ==============判斷有沒有車因為沒有車會錯誤所以要先判斷===========
+    if (localStorage.getItem('cart') == null) {
+      let arr = [];
+      localStorage.setItem('cart', JSON.stringify(arr));
+    }
+    let oldCart = JSON.parse(localStorage.getItem('cart'));
+    var newArr = [...oldCart, obj];
+    localStorage.setItem('cart', JSON.stringify(newArr));
   };
   return (
     <>

@@ -21,11 +21,10 @@ function Comment() {
 
   //----- perPage 每頁多少項目 -----
   const perPage = 6;
-  // const [perPage, setPerPage] = useState(6);
 
   //----- perPage 每頁多少項目 -----
   const [pageTotal, setPageTotal] = useState(1); //初始化1，至少會有1頁
-
+  //----- 每頁第一筆商品索引與最後一筆商品索引 -----
   const [firstIndex, setFirstIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(0);
 
@@ -55,8 +54,11 @@ function Comment() {
     commentAxios();
   }, []);
 
+  // ----- 刷新頁面(每頁第一筆商品索引與最後一筆商品索引,會帶進商品呈現的filter) -----
   useEffect(() => {
+    // 第一筆商品索引
     setFirstIndex((pageNow - 1) * perPage);
+    // 最後一筆商品索引
     setLastIndex(pageNow * perPage - 1);
   }, [pageNow]);
 
@@ -84,7 +86,7 @@ function Comment() {
         {/* 評論區塊 */}
         {comment
           .filter((v, i) => {
-            return i >= firstIndex && i <= lastIndex;
+            return i >= firstIndex && i <= lastIndex; // <--先篩選商品區間,再map出來
           })
           .map((v, i) => {
             return (
@@ -96,17 +98,17 @@ function Comment() {
                     <div>
                       <div className="photo"></div>
                       <div className="userName">
-                        <h4>{v.name}</h4>
+                        <h5>{v.name}</h5>
                       </div>
                     </div>
                     {/* 評論建立時間 */}
                     <div className="date">
-                      <h4 className="d-none d-sm-block">
-                        {v.commentCreateTime}
-                      </h4>
-                      <h5 className="d-block d-sm-none">
+                      <h5 className="d-none d-sm-block">
                         {v.commentCreateTime}
                       </h5>
+                      <h6 className="d-block d-sm-none">
+                        {v.commentCreateTime}
+                      </h6>
                     </div>
                   </div>
                   {/* 評論內容 */}
@@ -117,7 +119,6 @@ function Comment() {
               </div>
             );
           })}
-
         {/*------------ 頁數 ------------*/}
         <div className="commentPager d-flex justify-content-center">
           <nav>

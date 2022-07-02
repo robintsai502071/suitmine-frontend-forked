@@ -75,27 +75,13 @@ function Comment() {
               <h3>顧客評論</h3>
             </div>
             <div className="arrowTimeAscBox d-flex align-items-center">
-              <i
-                onClick={() => {
-                  let newOrderComment = comment.sort((a, b) => {
-                    return a.commentCreateTime - b.commentCreateTime;
-                  });
-                  setComment(newOrderComment);
-                  console.log(comment);
-                }}
-                class=" fa-solid fa-sort-up arrowSize mt-2 "
-              ></i>
+              <div className="btn" onClick={() => {}}>
+                <i class=" fa-solid fa-sort-up arrowSize mt-2 "></i>
+              </div>
               <p className="mx-3">依時間排序</p>
-              <i
-                onClick={() => {
-                  let newOrderComment = comment.sort((a, b) => {
-                    return a.commentCreateTime - b.commentCreateTime;
-                  });
-                  setComment(newOrderComment);
-                  console.log(comment);
-                }}
-                class=" fa-solid fa-sort-down arrowSize mb-2 "
-              ></i>
+              <div className="btn " onClick={() => {}}>
+                <i class=" fa-solid fa-sort-down arrowSize mb-2 "></i>
+              </div>
             </div>
           </div>
         </div>

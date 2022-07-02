@@ -88,7 +88,7 @@
 .productContentBox {
   @include window {
     position: relative;
-    // z-index: -1;
+    z-index: -1;
   }
   padding: 0%;
   width: 100%;
@@ -282,6 +282,7 @@
   border-bottom: none;
 }
 .comment {
+  z-index: 999;
   width: 70%;
   padding-right: 10%;
   padding-left: 10%;

@@ -13,6 +13,7 @@ function MapProductWeb(props) {
   //   lapel: '標準領',
   //   price: 1440,
   const {
+    id,
     photo,
     proName,
     button,
@@ -21,6 +22,7 @@ function MapProductWeb(props) {
     price,
     newProductCounts,
     setproductCounts,
+    removeItem,
   } = props;
 
   //減按鈕不小於一
@@ -82,7 +84,8 @@ function MapProductWeb(props) {
         <div className="col-2 flex-column lastOne">
           <h4 className="">${price}</h4>
           {/* 刪除 */}
-          <div className="mt-4 delBtn"></div>
+          {/* data-id:給標籤自訂屬性讓父層 */}
+          <div className="mt-4 delBtn" data-id={id} onClick={removeItem}></div>
         </div>
       </div>
     </>

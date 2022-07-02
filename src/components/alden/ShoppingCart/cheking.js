@@ -17,7 +17,7 @@ function Cheking() {
       button: '單扣',
       pocket: '有領口袋',
       lapel: '標準領',
-      price: 2,
+      price: 2000,
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ function Cheking() {
       button: '單扣2',
       pocket: '有領口袋1',
       lapel: '標準領3',
-      price: 5,
+      price: 5000,
     },
     {
       id: 3,
@@ -35,7 +35,7 @@ function Cheking() {
       button: '單扣2',
       pocket: '有領口袋1',
       lapel: '標準領3',
-      price: 3,
+      price: 3000,
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ function Cheking() {
       button: '單扣2',
       pocket: '有領口袋1',
       lapel: '標準領3',
-      price: 5,
+      price: 5000,
     },
   ];
 
@@ -70,6 +70,30 @@ function Cheking() {
     },
   ];
 
+  //可使用的禮物卡
+  const usableGiftCard = [
+    {
+      id: 1,
+      receiver_user_id: 2,
+      amount: 30,
+    },
+    {
+      id: 1,
+      receiver_user_id: 2,
+      amount: 600,
+    },
+    {
+      id: 1,
+      receiver_user_id: 2,
+      amount: 140,
+    },
+    {
+      id: 1,
+      receiver_user_id: 2,
+      amount: 230,
+    },
+  ];
+
   //在原product的物件中新增count屬性
   const initState = (productArray) => {
     return productArray.map((v) => ({ ...v, count: 1 }));
@@ -77,7 +101,7 @@ function Cheking() {
 
   // 商品增減按鈕
   const [productsInOrder, setProductsInOrder] = useState(initState(products));
-  console.log(productsInOrder);
+  // console.log(productsInOrder);
   //商品總數
   const totalNumber = () => {
     let result = 0;
@@ -139,7 +163,7 @@ function Cheking() {
               </div>
 
               {/* 商品列表 */}
-              {products.map((product, i) => {
+              {productsInOrder.map((product, i) => {
                 const { id, photo, proName, button, pocket, lapel, price } =
                   product;
                 const newProductCounts = productsInOrder[i].count;
@@ -162,6 +186,17 @@ function Cheking() {
                       newProductsInOrder[i].count = newCount < 1 ? 1 : newCount;
 
                       setProductsInOrder(newProductsInOrder);
+                    }}
+                    removeItem={(e) => {
+                      let index = [...productsInOrder].findIndex((item) => {
+                        return item.id == e.target.dataset.id;
+                      });
+                      console.log(index);
+                      const newArr = [...productsInOrder];
+                      newArr.splice(index, 1);
+                      // 3. 設定回原本的狀態中
+                      console.log('篩完', newArr);
+                      setProductsInOrder(newArr);
                     }}
                   />
                 );
@@ -237,7 +272,7 @@ function Cheking() {
             {/* 刪除鍵 */}
             <div>
               <div className="delBtnmobile w-50 h-50 pt-3">
-                <h5></h5>
+                <h5> </h5>
               </div>
             </div>
             {/* 商品數量 */}

@@ -585,7 +585,6 @@
   padding-right: 0%;
 }
 .commentTitleBottomBorder {
-  width: max-content;
   padding-bottom: 2%;
 }
 /* ------------ 商品列表頁碼 ------------ */
@@ -672,4 +671,8 @@
     top: initial;
     left: initial;
   }
+}
+// ---------------arrowSize------------------
+.arrowSize{
+  font-size: 23px;
 }

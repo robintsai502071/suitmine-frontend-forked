@@ -48,7 +48,7 @@ function Cheking() {
     },
   ];
 
-  //禮物卡
+  //準備結帳禮物卡
   const giftCard = [
     {
       id: 1,
@@ -236,8 +236,8 @@ function Cheking() {
           <div className="col-4">
             {/* 刪除鍵 */}
             <div>
-              <div className="delBtn w-50 h-50 pt-3">
-                <h5>刪除</h5>
+              <div className="delBtnmobile w-50 h-50 pt-3">
+                <h5></h5>
               </div>
             </div>
             {/* 商品數量 */}
@@ -270,7 +270,7 @@ function Cheking() {
           </div>
           <div className="row">
             <div className="col-4"></div>
-            <div className="col-4">
+            <div className="col-4 d-none">
               <h5>運費</h5>
             </div>
             <div className="col-4">

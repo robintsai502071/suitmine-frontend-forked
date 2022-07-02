@@ -68,6 +68,17 @@
       background-image: url('../images//alden/ShoppingCart/image\ 44.png');
     }
   }
+  .delBtnmobile {
+    height: 20px !important;
+    width: 20px !important;
+    background-image: url('../images//alden/ShoppingCart/image\ 46.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    &:hover {
+      background-image: url('../images//alden/ShoppingCart/image\ 44.png');
+    }
+  }
 
   //checkbox
   .form-check-input:focus {

@@ -13,10 +13,10 @@ function SubtotalBlockWeb(props) {
           <div className="col-6"></div>
           {/* 項目條列 */}
           <div className="col-4 items">
-            <div>
+            <div className="mt-4">
               <h5>共{totalCounts}件商品 商品金額</h5>
             </div>
-            <div>
+            <div className="d-none">
               <h5>運費</h5>
             </div>
             <div>
@@ -25,10 +25,10 @@ function SubtotalBlockWeb(props) {
           </div>
           <div className="col-2 itemsPrice">
             {/* 項目金額 */}
-            <div>
+            <div className="mt-4">
               <h5>{totalPrice}</h5>
             </div>
-            <div>
+            <div className="d-none">
               <h5>未選</h5>
             </div>
             <div>

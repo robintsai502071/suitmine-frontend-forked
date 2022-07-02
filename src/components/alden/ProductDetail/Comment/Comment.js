@@ -7,10 +7,10 @@ import { API_URL } from '../../../../utils/config';
 
 function Comment() {
   // ----- 全部評論狀態 -----
-  const [comment, setComment] = useState([]);
+  const [oneProduct, setOneProduct] = useState([]);
 
-  // ----- 評論時間排序 -----
-  const [order, setOrder] = useState('asc');
+  // ----- 全部評論狀態 -----
+  const [comment, setComment] = useState([]);
 
   // ----- 排序 -----
   const [error, setError] = useState('');
@@ -29,20 +29,33 @@ function Comment() {
   const [firstIndex, setFirstIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(0);
 
+  // App Route path="/stock/:stockId" <-有設定變數
+  // 從網址上把 :stockId 這個變數拿下來
+  // 可以將axios向後端發請求的網址改成串變數字串的結構
+  const { productID } = useParams();
+
+  // ========= 從後端傳送所有商品過來 =========
+  let productAxios = async () => {
+    const responseProduct = await axios.get(
+      `${API_URL}/prodetail/${productID}`
+    );
+    setOneProduct(responseProduct.data);
+  };
+
   // ========= 從後端傳送資料評論過來 =========
-  const commentAxios = async () => {
+  let commentAxios = async () => {
     try {
-      const response = await axios.get(`${API_URL}/prodetail/`);
-      console.log('response', response.data);
+      const responseComment = await axios.get(`${API_URL}/prodetail/`);
+      console.log('response', responseComment.data);
 
       // 設定到state
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
       // state users必須保持為陣列，不然map會發生中斷錯誤
-      if (Array.isArray(response.data)) {
-        setComment(response.data);
+      if (Array.isArray(responseComment.data)) {
+        setComment(responseComment.data);
 
         //總頁數 = 資料的總長度/每頁有幾筆 EX:10筆/每頁5筆 = 2頁
-        setPageTotal(Math.ceil(response.data.length / perPage));
+        setPageTotal(Math.ceil(responseComment.data.length / perPage));
       } else {
         setError('伺服器目前無法回傳資料，請稍後重試');
       }
@@ -52,6 +65,7 @@ function Comment() {
   };
   // ----- 刷新頁面 -----
   useEffect(() => {
+    productAxios();
     // 呼叫 commentAxios 像伺服器要資料
     commentAxios();
   }, []);

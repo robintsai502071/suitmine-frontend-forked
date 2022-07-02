@@ -4,15 +4,16 @@ const { Search } = Input;
 const onSearch = (value) => console.log(value);
 
 const SearchInput = (props) => {
-  const { setSearchTerm } = props;
+  const { searchWord, setSearchWord } = props;
 
   return (
     <Space direction="vertical">
       <Search
         placeholder="搜尋商品"
         onSearch={onSearch}
+        value={searchWord}
         onChange={(e) => {
-        setSearchTerm(e.target.value);
+          setSearchWord(e.target.value);
         }}
         enterButton
       />

@@ -13,20 +13,43 @@ import { API_URL } from '../utils/config';
 function ProductList() {
   // 原始資料
   const [product, setProduct] = useState([]);
+  // 分頁
+  const [pageTotal, setPageTotal] = useState(1);
+  const [pageNow, setPageNow] = useState(1);
 
-  //搜尋練習
-  const [searchTerm, setSearchTerm] = useState('');
-  
+  const [isMounted, setIsMounted] = useState(false);
+  const perPage = 3;
+  let totalProduct = [];
+
+  //商品名稱搜尋
+  const [searchWord, setSearchWord] = useState('');
+
+  // 顏色篩選
+  const [colorFilter, setColorFilter] = useState('');
+  const colorFilterTypes = ['all', '黑色', '深藍', '灰色'];
+
+  // 價格排序
+  const [sortBy, setSortBy] = useState('');
+  // 商品篩選
+  const [productFilter, setProductFilter] = useState('');
+
   //錯誤訊息用
   const [error, setError] = useState('');
 
   //商品分頁頁碼功能
+  // const [pagenation, setPagenation] = useState({
+  //   pageNow: 1,
+  //   perPage: 5,
+  //   pageTotal: 5,
+  // });
+  // const [renderPage, setRenderPage] = useState([]);
+
   //pageNow目前在第幾頁進來是第一頁 預設是一
-  const [pageNow, setPageNow] = useState(1);
+  // const [pageNow, setPageNow] = useState(1);
   // perPage一頁多少項目
-  const [perPage, setPerPage] = useState(12);
+  // const [perPage, setPerPage] = useState(12);
   //pageTotal總共幾頁
-  const [pageTotal, setPageTotal] = useState(1);
+  // const [pageTotal, setPageTotal] = useState(1);
 
   // console.log(price);
 
@@ -38,12 +61,15 @@ function ProductList() {
       try {
         // axios.get(URL, config)
         let response = await axios.get(`${API_URL}/prolist`);
-        console.log(response);
+        // console.log(response);
         // 設定到state
         // 如果不是回傳陣列有可能是錯誤或得不到正確資料
         // state users必須保持為陣列，不然map會發生中斷錯誤
         if (Array.isArray(response.data)) {
-          setProduct(response.data);
+          // setProduct(response.data);
+          totalProduct = response.data;
+          // console.log([...totalProduct].length);
+          setProduct([...totalProduct].slice(0, perPage));
 
           setPageTotal(Math.ceil(response.data.length / perPage));
         } else {
@@ -56,8 +82,221 @@ function ProductList() {
     };
     //呼叫getProduct函式
     getProduct();
+    setIsMounted(true);
   }, []);
-  // console.log(product);
+
+  // 顏色篩選
+  const handleColorChange = (product, colorFilter) => {
+    let newProducts = [...product];
+
+    // let response = await axios.get(`${API_URL}/prolist`);
+    // const data = response.data;
+    switch (colorFilter) {
+      case 'all':
+        newProducts = product;
+        break;
+      case '黑色':
+        newProducts = product.filter((p) => {
+          return p.color_type === '黑色';
+        });
+
+        break;
+      case '深藍':
+        newProducts = product.filter((p) => {
+          return p.color_type === '深藍';
+        });
+        break;
+      case '灰色':
+        newProducts = product.filter((p) => {
+          return p.color_type === '灰色';
+        });
+        console.log(newProducts);
+        break;
+      // 指所有的產品都出現
+      default:
+        break;
+    }
+    return newProducts;
+
+    // console.log(newProducts);
+    // setProduct(newProducts);
+  };
+
+  // 價格排序
+  const handleSort = (product, sortBy) => {
+    let newProducts = [...product];
+
+    // console.log(`selected ${value}`);
+
+    // 以價格排序-由少至多
+    if (sortBy === '1') {
+      newProducts = [...newProducts].sort((a, b) => a.price - b.price);
+    }
+
+    if (sortBy === '2') {
+      newProducts = [...newProducts].sort((a, b) => b.price - a.price);
+    }
+
+    // 預設用id 小至大
+    if (sortBy === '' && newProducts.length > 0) {
+      newProducts = [...newProducts].sort((a, b) => a.id - b.id);
+    }
+    return newProducts;
+    // console.log(newProducts);
+    // setProduct(newProducts);
+  };
+
+  // 搜尋
+  const handleSearch = (product, searchWord) => {
+    let newProducts = [...product];
+
+    if (searchWord.length) {
+      newProducts = product.filter((product) => {
+        // includes -> String API
+        return product.name.includes(searchWord);
+      });
+    }
+
+    return newProducts;
+  };
+
+  // 商品篩選
+  const handleProductFilter = (product, productFilter) => {
+    let newProducts = [...product];
+
+    // let response = await axios.get(`${API_URL}/prolist`);
+    // const data = response.data;
+    switch (productFilter) {
+      case 1:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 5 && c.product_category_id === 6;
+        });
+        break;
+      case 2:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 5;
+        });
+
+        break;
+      case 3:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 6;
+        });
+        break;
+      case 4:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 7 && c.product_category_id === 8;
+        });
+        break;
+      case 5:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 7;
+        });
+        break;
+      case 6:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 8;
+        });
+        break;
+      case 7:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 9 && c.product_category_id === 10;
+        });
+        break;
+      case 8:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 9;
+        });
+        break;
+      case 9:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 10;
+        });
+        break;
+      case 10:
+        newProducts = product.filter((c) => {
+          return (
+            c.product_category_id === 11 &&
+            c.product_category_id === 12 &&
+            c.product_category_id === 13
+          );
+        });
+        break;
+      case 11:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 11;
+        });
+        break;
+      case 12:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 12;
+        });
+        break;
+      case 13:
+        newProducts = product.filter((c) => {
+          return c.product_category_id === 13;
+        });
+        break;
+      // 指所有的產品都出現
+      default:
+        break;
+    }
+    return newProducts;
+  };
+
+  useEffect(() => {
+    // const newProducts = [...product]
+    if (isMounted) {
+      let getProduct = async () => {
+        //try catch 做錯誤處理
+        try {
+          // axios.get(URL, config)
+          let response = await axios.get(`${API_URL}/prolist`);
+
+          // 設定到state
+          // 如果不是回傳陣列有可能是錯誤或得不到正確資料
+          // state users必須保持為陣列，不然map會發生中斷錯誤
+          if (Array.isArray(response.data)) {
+            // setProduct(response.data);
+            totalProduct = response.data;
+
+            // setPageTotal(Math.ceil(response.data.length / perPage));
+
+            // 處理搜尋
+            totalProduct = handleSearch(totalProduct, searchWord);
+            // console.log('篩選', totalProduct);
+            //價格排序
+            totalProduct = handleSort(totalProduct, sortBy);
+            // 顏色篩選
+            totalProduct = handleColorChange(totalProduct, colorFilter);
+            // 商品篩選
+            totalProduct = handleProductFilter(totalProduct, productFilter);
+            console.log(totalProduct);
+
+            if (Math.ceil(totalProduct.length / perPage) !== pageTotal) {
+              // 重新設定pageTotal
+              setPageTotal(Math.ceil(totalProduct.length / perPage));
+              // 強制回第一頁
+              setPageNow(1);
+            }
+
+            setProduct(
+              totalProduct.slice(perPage * pageNow - perPage, perPage * pageNow)
+            );
+          } else {
+            setError('伺服器目前無法回傳資料，請稍後重試');
+          }
+        } catch (e) {
+          console.error(e);
+          setError(e.message);
+        }
+      };
+      //呼叫getProduct函式
+
+      getProduct();
+    }
+    // 偵測這幾個變數有更動就會執行上面的動作
+  }, [pageNow, searchWord, sortBy, colorFilter, productFilter]);
 
   return (
     <div className="ProductList">
@@ -79,7 +318,13 @@ function ProductList() {
             {/* <!------------商品顏色、價格 篩選列表------------> */}
             <div className="col-12 filterBar d-flex justify-content-between align-items-center">
               <ul className="align-items-center d-md-flex d-none py-3 mx-3">
-                <FilterBar product={product} setProduct={setProduct} />
+                <FilterBar
+                  sortBy={sortBy}
+                  setSortBy={setSortBy}
+                  colorFilter={colorFilter}
+                  setColorFilter={setColorFilter}
+                  colorFilterTypes={colorFilterTypes}
+                />
               </ul>
               {/* <!============= 商品種類篩選抽屜 =============> */}
               <div className="d-md-none ">
@@ -102,11 +347,17 @@ function ProductList() {
             <div className="col-3 productFilter d-md-flex d-none flex-column">
               {/*  -----------搜尋欄位----------- */}
               <div className="searchInput">
-                <SearchInput setSearchTerm={setSearchTerm} />
+                <SearchInput
+                  setSearchWord={setSearchWord}
+                  searchWord={searchWord}
+                />
               </div>
               {/*  -----------商品種類篩選抽屜----------- */}
               <div className="productTypeBar">
-                <ProductTypeBar className="123" />
+                <ProductTypeBar
+                  setProductFilter={setProductFilter}
+                  className="123"
+                />
               </div>
             </div>
             {/* <!------------ 商品列表 ------------> */}
@@ -115,55 +366,41 @@ function ProductList() {
                 {/* <!------------ 商品卡 ------------> */}
 
                 {/*伯 商品資料欄位 */}
-                {product
-                  .filter((v) => {
-                    if (searchTerm == '') {
-                      return v;
-                    } else {
-                      return v.name
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase());
-                    }
-                  })
-                  .map((v, i) => {
-                    return (
-                      <a
-                        key={v.id}
-                        href="#/"
-                        className="col-xxl-3 col-lg-4 col-md-6 col-6 px-3 d-flex cardSize cardBottomMargin"
-                      >
-                        <div className="card cardStyle ">
-                          <div className="imgBox position-relative">
-                            <img
-                              className="imgSize card-img-top"
-                              src={v.product_photo}
-                              alt="..."
-                            />
-                            <a
-                              to={`/productDetail/${product.id}`}
-                              href="#/"
-                              className="viewProject position-absolute top-50 start-50 translate-middle"
-                            >
-                              <p className="text-nowrap viewProjectP">
-                                查看商品
-                              </p>
-                            </a>
-                          </div>
-                          <div className="card-body cardPadding">
-                            <h6 className="card-title englishText ">
-                              {v.name}
-                            </h6>
-                            <div className="d-flex justify-content-between align-items-center">
-                              <p className="h6 price card-text englishText  CardP_Padding">
-                                {v.price}
-                              </p>
-                              <i class="fa-solid fa-heart product-fa-heart"></i>
-                            </div>
+                {product.map((v, i) => {
+                  return (
+                    <a
+                      key={v.id}
+                      href="#/"
+                      className="col-xxl-3 col-lg-4 col-md-6 col-6 px-3 d-flex cardSize cardBottomMargin"
+                    >
+                      <div className="card cardStyle ">
+                        <div className="imgBox position-relative">
+                          <img
+                            className="imgSize card-img-top"
+                            src={v.product_photo}
+                            alt="..."
+                          />
+                          <a
+                            to={`/productDetail/${product.id}`}
+                            href="#/"
+                            className="viewProject position-absolute top-50 start-50 translate-middle"
+                          >
+                            <p className="text-nowrap viewProjectP">查看商品</p>
+                          </a>
+                        </div>
+                        <div className="card-body cardPadding">
+                          <h6 className="card-title englishText ">{v.name}</h6>
+                          <div className="d-flex justify-content-between align-items-center">
+                            <p className="h6 price card-text englishText  CardP_Padding">
+                              {v.price}
+                            </p>
+                            <i className="fa-solid fa-heart product-fa-heart"></i>
                           </div>
                         </div>
-                      </a>
-                    );
-                  })}
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
               {/* <!------------ 商品列表頁碼 ------------> */}
               <nav>
@@ -173,8 +410,7 @@ function ProductList() {
                       className="pager__link"
                       href="#/"
                       onClick={() => {
-                        const previous = pageNow;
-                        setPageNow(previous - 1);
+                        setPageNow(pageNow - 1 < 1 ? pageNow : pageNow - 1);
                       }}
                     >
                       <svg
@@ -192,8 +428,10 @@ function ProductList() {
                       </svg>
                     </a>
                   </li>
+
                   {/* 創造一個依照pageTotal長度的陣列，來呈現目前的分頁元件項目 */}
                   {/* 切換分頁都是在設定pageNow狀態而已 */}
+
                   {Array(pageTotal)
                     .fill(1)
                     .map((v, i) => {
@@ -222,7 +460,9 @@ function ProductList() {
                       className="pager__link"
                       href="#/"
                       onClick={() => {
-                        setPageNow(pageNow - 1);
+                        setPageNow(
+                          pageNow + 1 > pageTotal ? pageNow : pageNow + 1
+                        );
                       }}
                     >
                       <svg

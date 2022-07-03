@@ -5,7 +5,7 @@ import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCarts
 import SubtotalBlockWeb from '../ShoppingCart/cheking/SubtotalBlockWeb';
 import MapProductWeb from './cheking/MapProductWeb';
 import { useState } from 'react';
-import GiftCard from './cheking/GiftCard';
+import GiftCardWed from './cheking/GiftCardWed';
 
 function Cheking() {
   //商品
@@ -48,7 +48,7 @@ function Cheking() {
     },
   ];
 
-  //準備結帳禮物卡
+  //待結帳禮物卡
   const giftCard = [
     {
       id: 1,
@@ -101,7 +101,10 @@ function Cheking() {
 
   // 商品增減按鈕
   const [productsInOrder, setProductsInOrder] = useState(initState(products));
-  // console.log(productsInOrder);
+
+  //待購買禮物卡狀態
+  const [giftCardDel, setGiftCardDel] = useState(giftCard);
+
   //商品總數
   const totalNumber = () => {
     let result = 0;
@@ -124,16 +127,17 @@ function Cheking() {
   };
 
   //禮物卡總數
-  const giftCardCounts = giftCard.length;
+  const giftCardCounts = giftCardDel.length;
+  // console.log('禮物卡數量', giftCardCounts);
 
   //禮物卡總額
   const giftCardTotal = () => {
     let result = 0;
 
-    for (let i = 0; i < giftCard.length; i++) {
-      result += giftCard[i].amount;
+    for (let i = 0; i < giftCardDel.length; i++) {
+      result += giftCardDel[i].amount;
     }
-    console.log('sum', result);
+    // console.log('sum', result);
     return result;
   };
 
@@ -188,14 +192,13 @@ function Cheking() {
                       setProductsInOrder(newProductsInOrder);
                     }}
                     removeItem={(e) => {
+                      //findIndex找出該id
                       let index = [...productsInOrder].findIndex((item) => {
                         return item.id == e.target.dataset.id;
                       });
-                      console.log(index);
                       const newArr = [...productsInOrder];
+                      //從該id開始刪掉一個
                       newArr.splice(index, 1);
-                      // 3. 設定回原本的狀態中
-                      console.log('篩完', newArr);
                       setProductsInOrder(newArr);
                     }}
                   />
@@ -203,14 +206,24 @@ function Cheking() {
               })}
 
               {/* 禮物卡 */}
-              {giftCard.map((giftcards, i) => {
+              {giftCardDel.map((giftcards, i) => {
                 const { id, receiver, amount, message } = giftcards;
                 return (
-                  <GiftCard
+                  <GiftCardWed
                     id={id}
                     receiver={receiver}
                     amount={amount}
                     message={message}
+                    removeGiftCard={(e) => {
+                      //findIndex找出該id
+                      let indexGift = [...giftCardDel].findIndex((item) => {
+                        return item.id == e.target.dataset.id;
+                      });
+                      const newArr = [...giftCardDel];
+                      //從該id開始刪掉一個
+                      newArr.splice(indexGift, 1);
+                      setGiftCardDel(newArr);
+                    }}
                   />
                 );
               })}

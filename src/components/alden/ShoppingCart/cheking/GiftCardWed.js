@@ -1,8 +1,8 @@
 import Form from 'react-bootstrap/Form';
 import React from 'react';
 
-function GiftCard(props) {
-  const { id, receiver, amount, message } = props;
+function GiftCardWed(props) {
+  const { id, receiver, amount, message, removeGiftCard } = props;
   return (
     <>
       <div className="productDetail row">
@@ -42,11 +42,15 @@ function GiftCard(props) {
         {/* 單品總額 */}
         <div className="col-2 flex-column lastOne">
           <h4 className="">${amount}</h4>
-          <div className="mt-4 delBtn"></div>
+          <div
+            className="mt-4 delBtn"
+            data-id={id}
+            onClick={removeGiftCard}
+          ></div>
         </div>
       </div>
     </>
   );
 }
 
-export default GiftCard;
+export default GiftCardWed;

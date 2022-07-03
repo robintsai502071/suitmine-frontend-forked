@@ -84,7 +84,7 @@ function MapProductWeb(props) {
         <div className="col-2 flex-column lastOne">
           <h4 className="">${price}</h4>
           {/* 刪除 */}
-          {/* data-id:給標籤自訂屬性讓父層 */}
+          {/* data-id:給標籤自訂屬性讓父層的dataset */}
           <div className="mt-4 delBtn" data-id={id} onClick={removeItem}></div>
         </div>
       </div>

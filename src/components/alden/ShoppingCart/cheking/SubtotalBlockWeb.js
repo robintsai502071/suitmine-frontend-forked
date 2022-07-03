@@ -26,7 +26,7 @@ function SubtotalBlockWeb(props) {
           <div className="col-2 itemsPrice">
             {/* 項目金額 */}
             <div className="mt-4">
-              <h5>{totalPrice}</h5>
+              <h5>{sum}</h5>
             </div>
             <div className="d-none">
               <h5>未選</h5>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Select } from 'antd';
-import { useRef } from 'react';
 import { useState } from 'react';
 
 function SubtotalBlockWeb(props) {
@@ -48,13 +47,14 @@ function SubtotalBlockWeb(props) {
               <h5>運費</h5>
             </div>
             {/* map禮物卡 */}
-            <div>
+            <div className="mapGiftCard">
               <Select
                 defaultValue="請選擇禮物卡"
                 style={{
                   width: 160,
                   height: 120,
                 }}
+                className="mapGiftCardInside"
                 //onChange會挑選到該option
                 onChange={priceHandler}
               >

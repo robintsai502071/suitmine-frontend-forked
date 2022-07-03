@@ -3,7 +3,8 @@ import OrderListDisplayItem from './OrderListDisplayItem';
 import { useState, useEffect } from 'react';
 import queryString from 'query-string';
 
-function OrderListDisplay() {
+function OrderListDisplay(props) {
+  const orderData = props.orderData;
   const { activeBtnFromQuery } = queryString.parse(window.location.search);
 
   const [activeBtn, setActiveBtn] = useState('待出貨');
@@ -51,11 +52,10 @@ function OrderListDisplay() {
         </div>
 
         <div className="order-list__display">
-          <OrderListDisplayItem />
-          <OrderListDisplayItem />
+          {orderData.orders?.map((ordersItem) => (
+            <OrderListDisplayItem ordersItem={ordersItem} />
+          ))}
         </div>
-
-        
       </div>
     </>
   );

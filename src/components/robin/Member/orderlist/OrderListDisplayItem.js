@@ -2,7 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import { Modal, Radio, Space } from 'antd';
 
-function OrderListDisplayItem() {
+function OrderListDisplayItem(props) {
+  const orderData = props.ordersItem;
+  console.log('55555555', orderData);
   // Modal 開啟狀態
   const [CancelOrderModal, setCancelOrderModal] = useState(false);
   // 開啟 Modal 後 radio 初始值
@@ -15,11 +17,11 @@ function OrderListDisplayItem() {
 
   return (
     <>
-      <a className="order-list-display-item d-block">
+      <a key={orderData.id} className="order-list-display-item d-block">
         <div className="order-list-display-item__wrapper container">
           <div className="order-list-display-item__header">
             <div className="order-list-display-item__header__number">
-              訂單編號：123456789
+              訂單編號： {orderData.order_id}
             </div>
 
             <div className="order-list-display-item__header__status">
@@ -45,7 +47,7 @@ function OrderListDisplayItem() {
                 </div>
 
                 <div className="order-list-display-item__body__info__amount">
-                  訂單金額 $80
+                  訂單金額 {orderData.product_name}
                 </div>
               </div>
             </div>
@@ -78,7 +80,6 @@ function OrderListDisplayItem() {
             <Radio value={1}>修改訂單內容</Radio>
             <Radio value={2}>改變心意</Radio>
             <Radio value={3}>出貨時間太久</Radio>
-            
           </Space>
         </Radio.Group>
       </Modal>

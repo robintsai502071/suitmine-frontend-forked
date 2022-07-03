@@ -1,10 +1,16 @@
 import { Form, Input, Radio, Button } from 'antd';
 import React from 'react';
 
-function MainForm() {
+function MainForm(props) {
+  const { memberData } = props;
+  console.log('bbbbb', memberData);
+
   return (
     <>
-      <a href="http://localhost:3000/member/user" className="goBackBtn m-user-position">
+      <a
+        href="http://localhost:3000/member/user"
+        className="goBackBtn m-user-position"
+      >
         <i className="fa-solid fa-arrow-left-long me-2"></i>
         回上一頁
       </a>
@@ -28,14 +34,15 @@ function MainForm() {
         <Form
           // labelCol={{ span: 8 }}
           // wrapperCol={{ span: 16 }}
+          key={memberData.id}
           autoComplete="off"
           colon={false}
           initialValues={{
-            username: '123',
-            gender: '1',
-            email: 'test@gmail.com',
-            phone: '0963252525',
-            address: '334 桃園市中壢區新生路二段421號',
+            username: memberData.name,
+            gender: memberData.gender,
+            email: memberData.email,
+            phone: memberData.phone,
+            address: memberData.address,
           }}
           disabled
         >
@@ -59,9 +66,9 @@ function MainForm() {
               }}
             >
               <Radio.Group>
-                <Radio value="0">先生</Radio>
-                <Radio value="1">小姐</Radio>
-                <Radio value="2"> 不透露 </Radio>
+                <Radio value={0}>先生</Radio>
+                <Radio value={1}>小姐</Radio>
+                <Radio value={2}> 不透露 </Radio>
               </Radio.Group>
             </Form.Item>
           </Form.Item>

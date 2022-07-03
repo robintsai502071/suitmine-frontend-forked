@@ -14,7 +14,7 @@ function Comment() {
   const [getproduc, setGetProduc] = useState([]);
 
   // ----- 時間正序反序狀態 -----
-  const [timeSort, setTimeSort] = useState(true);
+  const [timeSort, setTimeSort] = useState(null);
 
   // ----- 排序 -----
   const [error, setError] = useState('');
@@ -50,6 +50,7 @@ function Comment() {
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
       // state users必須保持為陣列，不然map會發生中斷錯誤
       if (Array.isArray(responseProduct.data)) {
+
         setGetProduc(responseProduct.data);
 
         //總頁數 = 資料的總長度/每頁有幾筆 EX:10筆/每頁5筆 = 2頁
@@ -76,23 +77,23 @@ function Comment() {
   }, [pageNow]);
 
   // ----- 刷新頁面(時間排序) -----
-  // useEffect(() => {
-  //   productAxios();
-  //   if (timeSort === true) {
-  //     getproduc.sort((a, b) => {
-  //       return a.id - b.id;
-  //     });
-  //     setGetProduc(getproduc);
-  //     console.log(getproduc);
+  useEffect(() => {
+    productAxios();
+    if (timeSort === true) {
+      getproduc.sort((a, b) => {
+        return a.id - b.id;
+      });
+      setGetProducSort(getproduc);
+      console.log(getproducSort);
 
-  //   } else if (timeSort === false) {
-  //     getproduc.sort((a, b) => {
-  //       return b.id - a.id;
-  //     });
-  //     setGetProduc(getproduc);
-  //     console.log(getproduc);
-  //   }
-  // }, [timeSort]);
+    } else if (timeSort === false) {
+      getproduc.sort((a, b) => {
+        return b.id - a.id;
+      });
+      setGetProducSort(getproduc);
+      console.log(getproducSort);
+    }
+  }, [timeSort]);
 
   return (
     <>
@@ -107,6 +108,7 @@ function Comment() {
                 className="btn arrowbtn"
                 onClick={() => {
                   setTimeSort(true);
+                  console.log(timeSort);
                 }}
               >
                 <i class=" fa-solid fa-sort-up arrowSize mt-2 "></i>
@@ -116,6 +118,7 @@ function Comment() {
                 className="btn arrowbtn"
                 onClick={() => {
                   setTimeSort(false);
+                  console.log(timeSort);
                 }}
               >
                 <i class=" fa-solid fa-sort-down arrowSize mb-2 "></i>
@@ -124,14 +127,7 @@ function Comment() {
           </div>
         </div>
         {/* 評論區塊 */}
-        {getproduc
-          .sort((a, b) => {
-            if (timeSort === true) {
-              return a.id - b.id;
-            } else {
-              return b.id - a.id;
-            }
-          })
+        {timeSort == null ? getproduc
           .filter((v, i) => {
             return i >= firstIndex && i <= lastIndex; // <--先篩選商品區間,再map出來
           })
@@ -145,7 +141,7 @@ function Comment() {
                     <div>
                       <div className="photo"></div>
                       <div className="userName">
-                        <h5>{v.name}</h5>
+                        <h5>{v.id}</h5>
                       </div>
                     </div>
                     {/* 評論建立時間 */}
@@ -165,7 +161,42 @@ function Comment() {
                 </div>
               </div>
             );
-          })}
+          }) : getproducSort
+            .filter((v, i) => {
+              return i >= firstIndex && i <= lastIndex; // <--先篩選商品區間,再map出來
+            })
+            .map((v, i) => {
+              return (
+                <div key={v.id} className="commentContainer">
+                  <div className="commentBlock">
+                    {/* 使用者訊息 */}
+                    <div className="topSection">
+                      {/* 使用者照片ID */}
+                      <div>
+                        <div className="photo"></div>
+                        <div className="userName">
+                          <h5>{v.id}</h5>
+                        </div>
+                      </div>
+                      {/* 評論建立時間 */}
+                      <div className="date">
+                        <h5 className="d-none d-sm-block">
+                          {v.commentCreateTime}
+                        </h5>
+                        <h6 className="d-block d-sm-none">
+                          {v.commentCreateTime}
+                        </h6>
+                      </div>
+                    </div>
+                    {/* 評論內容 */}
+                    <div className="buttonSection">
+                      <h5>{v.commentContent}</h5>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+
         {/*------------ 頁數 ------------*/}
         <div className="commentPager d-flex justify-content-center">
           <nav>
@@ -201,9 +232,8 @@ function Comment() {
                     <>
                       <li
                         key={i}
-                        className={`pager__item ${
-                          i + 1 === pageNow ? 'active' : ''
-                        }
+                        className={`pager__item ${i + 1 === pageNow ? 'active' : ''
+                          }
                         `}
                       >
                         {/* active */}

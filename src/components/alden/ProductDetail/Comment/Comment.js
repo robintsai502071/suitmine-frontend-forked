@@ -3,14 +3,18 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../../../../utils/config';
+
 // ----- 假資料 -----
 
 function Comment() {
-  // ----- 全部評論狀態 -----
-  const [oneProduct, setOneProduct] = useState([]);
+  // ----- 全部商品時間排序狀態 -----
+  const [getproducSort, setGetProducSort] = useState([]);
 
-  // ----- 全部評論狀態 -----
-  const [comment, setComment] = useState([]);
+  // ----- 全部商品狀態 -----
+  const [getproduc, setGetProduc] = useState([]);
+
+  // ----- 時間正序反序狀態 -----
+  const [timeSort, setTimeSort] = useState(true);
 
   // ----- 排序 -----
   const [error, setError] = useState('');
@@ -34,28 +38,22 @@ function Comment() {
   // 可以將axios向後端發請求的網址改成串變數字串的結構
   const { productID } = useParams();
 
-  // ========= 從後端傳送所有商品過來 =========
-  let productAxios = async () => {
-    const responseProduct = await axios.get(
-      `${API_URL}/prodetail/${productID}`
-    );
-    setOneProduct(responseProduct.data);
-  };
-
   // ========= 從後端傳送資料評論過來 =========
-  let commentAxios = async () => {
+  let productAxios = async () => {
     try {
-      const responseComment = await axios.get(`${API_URL}/prodetail/`);
-      console.log('response', responseComment.data);
+      const responseProduct = await axios.get(
+        `${API_URL}/prodetail/`
+        // ${productID} <-- 要放在上面網址抓特定id的商品
+      );
 
       // 設定到state
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
       // state users必須保持為陣列，不然map會發生中斷錯誤
-      if (Array.isArray(responseComment.data)) {
-        setComment(responseComment.data);
+      if (Array.isArray(responseProduct.data)) {
+        setGetProduc(responseProduct.data);
 
         //總頁數 = 資料的總長度/每頁有幾筆 EX:10筆/每頁5筆 = 2頁
-        setPageTotal(Math.ceil(responseComment.data.length / perPage));
+        setPageTotal(Math.ceil(responseProduct.data.length / perPage));
       } else {
         setError('伺服器目前無法回傳資料，請稍後重試');
       }
@@ -65,9 +63,8 @@ function Comment() {
   };
   // ----- 刷新頁面 -----
   useEffect(() => {
-    productAxios();
     // 呼叫 commentAxios 像伺服器要資料
-    commentAxios();
+    productAxios();
   }, []);
 
   // ----- 刷新頁面(每頁第一筆商品索引與最後一筆商品索引,會帶進商品呈現的filter) -----
@@ -78,7 +75,24 @@ function Comment() {
     setLastIndex(pageNow * perPage - 1);
   }, [pageNow]);
 
-  console.log(comment);
+  // ----- 刷新頁面(時間排序) -----
+  // useEffect(() => {
+  //   productAxios();
+  //   if (timeSort === true) {
+  //     getproduc.sort((a, b) => {
+  //       return a.id - b.id;
+  //     });
+  //     setGetProduc(getproduc);
+  //     console.log(getproduc);
+
+  //   } else if (timeSort === false) {
+  //     getproduc.sort((a, b) => {
+  //       return b.id - a.id;
+  //     });
+  //     setGetProduc(getproduc);
+  //     console.log(getproduc);
+  //   }
+  // }, [timeSort]);
 
   return (
     <>
@@ -89,18 +103,35 @@ function Comment() {
               <h3>顧客評論</h3>
             </div>
             <div className="arrowTimeAscBox d-flex align-items-center">
-              <div className="btn" onClick={() => {}}>
+              <div
+                className="btn arrowbtn"
+                onClick={() => {
+                  setTimeSort(true);
+                }}
+              >
                 <i class=" fa-solid fa-sort-up arrowSize mt-2 "></i>
               </div>
               <p className="mx-3">依時間排序</p>
-              <div className="btn " onClick={() => {}}>
+              <div
+                className="btn arrowbtn"
+                onClick={() => {
+                  setTimeSort(false);
+                }}
+              >
                 <i class=" fa-solid fa-sort-down arrowSize mb-2 "></i>
               </div>
             </div>
           </div>
         </div>
         {/* 評論區塊 */}
-        {comment
+        {getproduc
+          .sort((a, b) => {
+            if (timeSort === true) {
+              return a.id - b.id;
+            } else {
+              return b.id - a.id;
+            }
+          })
           .filter((v, i) => {
             return i >= firstIndex && i <= lastIndex; // <--先篩選商品區間,再map出來
           })

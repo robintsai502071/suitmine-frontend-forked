@@ -88,7 +88,6 @@
 .productContentBox {
   @include window {
     position: relative;
-    z-index: -1;
   }
   padding: 0%;
   width: 100%;
@@ -97,6 +96,7 @@
   //   background-color: aqua;
 
   .productContent {
+    z-index: 10;
     height: 750px;
     @include mobile {
       height: 1050px;
@@ -678,5 +678,8 @@
   font-size: 23px;
 }
 .arrowBox {
+  z-index: 999;
+}
+.arrowbtn{
   z-index: 999;
 }

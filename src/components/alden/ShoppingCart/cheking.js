@@ -74,21 +74,29 @@ function Cheking() {
   const usableGiftCard = [
     {
       id: 1,
+      giver: '禮物卡暴發戶',
+      giver_user_id: 1,
       receiver_user_id: 2,
       amount: 30,
     },
     {
-      id: 1,
+      id: 2,
+      giver: '好麻吉',
+      giver_user_id: 2,
       receiver_user_id: 2,
       amount: 600,
     },
     {
-      id: 1,
+      id: 3,
+      giver: '好碰由',
+      giver_user_id: 3,
       receiver_user_id: 2,
       amount: 140,
     },
     {
-      id: 1,
+      id: 4,
+      giver: '禮物卡人',
+      giver_user_id: 4,
       receiver_user_id: 2,
       amount: 230,
     },
@@ -234,6 +242,8 @@ function Cheking() {
                 totalPrice={totalPrice()}
                 giftCardTotal={giftCardTotal()}
                 giftCardCounts={giftCardCounts}
+                // 可使用禮物卡
+                usableGiftCard={usableGiftCard}
               />
             </div>
           </div>

@@ -5,7 +5,7 @@ import { Select } from 'antd';
 const { Option } = Select;
 
 const App = (props) => {
-  const { setSortBy, colorFilter, setColorFilter, colorFilterTypes } = props;
+  const { setSortBy, setColorFilter } = props;
 
   // const handleColorChange = async (value) => {
   //   let newProducts = [...product];
@@ -69,21 +69,21 @@ const App = (props) => {
   return (
     <>
       {/* {colorFilterTypes.map((value, i) => { */}
-        <Select
-          // key={i}
-          className="col select "
-          defaultValue="顏色"
-          style={{
-            width: 120,
-          }}
-          onChange={(e) => setColorFilter(e)}
-          // setColorFilter={setColorFilter}
-        >
-          <Option value="all">所有顏色</Option>
-          <Option value="黑色">黑色</Option>
-          <Option value="深藍">深藍</Option>
-          <Option value="灰色">灰色</Option>
-        </Select>
+      <Select
+        // key={i}
+        className="col select "
+        defaultValue="顏色"
+        style={{
+          width: 120,
+        }}
+        onChange={(e) => setColorFilter(e)}
+        // setColorFilter={setColorFilter}
+      >
+        <Option value="all">所有顏色</Option>
+        <Option value="黑色">黑色</Option>
+        <Option value="深藍">深藍</Option>
+        <Option value="灰色">灰色</Option>
+      </Select>
       {/* })} */}
 
       <Select

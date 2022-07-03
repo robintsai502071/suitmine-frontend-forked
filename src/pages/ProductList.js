@@ -18,7 +18,7 @@ function ProductList() {
   const [pageNow, setPageNow] = useState(1);
 
   const [isMounted, setIsMounted] = useState(false);
-  const perPage = 3;
+  const perPage = 12;
   let totalProduct = [];
 
   //商品名稱搜尋
@@ -26,7 +26,6 @@ function ProductList() {
 
   // 顏色篩選
   const [colorFilter, setColorFilter] = useState('');
-  const colorFilterTypes = ['all', '黑色', '深藍', '灰色'];
 
   // 價格排序
   const [sortBy, setSortBy] = useState('');
@@ -97,7 +96,7 @@ function ProductList() {
         break;
       case '黑色':
         newProducts = product.filter((p) => {
-          return p.color_type === '黑色';
+          return p.color_type === '黑';
         });
 
         break;
@@ -108,7 +107,7 @@ function ProductList() {
         break;
       case '灰色':
         newProducts = product.filter((p) => {
-          return p.color_type === '灰色';
+          return p.color_type === '灰';
         });
         console.log(newProducts);
         break;
@@ -321,9 +320,7 @@ function ProductList() {
                 <FilterBar
                   sortBy={sortBy}
                   setSortBy={setSortBy}
-                  colorFilter={colorFilter}
                   setColorFilter={setColorFilter}
-                  colorFilterTypes={colorFilterTypes}
                 />
               </ul>
               {/* <!============= 商品種類篩選抽屜 =============> */}

@@ -32,10 +32,19 @@ function BlogList() {
       // console.log(response.data.results);
       // 抓出title和images的資料
       let allData = response.data.blogs.map((value) => {
-        return { title: value.title, images: value.images, content: value.content };
+        return {
+          title: value.title,
+          images: value.images,
+          content: value.content,
+          create_time: value. create_time
+        };
       });
+      // console.log('所有data要的', allData);
+      // console.log('將資料拆借', allData[0].content);
+
       setDataGet(allData);
-      console.log(allData);
+      // console.log(stringToHtml.__html[0].title);
+      // console.log(allData[0].content);
     };
     dataGet();
     // offset += 6;
@@ -44,6 +53,13 @@ function BlogList() {
 
   // 存資料
   // const [pokemon, setPokemon] = useState([])
+
+  // 將html資料轉換成樣式
+  // const stringToHtml = {
+  //   __html: dataGet[0].content,
+  // };
+  // console.log('將html資料轉換成樣式',stringToHtml);
+  // console.log('轉換後文字~',stringToHtml.__html[0])
 
   return (
     <>
@@ -56,7 +72,11 @@ function BlogList() {
                 <div className="col-lg-4 col-md-4 col-12 d-flex">
                   <div className="card blog-card shadow">
                     <a href="#/">
-                      <img src={value.images} className="card-img-top" alt="..." />
+                      <img
+                        src={value.images}
+                        className="card-img-top"
+                        alt="..."
+                      />
                       <h6 className="text-white position-absolute ">
                         READ MORE
                       </h6>
@@ -67,14 +87,18 @@ function BlogList() {
                           {value.title}
                         </a>
                       </h5>
-                      <p className="card-text mt-4">{value.content}</p>
+                      <div className="card-text mt-4">
+                        <div
+                          dangerouslySetInnerHTML={{ __html: value.content }}
+                        />
+                      </div>
                       {/* <p className="card-text">
                 This is a wider card with supporting text below as a natural
                 lead-in to additional content. This content is a little bit
                 longer.
               </p> */}
                       <p className="card-text mt-3">
-                        <small className="text-muted">20220630</small>
+                        <small className="text-muted">{value.create_time}</small>
                       </p>
                     </div>
                   </div>

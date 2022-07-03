@@ -25,6 +25,9 @@ import ShoppingCartChecking from './pages/ShoppingCartChecking';
 import ShoppingCartPayment from './pages/ShoppingCartPayment';
 import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
 import ShoppingCartFinish from './pages/ShoppingCartFinish';
+import TextEditorWysiwyg from './pages/TextEditorWysiwyg';
+import TextEditorUpdateWysiwyg from './pages/TextEditorUpdateWysiwyg';
+import TextEditorPrintWysiwyg from './pages/TextEditorPrintWysiwyg';
 
 function App() {
   return (
@@ -36,6 +39,21 @@ function App() {
 
         <Route path="/member/my-favorites">
           <MyFavorites />
+        </Route>
+
+        {/* [新增] 文字編輯器 */}
+        <Route path="/text-editor">
+          <TextEditorWysiwyg />
+        </Route>
+
+        {/* [更新] 文字編輯器 */}
+        <Route path="/text-editor-update">
+          <TextEditorUpdateWysiwyg />
+        </Route>
+
+        {/* [網站顯示文章功能] 文字編輯器 */}
+        <Route path="/text-editor-print">
+          <TextEditorPrintWysiwyg />
         </Route>
 
         <Route path="/member/my-gift-card">

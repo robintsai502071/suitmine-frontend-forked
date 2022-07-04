@@ -54,7 +54,7 @@ function SubtotalBlockWeb(props) {
   localStorage.setItem('productsCost', productsCost);
   localStorage.setItem('giftPrice', giftPrice);
   localStorage.setItem('giftName', giftName);
-  localStorage.setItem('sum', sum);
+  localStorage.setItem('sum', sum());
 
   return (
     <>

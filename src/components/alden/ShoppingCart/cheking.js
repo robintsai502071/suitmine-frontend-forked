@@ -91,7 +91,7 @@ function Cheking() {
       giver: '好碰由',
       giver_user_id: 3,
       receiver_user_id: 2,
-      amount: 14000,
+      amount: 1400,
     },
     {
       id: 4,

@@ -680,6 +680,12 @@
 .arrowBox {
   z-index: 999;
 }
-.arrowbtn{
+.arrowbtn {
   z-index: 999;
+}
+
+.slick-current img {
+  object-fit: cover;
+  width: 100%;
+  // height: 100%;
 }

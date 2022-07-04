@@ -8,10 +8,10 @@ import { API_URL } from '../../../../utils/config';
 
 function Comment() {
   // ----- 全部商品時間排序狀態 -----
-  const [getproducSort, setGetProducSort] = useState([]);
+  const [getproductSort, setGetProductSort] = useState([]);
 
   // ----- 全部商品狀態 -----
-  const [getproduc, setGetProduc] = useState([]);
+  const [getproduct, setGetProduct] = useState([]);
 
   // ----- 時間正序反序狀態 -----
   const [timeSort, setTimeSort] = useState(null);
@@ -50,8 +50,14 @@ function Comment() {
       // 如果不是回傳陣列有可能是錯誤或得不到正確資料
       // state users必須保持為陣列，不然map會發生中斷錯誤
       if (Array.isArray(responseProduct.data)) {
-
-        setGetProduc(responseProduct.data);
+        // 先用forEach更改每一項commentCreateTime的型態為數字毫秒
+        responseProduct.data.forEach((item) => {
+          item.commentCreateTime = Number(
+            new Date(item.commentCreateTime).getTime()
+          );
+        });
+        console.log(responseProduct.data);
+        setGetProduct(responseProduct.data);
 
         //總頁數 = 資料的總長度/每頁有幾筆 EX:10筆/每頁5筆 = 2頁
         setPageTotal(Math.ceil(responseProduct.data.length / perPage));
@@ -78,22 +84,50 @@ function Comment() {
 
   // ----- 刷新頁面(時間排序) -----
   useEffect(() => {
-    productAxios();
-    if (timeSort === true) {
-      getproduc.sort((a, b) => {
-        return a.id - b.id;
+    // 假如排序為false就做正序
+    if (timeSort === false) {
+      const sortArr = getproduct.sort((a, b) => {
+        const timeA = new Date(a.commentCreateTime).getTime().toString();
+        const timeB = new Date(b.commentCreateTime).getTime().toString();
+        return timeB - timeA;
       });
-      setGetProducSort(getproduc);
-      console.log(getproducSort);
+      // 傳送到排序狀態內(正序)
+      setGetProductSort(sortArr);
 
-    } else if (timeSort === false) {
-      getproduc.sort((a, b) => {
-        return b.id - a.id;
+      // 假如排序為true就做正序
+    } else if (timeSort === true) {
+      const sortArr = getproduct.sort((a, b) => {
+        const timeA = new Date(a.commentCreateTime).getTime().toString();
+        const timeB = new Date(b.commentCreateTime).getTime().toString();
+        return timeA - timeB;
       });
-      setGetProducSort(getproduc);
-      console.log(getproducSort);
+      // 傳送到排序狀態內(反序)
+      setGetProductSort(sortArr);
     }
   }, [timeSort]);
+
+  // ----- 將毫秒轉型成日期 -----
+  const handleDate = (i) => {
+    // 先判斷要轉型哪一個資料 排序後OR未排序
+    let newdate = !timeSort
+      ? getproduct[i].commentCreateTime
+      : getproductSort[i].commentCreateTime;
+    // 判斷完再進行轉型
+    let date = new Date(newdate);
+    return (
+      date.getFullYear() +
+      '/' +
+      (date.getMonth() + 1) +
+      '/' +
+      date.getDate() +
+      '/' +
+      date.getHours() +
+      ':' +
+      date.getMinutes() +
+      ':' +
+      date.getSeconds()
+    );
+  };
 
   return (
     <>
@@ -127,7 +161,8 @@ function Comment() {
           </div>
         </div>
         {/* 評論區塊 */}
-        {timeSort == null ? getproduc
+        {/* 判斷是否有被排序過，如果沒有用原資料map，如果有就看timeSort是true(正序) 或 false(反序) */}
+        {(timeSort === null ? getproduct : getproductSort)
           .filter((v, i) => {
             return i >= firstIndex && i <= lastIndex; // <--先篩選商品區間,再map出來
           })
@@ -141,17 +176,14 @@ function Comment() {
                     <div>
                       <div className="photo"></div>
                       <div className="userName">
-                        <h5>{v.id}</h5>
+                        <h5>{v.userName}</h5>
                       </div>
                     </div>
                     {/* 評論建立時間 */}
                     <div className="date">
-                      <h5 className="d-none d-sm-block">
-                        {v.commentCreateTime}
-                      </h5>
-                      <h6 className="d-block d-sm-none">
-                        {v.commentCreateTime}
-                      </h6>
+                      {/* 記得傳送map跑出來的index給handleDate */}
+                      <h5 className="d-none d-sm-block">{handleDate(i)}</h5>
+                      <h6 className="d-block d-sm-none">{handleDate(i)}</h6>
                     </div>
                   </div>
                   {/* 評論內容 */}
@@ -161,41 +193,7 @@ function Comment() {
                 </div>
               </div>
             );
-          }) : getproducSort
-            .filter((v, i) => {
-              return i >= firstIndex && i <= lastIndex; // <--先篩選商品區間,再map出來
-            })
-            .map((v, i) => {
-              return (
-                <div key={v.id} className="commentContainer">
-                  <div className="commentBlock">
-                    {/* 使用者訊息 */}
-                    <div className="topSection">
-                      {/* 使用者照片ID */}
-                      <div>
-                        <div className="photo"></div>
-                        <div className="userName">
-                          <h5>{v.id}</h5>
-                        </div>
-                      </div>
-                      {/* 評論建立時間 */}
-                      <div className="date">
-                        <h5 className="d-none d-sm-block">
-                          {v.commentCreateTime}
-                        </h5>
-                        <h6 className="d-block d-sm-none">
-                          {v.commentCreateTime}
-                        </h6>
-                      </div>
-                    </div>
-                    {/* 評論內容 */}
-                    <div className="buttonSection">
-                      <h5>{v.commentContent}</h5>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+          })}
 
         {/*------------ 頁數 ------------*/}
         <div className="commentPager d-flex justify-content-center">
@@ -232,8 +230,9 @@ function Comment() {
                     <>
                       <li
                         key={i}
-                        className={`pager__item ${i + 1 === pageNow ? 'active' : ''
-                          }
+                        className={`pager__item ${
+                          i + 1 === pageNow ? 'active' : ''
+                        }
                         `}
                       >
                         {/* active */}

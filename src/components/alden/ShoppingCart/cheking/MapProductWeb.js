@@ -23,7 +23,6 @@ function MapProductWeb(props) {
     newProductCounts,
     setproductCounts,
     removeItem,
-    productChecked,
     setProductsInOrder,
     productsInOrder,
   } = props;
@@ -40,8 +39,6 @@ function MapProductWeb(props) {
 
   //處理商品勾選
   // 設定商品勾選
-  // const [choosen, setChoosen] = useState();
-
   const handleChoosen = (id) => {
     const newProductsInOrder = productsInOrder.map((v, i) => {
       if (v.id === id) {

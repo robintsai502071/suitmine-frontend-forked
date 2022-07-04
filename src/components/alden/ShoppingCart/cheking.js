@@ -77,21 +77,21 @@ function Cheking() {
       giver: '禮物卡暴發戶',
       giver_user_id: 1,
       receiver_user_id: 2,
-      amount: 30,
+      amount: 3000,
     },
     {
       id: 2,
       giver: '好麻吉',
       giver_user_id: 2,
       receiver_user_id: 2,
-      amount: 600,
+      amount: 6000,
     },
     {
       id: 3,
       giver: '好碰由',
       giver_user_id: 3,
       receiver_user_id: 2,
-      amount: 140,
+      amount: 14000,
     },
     {
       id: 4,
@@ -102,16 +102,16 @@ function Cheking() {
     },
   ];
 
-  //在原product的物件中新增count屬性
+  //在原product的物件中新增屬性
   const initState = (productArray) => {
     return productArray.map((v) => ({ ...v, count: 1, productChecked: 0 }));
   };
 
-  // 商品增減按鈕
+  // 商品
   const [productsInOrder, setProductsInOrder] = useState(initState(products));
 
-  //待購買禮物卡狀態
-  const [giftCardDel, setGiftCardDel] = useState(giftCard);
+  //待結帳禮物卡狀態並新增屬性
+  const [giftCardDel, setGiftCardDel] = useState(initState(giftCard));
 
   //商品總數
   const totalNumber = () => {
@@ -138,17 +138,26 @@ function Cheking() {
   };
 
   //禮物卡總數
-  const giftCardCounts = giftCardDel.length;
+  const giftCardCounts = () => {
+    let result = 0;
+    for (let i = 0; i < giftCardDel.length; i++) {
+      if (giftCardDel[i].productChecked == 1) {
+        result += giftCardDel[i].count;
+      }
+    }
+
+    return result;
+  };
   // console.log('禮物卡數量', giftCardCounts);
 
   //禮物卡總額
   const giftCardTotal = () => {
     let result = 0;
-
     for (let i = 0; i < giftCardDel.length; i++) {
-      result += giftCardDel[i].amount;
+      if (giftCardDel[i].productChecked == 1) {
+        result += giftCardDel[i].amount;
+      }
     }
-    // console.log('sum', result);
     return result;
   };
 
@@ -237,6 +246,8 @@ function Cheking() {
                       newArr.splice(indexGift, 1);
                       setGiftCardDel(newArr);
                     }}
+                    giftCardDel={giftCardDel}
+                    setGiftCardDel={setGiftCardDel}
                   />
                 );
               })}
@@ -246,7 +257,7 @@ function Cheking() {
                 totalNumber={totalNumber()}
                 totalPrice={totalPrice()}
                 giftCardTotal={giftCardTotal()}
-                giftCardCounts={giftCardCounts}
+                giftCardCounts={giftCardCounts()}
                 // 可使用禮物卡
                 usableGiftCard={usableGiftCard}
               />

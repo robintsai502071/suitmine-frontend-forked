@@ -2,7 +2,26 @@ import Form from 'react-bootstrap/Form';
 import React from 'react';
 
 function GiftCardWed(props) {
-  const { id, receiver, amount, message, removeGiftCard } = props;
+  const {
+    id,
+    receiver,
+    amount,
+    message,
+    removeGiftCard,
+    giftCardDel,
+    setGiftCardDel,
+  } = props;
+  const handleChoosen = (id) => {
+    const newGiftCardDel = giftCardDel.map((v, i) => {
+      if (v.id === id) {
+        return { ...v, productChecked: v.productChecked === 0 ? 1 : 0 };
+      }
+
+      return v;
+    });
+
+    setGiftCardDel(newGiftCardDel);
+  };
   return (
     <>
       <div className="productDetail row">
@@ -15,6 +34,7 @@ function GiftCardWed(props) {
                   type={type}
                   id={`default-${type}`}
                   className="itslabel"
+                  onChange={() => handleChoosen(id)}
                 />
               </div>
             ))}

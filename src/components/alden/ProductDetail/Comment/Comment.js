@@ -87,8 +87,8 @@ function Comment() {
     // 假如排序為false就做正序
     if (timeSort === false) {
       const sortArr = getproduct.sort((a, b) => {
-        const timeA = new Date(a.commentCreateTime).getTime().toString();
-        const timeB = new Date(b.commentCreateTime).getTime().toString();
+        const timeA = new Date(a.commentCreateTime).getTime();
+        const timeB = new Date(b.commentCreateTime).getTime();
         return timeB - timeA;
       });
       // 傳送到排序狀態內(正序)
@@ -97,8 +97,8 @@ function Comment() {
       // 假如排序為true就做正序
     } else if (timeSort === true) {
       const sortArr = getproduct.sort((a, b) => {
-        const timeA = new Date(a.commentCreateTime).getTime().toString();
-        const timeB = new Date(b.commentCreateTime).getTime().toString();
+        const timeA = new Date(a.commentCreateTime).getTime();
+        const timeB = new Date(b.commentCreateTime).getTime();
         return timeA - timeB;
       });
       // 傳送到排序狀態內(反序)
@@ -168,7 +168,7 @@ function Comment() {
           })
           .map((v, i) => {
             return (
-              <div key={v.id} className="commentContainer">
+              <div key={i} className="commentContainer">
                 <div className="commentBlock">
                   {/* 使用者訊息 */}
                   <div className="topSection">

@@ -37,7 +37,6 @@ function MyGiftCardDisplay(props) {
               />
             );
           })}
-          {/* <MyGiftCardDisplayItem /> */}
         </div>
       </div>
     </>

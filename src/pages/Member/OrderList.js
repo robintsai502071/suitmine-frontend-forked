@@ -14,8 +14,8 @@ function OrderList() {
   //錯誤訊息用
   // const [error, setError] = useState('');
 
-  // const { memberId } = useParams();
-  let memberId = 1;
+  const { memberId } = useParams();
+  // let memberId = 1;
   // 拿訂單資料
   useEffect(() => {
     let getOrderData = async () => {

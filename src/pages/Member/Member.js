@@ -15,8 +15,8 @@ function Member() {
   //錯誤訊息用
   const [error, setError] = useState('');
 
-  // const { memberId } = useParams();
-  let memberId = 1;
+  const { memberId } = useParams();
+  // let memberId = 1;
   // 拿會員資料
   useEffect(() => {
     let getMemberData = async () => {

@@ -14,11 +14,11 @@ function SubtotalBlockWeb(props) {
   //商品禮物卡總價
   const totalCounts = totalNumber + giftCardCounts;
 
-  //禮物卡價錢state
-  const [giftPrice, setGiftPrice] = useState(0);
-
   // 商品與待結帳禮物卡總額
   const productsCost = giftCardTotal + totalPrice;
+
+  //禮物卡價格useState
+  const [giftPrice, setGiftPrice] = useState(0);
 
   // 最後總額
   const sum = giftCardTotal + totalPrice - giftPrice;
@@ -26,11 +26,28 @@ function SubtotalBlockWeb(props) {
   // map禮物卡
   const { Option } = Select;
 
-  //更新禮物卡價錢的function
+  //被選禮物卡價錢的function
   const priceHandler = (value) => {
     //setGiftPrice
     setGiftPrice(usableGiftCard[value - 1].amount);
   };
+
+  //被選禮物卡名稱的function
+  const [giftName, setgiftName] = useState(0);
+  const nameHandler = (value) => {
+    //setGiftPrice
+    setgiftName(usableGiftCard[value - 1].giver);
+  };
+  console.log('被選到的禮物卡名稱', giftName);
+
+  //塞下一頁需要的資料進localstorage
+
+  localStorage.clear();
+  localStorage.setItem('totalCounts', totalCounts);
+  localStorage.setItem('productsCost', productsCost);
+  localStorage.setItem('giftPrice', giftPrice);
+  localStorage.setItem('giftName', giftName);
+  localStorage.setItem('sum', sum);
 
   return (
     <>
@@ -56,7 +73,10 @@ function SubtotalBlockWeb(props) {
                 }}
                 className="mapGiftCardInside"
                 //onChange會挑選到該option
-                onChange={priceHandler}
+                onChange={(value) => {
+                  priceHandler(value);
+                  nameHandler(value);
+                }}
               >
                 {usableGiftCard.map((usableGiftCard, i) => {
                   const { id, giver } = usableGiftCard;

@@ -5,6 +5,7 @@ import queryString from 'query-string';
 
 function OrderListDisplay(props) {
   const orderData = props.orderData;
+  // console.log(orderData,"1234");
   const { activeBtnFromQuery } = queryString.parse(window.location.search);
 
   const [activeBtn, setActiveBtn] = useState('待出貨');
@@ -52,9 +53,9 @@ function OrderListDisplay(props) {
         </div>
 
         <div className="order-list__display">
-          {orderData.orders?.map((ordersItem) => (
-            <OrderListDisplayItem ordersItem={ordersItem} />
-          ))}
+          {orderData.orders?.map((ordersItem) => {
+            return <OrderListDisplayItem ordersItem={ordersItem} />;
+          })}
         </div>
       </div>
     </>

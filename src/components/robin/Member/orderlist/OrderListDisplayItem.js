@@ -39,15 +39,15 @@ function OrderListDisplayItem(props) {
 
               <div className="order-list-display-item__body__info">
                 <div className="order-list-display-item__body__info__title">
-                  Hayle Sharkskin Dark Navy Suit
+                  {orderData.product_name}
                 </div>
 
                 <div className="order-list-display-item__body__info__counts my-2">
-                  共 4 件商品
+                  共 {orderData.count} 件商品
                 </div>
 
                 <div className="order-list-display-item__body__info__amount">
-                  訂單金額 {orderData.product_name}
+                  訂單金額 {orderData.product_price}
                 </div>
               </div>
             </div>

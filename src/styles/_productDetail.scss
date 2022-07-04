@@ -685,7 +685,12 @@
 }
 
 .slick-current img {
-  object-fit: cover;
-  width: 100%;
+  // object-fit: contain;
+  // width: 100%;
   // height: 100%;
+}
+.sliderMobile .slick-next {
+  right: 65px;
+  top: 46%;
+  right: 14% !important;
 }

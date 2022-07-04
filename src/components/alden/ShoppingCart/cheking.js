@@ -104,7 +104,7 @@ function Cheking() {
 
   //在原product的物件中新增count屬性
   const initState = (productArray) => {
-    return productArray.map((v) => ({ ...v, count: 1 }));
+    return productArray.map((v) => ({ ...v, count: 1, productChecked: 0 }));
   };
 
   // 商品增減按鈕
@@ -117,7 +117,9 @@ function Cheking() {
   const totalNumber = () => {
     let result = 0;
     for (let i = 0; i < productsInOrder.length; i++) {
-      result += productsInOrder[i].count;
+      if (productsInOrder[i].productChecked == 1) {
+        result += productsInOrder[i].count;
+      }
     }
 
     return result;
@@ -126,9 +128,10 @@ function Cheking() {
   //商品總額
   const totalPrice = () => {
     let result = 0;
-
     for (let i = 0; i < productsInOrder.length; i++) {
-      result += productsInOrder[i].count * productsInOrder[i].price;
+      if (productsInOrder[i].productChecked == 1) {
+        result += productsInOrder[i].count * productsInOrder[i].price;
+      }
     }
 
     return result;
@@ -209,6 +212,8 @@ function Cheking() {
                       newArr.splice(index, 1);
                       setProductsInOrder(newArr);
                     }}
+                    setProductsInOrder={setProductsInOrder}
+                    productsInOrder={productsInOrder}
                   />
                 );
               })}

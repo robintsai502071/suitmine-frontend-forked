@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
@@ -23,6 +23,9 @@ function MapProductWeb(props) {
     newProductCounts,
     setproductCounts,
     removeItem,
+    productChecked,
+    setProductsInOrder,
+    productsInOrder,
   } = props;
 
   //減按鈕不小於一
@@ -34,6 +37,23 @@ function MapProductWeb(props) {
 
   //單品總額
   const singleProductPrice = price * newProductCounts;
+
+  //處理商品勾選
+  // 設定商品勾選
+  // const [choosen, setChoosen] = useState();
+
+  const handleChoosen = (id) => {
+    const newProductsInOrder = productsInOrder.map((v, i) => {
+      if (v.id === id) {
+        return { ...v, productChecked: v.productChecked === 0 ? 1 : 0 };
+      }
+
+      return v;
+    });
+
+    setProductsInOrder(newProductsInOrder);
+  };
+  //console.log('測試商品勾選功能', choosen);
 
   return (
     <>
@@ -47,6 +67,7 @@ function MapProductWeb(props) {
                   type={type}
                   id={`default-${type}`}
                   className="itslabel"
+                  onChange={() => handleChoosen(id)}
                 />
               </div>
             ))}

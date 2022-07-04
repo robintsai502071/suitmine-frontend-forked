@@ -2,6 +2,7 @@ import React from 'react';
 import blogimg from '../../images/robert/blog/blogimg.png';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function BlogList() {
   // let offset = 0;
@@ -36,7 +37,8 @@ function BlogList() {
           title: value.title,
           images: value.images,
           content: value.content,
-          create_time: value. create_time
+          create_time: value.create_time,
+          id: value.id,
         };
       });
       // console.log('所有data要的', allData);
@@ -70,38 +72,46 @@ function BlogList() {
             return (
               <>
                 <div className="col-lg-4 col-md-4 col-12 d-flex">
-                  <div className="card blog-card shadow">
-                    <a href="#/">
-                      <img
-                        src={value.images}
-                        className="card-img-top"
-                        alt="..."
-                      />
-                      <h6 className="text-white position-absolute ">
-                        READ MORE
-                      </h6>
-                    </a>
-                    <div className="card-body text-start">
-                      <h5 className="card-title">
-                        <a className="text-dark text-decoration-none" href="#/">
-                          {value.title}
-                        </a>
-                      </h5>
-                      <div className="card-text mt-4">
-                        <div
-                          dangerouslySetInnerHTML={{ __html: value.content }}
+                    <div className="card blog-card shadow cursor-pointer">
+                      {/* <a href="#/"> */}
+                  <Link to={`/text-editor-print/${value.id}`} className='d-block'>
+                        <img
+                          src={value.images}
+                          className="card-img-top"
+                          alt="..."
                         />
-                      </div>
-                      {/* <p className="card-text">
+                        {/* <h6 className="text-white position-absolute ">
+                          
+                        </h6> */}
+                      {/* </a> */}
+                      </Link>
+                      <div className="card-body text-start">
+                        <h5 className="card-title">
+                          {/* <a
+                            className="text-dark text-decoration-none"
+                            href="#/"
+                          > */}
+                            {value.title}
+                          {/* </a> */}
+                        </h5>
+                        <div className="card-text mt-4">
+                          <div
+                            dangerouslySetInnerHTML={{ __html: value.content }}
+                          />
+                        </div>
+                        {/* <p className="card-text">
                 This is a wider card with supporting text below as a natural
                 lead-in to additional content. This content is a little bit
                 longer.
               </p> */}
-                      <p className="card-text mt-3">
-                        <small className="text-muted">{value.create_time}</small>
-                      </p>
+                        <p className="card-text mt-3">
+                          <small className="text-muted">
+                            {value.create_time}
+                          </small>
+                        </p>
+                      </div>
+                  
                     </div>
-                  </div>
                 </div>
               </>
             );

@@ -52,7 +52,7 @@ function App() {
         </Route>
 
         {/* [網站顯示文章功能] 文字編輯器 */}
-        <Route path="/text-editor-print">
+        <Route path="/text-editor-print/:blogId">
           <TextEditorPrintWysiwyg />
         </Route>
 

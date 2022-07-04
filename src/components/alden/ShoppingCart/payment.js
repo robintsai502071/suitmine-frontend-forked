@@ -5,6 +5,13 @@ import Form from 'react-bootstrap/Form';
 import { Select } from 'antd';
 
 function payment() {
+  //從localstorage中取得需要的資料
+  const totalCounts = localStorage.getItem('totalCounts');
+  const productsCost = localStorage.getItem('productsCost');
+  const giftPrice = localStorage.getItem('giftPrice');
+  const giftName = localStorage.getItem('giftName');
+  const sum = localStorage.getItem('sum');
+
   return (
     <>
       {/* paymentWeb */}
@@ -61,26 +68,28 @@ function payment() {
                   <div className="col-6"></div>
                   {/* 項目條列 */}
                   <div className="col-4 items">
-                    <div>
-                      <h5>共1件商品 商品金額</h5>
+                    <div className="mt-4">
+                      <h5>共{totalCounts}件商品 商品金額</h5>
                     </div>
-                    <div>
+                    <div className="d-none">
                       <h5>運費</h5>
                     </div>
-                    <div>
-                      <h5>禮物卡</h5>
+                    {/* map禮物卡 */}
+                    <div className="mapGiftCard">
+                      <h5>{giftName}</h5>
                     </div>
                   </div>
                   <div className="col-2 itemsPrice">
                     {/* 項目金額 */}
-                    <div>
-                      <h5>$1440</h5>
+                    <div className="mt-4">
+                      <h5>{productsCost}</h5>
                     </div>
-                    <div>
+                    <div className="d-none">
                       <h5>未選</h5>
                     </div>
+                    {/* 禮物卡價格 */}
                     <div>
-                      <h5>$0</h5>
+                      <h5>${giftPrice}</h5>
                     </div>
                   </div>
                 </div>
@@ -99,7 +108,7 @@ function payment() {
                   </div>
                   <div className="col-2">
                     <div>
-                      <h4>NT1440</h4>
+                      <h4>{sum}</h4>
                     </div>
                   </div>
                 </div>

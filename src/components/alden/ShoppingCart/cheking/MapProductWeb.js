@@ -32,6 +32,9 @@ function MapProductWeb(props) {
       : setproductCounts(newProductCounts - 1);
   };
 
+  //單品總額
+  const singleProductPrice = price * newProductCounts;
+
   return (
     <>
       <div className="productDetail row">
@@ -82,7 +85,7 @@ function MapProductWeb(props) {
         </div>
         {/* 單品總額 */}
         <div className="col-2 flex-column lastOne">
-          <h4 className="">${price}</h4>
+          <h4 className="">${singleProductPrice}</h4>
           {/* 刪除 */}
           {/* data-id:給標籤自訂屬性讓父層的dataset找 */}
           <div className="mt-4 delBtn" data-id={id} onClick={removeItem}></div>

@@ -11,7 +11,7 @@ function SubtotalBlockWeb(props) {
     usableGiftCard,
   } = props;
 
-  //商品禮物卡總價
+  //商品禮物卡總數
   const totalCounts = totalNumber + giftCardCounts;
 
   // 商品與待結帳禮物卡總額

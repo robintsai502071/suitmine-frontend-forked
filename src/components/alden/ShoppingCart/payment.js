@@ -23,7 +23,7 @@ function payment() {
               {/* 取貨方式 */}
               <div className="delivery">
                 <div>
-                  <h4>台灣與離島</h4>
+                  <h4>付款方式</h4>
                 </div>
                 <div>
                   <Form>
@@ -51,14 +51,7 @@ function payment() {
                     />
                   </Form>
                 </div>
-                <div>
-                  <h4>海外配送</h4>
-                  <Select
-                    style={{
-                      width: 120,
-                    }}
-                  />
-                </div>
+                <div className="h-auto"></div>
               </div>
 
               {/* 總和計算 */}

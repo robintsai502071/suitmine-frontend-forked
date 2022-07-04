@@ -117,38 +117,37 @@ function ProductDetail() {
             {/*---------- 左邊照片樣式(手機板) ----------*/}
             <div className="sliderMobile d-block d-sm-none">
               <Slider {...settings}>
-                <div>
+                <div className="RwdImg">
                   <img
                     src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
                     alt=""
                   />
                 </div>
-
-                <div>
+                <div className="RwdImg">
                   <img
                     src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
                     alt=""
                   />
                 </div>
-                <div>
+                <div className="RwdImg"> 
                   <img
                     src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
                     alt=""
                   />
                 </div>
-                <div>
+                <div className="RwdImg">
                   <img
                     src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
                     alt=""
                   />
                 </div>
-                <div>
+                <div className="RwdImg">
                   <img
                     src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
                     alt=""
                   />
                 </div>
-                <div>
+                <div className="RwdImg">
                   <img
                     src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
                     alt=""
@@ -157,7 +156,7 @@ function ProductDetail() {
               </Slider>
             </div>
             {/*---------- 右邊產品細節 ----------*/}
-            <div className="col-sm-7 d-flex flex-column justify-content-between">
+            <div className="col-sm-7 d-flex flex-column justify-content-md-between">
               {/* 右上方區塊 */}
               <div className="topSection">
                 {/* 商品名 */}

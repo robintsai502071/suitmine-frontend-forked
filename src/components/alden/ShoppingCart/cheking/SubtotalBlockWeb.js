@@ -21,7 +21,14 @@ function SubtotalBlockWeb(props) {
   const [giftPrice, setGiftPrice] = useState(0);
 
   // 最後總額
-  const sum = giftCardTotal + totalPrice - giftPrice;
+  const sum = () => {
+    const total = giftCardTotal + totalPrice - giftPrice;
+    if (total <= 0) {
+      return 0;
+    } else {
+      return total;
+    }
+  };
 
   // map禮物卡
   const { Option } = Select;
@@ -118,7 +125,7 @@ function SubtotalBlockWeb(props) {
           </div>
           <div className="col-2">
             <div>
-              <h4>{sum}</h4>
+              <h4>{sum()}</h4>
             </div>
           </div>
         </div>

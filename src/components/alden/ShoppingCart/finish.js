@@ -3,7 +3,17 @@ import 'antd/dist/antd.css';
 //引入照片
 import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCartsample.png';
 
+//使用者資料
+const menbership = [{ id: 1, name: '大金主', phone: '0900000000' }];
+const { name } = menbership[0];
+
 function Finish() {
+  //從localstorage中取得需要的資料
+  const totalCounts = localStorage.getItem('totalCounts');
+  const productsCost = localStorage.getItem('productsCost');
+  const giftPrice = localStorage.getItem('giftPrice');
+  const giftName = localStorage.getItem('giftName');
+  const sum = localStorage.getItem('sum');
   return (
     <>
       {/* finishWeb */}
@@ -12,7 +22,7 @@ function Finish() {
           <div className="col-7 m-auto">
             <div className="py-5">
               <h5>
-                親愛的<span className="text-danger">XXX</span>
+                親愛的<span className="text-danger">{name}</span>
                 您好，感謝您的訂購，您的訂單編號為123456678
               </h5>
             </div>
@@ -58,26 +68,28 @@ function Finish() {
                   <div className="col-6"></div>
                   {/* 項目條列 */}
                   <div className="col-4 items">
-                    <div>
-                      <h5>共1件商品 商品金額</h5>
+                    <div className="mt-4">
+                      <h5>共{totalCounts}件商品 商品金額</h5>
                     </div>
-                    <div>
+                    <div className="d-none">
                       <h5>運費</h5>
                     </div>
-                    <div>
-                      <h5>禮物卡</h5>
+                    {/* map禮物卡 */}
+                    <div className="mapGiftCard">
+                      <h5>{giftName}</h5>
                     </div>
                   </div>
                   <div className="col-2 itemsPrice">
                     {/* 項目金額 */}
-                    <div>
-                      <h5>$1440</h5>
+                    <div className="mt-4">
+                      <h5>{productsCost}</h5>
                     </div>
-                    <div>
-                      <h5>$0</h5>
+                    <div className="d-none">
+                      <h5>未選</h5>
                     </div>
+                    {/* 禮物卡價格 */}
                     <div>
-                      <h5>$0</h5>
+                      <h5>${giftPrice}</h5>
                     </div>
                   </div>
                 </div>
@@ -91,12 +103,12 @@ function Finish() {
                   <div className="col-6"></div>
                   <div className="col-4">
                     <div>
-                      <h5>共1件商品，總計</h5>
+                      <h5>小計</h5>
                     </div>
                   </div>
                   <div className="col-2">
                     <div>
-                      <h4>NT1440</h4>
+                      <h4>{sum}</h4>
                     </div>
                   </div>
                 </div>

@@ -1,8 +1,6 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import 'antd/dist/antd.css';
-//引入照片
-import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCartsample.png';
 
 //使用者資料
 const menbership = [
@@ -43,6 +41,7 @@ function Finish() {
   const newCheckedGiftCards = JSON.parse(
     localStorage.getItem('newCheckedGiftCards')
   );
+  const getAddress = localStorage.getItem('adress');
 
   return (
     <>
@@ -224,7 +223,7 @@ function Finish() {
                     <h5>訂購姓名</h5>
                   </div>
                   <div>
-                    <h5>XXX</h5>
+                    <h5>{name}</h5>
                   </div>
                 </div>
                 <div>
@@ -232,7 +231,7 @@ function Finish() {
                     <h5>取貨地點</h5>
                   </div>
                   <div>
-                    <h5>111111-OO門市-台北市中山區XX接XX號1樓</h5>
+                    <h5>{getAddress}</h5>
                   </div>
                 </div>
                 <div>

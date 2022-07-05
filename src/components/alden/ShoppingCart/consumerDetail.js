@@ -24,6 +24,10 @@ function ConsumerDetail() {
   const totalCounts = localStorage.getItem('totalCounts');
   const sum = localStorage.getItem('sum');
 
+  //地址的useState
+  const [adress, setAdress] = useState({ adress: '' });
+  const newAdress = adress.adress;
+  localStorage.setItem('adress', newAdress);
   return (
     <div>
       {/* consumerDetailWeb */}
@@ -74,8 +78,15 @@ function ConsumerDetail() {
                   </div>
                   <div>
                     <Input
-                      placeholder="請輸入您的取貨地址
-              "
+                      placeholder="請輸入您的取貨地址"
+                      value={adress.adress}
+                      name={'adress'}
+                      onChange={(e) => {
+                        setAdress({
+                          ...adress,
+                          [e.target.name]: e.target.value,
+                        });
+                      }}
                     />
                   </div>
                 </div>
@@ -115,10 +126,10 @@ function ConsumerDetail() {
                   })}
                 </ul>
                 <div className="middle d-flex  justify-content-between">
-                  <div className="barCode">
+                  <div className="barCode d-none">
                     <Input placeholder="請輸入手機條碼(限大寫英數字)" />
                   </div>
-                  <div className="barCode">
+                  <div className="barCode d-none">
                     <Input placeholder="請再次輸入手機條碼(限大寫英數字)" />
                   </div>
                 </div>

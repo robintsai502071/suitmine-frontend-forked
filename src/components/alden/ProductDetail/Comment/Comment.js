@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../../../../utils/config';
+import Liks from './Liks/Liks';
 
 // ----- 假資料 -----
 
@@ -39,7 +40,7 @@ function Comment() {
   const { productID } = useParams();
 
   // ========= 從後端傳送資料評論過來 =========
-  let productAxios = async () => {
+  let producCommenttAxios = async () => {
     try {
       const responseProduct = await axios.get(
         `${API_URL}/prodetail/`
@@ -56,7 +57,7 @@ function Comment() {
             new Date(item.commentCreateTime).getTime()
           );
         });
-        console.log(responseProduct.data);
+        // console.log(responseProduct.data);
         setGetProduct(responseProduct.data);
 
         //總頁數 = 資料的總長度/每頁有幾筆 EX:10筆/每頁5筆 = 2頁
@@ -71,7 +72,7 @@ function Comment() {
   // ----- 刷新頁面 -----
   useEffect(() => {
     // 呼叫 commentAxios 像伺服器要資料
-    productAxios();
+    producCommenttAxios();
   }, []);
 
   // ----- 刷新頁面(每頁第一筆商品索引與最後一筆商品索引,會帶進商品呈現的filter) -----
@@ -135,24 +136,25 @@ function Comment() {
         <div className="commentTitle">
           <div className="commentTitleBottomBorder d-flex justify-content-between align-items-center">
             <div>
-              <h3>顧客評論</h3>
+              <h3 className="d-md-flex d-none">顧客評論</h3>
+              <h5 className="d-md-none d-flex">顧客評論</h5>
             </div>
             <div className="arrowTimeAscBox d-flex align-items-center">
               <div
                 className="btn arrowbtn"
                 onClick={() => {
                   setTimeSort(true);
-                  console.log(timeSort);
+                  // console.log(timeSort);
                 }}
               >
                 <i class=" fa-solid fa-sort-up arrowSize mt-2 "></i>
               </div>
-              <p className="mx-3">依時間排序</p>
+              <p className="mx-md-3 text-nowrap">依時間排序</p>
               <div
                 className="btn arrowbtn"
                 onClick={() => {
                   setTimeSort(false);
-                  console.log(timeSort);
+                  // console.log(timeSort);
                 }}
               >
                 <i class=" fa-solid fa-sort-down arrowSize mb-2 "></i>
@@ -189,6 +191,7 @@ function Comment() {
                   {/* 評論內容 */}
                   <div className="buttonSection">
                     <h5>{v.commentContent}</h5>
+                    <Liks />
                   </div>
                 </div>
               </div>

@@ -1,14 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import AddInCart from '../components/alden/ProductDetail/AddInCart';
 import AddDetail from '../components/alden/ProductDetail/AddDetail';
 import Comment from '../components/alden/ProductDetail/Comment/Comment';
+import axios from 'axios';
 import { Image } from 'antd';
 import Slider from 'react-slick';
+import { API_URL } from '../utils/config';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 function SampleNextArrow(props) {
+  // --------- 商品資訊狀態(待用) ---------
+  const [product, setProduct] = useState({});
+
+  // ========== 從後端傳送單筆商品資料過來(待用) ==========
+  const productAxios = async () => {
+    const responseProduct = await axios.get(`${API_URL}/prodetail/`);
+    setProduct(responseProduct.data);
+    console.log(responseProduct.data);
+  };
+
+  // ----- 刷新頁面 -----
+  useEffect(() => {
+    //呼叫productAxios
+    productAxios();
+  }, []);
+
+  // --------- slider設定檔 ---------
   const { className, style, onClick } = props;
   return (
     <div
@@ -62,8 +81,8 @@ function ProductDetail() {
             src={require('../images/alden/ProductDetail/productDetailBannerImgMobile.png')}
             alt=""
           />
-          <div className="productName">
-            <h2>Harrogate Gray Suit</h2>
+          <div className="productName text-center">
+            <h4>Harrogate Gray Suit</h4>
           </div>
         </div>
         {/*---------- 商品內容 ----------*/}
@@ -129,7 +148,7 @@ function ProductDetail() {
                     alt=""
                   />
                 </div>
-                <div className="RwdImg"> 
+                <div className="RwdImg">
                   <img
                     src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
                     alt=""
@@ -165,7 +184,8 @@ function ProductDetail() {
                 </div>
                 {/* 商品名 */}
                 <div className="d-flex justify-content-center d-sm-none ">
-                  <h2>產品介紹</h2>
+                  <h2 className="d-md-flex d-none">產品介紹</h2>
+                  <h3 className="d-flex d-md-none">產品介紹</h3>
                 </div>
                 {/* 商品敘述 */}
                 <div className=" productNarrative">
@@ -190,28 +210,28 @@ function ProductDetail() {
                   {/* 顏色 */}
                   <div>
                     <div>
-                      <h5>顏色</h5>
+                      <h6>顏色</h6>
                     </div>
                     <div>
-                      <h5>灰</h5>
+                      <h6>灰</h6>
                     </div>
                   </div>
                   {/* 花紋 */}
                   <div>
                     <div>
-                      <h5>花紋</h5>
+                      <h6>花紋</h6>
                     </div>
                     <div>
-                      <h5>線條</h5>
+                      <h6>線條</h6>
                     </div>
                   </div>
                   {/* 材質 */}
                   <div>
                     <div>
-                      <h5>材質</h5>
+                      <h6>材質</h6>
                     </div>
                     <div>
-                      <h5>95%羊毛，5%克什米爾</h5>
+                      <h6>95%羊毛，5%克什米爾</h6>
                     </div>
                   </div>
                 </div>

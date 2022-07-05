@@ -461,19 +461,10 @@
       .ant-radio-button-wrapper:hover div:last-child {
         background-color: black;
       }
-      .ant-radio-button-wrapper {
-        border: 3px solid rgba(255, 255, 255, 0);
-        padding: 0;
-        box-sizing: content-box;
-      }
-      .ant-radio-button-wrapper:focus-within {
-        border: 3px solid black;
-        padding: 0;
-        box-sizing: content-box;
-      }
+
       .ant-radio-button-wrapper {
         padding: 0;
-        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
+        // box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
       }
 
       & > div {
@@ -496,6 +487,7 @@
         div:last-child {
           height: 100%;
           background-color: $dark-gray;
+          border: 3px solid rgba(0, 0, 0, 0);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -564,12 +556,17 @@
     }
   }
 }
+.selectBorderTransparent {
+  border: 3px solid rgba(0, 0, 0, 0);
+  box-sizing: content-box;
+}
 .selectBorder {
   border: 3px solid black !important;
 }
 .selectColor {
   background-color: #000000 !important;
-  width: 100%;
+  width: 101%;
+  height: 102%;
 }
 .productNarrative h6 {
   color: #fff;
@@ -692,8 +689,39 @@
   top: 46%;
   right: 14% !important;
 }
-.RwdImg{
+.RwdImg {
   height: 263.25px;
 }
+.productName h4 {
+  color: #fff;
+}
+@media screen and (max-width: 376px) {
+  .comment .commentContainer .commentBlock {
+    height: 135px;
+  }
+  .comment
+    .commentContainer
+    .commentBlock
+    .topSection
+    > div:first-child
+    .photo {
+    height: 50px;
+    width: 50px;
+  }
+}
+.topSection h3 {
+  color: #fff;
+}
+.comment .commentContainer .commentBlock .topSection {
+  height: 40%;
+}
+.comment .commentContainer .commentBlock {
+  height: 240px;
+}
 
-
+.ant-comment-actions .likesTitle {
+  margin-right: 0px !important;
+}
+.ant-radio-button-wrapper:focus-within {
+   box-shadow: none !important; 
+}

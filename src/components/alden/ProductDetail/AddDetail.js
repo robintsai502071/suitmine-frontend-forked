@@ -36,7 +36,7 @@ const AddDetail = () => {
       >
         <div className="container-fluid">
           <div className="row">
-            <div className="col-10 m-auto popDetail">
+            <div className="col-md-10 col-12 m-auto popDetail">
               {/* 標題 */}
               <div className="title ">
                 <h3 className="text-center">你的客製化細節</h3>

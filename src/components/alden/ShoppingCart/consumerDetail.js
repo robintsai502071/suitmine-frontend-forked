@@ -7,18 +7,27 @@ import { Checkbox } from 'antd';
 import 'antd/dist/antd.css';
 
 function ConsumerDetail() {
+  //處理下方發票按鈕
   const inVoiceitems = [
     '電子發票-個人',
     '電子發票-公司',
     '捐贈發票',
     '個人-手機載具',
   ];
-
   const [activedBut, setActivedBut] = useState('電子發票-個人');
+
+  //使用者資料
+  const menbership = [{ id: 1, name: '大金主', phone: '0900000000' }];
+  const { name, phone } = menbership[0];
+
+  //從localstorage取得資料
+  const totalCounts = localStorage.getItem('totalCounts');
+  const sum = localStorage.getItem('sum');
+
   return (
     <div>
       {/* consumerDetailWeb */}
-      <div className="container-fluid consumerDetailWeb">
+      <div className="container-fluid consum erDetailWeb">
         <div className="row">
           <div className="col-7 m-auto">
             {/* 中間部分(consumerDetail) */}
@@ -26,10 +35,10 @@ function ConsumerDetail() {
             <div className="totalAndcounts d-flex justify-content-center align-items-center flex-column">
               <div className="d-flex flex-row align-items-end">
                 <h5>本次消費總額 </h5>
-                <h4 className="mx-5 text-danger">NT$ 1479</h4>
+                <h4 className="mx-5 text-danger">NT$ {sum}</h4>
               </div>
               <div className="">
-                <h5 className="my-5">總計一件商品</h5>
+                <h5 className="my-5">總計{totalCounts}件商品</h5>
               </div>
             </div>
             <div className="main">
@@ -46,7 +55,7 @@ function ConsumerDetail() {
                     <h5>姓名</h5>
                   </div>
                   <div>
-                    <h5>邱曉昱</h5>
+                    <h5>{name}</h5>
                   </div>
                 </div>
                 {/* 手機 */}
@@ -55,10 +64,7 @@ function ConsumerDetail() {
                     <h5>手機號碼</h5>
                   </div>
                   <div className="phoneNumber">
-                    <Input
-                      placeholder="請輸入有效的手機號碼
-              "
-                    />
+                    <h5>{phone}</h5>
                   </div>
                 </div>
                 {/* 取貨地址 */}
@@ -68,7 +74,7 @@ function ConsumerDetail() {
                   </div>
                   <div>
                     <Input
-                      placeholder="請選擇取貨地址
+                      placeholder="請輸入您的取貨地址
               "
                     />
                   </div>

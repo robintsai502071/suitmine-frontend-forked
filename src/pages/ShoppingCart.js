@@ -14,6 +14,7 @@ import Finish from '../components/alden/ShoppingCart/finish';
 function ShoppingCartChecking() {
   const [steps, setSteps] = useState(0);
   console.log(steps);
+
   return (
     <div className="shopingCart">
       <body>

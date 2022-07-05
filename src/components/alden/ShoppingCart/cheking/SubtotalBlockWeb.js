@@ -45,7 +45,6 @@ function SubtotalBlockWeb(props) {
     //setGiftPrice
     setgiftName(usableGiftCard[value - 1].giver);
   };
-  // console.log('被選到的禮物卡名稱', giftName);
 
   //塞下一頁需要的資料進localstorage
   // localStorage.clear();

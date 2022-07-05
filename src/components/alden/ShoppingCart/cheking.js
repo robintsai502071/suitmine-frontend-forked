@@ -172,7 +172,6 @@ function Cheking() {
 
     return result;
   };
-  // console.log('禮物卡數量', giftCardCounts);
 
   //禮物卡總額
   const giftCardTotal = () => {

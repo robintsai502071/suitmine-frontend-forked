@@ -36,6 +36,13 @@ function Finish() {
   const giftPrice = localStorage.getItem('giftPrice');
   const giftName = localStorage.getItem('giftName');
   const sum = localStorage.getItem('sum');
+  const newCheckedProducts = JSON.parse(
+    localStorage.getItem('newCheckedProducts')
+  );
+  const newCheckedGiftCards = JSON.parse(
+    localStorage.getItem('newCheckedGiftCards')
+  );
+
   return (
     <>
       {/* finishWeb */}
@@ -50,39 +57,48 @@ function Finish() {
             </div>
             {/* 中間部分(checking) */}
             <div className="checking">
-              {/* 商品部分 */}
-              <div className="productDetail row">
-                {/* 商品選擇紐 */}
-                <div className="col-1"></div>
-                {/* 商品照片 */}
-                <div className="col-2 finishImg">
-                  <img src={ShoppingCartsample} alt="" />
-                </div>
-                {/* 商品名&客製化按鈕 */}
-                <div className="col-4">
-                  <div>
-                    <p4>Hayle Sharkskin Dark Navy Suit</p4>
+              {/* 商品列表 */}
+              {newCheckedProducts.map((v, i) => {
+                const { photo, proName, button, pocket, lapel, price, count } =
+                  v;
+                const productsTotal = price * count;
+                return (
+                  <div className="productDetail row">
+                    {/* 商品選擇紐 */}
+                    <div className="col-1"></div>
+                    {/* 商品照片 */}
+                    <div className="col-2 finishImg">
+                      <img src={photo} alt="" />
+                    </div>
+                    {/* 商品名&客製化按鈕 */}
+                    <div className="col-4">
+                      <div>
+                        <p4>{proName}</p4>
+                      </div>
+                      <h6>
+                        客製化 : {button}/{pocket}/{lapel}
+                      </h6>
+                    </div>
+                    <div className="col-1"></div>
+                    {/* 商品數量 */}
+                    <div className="col-2 finishNumber">
+                      <div className="reduce d-none">
+                        <p>-</p>
+                      </div>
+                      <div className="number">
+                        <p>{count}</p>
+                      </div>
+                      <div className="plus d-none">
+                        <p>+</p>
+                      </div>
+                    </div>
+                    {/* 單品總額 */}
+                    <div className="col-2">
+                      <h4>${productsTotal}</h4>
+                    </div>
                   </div>
-                  <h6>客製化 : 標準領/有袋口袋/單扣</h6>
-                </div>
-                <div className="col-1"></div>
-                {/* 商品數量 */}
-                <div className="col-2 finishNumber">
-                  <div className="reduce d-none">
-                    <p>-</p>
-                  </div>
-                  <div className="number">
-                    <p>1</p>
-                  </div>
-                  <div className="plus d-none">
-                    <p>+</p>
-                  </div>
-                </div>
-                {/* 單品總額 */}
-                <div className="col-2">
-                  <h4>$1440</h4>
-                </div>
-              </div>
+                );
+              })}
 
               <div className="info grayBar"></div>
 

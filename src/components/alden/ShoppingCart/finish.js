@@ -85,51 +85,10 @@ function Finish() {
 
               <div className="info grayBar"></div>
 
-              {/* 收件人資訊 */}
-              <div className="info">
-                <div>
-                  <h4>收件人資訊</h4>
-                </div>
-                <div>
-                  <div className="w-25">
-                    <h5>付款方式</h5>
-                  </div>
-                  <div>
-                    <h5>信用卡付款</h5>
-                  </div>
-                </div>
-                <div>
-                  <div className="w-25">
-                    <h5>訂購姓名</h5>
-                  </div>
-                  <div>
-                    <h5>XXX</h5>
-                  </div>
-                </div>
-                <div>
-                  <div className="w-25">
-                    <h5>取貨地點</h5>
-                  </div>
-                  <div>
-                    <h5>111111-OO門市-台北市中山區XX接XX號1樓</h5>
-                  </div>
-                </div>
-                <div>
-                  <div className="w-25">
-                    <h5>發票類型</h5>
-                  </div>
-                  <div>
-                    <h5>捐贈發票</h5>
-                  </div>
-                </div>
-              </div>
-
-              <div className="info grayBar"></div>
-
               {/* 客製化尺寸 */}
               <div className="info">
                 <div>
-                  <h4>請再次確認您的專屬客製化尺寸</h4>
+                  <h4>請最後確認您的專屬客製化尺寸</h4>
                 </div>
                 <div>
                   <div className="w-25">
@@ -180,6 +139,48 @@ function Finish() {
                   </div>
                 </div>
               </div>
+
+              <div className="info grayBar"></div>
+
+              {/* 收件人資訊 */}
+              <div className="info">
+                <div>
+                  <h4>收件人資訊</h4>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>付款方式</h5>
+                  </div>
+                  <div>
+                    <h5>信用卡付款</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>訂購姓名</h5>
+                  </div>
+                  <div>
+                    <h5>XXX</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>取貨地點</h5>
+                  </div>
+                  <div>
+                    <h5>111111-OO門市-台北市中山區XX接XX號1樓</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>發票類型</h5>
+                  </div>
+                  <div>
+                    <h5>捐贈發票</h5>
+                  </div>
+                </div>
+              </div>
+
               {/* 總和計算 */}
               <div className="subtotalblock">
                 {/* 加總過程 */}

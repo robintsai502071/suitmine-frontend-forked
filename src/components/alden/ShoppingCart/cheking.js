@@ -6,6 +6,7 @@ import SubtotalBlockWeb from '../ShoppingCart/cheking/SubtotalBlockWeb';
 import MapProductWeb from './cheking/MapProductWeb';
 import { useState } from 'react';
 import GiftCardWed from './cheking/GiftCardWed';
+// import { useEffect } from 'react';
 
 function Cheking() {
   //商品
@@ -102,7 +103,7 @@ function Cheking() {
     },
   ];
 
-  //在原product的物件中新增屬性
+  //在原product的物件中新增屬性的initState
   const initState = (productArray) => {
     return productArray.map((v) => ({ ...v, count: 1, productChecked: 0 }));
   };
@@ -110,8 +111,21 @@ function Cheking() {
   // 商品
   const [productsInOrder, setProductsInOrder] = useState(initState(products));
 
-  //待結帳禮物卡狀態並新增屬性
+  //待結帳禮物卡
   const [giftCardDel, setGiftCardDel] = useState(initState(giftCard));
+
+  // 篩選出被選擇的商品
+  // const { setCheckedProducts } = props;
+  let checkedProducts = [...productsInOrder];
+  let newCheckedProducts = checkedProducts.filter((v, i) => {
+    return v.productChecked === 1;
+  });
+
+  //篩選出被選擇的禮物卡
+  let checkedGiftCards = [...giftCardDel];
+  let newCheckedGiftCards = checkedGiftCards.filter((v, i) => {
+    return v.productChecked === 1;
+  });
 
   //商品總數
   const totalNumber = () => {

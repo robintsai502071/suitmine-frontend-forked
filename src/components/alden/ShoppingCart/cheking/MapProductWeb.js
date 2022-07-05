@@ -1,17 +1,7 @@
 import React, { useState } from 'react';
-// import { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 
 function MapProductWeb(props) {
-  //商品內容
-  //EX:
-  //   id: 1,
-  //   photo: ShoppingCartsample,
-  //   proName: 'Hayle Sharkskin Dark Navy Suit',
-  //   button: '單扣',
-  //   pocket: '有領口袋',
-  //   lapel: '標準領',
-  //   price: 1440,
   const {
     id,
     photo,
@@ -47,7 +37,6 @@ function MapProductWeb(props) {
 
       return v;
     });
-
     setProductsInOrder(newProductsInOrder);
   };
   //console.log('測試商品勾選功能', choosen);

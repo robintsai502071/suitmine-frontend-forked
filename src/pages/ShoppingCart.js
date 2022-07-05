@@ -106,7 +106,7 @@ function ShoppingCartChecking() {
                     : 'btn btn-primary widthbtn d-none'
                 }
               >
-                查看訂單
+                送出訂單
               </button>
             </div>
           </div>

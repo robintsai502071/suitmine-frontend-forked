@@ -4,8 +4,29 @@ import 'antd/dist/antd.css';
 import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCartsample.png';
 
 //使用者資料
-const menbership = [{ id: 1, name: '大金主', phone: '0900000000' }];
-const { name } = menbership[0];
+const menbership = [
+  {
+    id: 1,
+    name: '大金主',
+    phone: '0900000000',
+    heigh: 180,
+    weight: 75,
+    shoulder_width: 40,
+    chest_width: 35,
+    waist_width: 90,
+    leg_length: 90,
+    arm_length: 75,
+  },
+];
+const {
+  name,
+  heigh,
+  shoulder_width,
+  chest_width,
+  waist_width,
+  leg_length,
+  arm_length,
+} = menbership[0];
 
 function Finish() {
   //從localstorage中取得需要的資料
@@ -23,7 +44,7 @@ function Finish() {
             <div className="py-5">
               <h5>
                 親愛的<span className="text-danger">{name}</span>
-                您好，感謝您的訂購，您的訂單編號為123456678
+                您好，請確認您的訂單資訊
               </h5>
             </div>
             {/* 中間部分(checking) */}
@@ -59,6 +80,104 @@ function Finish() {
                 {/* 單品總額 */}
                 <div className="col-2">
                   <h4>$1440</h4>
+                </div>
+              </div>
+
+              <div className="info grayBar"></div>
+
+              {/* 收件人資訊 */}
+              <div className="info">
+                <div>
+                  <h4>收件人資訊</h4>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>付款方式</h5>
+                  </div>
+                  <div>
+                    <h5>信用卡付款</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>訂購姓名</h5>
+                  </div>
+                  <div>
+                    <h5>XXX</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>取貨地點</h5>
+                  </div>
+                  <div>
+                    <h5>111111-OO門市-台北市中山區XX接XX號1樓</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>發票類型</h5>
+                  </div>
+                  <div>
+                    <h5>捐贈發票</h5>
+                  </div>
+                </div>
+              </div>
+
+              <div className="info grayBar"></div>
+
+              {/* 客製化尺寸 */}
+              <div className="info">
+                <div>
+                  <h4>請再次確認您的專屬客製化尺寸</h4>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>身高</h5>
+                  </div>
+                  <div>
+                    <h5>{heigh}cm</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>肩寬</h5>
+                  </div>
+                  <div>
+                    <h5>{shoulder_width}cm</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>胸圍</h5>
+                  </div>
+                  <div>
+                    <h5>{chest_width}cm</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>腰圍</h5>
+                  </div>
+                  <div>
+                    <h5>{waist_width}cm</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>腿長</h5>
+                  </div>
+                  <div>
+                    <h5>{leg_length}cm</h5>
+                  </div>
+                </div>
+                <div>
+                  <div className="w-25">
+                    <h5>臂長</h5>
+                  </div>
+                  <div>
+                    <h5>{arm_length}cm</h5>
+                  </div>
                 </div>
               </div>
               {/* 總和計算 */}
@@ -110,43 +229,6 @@ function Finish() {
                     <div>
                       <h4>{sum}</h4>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div className="info">
-                <div>
-                  <h4>收件人資訊</h4>
-                </div>
-                <div>
-                  <div className="w-25">
-                    <h5>付款方式</h5>
-                  </div>
-                  <div>
-                    <h5>全家取貨付款</h5>
-                  </div>
-                </div>
-                <div>
-                  <div className="w-25">
-                    <h5>訂購姓名</h5>
-                  </div>
-                  <div>
-                    <h5>XXX</h5>
-                  </div>
-                </div>
-                <div>
-                  <div className="w-25">
-                    <h5>取貨地點</h5>
-                  </div>
-                  <div>
-                    <h5>111111-OO門市-台北市中山區XX接XX號1樓</h5>
-                  </div>
-                </div>
-                <div>
-                  <div className="w-25">
-                    <h5>發票類型</h5>
-                  </div>
-                  <div>
-                    <h5>捐贈發票</h5>
                   </div>
                 </div>
               </div>

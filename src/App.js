@@ -55,7 +55,7 @@ function App() {
           <MainForm />
         </Route>
 
-        <Route path="/member/user">
+        <Route path="/member/user/:memberId">
           <Member />
         </Route>
 

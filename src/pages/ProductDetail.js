@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useParams } from 'react';
 import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import AddInCart from '../components/alden/ProductDetail/AddInCart';
@@ -11,22 +11,6 @@ import { API_URL } from '../utils/config';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 function SampleNextArrow(props) {
-  // --------- 商品資訊狀態(待用) ---------
-  const [product, setProduct] = useState({});
-
-  // ========== 從後端傳送單筆商品資料過來(待用) ==========
-  const productAxios = async () => {
-    const responseProduct = await axios.get(`${API_URL}/prodetail/`);
-    setProduct(responseProduct.data);
-    console.log(responseProduct.data);
-  };
-
-  // ----- 刷新頁面 -----
-  useEffect(() => {
-    //呼叫productAxios
-    productAxios();
-  }, []);
-
   // --------- slider設定檔 ---------
   const { className, style, onClick } = props;
   return (
@@ -50,6 +34,7 @@ function SamplePrevArrow(props) {
 }
 
 function ProductDetail() {
+  // --------- slider設定檔 ---------
   const settings = {
     dots: false,
     slidesToShow: 1,
@@ -57,6 +42,27 @@ function ProductDetail() {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+  // --------- 商品資訊狀態 ---------
+  const [product, setProduct] = useState([]);
+
+  // const { stockId } = useParams();
+
+  // ========== 從後端傳送單筆商品資料過來(待用) ==========
+  const productAxios = async () => {
+    const responseProduct = await axios.get(
+      `${API_URL}/prodetail/products/1`
+      // , { params: { product }},
+    );
+    setProduct(responseProduct.data);
+    console.log(responseProduct.data);
+  };
+
+  // ----- 刷新頁面 -----
+  useEffect(() => {
+    //呼叫productAxios
+    productAxios();
+  }, []);
+
   return (
     <>
       <div className="container-fluid ProductDetailmain">
@@ -72,7 +78,8 @@ function ProductDetail() {
           />
           <div className="fliter"></div>
           <div className="productName">
-            <h1>Harrogate Gray Suit</h1>
+          {/* 調用一個東西的時候 */}
+            <h1>{product[0]?.name}</h1>
           </div>
         </div>
         {/* 背景圖片(手機板) */}
@@ -82,7 +89,7 @@ function ProductDetail() {
             alt=""
           />
           <div className="productName text-center">
-            <h4>Harrogate Gray Suit</h4>
+            <h4>{product[0]?.name}</h4>
           </div>
         </div>
         {/*---------- 商品內容 ----------*/}
@@ -180,7 +187,7 @@ function ProductDetail() {
               <div className="topSection">
                 {/* 商品名 */}
                 <div className="d-none d-sm-block">
-                  <h4 className="text-nowrap">Harrogate Gray Suit</h4>
+                  <h4 className="text-nowrap">{product[0]?.name}</h4>
                 </div>
                 {/* 商品名 */}
                 <div className="d-flex justify-content-center d-sm-none ">
@@ -189,13 +196,11 @@ function ProductDetail() {
                 </div>
                 {/* 商品敘述 */}
                 <div className=" productNarrative">
-                  <h6>
-                    現在，正視羅蘭特灰西裝的問題，是非常非常重要的。因為，羅蘭特灰西裝勢必能夠左右未來。羅蘭特灰西裝絕對是史無前例的。我們需要淘汰舊有的觀念，羅蘭特灰西裝似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。
-                  </h6>
+                  <h6>{product[0]?.content}</h6>
                 </div>
                 {/* 單價 */}
                 <div className="d-none d-sm-block">
-                  <h4>NT $3500</h4>
+                  <h4>{product[0]?.price}</h4>
                 </div>
               </div>
               {/* 右下方區塊 */}
@@ -213,7 +218,7 @@ function ProductDetail() {
                       <h6>顏色</h6>
                     </div>
                     <div>
-                      <h6>灰</h6>
+                      <h6>{product[0]?.color_type}</h6>
                     </div>
                   </div>
                   {/* 花紋 */}
@@ -222,7 +227,7 @@ function ProductDetail() {
                       <h6>花紋</h6>
                     </div>
                     <div>
-                      <h6>線條</h6>
+                      <h6>{product[0]?.pattern_type}</h6>
                     </div>
                   </div>
                   {/* 材質 */}
@@ -231,7 +236,7 @@ function ProductDetail() {
                       <h6>材質</h6>
                     </div>
                     <div>
-                      <h6>95%羊毛，5%克什米爾</h6>
+                      <h6>{product[0]?.texture_type}</h6>
                     </div>
                   </div>
                 </div>

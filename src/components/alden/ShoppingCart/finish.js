@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from 'react-bootstrap/Form';
 import 'antd/dist/antd.css';
 //引入照片
 import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCartsample.png';
@@ -95,6 +96,52 @@ function Finish() {
                     {/* 單品總額 */}
                     <div className="col-2">
                       <h4>${productsTotal}</h4>
+                    </div>
+                  </div>
+                );
+              })}
+              {/* 禮物卡 */}
+              {newCheckedGiftCards.map((v, i) => {
+                const { id, receiver, amount, message } = v;
+                return (
+                  <div className="productDetail row">
+                    {/* 商品選擇紐 */}
+                    <div className="col-1">
+                      <Form className="d-none">
+                        {['checkbox'].map((type) => (
+                          <div key={`default-${type}`} className="mb-3">
+                            <Form.Check
+                              type={type}
+                              id={`default-${type}`}
+                              className="itslabel"
+                            />
+                          </div>
+                        ))}
+                      </Form>
+                    </div>
+                    {/* 禮物卡照片 */}
+                    <div className="col-2">
+                      <img
+                        src={require('../../../images/alden/ShoppingCart/gift_card.png')}
+                        alt=""
+                      />
+                    </div>
+                    {/* 贈與對象 */}
+                    <div className="col-4">
+                      <div>
+                        <h5>給:{receiver}</h5>
+                      </div>
+                      <h6>{amount}</h6>
+                    </div>
+                    <div className="col-1"></div>
+                    {/* 商品數量 */}
+                    <div className="col-2 countBtn">
+                      <h6>{message}</h6>
+                    </div>
+                    {/* 單品總額 */}
+                    <div className="col-2 flex-column lastOne">
+                      <h4 className="">${amount}</h4>
+                      <div className="mt-4 delBtn visually-hidden"></div>
                     </div>
                   </div>
                 );

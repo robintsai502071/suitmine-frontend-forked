@@ -1,10 +1,18 @@
 import { Form, Input, Radio, Button } from 'antd';
 import React from 'react';
-
+import { useState, useRef, useEffect } from 'react';
 function MainForm(props) {
   const { memberData } = props;
-  console.log('bbbbb', memberData);
+  const [editMode, setEditMode] = useState(false);
+  const nameInputRef = useRef();
 
+  useEffect(() => {
+    if (editMode === true) {
+      nameInputRef.current.focus({
+        cursor: 'end',
+      });
+    }
+  }, [editMode]);
   return (
     <>
       <a
@@ -26,14 +34,18 @@ function MainForm(props) {
           </figure>
           <h4 className="main__form__title">
             個人檔案
-            <a href="#/" className="main__form__edit-btn ms-2">
+            <a
+              className="main__form__edit-btn ms-2"
+              onClick={(e) => {
+                e.preventDefault();
+                setEditMode(true);
+              }}
+            >
               <i className="fa-solid fa-pen-to-square me-1"></i>編輯檔案
             </a>
           </h4>
         </div>
         <Form
-          // labelCol={{ span: 8 }}
-          // wrapperCol={{ span: 16 }}
           key={memberData.id}
           autoComplete="off"
           colon={false}
@@ -44,7 +56,8 @@ function MainForm(props) {
             phone: memberData.phone,
             address: memberData.address,
           }}
-          disabled
+          disabled={!editMode}
+
         >
           <Form.Item label="中文姓名">
             <Form.Item
@@ -54,7 +67,7 @@ function MainForm(props) {
                 width: 'calc(50% - 8px)',
               }}
             >
-              <Input />
+              <Input {...{ ref: nameInputRef }} />
             </Form.Item>
 
             <Form.Item
@@ -68,7 +81,7 @@ function MainForm(props) {
               <Radio.Group>
                 <Radio value={0}>先生</Radio>
                 <Radio value={1}>小姐</Radio>
-                <Radio value={2}> 不透露 </Radio>
+                <Radio value={2}>不透露</Radio>
               </Radio.Group>
             </Form.Item>
           </Form.Item>
@@ -85,9 +98,23 @@ function MainForm(props) {
             <Input />
           </Form.Item>
 
-          <Form.Item>
-            <Button>送出</Button>
-          </Form.Item>
+          {editMode && (
+            <div className="d-flex">
+              <Form.Item className="me-2">
+                <Button
+                  onClick={() => {
+                    setEditMode(false);
+                  }}
+                >
+                  取消
+                </Button>
+              </Form.Item>
+
+              <Form.Item>
+                <Button htmlType="submit">儲存修改</Button>
+              </Form.Item>
+            </div>
+          )}
         </Form>
       </div>
     </>

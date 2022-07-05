@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import LayoutFooter from '../../components/robert/LayoutFooter';
 import LayoutHeader from '../../components/robert/LayoutHeader';
 import MainForm from '../../components/robin/Member/user/MainForm';
@@ -12,32 +12,20 @@ import MemberMobileView from './MemberMobileView';
 function Member() {
   const [memberData, setMemberData] = useState([]);
 
-  //錯誤訊息用
-  const [error, setError] = useState('');
-
   const { memberId } = useParams();
-  // let memberId = 1;
+  const locationInfo = useLocation()
   // 拿會員資料
   useEffect(() => {
     let getMemberData = async () => {
-      //try catch 做錯誤處理
-
-      // axios.get(URL, config)
+      // 防止使用者直接從瀏覽器改 memberId
+      if (!locationInfo.state.memberId) return;
       let response = await axios.get(`${API_URL}/member/${memberId}`);
-
-      // console.log(response);
-      // 設定到state
-      // 如果不是回傳陣列有可能是錯誤或得不到正確資料
-      // state users必須保持為陣列，不然map會發生中斷錯誤
-
       setMemberData(response.data.data);
-      console.log('aaaaaaaaa', response.data.data);
-      // totalProduct = response.data;
-      // console.log([...totalProduct].length);
     };
 
     getMemberData();
   }, []);
+
   return (
     <>
       <LayoutHeader />

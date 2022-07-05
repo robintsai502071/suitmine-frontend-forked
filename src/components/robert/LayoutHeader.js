@@ -1,8 +1,47 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  useHistory,
+} from 'react-router-dom';
 import React from 'react';
 import logo from '../../images/robert/layout/LOGO.svg';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
+import { responsivePropType } from 'react-bootstrap/esm/createUtilityClasses';
+// import { useEffect, useState } from 'react';
 
 const LayoutHeader = () => {
+  // const [userInfo, setUserInfo] = useState({
+  //   user_id: '',
+  //   email: '',
+  //   name: '',
+  //   photo: '',
+  // });
+
+  const history = useHistory();
+  const checkIsLogin = async (e) => {
+    e.preventDefault();
+    try {
+      let response = await axios.get(`${API_URL}/auth/checkIsLogin`, {
+        // 允許跨源讀寫 cookie
+        withCredentials: true,
+      });
+      // 登入成功就轉址到會員頁
+      // history.push(`/member/user/${response.data.user_id}`)
+      history.push({
+        pathname: `/member/user/${response.data.user_id}`,
+        state: {
+          memberId:response.data.user_id
+        },
+      });
+    } catch (err) {
+      // 如果尚未登入就轉址到登入頁面
+      history.push('/login');
+    }
+  };
+
   return (
     <div className="header bg-dark d-flex justify-content-between p-2">
       <nav role="navigation" className="d-md-none">
@@ -67,7 +106,7 @@ const LayoutHeader = () => {
           </Link>
         </li>
         <li>
-          <Link to="/login">
+          <Link to="/login" onClick={checkIsLogin}>
             <i className="fa-regular fa-user text-white btn"></i>
           </Link>
         </li>

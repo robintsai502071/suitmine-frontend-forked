@@ -121,11 +121,21 @@ function Cheking() {
     return v.productChecked === 1;
   });
 
+  localStorage.setItem(
+    'newCheckedProducts',
+    JSON.stringify(newCheckedProducts)
+  );
+
   //篩選出被選擇的禮物卡
   let checkedGiftCards = [...giftCardDel];
   let newCheckedGiftCards = checkedGiftCards.filter((v, i) => {
     return v.productChecked === 1;
   });
+
+  localStorage.setItem(
+    'newCheckedGiftCards',
+    JSON.stringify(newCheckedGiftCards)
+  );
 
   //商品總數
   const totalNumber = () => {

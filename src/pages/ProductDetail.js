@@ -10,6 +10,7 @@ import Slider from 'react-slick';
 import { API_URL } from '../utils/config';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import AOS from 'aos';
 function SampleNextArrow(props) {
   // --------- slider設定檔 ---------
   const { className, style, onClick } = props;
@@ -69,6 +70,12 @@ function ProductDetail() {
     productAxios();
   }, []);
 
+  // ----- 刷新一次 -----
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
     <>
       <div className="container-fluid ProductDetailmain">
@@ -99,7 +106,11 @@ function ProductDetail() {
           </div>
         </div>
         {/*---------- 商品內容 ----------*/}
-        <div className="container-fluid productContentBox">
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-bottom"
+          className="container-fluid productContentBox "
+        >
           <div className="productContent row">
             {/*---------- 左邊照片樣式(電腦版) ----------*/}
             <div className="col-5 imgControl d-none d-sm-block">

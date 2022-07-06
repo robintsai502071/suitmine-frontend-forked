@@ -16,20 +16,33 @@ function MainForm() {
     photo: '',
     valid: '',
   });
-
+  const [reuploadPhoto, setReuploadPhoto] = useState('');
+  const [initialPhoto, setInitialPhoto] = useState('');
   const { memberId } = useParams();
   const locationInfo = useLocation();
   const [editMode, setEditMode] = useState(false);
-  const nameInputRef = useRef();
 
+  // 點選編輯檔案自動 focus 第一個 Input
+  const nameInputRef = useRef();
+  // ANTD 還原 memberData 預設值用
   const formRef = useRef();
-  // const form = Form.useFormInstance();
 
   async function handleSubmit(values) {
     if (values.memberId != memberId) return;
     // console.log(values);
-    let response = await axios.patch(`${API_URL}/member/${memberId}`, values);
-    console.log(response);
+    let response = await axios.patch(`${API_URL}/member/${memberId}`, {
+      ...values,
+      photo: reuploadPhoto,
+    });
+    // console.log(response);
+  }
+  async function handleUploadPhoto(e) {
+    let formData = new FormData();
+    formData.append('photo', e.target.files[0]);
+    let response = await axios.post(`${API_URL}/reupload/avatar`, formData);
+    // console.log(response.data.data.link);
+    setReuploadPhoto(response.data.data.link);
+    setMemberData({...memberData, photo:response.data.data.link})
   }
   // 拿會員資料
   useEffect(() => {
@@ -39,8 +52,8 @@ function MainForm() {
       if (locationInfo.state === undefined) return;
       let response = await axios.get(`${API_URL}/member/${memberId}`);
 
-      // console.log(response.data.data);
       setMemberData(response.data.data);
+      setInitialPhoto(response.data.data.photo)
     };
 
     getMemberData();
@@ -78,7 +91,12 @@ function MainForm() {
               </>
             )}
 
-            <input type="file" id="avatarInput" hidden />
+            <input
+              type="file"
+              id="avatarInput"
+              hidden
+              onChange={handleUploadPhoto}
+            />
             <img
               className="main__form__avatar__image"
               src={memberData.photo}
@@ -217,7 +235,7 @@ function MainForm() {
                 <Button
                   onClick={() => {
                     setEditMode(false);
-                    setMemberData(memberData);
+                    setMemberData({ ...memberData, photo: initialPhoto });
                     formRef.current.resetFields();
                   }}
                 >

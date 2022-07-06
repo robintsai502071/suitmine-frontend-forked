@@ -10,10 +10,25 @@ import Checking from '../components/alden/ShoppingCart/cheking';
 import ConsumerDetail from '../components/alden/ShoppingCart/consumerDetail';
 import Payment from '../components/alden/ShoppingCart/payment';
 import Finish from '../components/alden/ShoppingCart/finish';
+import { API_URL } from '../utils/config';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function ShoppingCartChecking() {
+  //Steps
   const [steps, setSteps] = useState(0);
-  // console.log(steps);
+
+  //從後端撈資料
+  const [getShopCartInfo, setGetShopCartInfo] = useState([]);
+  useEffect(() => {
+    let getStocks = async () => {
+      let response = await axios.get(`${API_URL}/shoCart/1`);
+      setGetShopCartInfo(response.data);
+    };
+    getStocks();
+  }, []);
+  const menbership = getShopCartInfo.user;
+  const usableGiftCard = getShopCartInfo.giftCardList;
 
   return (
     <div className="shopingCart">
@@ -32,13 +47,15 @@ function ShoppingCartChecking() {
 
         {/* 各流程 */}
 
-        {steps === 0 && <Checking />}
+        {steps === 0 && usableGiftCard && (
+          <Checking usableGiftCard={usableGiftCard} />
+        )}
 
         {steps === 1 && <Payment />}
 
         {steps === 2 && <ConsumerDetail />}
 
-        {steps === 3 && <Finish />}
+        {steps === 3 && menbership && <Finish menbership={menbership} />}
 
         {/* 下方按鈕 */}
         <div className="container">

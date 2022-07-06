@@ -1,27 +1,14 @@
 import React from 'react';
-import axios from 'axios';
 import 'antd/dist/antd.css';
 import Form from 'react-bootstrap/Form';
 import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCartsample.png';
 import SubtotalBlockWeb from '../ShoppingCart/cheking/SubtotalBlockWeb';
 import MapProductWeb from './cheking/MapProductWeb';
 import { useState } from 'react';
-import { useEffect } from 'react';
 import GiftCardWed from './cheking/GiftCardWed';
-import { API_URL } from '../../../utils/config';
 
-function Cheking() {
-  const [getShopCartInfo, setGetShopCartInfo] = useState([]);
-
-  useEffect(() => {
-    let getStocks = async () => {
-      let response = await axios.get(`${API_URL}/shoCart/1`);
-      setGetShopCartInfo(response.data);
-    };
-    getStocks();
-  }, []);
-  console.log('測試', getShopCartInfo);
-
+function Cheking(props) {
+  const { usableGiftCard } = props;
   //商品
   const products = [
     {
@@ -85,36 +72,36 @@ function Cheking() {
   ];
 
   //可使用的禮物卡
-  const usableGiftCard = [
-    {
-      id: 1,
-      giver: '禮物卡暴發戶',
-      giver_user_id: 1,
-      receiver_user_id: 2,
-      amount: 3000,
-    },
-    {
-      id: 2,
-      giver: '好麻吉',
-      giver_user_id: 2,
-      receiver_user_id: 2,
-      amount: 6000,
-    },
-    {
-      id: 3,
-      giver: '好碰由',
-      giver_user_id: 3,
-      receiver_user_id: 2,
-      amount: 1400,
-    },
-    {
-      id: 4,
-      giver: '禮物卡人',
-      giver_user_id: 4,
-      receiver_user_id: 2,
-      amount: 230,
-    },
-  ];
+  // const usableGiftCard = [
+  //   {
+  //     id: 1,
+  //     giver: '禮物卡暴發戶',
+  //     giver_user_id: 1,
+  //     receiver_user_id: 2,
+  //     amount: 3000,
+  //   },
+  //   {
+  //     id: 2,
+  //     giver: '好麻吉',
+  //     giver_user_id: 2,
+  //     receiver_user_id: 2,
+  //     amount: 6000,
+  //   },
+  //   {
+  //     id: 3,
+  //     giver: '好碰由',
+  //     giver_user_id: 3,
+  //     receiver_user_id: 2,
+  //     amount: 1400,
+  //   },
+  //   {
+  //     id: 4,
+  //     giver: '禮物卡人',
+  //     giver_user_id: 4,
+  //     receiver_user_id: 2,
+  //     amount: 230,
+  //   },
+  // ];
 
   //在原product的物件中新增屬性的initState
   const initState = (productArray) => {

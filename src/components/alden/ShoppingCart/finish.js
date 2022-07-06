@@ -2,33 +2,19 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 import 'antd/dist/antd.css';
 
-//使用者資料
-const menbership = [
-  {
-    id: 1,
-    name: '大金主',
-    phone: '0900000000',
-    heigh: 180,
-    weight: 75,
-    shoulder_width: 40,
-    chest_width: 35,
-    waist_width: 90,
-    leg_length: 90,
-    arm_length: 75,
-  },
-];
+function Finish(props) {
+  //使用者資料
+  const { menbership } = props;
+  const {
+    name,
+    heigh,
+    shoulder_width,
+    chest_width,
+    waist_width,
+    leg_length,
+    arm_length,
+  } = menbership[0];
 
-const {
-  name,
-  heigh,
-  shoulder_width,
-  chest_width,
-  waist_width,
-  leg_length,
-  arm_length,
-} = menbership[0];
-
-function Finish() {
   //從localstorage中取得需要的資料
   const totalCounts = localStorage.getItem('totalCounts');
   const productsCost = localStorage.getItem('productsCost');

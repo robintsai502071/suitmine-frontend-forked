@@ -34,16 +34,16 @@ function SubtotalBlockWeb(props) {
   const { Option } = Select;
 
   //被選禮物卡價錢的function
-  const priceHandler = (value) => {
-    //setGiftPrice
-    setGiftPrice(usableGiftCard[value - 1].amount);
+  const priceHandler = (id) => {
+    const value = usableGiftCard.find((v) => v.id === id);
+    setGiftPrice(value.amount);
   };
 
   //被選禮物卡名稱的function
   const [giftName, setgiftName] = useState(0);
-  const nameHandler = (value) => {
-    //setGiftPrice
-    setgiftName(usableGiftCard[value - 1].giver);
+  const nameHandler = (id) => {
+    const value = usableGiftCard.find((v) => v.id === id);
+    setgiftName(value.giver);
   };
 
   //塞下一頁需要的資料進localstorage
@@ -87,7 +87,9 @@ function SubtotalBlockWeb(props) {
                   const { id, giver } = usableGiftCard;
                   return (
                     <>
-                      <Option value={id}>{giver}</Option>
+                      <Option key={id} value={id}>
+                        {giver}
+                      </Option>
                     </>
                   );
                 })}

@@ -25,6 +25,7 @@ import ShoppingCartChecking from './pages/ShoppingCartChecking';
 import ShoppingCartPayment from './pages/ShoppingCartPayment';
 import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
 import ShoppingCartFinish from './pages/ShoppingCartFinish';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -72,6 +73,10 @@ function App() {
 
         <Route path="/register">
           <Register />
+        </Route>
+
+        <Route path="/login">
+          <Login />
         </Route>
 
         <Route path="/booking-date">

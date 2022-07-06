@@ -7,15 +7,16 @@ import Bloglist from '../components/robert/BlogList';
 import BlogSidebar from '../components/robert/BlogSidebar';
 function Blog() {
   // 載入更多頁面
-  function handleScroll(e) {
-    const [scrollTop, clientHeight, scrollHeight] = e.currentTarget;
-    console.log('scrollTop:', scrollTop);
-    console.log('clientHeight:', clientHeight);
-    console.log('scrollHeight:', scrollHeight);
-  }
+  // function handleScroll(e) {
+  //   const [scrollTop, clientHeight, scrollHeight] = e.currentTarget;
+  //   console.log('scrollTop:', scrollTop);
+  //   console.log('clientHeight:', clientHeight);
+  //   console.log('scrollHeight:', scrollHeight);
+  // }
 
   return (
-    <div className="Blog" onScroll={handleScroll}>
+    // <div className="Blog" onScroll={handleScroll}>
+    <div className="Blog">
       <LayoutHeader />
       <BlogBanner />
       <LayoutMain />

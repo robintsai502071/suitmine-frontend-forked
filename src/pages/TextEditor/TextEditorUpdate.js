@@ -8,6 +8,7 @@ import draftToHtml from 'draftjs-to-html';
 import { useState, useRef, useEffect } from 'react';
 import '../../style.css';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 function uploadImageCallBack(file) {
   return new Promise((resolve, reject) => {
@@ -33,8 +34,9 @@ function uploadImageCallBack(file) {
 
 const TextEditorUpdate = () => {
   // ------------------將文字編輯器所有欄位內容撈回文字編輯器----------------------------------
-  const textTag = useRef();
+  // const textTag = useRef();
   const [throwBackText, setThrowback] = useState('');
+  const { blogId } = useParams();
 
   // // useEffect(() => {
   // //   let throwBackText = async () => {
@@ -63,18 +65,23 @@ const TextEditorUpdate = () => {
 
   useEffect(() => {
     const getBlog = async () => {
-      let response = await axios.get(`http://localhost:3001/api/blogs/29`);
-      console.log(response.data.blog[0].content);
+      // 我把path改成get
+      let response = await axios.get(
+        `http://localhost:3001/api/blogs/${blogId}`
+      );
+      // console.log(response.data.blog[0].content);
+      console.log(response.data.blog[0]);
+      // setThrowback(response.data.blog[0].content);
+      setMainArea({
+        ...mainArea,
+        title: response.data.blog[0].title,
+        category: response.data.blog[0].category_id,
+      });
       setThrowback(response.data.blog[0].content);
     };
     getBlog();
   }, []);
-  // const getBlog = async ()=>{
-  //   let response = await axios.get(`http://localhost:3001/api/blogs/1`)
-  //   console.log(response.data.blog[0].content);
-  //   setThrowback(response.data.blog[0].content)
-  // }
-  // getBlog()
+
   useEffect(() => {
     // let overview = `<p>333</p>`;
     // const contentBlock = htmlToDraft("`"+`${throwBackText}`+"`");
@@ -167,7 +174,7 @@ const TextEditorUpdate = () => {
       // console.log(
       //   `標題:${mainArea.title}, 文章分類:${mainArea.category}, 主要內文:${data}, 縮圖:${mainArea.photo}`
       // );
-      let response = axios.post(`http://localhost:3001/api/blogs`, {
+      let response = axios.patch(`http://localhost:3001/api/blogs/${blogId}`, {
         ...mainArea,
         content: data,
       });
@@ -176,6 +183,13 @@ const TextEditorUpdate = () => {
       console.error(e);
     }
   }
+
+
+
+
+
+
+
 
   return (
     <div>
@@ -261,7 +275,10 @@ const TextEditorUpdate = () => {
         ></textarea> */}
 
         {/* 送出文字檔 */}
-        <button className="px-3 py-1 me-3" onClick={handleSubmit}>送出</button>
+        <button className="px-3 py-1 me-3" onClick={handleSubmit}>
+          送出
+        </button>
+
         <button className="px-3 py-1">取消</button>
       </form>
     </div>

@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
-// 從網址上把 :blog的id 拿下來
 
 function TextEditorPrint() {
+  // 從網址上把 :blog的id 拿下來
   const { blogId } = useParams();
   const [throwBackText, setThrowback] = useState([]);
 
@@ -30,7 +30,7 @@ function TextEditorPrint() {
     <>
       <div className="container">
         <div className="row">
-          <div className="col">
+          <div className="col blog-block">
             <div dangerouslySetInnerHTML={stringToObject} />
             {/* {dangerouslySetInnerHTML(throwBackText)} */}
           </div>

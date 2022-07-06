@@ -7,6 +7,7 @@ import RWDProductTypeBar from '../components/bao/productList/RWDProductTypeBar';
 import SwitchButton from '../components/bao/productList/SwitchButton';
 import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutMain from '../components/robert/LayoutMain';
+// import LayoutFooter from '../components/robert/LayoutFooter';
 import LayoutFooter from '../components/robert/LayoutFooter';
 
 function ProductList() {

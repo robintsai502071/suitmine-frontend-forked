@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function BlogList() {
+  const [pageNow, setPageNow] = useState(1)
   // let offset = 0;
   // const handleScroll = (e) => {
   //   // console.log('hi');
@@ -72,59 +73,122 @@ function BlogList() {
             return (
               <>
                 <div className="col-lg-4 col-md-4 col-12 d-flex">
-                    <div className="card blog-card shadow cursor-pointer">
-                      {/* <a href="#/"> */}
-                  <Link to={`/text-editor-print/${value.id}`} className='d-block'>
-                        <img
-                          src={value.images}
-                          className="card-img-top"
-                          alt="..."
-                        />
-                        {/* <h6 className="text-white position-absolute ">
+                  <div className="card blog-card shadow cursor-pointer">
+                    {/* <a href="#/"> */}
+                    <Link
+                      to={`/text-editor-print/${value.id}`}
+                      className="d-block"
+                    >
+                      <img
+                        src={value.images}
+                        className="card-img-top"
+                        alt="..."
+                      />
+                      {/* <h6 className="text-white position-absolute ">
                           
                         </h6> */}
                       {/* </a> */}
-                      </Link>
-                      <div className="card-body text-start">
-                        <h5 className="card-title">
-                          {/* <a
+                    </Link>
+                    <div className="card-body text-start">
+                      <h5 className="card-title">
+                        {/* <a
                             className="text-dark text-decoration-none"
                             href="#/"
                           > */}
-                            {value.title}
-                          {/* </a> */}
-                        </h5>
-                        <div className="card-text mt-4">
+                        {value.title}
+                        {/* </a> */}
+                      </h5>
+                      {/* <div className="card-text mt-4">
                           <div
                             dangerouslySetInnerHTML={{ __html: value.content }}
                           />
-                        </div>
-                        {/* <p className="card-text">
+                        </div> */}
+                      {/* <p className="card-text">
                 This is a wider card with supporting text below as a natural
                 lead-in to additional content. This content is a little bit
                 longer.
               </p> */}
-                        <p className="card-text mt-3">
-                          <small className="text-muted">
-                            {value.create_time}
-                          </small>
-                        </p>
-                      </div>
-                  
+                      <p className="card-text mt-3">
+                        <small className="text-muted">
+                          {value.create_time}
+                        </small>
+                      </p>
                     </div>
+                  </div>
                 </div>
               </>
             );
           })}
 
           <div className="col-12 text-center">
-            <button
-              type="button"
-              className="btn btn-outline-secondary mb-3 w-25 "
-            >
-              LOAD MORE
-            </button>
+            <nav>
+              <ul className="pager">
+                <li className="pager__item pager__item--prev">
+                  <a className="pager__link" href="#/">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="8"
+                      height="12"
+                      viewBox="0 0 8 12"
+                    >
+                      <g fill="none" fillRule="evenodd">
+                        <path
+                          fill="#33313C"
+                          d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
+                        ></path>
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+
+                {/* 創造一個依照pageTotal長度的陣列，來呈現目前的分頁元件項目 */}
+                {/* 切換分頁都是在設定pageNow狀態而已 */}
+
+                {Array(8)
+                  .fill(1)
+                  .map((v, i) => {
+                    return (
+                      <li
+                        className={`pager__item ${
+                          i + 1 === pageNow ? 'active' : ''
+                        }`}
+                        key={i}
+                      >
+                        <a
+                          className="pager__link fs-6"
+                          href="#/"
+                          onClick={() => {
+                            setPageNow(i + 1);
+                          }}
+                        >
+                          {i + 1}
+                        </a>
+                      </li>
+                    );
+                  })}
+
+                <li className="pager__item pager__item--next">
+                  <a className="pager__link" href="#/">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="8"
+                      height="12"
+                      viewBox="0 0 8 12"
+                    >
+                      <g fill="none" fillRule="evenodd">
+                        <path
+                          fill="#33313C"
+                          d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
+                        ></path>
+                      </g>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </nav>
           </div>
+
+          {/* ---------------------------------------------------------------- */}
         </div>
       </div>
     </>

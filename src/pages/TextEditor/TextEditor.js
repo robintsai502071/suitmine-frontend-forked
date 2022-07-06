@@ -21,7 +21,7 @@ function uploadImageCallBack(file) {
     xhr.addEventListener('load', () => {
       const response = JSON.parse(xhr.responseText);
       // 請修改字串
-      response.data.link = 'http://localhost:3001' + response.data.link;
+      response.data.link = response.data.link;
       console.log(response);
       resolve(response);
     });

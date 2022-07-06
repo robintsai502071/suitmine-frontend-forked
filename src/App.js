@@ -28,7 +28,7 @@ import ShoppingCartFinish from './pages/ShoppingCartFinish';
 import TextEditorWysiwyg from './pages/TextEditorWysiwyg';
 import TextEditorUpdateWysiwyg from './pages/TextEditorUpdateWysiwyg';
 import TextEditorPrintWysiwyg from './pages/TextEditorPrintWysiwyg';
-
+import BlogBackendAll from './pages/BlogBackend/BlogBackend';
 function App() {
   return (
     <BrowserRouter>
@@ -47,13 +47,24 @@ function App() {
         </Route>
 
         {/* [更新] 文字編輯器 */}
-        <Route path="/text-editor-update">
+        {/* <Route path="/text-editor-update">
+          <TextEditorUpdateWysiwyg />
+        </Route> */}
+        {/* <Route path="/text-editor-update/:blogUpdateId">
+          <TextEditorUpdateWysiwyg />
+        </Route> */}
+        <Route path="/text-editor-update/:blogId">
           <TextEditorUpdateWysiwyg />
         </Route>
 
         {/* [網站顯示文章功能] 文字編輯器 */}
         <Route path="/text-editor-print/:blogId">
           <TextEditorPrintWysiwyg />
+        </Route>
+
+        {/* 文字編輯器後台 */}
+        <Route path="/blog-dashboard">
+          <BlogBackendAll />
         </Route>
 
         <Route path="/member/my-gift-card">

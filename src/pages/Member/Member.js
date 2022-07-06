@@ -1,8 +1,8 @@
 import React from 'react';
-import axios from 'axios';
-import { API_URL } from '../../utils/config';
-import { useState, useEffect } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+// import axios from 'axios';
+// import { API_URL } from '../../utils/config';
+// import { useState, useEffect } from 'react';
+// import { useParams, useLocation } from 'react-router-dom';
 import LayoutFooter from '../../components/robert/LayoutFooter';
 import LayoutHeader from '../../components/robert/LayoutHeader';
 import MainForm from '../../components/robin/Member/user/MainForm';
@@ -10,21 +10,22 @@ import SideBar from '../../components/robin/Member/SideBar';
 import MemberMobileView from './MemberMobileView';
 
 function Member() {
-  const [memberData, setMemberData] = useState([]);
+  // const [memberData, setMemberData] = useState([]);
 
-  const { memberId } = useParams();
-  const locationInfo = useLocation()
+  // const { memberId } = useParams();
+  // const locationInfo = useLocation();
   // 拿會員資料
-  useEffect(() => {
-    let getMemberData = async () => {
-      // 防止使用者直接從瀏覽器改 memberId
-      if (!locationInfo.state.memberId) return;
-      let response = await axios.get(`${API_URL}/member/${memberId}`);
-      setMemberData(response.data.data);
-    };
+  // useEffect(() => {
+  //   let getMemberData = async () => {
+  //     // 防止使用者直接從瀏覽器改 memberId
+  //     // TODO: 導向 404 page
+  //     if (locationInfo.state === undefined) return;
+  //     let response = await axios.get(`${API_URL}/member/${memberId}`);
+  //     setMemberData(response.data.data);
+  //   };
 
-    getMemberData();
-  }, []);
+  //   getMemberData();
+  // }, []);
 
   return (
     <>
@@ -35,7 +36,8 @@ function Member() {
             <SideBar sidebarActiveNumber={'0'} />
           </div>
           <div className="col-8 offset-1">
-            <MainForm memberData={memberData} />
+            {/* <MainForm memberData={memberData} /> */}
+            <MainForm />
           </div>
         </div>
       </div>

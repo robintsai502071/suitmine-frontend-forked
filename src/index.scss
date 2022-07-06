@@ -3,9 +3,13 @@
 @import './styles/reset';
 @import './styles/global';
 
+// 昱
+@import './styles/home';
+@import './styles/measurement';
+
 
 //cusomerService.sass
-@import './styles/customerService';
+// @import './styles/customerService';
 
 //_shoppingcart.scss
 @import './styles/shoppingCartChecking';
@@ -19,6 +23,8 @@
 @import './styles/productList'; 
 // -----------bookingMap-----------
 @import './styles/BookingMap';
+// -----------bookingMap-----------
+// @import './styles/Register';
 // -----------Register-----------
 @import './styles/Register';
 // -----------MeasurementTeaching-----------

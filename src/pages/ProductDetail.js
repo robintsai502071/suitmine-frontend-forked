@@ -205,7 +205,7 @@ function ProductDetail() {
                   <h6>{product[0]?.productContent}</h6>
                 </div>
                 {/* 單價 */}
-                <div className="my-5">
+                <div className="my-2 priceTextBox">
                   <h4>NTD $ {product[0]?.price}</h4>
                 </div>
                 <div

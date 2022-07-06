@@ -7,10 +7,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 function GiftCardBg() {
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
+  // useEffect(() => {
+  //   AOS.init();
+  //   AOS.refresh();
+  // }, []);
   return (
     <div className=" my-5 d-xxl-block d-none ">
       <div className="giftcard-bg2 position-relative">

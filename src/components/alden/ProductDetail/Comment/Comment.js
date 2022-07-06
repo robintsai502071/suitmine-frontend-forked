@@ -43,7 +43,7 @@ function Comment() {
   let producCommenttAxios = async () => {
     try {
       const responseProduct = await axios.get(
-        `${API_URL}/prodetail/`
+        `${API_URL}/prodetail/products/1`
         // ${productID} <-- 要放在上面網址抓特定id的商品
       );
 

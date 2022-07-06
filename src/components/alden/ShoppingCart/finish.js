@@ -13,6 +13,7 @@ function Finish(props) {
     waist_width,
     leg_length,
     arm_length,
+    address,
   } = menbership[0];
 
   //從localstorage中取得需要的資料
@@ -217,7 +218,7 @@ function Finish(props) {
                     <h5>取貨地點</h5>
                   </div>
                   <div>
-                    <h5>{getAddress}</h5>
+                    <h5>{address}</h5>
                   </div>
                 </div>
                 <div>

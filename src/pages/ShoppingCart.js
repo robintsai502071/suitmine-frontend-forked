@@ -53,7 +53,9 @@ function ShoppingCartChecking() {
 
         {steps === 1 && <Payment />}
 
-        {steps === 2 && <ConsumerDetail />}
+        {steps === 2 && menbership && (
+          <ConsumerDetail menbership={menbership} />
+        )}
 
         {steps === 3 && menbership && <Finish menbership={menbership} />}
 

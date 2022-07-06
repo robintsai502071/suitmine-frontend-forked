@@ -6,7 +6,7 @@ import { Input } from 'antd';
 import { Checkbox } from 'antd';
 import 'antd/dist/antd.css';
 
-function ConsumerDetail() {
+function ConsumerDetail(props) {
   //處理下方發票按鈕
   const inVoiceitems = [
     '電子發票-個人',
@@ -17,8 +17,9 @@ function ConsumerDetail() {
   const [activedBut, setActivedBut] = useState('電子發票-個人');
 
   //使用者資料
-  const menbership = [{ id: 1, name: '大金主', phone: '0900000000' }];
-  const { name, phone } = menbership[0];
+  const { menbership } = props;
+  // const menbership = [{ id: 1, name: '大金主', phone: '0900000000' }];
+  const { name, phone, address } = menbership[0];
 
   //從localstorage取得資料
   const totalCounts = localStorage.getItem('totalCounts');
@@ -76,19 +77,7 @@ function ConsumerDetail() {
                   <div className="w-25">
                     <h5>取貨地址</h5>
                   </div>
-                  <div>
-                    <Input
-                      placeholder="請輸入您的取貨地址"
-                      value={adress.adress}
-                      name={'adress'}
-                      onChange={(e) => {
-                        setAdress({
-                          ...adress,
-                          [e.target.name]: e.target.value,
-                        });
-                      }}
-                    />
-                  </div>
+                  <div>{address}</div>
                 </div>
               </div>
               {/* 發票 */}

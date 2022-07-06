@@ -2,7 +2,6 @@ import React from 'react';
 import 'antd/dist/antd.css';
 //引入各部件
 import Form from 'react-bootstrap/Form';
-import { Select } from 'antd';
 
 function payment() {
   //從localstorage中取得需要的資料

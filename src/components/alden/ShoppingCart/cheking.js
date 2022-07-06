@@ -1,14 +1,27 @@
 import React from 'react';
+import axios from 'axios';
 import 'antd/dist/antd.css';
 import Form from 'react-bootstrap/Form';
 import ShoppingCartsample from '../../../images/alden/ShoppingCart/shoppingCartsample.png';
 import SubtotalBlockWeb from '../ShoppingCart/cheking/SubtotalBlockWeb';
 import MapProductWeb from './cheking/MapProductWeb';
 import { useState } from 'react';
+import { useEffect } from 'react';
 import GiftCardWed from './cheking/GiftCardWed';
-// import { useEffect } from 'react';
+import { API_URL } from '../../../utils/config';
 
 function Cheking() {
+  const [getShopCartInfo, setGetShopCartInfo] = useState([]);
+
+  useEffect(() => {
+    let getStocks = async () => {
+      let response = await axios.get(`${API_URL}/shoCart/1`);
+      setGetShopCartInfo(response.data);
+    };
+    getStocks();
+  }, []);
+  console.log('測試', getShopCartInfo);
+
   //商品
   const products = [
     {

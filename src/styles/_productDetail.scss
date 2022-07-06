@@ -707,6 +707,10 @@
     .photo {
     height: 50px;
     width: 50px;
+    .customizedBox {
+      width: 82.23px;
+      height: 112px;
+    }
   }
 }
 .topSection h3 {
@@ -723,5 +727,14 @@
   margin-right: 0px !important;
 }
 .ant-radio-button-wrapper:focus-within {
-   box-shadow: none !important; 
+  box-shadow: none !important;
+}
+.customized h6 {
+  color: #fff;
+}
+.ant-collapse-content > .ant-collapse-content-box {
+  padding: 0 !important;
+}
+.ant-collapse-content > .ant-collapse-content-box {
+  padding: 0 !important;
 }

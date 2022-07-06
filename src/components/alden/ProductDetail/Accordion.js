@@ -6,13 +6,8 @@ const { Panel } = Collapse;
 
 const Accordion = (props) => {
   // ----------- 解構 -----------
-  const { handleOk } = props;
-  //----------- 設定商品的細節狀態 -----------
-  const [productDetails, setProductDetails] = useState({
-    collar: '',
-    pocket: '',
-    button: '',
-  });
+  const { handleOk, product, setProductDetails, productDetails } = props;
+
   //----------- 領子狀態選取事件 -----------
 
   const handleCollarChange = (e) => {
@@ -22,7 +17,7 @@ const Accordion = (props) => {
     };
     setProductDetails(updateProductDetails);
   };
-  console.log(productDetails);
+  // console.log(productDetails);
 
   //----------- 口袋狀態選取事件 -----------
 
@@ -45,19 +40,7 @@ const Accordion = (props) => {
   // ==============localStorage存取商品客製化細節函示===========
 
   const localStorageSetItem = () => {
-    let obj = {};
-    obj = { ...productDetails }; //<--要再增加商品id
-
-    // ----------- 判斷有沒有車因為沒有車會錯誤所以要先判斷 -----------
-    if (localStorage.getItem('cart') == null) {
-      let arr = [];
-      localStorage.setItem('cart', JSON.stringify(arr));
-    }
-    // JSON.parse() 方法把會把一個JSON字串轉換成 JavaScript的數值或是物件
-    let oldCart = JSON.parse(localStorage.getItem('cart'));
-    // 將舊的購物車取代
-    var newArr = [...oldCart, obj];
-    localStorage.setItem('cart', JSON.stringify(newArr));
+    setProductDetails(productDetails)
   };
   return (
     <>
@@ -67,7 +50,7 @@ const Accordion = (props) => {
           <div className="detailContents">
             <Radio.Group name="collar" onChange={handleCollarChange}>
               <Radio.Button value="標準領">
-                <div 
+                <div
                   className={
                     productDetails.collar === '標準領' && 'selectBorder'
                   }

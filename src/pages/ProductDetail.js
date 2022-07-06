@@ -45,6 +45,13 @@ function ProductDetail() {
   // --------- 商品資訊狀態 ---------
   const [product, setProduct] = useState([]);
 
+  // --------- 商品資訊狀態 ---------
+  const [productDetails, setProductDetails] = useState({
+    collar: '',
+    pocket: '',
+    button: '',
+  });
+
   // const { stockId } = useParams();
 
   // ========== 從後端傳送單筆商品資料過來(待用) ==========
@@ -54,7 +61,6 @@ function ProductDetail() {
       // , { params: { product }},
     );
     setProduct(responseProduct.data);
-    console.log(responseProduct.data);
   };
 
   // ----- 刷新頁面 -----
@@ -78,8 +84,8 @@ function ProductDetail() {
           />
           <div className="fliter"></div>
           <div className="productName">
-          {/* 調用一個東西的時候 */}
-            <h1>{product[0]?.name}</h1>
+            {/* 調用一個東西的時候 */}
+            <h1>{product[0]?.productName}</h1>
           </div>
         </div>
         {/* 背景圖片(手機板) */}
@@ -89,7 +95,7 @@ function ProductDetail() {
             alt=""
           />
           <div className="productName text-center">
-            <h4>{product[0]?.name}</h4>
+            <h4>{product[0]?.productName}</h4>
           </div>
         </div>
         {/*---------- 商品內容 ----------*/}
@@ -187,7 +193,7 @@ function ProductDetail() {
               <div className="topSection">
                 {/* 商品名 */}
                 <div className="d-none d-sm-block">
-                  <h4 className="text-nowrap">{product[0]?.name}</h4>
+                  <h4 className="text-nowrap">{product[0]?.productName}</h4>
                 </div>
                 {/* 商品名 */}
                 <div className="d-flex justify-content-center d-sm-none ">
@@ -196,11 +202,25 @@ function ProductDetail() {
                 </div>
                 {/* 商品敘述 */}
                 <div className=" productNarrative">
-                  <h6>{product[0]?.content}</h6>
+                  <h6>{product[0]?.productContent}</h6>
                 </div>
                 {/* 單價 */}
-                <div className="d-none d-sm-block">
-                  <h4>{product[0]?.price}</h4>
+                <div className="my-5">
+                  <h4>NTD $ {product[0]?.price}</h4>
+                </div>
+                <div
+                  // 如果商品客製化都為空字串就不顯示
+                  className={`customized ${
+                    productDetails.collar === '' &&
+                    productDetails.pocket === '' &&
+                    productDetails.button === '' &&
+                    'd-none'
+                  }`}
+                >
+                  <h6>
+                    商品客製化細節:{productDetails.collar}/
+                    {productDetails.pocket}/{productDetails.button}
+                  </h6>
                 </div>
               </div>
               {/* 右下方區塊 */}
@@ -218,7 +238,7 @@ function ProductDetail() {
                       <h6>顏色</h6>
                     </div>
                     <div>
-                      <h6>{product[0]?.color_type}</h6>
+                      <h6>{product[0]?.color}</h6>
                     </div>
                   </div>
                   {/* 花紋 */}
@@ -227,7 +247,7 @@ function ProductDetail() {
                       <h6>花紋</h6>
                     </div>
                     <div>
-                      <h6>{product[0]?.pattern_type}</h6>
+                      <h6>{product[0]?.pattern}</h6>
                     </div>
                   </div>
                   {/* 材質 */}
@@ -236,7 +256,7 @@ function ProductDetail() {
                       <h6>材質</h6>
                     </div>
                     <div>
-                      <h6>{product[0]?.texture_type}</h6>
+                      <h6>{product[0]?.texture}</h6>
                     </div>
                   </div>
                 </div>
@@ -244,11 +264,19 @@ function ProductDetail() {
                 <div className="btns">
                   {/* 客製化細節 */}
                   <div className="addDetail">
-                    <AddDetail />
+                    <AddDetail
+                      product={product}
+                      setProductDetails={setProductDetails}
+                      productDetails={productDetails}
+                    />
                   </div>
                   {/* 加入購物車 */}
                   <div className="addInCart">
-                    <AddInCart />
+                    {/* 傳送資料給AddInCart */}
+                    <AddInCart
+                      productDetails={productDetails}
+                      product={product}
+                    />
                   </div>
                 </div>
               </div>

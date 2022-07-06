@@ -7,7 +7,7 @@ import {
 import { Comment, Tooltip } from 'antd';
 import React, { createElement, useState } from 'react';
 
-const Liks = () => {
+const Likes = () => {
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [action, setAction] = useState(null);
@@ -46,4 +46,4 @@ const Liks = () => {
   return <Comment className="d-flex justify-content-end" actions={actions} />;
 };
 
-export default Liks;
+export default Likes;

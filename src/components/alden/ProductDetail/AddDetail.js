@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Accordion from './Accordion';
 import { Form } from 'antd';
 
-const AddDetail = () => {
+const AddDetail = (props) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -19,6 +19,8 @@ const AddDetail = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  const { setProductDetails, productDetails } = props;
 
   return (
     <>
@@ -46,7 +48,11 @@ const AddDetail = () => {
               <Form.Item name="radio-group" label="Radio.Group">
                 {/* 細節內容手風琴 */}
                 <div className="Accordion">
-                  <Accordion handleOk={handleOk} />
+                  <Accordion
+                    handleOk={handleOk}
+                    setProductDetails={setProductDetails}
+                    productDetails={productDetails}
+                  />
                 </div>
               </Form.Item>
             </div>

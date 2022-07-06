@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../../../../utils/config';
-import Liks from './Liks/Liks';
+import Liks from './Likes/Liks';
 
 // ----- 假資料 -----
 
@@ -52,10 +52,9 @@ function Comment() {
       // state users必須保持為陣列，不然map會發生中斷錯誤
       if (Array.isArray(responseProduct.data)) {
         // 先用forEach更改每一項commentCreateTime的型態為數字毫秒
+        // console.log(responseProduct.data);
         responseProduct.data.forEach((item) => {
-          item.commentCreateTime = Number(
-            new Date(item.commentCreateTime).getTime()
-          );
+          item.create_time = Number(new Date(item.create_time).getTime());
         });
         // console.log(responseProduct.data);
         setGetProduct(responseProduct.data);
@@ -83,38 +82,12 @@ function Comment() {
     setLastIndex(pageNow * perPage - 1);
   }, [pageNow]);
 
-  // ----- 刷新頁面(時間排序) -----
-  useEffect(() => {
-    // 假如排序為false就做正序
-    if (timeSort === false) {
-      const sortArr = getproduct.sort((a, b) => {
-        const timeA = new Date(a.commentCreateTime).getTime();
-        const timeB = new Date(b.commentCreateTime).getTime();
-        return timeB - timeA;
-      });
-      // 傳送到排序狀態內(正序)
-      setGetProductSort(sortArr);
-
-      // 假如排序為true就做正序
-    } else if (timeSort === true) {
-      const sortArr = getproduct.sort((a, b) => {
-        const timeA = new Date(a.commentCreateTime).getTime();
-        const timeB = new Date(b.commentCreateTime).getTime();
-        return timeA - timeB;
-      });
-      // 傳送到排序狀態內(反序)
-      setGetProductSort(sortArr);
-    }
-  }, [timeSort]);
-
   // ----- 將毫秒轉型成日期 -----
-  const handleDate = (i) => {
+  const handleDate = (create_time) => {
     // 先判斷要轉型哪一個資料 排序後OR未排序
-    let newdate = !timeSort
-      ? getproduct[i].commentCreateTime
-      : getproductSort[i].commentCreateTime;
+
     // 判斷完再進行轉型
-    let date = new Date(newdate);
+    let date = new Date(create_time);
     return (
       date.getFullYear() +
       '/' +
@@ -144,7 +117,17 @@ function Comment() {
                 className="btn arrowbtn"
                 onClick={() => {
                   setTimeSort(true);
-                  // console.log(timeSort);
+                  // 先進行一次深複製(第一層)
+                  let newGetproduct = getproduct.map((v, i) => {
+                    return { ...v };
+                  });
+                  const sortArr = newGetproduct.sort((a, b) => {
+                    const timeA = new Date(a.create_time).getTime();
+                    const timeB = new Date(b.create_time).getTime();
+                    return timeA - timeB;
+                  });
+                  // 傳送到排序狀態內(反序)
+                  setGetProductSort(sortArr);
                 }}
               >
                 <i class=" fa-solid fa-sort-up arrowSize mt-2 "></i>
@@ -154,6 +137,18 @@ function Comment() {
                 className="btn arrowbtn"
                 onClick={() => {
                   setTimeSort(false);
+
+                  let newGetproduct = getproduct.map((v, i) => {
+                    return { ...v };
+                  });
+                  const sortArr = newGetproduct.sort((a, b) => {
+                    const timeA = new Date(a.create_time).getTime();
+                    const timeB = new Date(b.create_time).getTime();
+                    return timeB - timeA;
+                  });
+                  // 傳送到排序狀態內(正序)
+                  setGetProductSort(sortArr);
+
                   // console.log(timeSort);
                 }}
               >
@@ -184,13 +179,17 @@ function Comment() {
                     {/* 評論建立時間 */}
                     <div className="date">
                       {/* 記得傳送map跑出來的index給handleDate */}
-                      <h5 className="d-none d-sm-block">{handleDate(i)}</h5>
-                      <h6 className="d-block d-sm-none">{handleDate(i)}</h6>
+                      <h5 className="d-none d-sm-block">
+                        {handleDate(v.create_time)}
+                      </h5>
+                      <h6 className="d-block d-sm-none">
+                        {handleDate(v.create_time)}
+                      </h6>
                     </div>
                   </div>
                   {/* 評論內容 */}
                   <div className="buttonSection">
-                    <h5>{v.commentContent}</h5>
+                    <h5>{v.content}</h5>
                     <Liks />
                   </div>
                 </div>

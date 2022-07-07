@@ -33,7 +33,6 @@ function Finish(props) {
   const newCheckedGiftCards = JSON.parse(
     localStorage.getItem('newCheckedGiftCards')
   );
-  console.log(newCheckedGiftCards);
 
   //找出被使用禮物卡ID
   const getGiftCardId = giftId;
@@ -43,6 +42,9 @@ function Finish(props) {
 
   //找出會員name
   const menberName = name;
+
+  //照出待結帳禮物卡email
+  const giftCardEmail = newCheckedGiftCards[0].receiver_email;
 
   //----------------------準備送出的商品訂單狀態----------------------
   // 處理商品
@@ -58,15 +60,15 @@ function Finish(props) {
   // 處理禮物卡
   let arr2 = [];
   newCheckedGiftCards.forEach((v, i) => {
-    let obj = {
-      // gift_card_id: v.id,
+    let obj2 = {
       giver: id,
       giver_user_id: menberName,
-      reciver: newCheckedGiftCards.receiver,
-      amount: newCheckedGiftCards.amount,
-      message: newCheckedGiftCards.message,
+      amount: v.amount,
+      reciver: v.receiver,
+      giftCardEmail: giftCardEmail,
+      message: v.message,
     };
-    arr2.push(obj);
+    arr2.push(obj2);
   });
 
   //合併
@@ -77,7 +79,6 @@ function Finish(props) {
     memberId: menberId,
     order_id: '',
   });
-  // console.log(order);
 
   //處理送出新訂單
   const handleSubmit = async (e) => {

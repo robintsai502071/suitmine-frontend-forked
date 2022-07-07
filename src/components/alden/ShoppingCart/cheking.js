@@ -104,7 +104,6 @@ function Cheking(props) {
     'newCheckedGiftCards',
     JSON.stringify(newCheckedGiftCards)
   );
-  console.log('newCheckedGiftCards', newCheckedGiftCards);
 
   //商品總數
   const totalNumber = () => {

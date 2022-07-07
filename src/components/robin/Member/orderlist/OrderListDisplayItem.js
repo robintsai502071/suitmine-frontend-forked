@@ -4,7 +4,9 @@ import { Modal, Radio, Space } from 'antd';
 
 function OrderListDisplayItem(props) {
   const orderData = props.ordersItem;
-  // console.log('55555555', orderData);
+  const { setSidebarActive, setOrderIdForOrderDetail } = props;
+  // console.log(orderData);
+  // console.log('OrderListDisplayItem' + props.setOrderIdForOrderDetail);
   // Modal 開啟狀態
   const [CancelOrderModal, setCancelOrderModal] = useState(false);
   // 開啟 Modal 後 radio 初始值
@@ -17,7 +19,14 @@ function OrderListDisplayItem(props) {
 
   return (
     <>
-      <a key={orderData.id} className="order-list-display-item d-block">
+      <a
+        className="order-list-display-item d-block"
+        onClick={(e) => {
+          e.preventDefault();
+          setSidebarActive('詳細訂單');
+          setOrderIdForOrderDetail(orderData.order_id);
+        }}
+      >
         <div className="order-list-display-item__wrapper container">
           <div className="order-list-display-item__header">
             <div className="order-list-display-item__header__number">

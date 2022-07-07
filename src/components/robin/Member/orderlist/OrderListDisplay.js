@@ -6,8 +6,8 @@ import axios from 'axios';
 import { API_URL } from '../../../../utils/config';
 
 function OrderListDisplay(props) {
-  // const orderData = props.orderData;
-  const { givenMemberData } = props;
+  const { givenMemberData, setSidebarActive, setOrderIdForOrderDetail } = props;
+  // console.log('OrderListDisplay', props);
   const { activeBtnFromQuery } = queryString.parse(window.location.search);
   const [orderData, setOrderData] = useState([]);
   const [initialOrderData, setInitialOrderData] = useState([]);
@@ -39,8 +39,8 @@ function OrderListDisplay(props) {
       filteredOrderData = [...initialOrderData].filter(
         (item) => item.order_deliver_time === null
       );
-      console.log('orderData', orderData);
-      console.log('filteredOrderData', filteredOrderData);
+      // console.log('orderData', orderData);
+      // console.log('filteredOrderData', filteredOrderData);
       setOrderData(filteredOrderData);
       return;
     }
@@ -49,8 +49,8 @@ function OrderListDisplay(props) {
       filteredOrderData = [...initialOrderData].filter(
         (item) => item.order_deliver_time !== null
       );
-      console.log('orderData', orderData);
-      console.log('filteredOrderData', filteredOrderData);
+      // console.log('orderData', orderData);
+      // console.log('filteredOrderData', filteredOrderData);
       setOrderData(filteredOrderData);
       return;
     }
@@ -99,7 +99,14 @@ function OrderListDisplay(props) {
 
         <div className="order-list__display">
           {orderData?.map((ordersItem, i) => {
-            return <OrderListDisplayItem ordersItem={ordersItem} key={i} />;
+            return (
+              <OrderListDisplayItem
+                ordersItem={ordersItem}
+                key={i}
+                setSidebarActive={setSidebarActive}
+                setOrderIdForOrderDetail={setOrderIdForOrderDetail}
+              />
+            );
           })}
         </div>
       </div>

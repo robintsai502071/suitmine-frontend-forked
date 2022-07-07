@@ -12,10 +12,12 @@ import ChangePasswordForm from '../../components/robin/Member/user/ChangePasswor
 import OrderListDisplay from '../../components/robin/Member/orderlist/OrderListDisplay';
 import MyGiftCardDisplay from '../../components/robin/Member/my-gift-card/MyGiftCardDisplay';
 import MyFavoritesDisplay from '../../components/robin/Member/my-favorites/MyFavoritesDisplay';
+import OrderDetailDisplay from '../../components/robin/Member/orderDetail/OrderDetailDisplay';
 
 function Member() {
   const [givenMemberData, setGivenMemberData] = useState({});
   const [sidebarActive, setSidebarActive] = useState('個人檔案');
+  const [orderIdForOrderDetail, setOrderIdForOrderDetail] = useState(null);
   return (
     <>
       <LayoutHeader />
@@ -37,7 +39,17 @@ function Member() {
               <ChangePasswordForm givenMemberData={givenMemberData} />
             )}
             {sidebarActive === '購買清單' && (
-              <OrderListDisplay givenMemberData={givenMemberData} />
+              <OrderListDisplay
+                givenMemberData={givenMemberData}
+                setSidebarActive={setSidebarActive}
+                setOrderIdForOrderDetail={setOrderIdForOrderDetail}
+              />
+            )}
+            {sidebarActive === '詳細訂單' && (
+              <OrderDetailDisplay
+                givenMemberData={givenMemberData}
+                orderIdForOrderDetail={orderIdForOrderDetail}
+              />
             )}
             {sidebarActive === '我的禮物卡' && <MyGiftCardDisplay />}
             {sidebarActive === '我的收藏' && <MyFavoritesDisplay />}

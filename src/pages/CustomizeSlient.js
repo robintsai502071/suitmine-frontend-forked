@@ -6,7 +6,7 @@ import Slider from 'react-slick';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import LayoutHeader from '../components/robert/LayoutHeader';
 import { Image } from 'antd';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import CollarImg1 from '../components/images/CustomizeSlient/領子/單排釦/標準領.png';
 import CollarImg2 from '../components/images/CustomizeSlient/領子/單排釦/劍領.png';
 import CollarImg3 from '../components/images/CustomizeSlient/領子/單排釦/修身領.png';
@@ -22,6 +22,8 @@ import ButtonImg3 from '../components/images/CustomizeSlient/鈕扣/雙鈕扣.pn
 import DoubleImg1 from '../components/images/CustomizeSlient/口袋/標準口袋.png';
 import DoubleImg2 from '../components/images/CustomizeSlient/口袋/無蓋口袋.png';
 import DoubleImg3 from '../components/images/CustomizeSlient/口袋/斜蓋口袋.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function CustomizeSlient() {
   function SampleNextArrow(props) {
@@ -97,11 +99,19 @@ function CustomizeSlient() {
 
   // -------- 顏色點擊狀態 --------
   const [changeColor, setChangeColor] = useState([false, false, false]);
+
+  //-------- AOS動畫 --------
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+    });
+    AOS.refresh();
+  }, []);
   return (
     <>
       <LayoutHeader />
       {/* 桌機板 banner */}
-      <div className="banner d-none d-lg-block">
+      <div data-aos="fade-down" className="banner d-none d-lg-block">
         <div className="banner__wrapper mx-auto position-relative">
           <figure className="banner__wrapper__model position-relative w-75 mx-auto position-relative">
             {/* ------------領子----------- */}
@@ -346,7 +356,7 @@ function CustomizeSlient() {
         </div>
       </div>
       {/* 手機板 banner */}
-      <div className="container d-lg-none banner-rwd-bg">
+      <div data-aos="fade-down" className="container d-lg-none banner-rwd-bg">
         <div className="banner-rwd">
           <Slider {...settingsRWD} className="banner-rwd__slider">
             <div className="position-relative">
@@ -389,9 +399,12 @@ function CustomizeSlient() {
       {/*  intro1  */}
       <div className="container my-5">
         <div className="intro1">
-          <div className="row">
-            <div className="col-lg-6">
-              <div className="intro1__info px-4 px-lg-0 d-lg-flex flex-lg-column justify-content-lg-center h-100">
+          <div data-aos="fade-right" className="row">
+            <div  className="col-lg-6">
+              <div
+                
+                className="intro1__info px-4 px-lg-0 d-lg-flex flex-lg-column justify-content-lg-center h-100"
+              >
                 <h4 className="mb-3">您的選擇</h4>
                 <h6 className="mb-5">
                   我們獨特的定制流程允許您為您的西裝選擇您想要的確切定制。從鈕扣和開衩到口袋和翻領，你可以說出你想要的樣子，這就是我們將如何建造它。
@@ -451,7 +464,7 @@ function CustomizeSlient() {
       </div>
 
       {/* <!-- changeColorBlock --> */}
-      <div className="container my-5">
+      <div data-aos="fade-left" className="container my-5">
         <div className="changeColorBlock position-relative">
           <div className="position-relative">
             {/* <!-- changeColorBlockRWD --> */}
@@ -495,7 +508,7 @@ function CustomizeSlient() {
                   : 'h-100 position-absolute left-0 d-none'
               }
               src={require('../components/images/CustomizeSlient/西裝顏色/黑色.png')}
-              alt=""    
+              alt=""
             />
             <img
               className={
@@ -575,7 +588,7 @@ function CustomizeSlient() {
       </div>
 
       {/*  intro2  */}
-      <div className="container my-5">
+      <div data-aos="fade-right" className="container my-5">
         <div className="intro2">
           <div className="row">
             <div className="col-lg-6">

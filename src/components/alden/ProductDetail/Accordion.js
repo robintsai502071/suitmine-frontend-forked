@@ -40,7 +40,7 @@ const Accordion = (props) => {
   // ==============localStorage存取商品客製化細節函示===========
 
   const localStorageSetItem = () => {
-    setProductDetails(productDetails)
+    setProductDetails(productDetails);
   };
   return (
     <>

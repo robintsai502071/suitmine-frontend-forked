@@ -12,6 +12,7 @@ import Member from './pages/Member/Member';
 import MemberMobileView from './pages/Member/MemberMobileView';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
+import ShoppingCart from './pages/ShoppingCart';
 import ChangePassword from './pages/Member/ChangePassword';
 import OrderList from './pages/Member/OrderList';
 import MyGiftCard from './pages/Member/MyGiftCard';
@@ -83,20 +84,8 @@ function App() {
           <BookingDate />
         </Route>
 
-        <Route path="/shopping-cart-checking">
-          <ShoppingCartChecking />
-        </Route>
-
-        <Route path="/shopping-cart-payment">
-          <ShoppingCartPayment />
-        </Route>
-
-        <Route path="/shopping-cart-consumerdetail">
-          <ShoppingCartConsumerDetail />
-        </Route>
-
-        <Route path="/shopping-cart-finish">
-          <ShoppingCartFinish />
+        <Route path="/shopping-cart">
+          <ShoppingCart />
         </Route>
 
         <Route path="/booking-map">
@@ -126,7 +115,6 @@ function App() {
         <Route path="/product-detail">
           <ProductDetail />
         </Route>
-
 
         <Route path="/product-list">
           <ProductList />

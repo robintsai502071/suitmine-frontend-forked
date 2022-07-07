@@ -51,13 +51,6 @@ function Finish(props) {
     arr.push(obj);
   });
 
-  const [order, setOrder] = useState({
-    productlist: arr,
-    gift_card_id: getGiftCardId,
-    memberId: menberId,
-    order_id: '',
-  });
-
   // 處理禮物卡
   let arr2 = [];
   newCheckedGiftCards.forEach((v, i) => {
@@ -67,14 +60,15 @@ function Finish(props) {
     arr2.push(obj);
   });
 
-  const [orderGift, setOrderGift] = useState({
-    product_giftcard_id: arr2,
+  //合併
+  const [order, setOrder] = useState({
+    productlist: arr,
+    giftCardlist: arr2,
     gift_card_id: getGiftCardId,
     memberId: menberId,
     order_id: '',
   });
-
-  // console.log({ ...order, ...orderGift });
+  console.log(order);
 
   //處理送出新訂單
   const handleSubmit = async (e) => {
@@ -83,10 +77,7 @@ function Finish(props) {
 
     try {
       //--- 送去後端 ---
-      let response = axios.post(`${API_URL}/shoCart/uploadOrder`, {
-        ...order,
-        ...orderGift,
-      });
+      let response = axios.post(`${API_URL}/shoCart/uploadOrder`, order);
     } catch (e) {
       console.error(e);
     }

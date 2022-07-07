@@ -8,7 +8,7 @@ function MapProductWeb(props) {
     proName,
     button,
     pocket,
-    lapel,
+    collar,
     price,
     newProductCounts,
     setproductCounts,
@@ -69,7 +69,7 @@ function MapProductWeb(props) {
             <h5>{proName}</h5>
           </div>
           <h6>
-            客製化 : {button}/{pocket}/{lapel}
+            客製化 : {button}/{pocket}/{collar}
           </h6>
         </div>
         <div className="col-1"></div>

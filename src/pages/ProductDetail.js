@@ -61,8 +61,12 @@ function ProductDetail() {
       `${API_URL}/prodetail/products/1`
       // , { params: { product }},
     );
+    // console.log(product[0].productDetailPhoto1);
+    console.log(responseProduct.data);
+
     setProduct(responseProduct.data);
   };
+  console.log(product[0]?.productDetailPhoto1);
 
   // ----- 刷新頁面 -----
   useEffect(() => {
@@ -114,41 +118,44 @@ function ProductDetail() {
           <div className="productContent row">
             {/*---------- 左邊照片樣式(電腦版) ----------*/}
             <div className="col-5 imgControl d-none d-sm-block">
-              <img src={require(product[0]?.productPhoto)} alt="" />
+              <img
+                src={`http://localhost:3001/${product[0]?.productDetailPhoto1}`}
+                alt=""
+              />
               <Image.PreviewGroup>
                 <div>
                   <Image
-                    src={require(product[0]?.productDetailPhoto1)}
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require(product[0]?.productDetailPhoto2)}
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require(product[0]?.productDetailPhoto3)}
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require(product[0]?.productDetailPhoto4)}
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require(product[0]?.productDetailPhoto5)}
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require(product[0]?.productDetailPhoto6)}
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
                     alt=""
                   />
                 </div>
@@ -158,22 +165,40 @@ function ProductDetail() {
             <div className="sliderMobile d-block d-sm-none">
               <Slider {...settings}>
                 <div className="RwdImg">
-                  <img src={require(product[0]?.productDetailPhoto1)} alt="" />
+                  <img
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
+                    alt=""
+                  />
                 </div>
                 <div className="RwdImg">
-                  <img src={require(product[0]?.productDetailPhoto2)} alt="" />
+                  <img
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
+                    alt=""
+                  />
                 </div>
                 <div className="RwdImg">
-                  <img src={require(product[0]?.productDetailPhoto2)} alt="" />
+                  <img
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
+                    alt=""
+                  />
                 </div>
                 <div className="RwdImg">
-                  <img src={require(product[0]?.productDetailPhoto4)} alt="" />
+                  <img
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
+                    alt=""
+                  />
                 </div>
                 <div className="RwdImg">
-                  <img src={require(product[0]?.productDetailPhoto5)} alt="" />
+                  <img
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
+                    alt=""
+                  />
                 </div>
                 <div className="RwdImg">
-                  <img src={require(product[0]?.productDetailPhoto6)} alt="" />
+                  <img
+                    src="http://localhost:3001/products/suit/black/image%2055.png"
+                    alt=""
+                  />
                 </div>
               </Slider>
             </div>

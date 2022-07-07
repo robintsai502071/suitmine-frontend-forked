@@ -40,7 +40,7 @@ function BlogSidebar() {
           labelInValue
           defaultValue={{
             value: '種類一',
-            label: '文章種類',
+            label: '分類',
           }}
           style={{
             width: 200,
@@ -48,11 +48,10 @@ function BlogSidebar() {
           onChange={handleChange}
         >
           
-          <Option value="種類一">文章種類1</Option>
-          <Option value="種類二">文章種類2</Option>
-          <Option value="種類三">文章種類3</Option>
-          <Option value="種類四">文章種類4</Option>
-          <Option value="種類五">文章種類5</Option>
+          <Option value="種類一">西裝穿搭</Option>
+          <Option value="種類二">穿搭新聞</Option>
+          <Option value="種類三">名人穿搭</Option>
+          <Option value="種類四">西裝配變</Option>
         </Select>
       </div>
 

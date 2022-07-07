@@ -21,13 +21,15 @@ function PopconfirmTPE() {
                     <div>
                       <p class="">
                         {/* <i class="fa-solid fa-phone"></i> */}
-                        <span className='popoverText'>02-3759965</span>
+                        <span className="popoverText">02-3759965</span>
                       </p>
                     </div>
                     <div>
                       <p class="">
                         {/* <i class="fa-solid fa-location-dot"></i> */}
-                        <span className='popoverText'>台北市信義區松壽路9號</span>
+                        <span className="popoverText">
+                          台北市信義區松壽路9號
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -36,7 +38,7 @@ function PopconfirmTPE() {
             </Popover>
           }
         >
-          <div className="TPEBox d-md-flex d-none">
+          <div className="TPEBox d-md-flex d-none animate__bounce">
             <img className="iconTPE btn" src={iconTPE} alt="" />
           </div>
         </OverlayTrigger>

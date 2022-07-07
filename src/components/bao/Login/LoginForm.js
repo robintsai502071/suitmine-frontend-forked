@@ -26,14 +26,8 @@ function Form() {
         // 如果想要跨源讀寫 cookie
         withCredentials: true,
       });
-      // console.log('登入成功', response.data.user.user_id);
       // 登入成功就轉址到會員頁
-      history.push({
-        pathname: `/member/user/${response.data.user.user_id}`,
-        state: {
-          memberId:response.data.user.user_id
-        },
-      });
+      history.push(`/member/user/${response.data.user.user_id}`);
     } catch (e) {
       console.error('登入失敗', e.response.data);
     }

@@ -2,7 +2,7 @@ import { Form, Input, Radio, Button } from 'antd';
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useParams, useHistory } from 'react-router-dom';
 import { API_URL } from '../../../../utils/config';
 
 function MainForm() {
@@ -18,23 +18,21 @@ function MainForm() {
   });
   const [reuploadPhoto, setReuploadPhoto] = useState('');
   const [initialPhoto, setInitialPhoto] = useState('');
-  const { memberId } = useParams();
-  const locationInfo = useLocation();
+  const [memberId, setMemberId] = useState(39);
+  const [isLogin, setIsLogin] = useState(false);
   const [editMode, setEditMode] = useState(false);
-
+  const history = useHistory();
   // 點選編輯檔案自動 focus 第一個 Input
   const nameInputRef = useRef();
   // ANTD 還原 memberData 預設值用
   const formRef = useRef();
 
   async function handleSubmit(values) {
-    if (values.memberId != memberId) return;
-    // console.log(values);
     let response = await axios.patch(`${API_URL}/member/${memberId}`, {
       ...values,
       photo: reuploadPhoto,
     });
-    // console.log(response);
+    // weitodo=> 修改成功要跳 toast 重新 render
   }
   async function handleUploadPhoto(e) {
     let formData = new FormData();
@@ -42,22 +40,41 @@ function MainForm() {
     let response = await axios.post(`${API_URL}/reupload/avatar`, formData);
     // console.log(response.data.data.link);
     setReuploadPhoto(response.data.data.link);
-    setMemberData({...memberData, photo:response.data.data.link})
+    setMemberData({ ...memberData, photo: response.data.data.link });
   }
-  // 拿會員資料
+
+  // 先確認是否登入
   useEffect(() => {
-    let getMemberData = async () => {
-      // 防止使用者直接從瀏覽器改 memberId
-      // TODO: 導向 404 page
-      if (locationInfo.state === undefined) return;
-      let response = await axios.get(`${API_URL}/member/${memberId}`);
-
-      setMemberData(response.data.data);
-      setInitialPhoto(response.data.data.photo)
+    const checkIsLogin = async () => {
+      try {
+        let response = await axios.get(`${API_URL}/auth/checkIsLogin`, {
+          // 一定要把送 cookie 的選項打開，才能把 cookie 中的 session_id 送到後端去確認
+          withCredentials: true,
+        });
+        setIsLogin(true);
+        // console.log(response.data.user_id);
+        setMemberId(response.data.user_id)
+      } catch (err) {
+        // 沒登入就導向登入頁面
+        // return history.push('/login');
+      }
     };
-
-    getMemberData();
+    checkIsLogin();
   }, []);
+
+  // 如果是登入狀態就撈取會員資料
+  useEffect(() => {
+    if (isLogin === true) {
+      let getMemberData = async () => {
+        let response = await axios.get(`${API_URL}/member/${memberId}`);
+
+        setMemberData(response.data.data);
+        setInitialPhoto(response.data.data.photo);
+      };
+
+      getMemberData();
+    }
+  }, [memberId]);
 
   // 切換編輯模式
   useEffect(() => {

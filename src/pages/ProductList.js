@@ -1,14 +1,15 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+
 import FilterBar from '../components/bao/productList/FilterBar';
 import SearchInput from '../components/bao/productList/SearchInput';
 import ProductTypeBar from '../components/bao/productList/ProductTypeBar';
 import RWDProductTypeBar from '../components/bao/productList/RWDProductTypeBar';
 import SwitchButton from '../components/bao/productList/SwitchButton';
 import LayoutHeader from '../components/robert/LayoutHeader';
-import LayoutMain from '../components/robert/LayoutMain';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import { API_URL } from '../utils/config';
+import { Link } from 'react-router-dom';
 
 function ProductList() {
   // 原始資料
@@ -162,13 +163,12 @@ function ProductList() {
   // 商品篩選
   const handleProductFilter = (product, productFilter) => {
     let newProducts = [...product];
-
     // let response = await axios.get(`${API_URL}/prolist`);
     // const data = response.data;
-    switch (productFilter) {
+    switch (parseInt(productFilter)) {
       case 1:
         newProducts = product.filter((c) => {
-          return c.product_category_id === 5 && c.product_category_id === 6;
+          return c.product_category_id === 5 || c.product_category_id === 6;
         });
         break;
       case 2:
@@ -184,7 +184,7 @@ function ProductList() {
         break;
       case 4:
         newProducts = product.filter((c) => {
-          return c.product_category_id === 7 && c.product_category_id === 8;
+          return c.product_category_id === 7 || c.product_category_id === 8;
         });
         break;
       case 5:
@@ -199,7 +199,7 @@ function ProductList() {
         break;
       case 7:
         newProducts = product.filter((c) => {
-          return c.product_category_id === 9 && c.product_category_id === 10;
+          return c.product_category_id === 9 || c.product_category_id === 10;
         });
         break;
       case 8:
@@ -215,8 +215,8 @@ function ProductList() {
       case 10:
         newProducts = product.filter((c) => {
           return (
-            c.product_category_id === 11 &&
-            c.product_category_id === 12 &&
+            c.product_category_id === 11 ||
+            c.product_category_id === 12 ||
             c.product_category_id === 13
           );
         });
@@ -240,6 +240,7 @@ function ProductList() {
       default:
         break;
     }
+    console.log(newProducts);
     return newProducts;
   };
 
@@ -260,7 +261,7 @@ function ProductList() {
             totalProduct = response.data;
 
             // setPageTotal(Math.ceil(response.data.length / perPage));
-
+            // console.log('prokey', productFilter);
             // 處理搜尋
             totalProduct = handleSearch(totalProduct, searchWord);
             // console.log('篩選', totalProduct);
@@ -270,8 +271,7 @@ function ProductList() {
             totalProduct = handleColorChange(totalProduct, colorFilter);
             // 商品篩選
             totalProduct = handleProductFilter(totalProduct, productFilter);
-            console.log(totalProduct);
-
+            console.log('321', totalProduct);
             if (Math.ceil(totalProduct.length / perPage) !== pageTotal) {
               // 重新設定pageTotal
               setPageTotal(Math.ceil(totalProduct.length / perPage));
@@ -299,6 +299,8 @@ function ProductList() {
 
   return (
     <div className="ProductList">
+      <LayoutHeader />
+
       <div className="main">
         {/* <!------------右側sticky功能欄------------> */}
         <div className="sidebar py-2 d-md-flex d-none flex-column align-items-center justify-content-around">
@@ -325,7 +327,7 @@ function ProductList() {
               </ul>
               {/* <!============= 商品種類篩選抽屜 =============> */}
               <div className="d-md-none ">
-                <RWDProductTypeBar />
+                <RWDProductTypeBar setProductFilter={setProductFilter} />
               </div>
               {/* <!------------材質展示switchButton------------> */}
               <ul className="d-flex align-items-center switchButton py-3 mx-3">
@@ -365,7 +367,8 @@ function ProductList() {
                 {/*伯 商品資料欄位 */}
                 {product.map((v, i) => {
                   return (
-                    <a
+                    <Link
+                      to={`/product-detail/${v.id}`}
                       key={v.id}
                       href="#/"
                       className="col-xxl-3 col-lg-4 col-md-6 col-6 px-3 d-flex cardSize cardBottomMargin"
@@ -374,7 +377,7 @@ function ProductList() {
                         <div className="imgBox position-relative">
                           <img
                             className="imgSize card-img-top"
-                            src={v.product_photo}
+                            src={`http://localhost:3001/${v.product_photo}`}
                             alt="..."
                           />
                           <a
@@ -395,7 +398,7 @@ function ProductList() {
                           </div>
                         </div>
                       </div>
-                    </a>
+                    </Link>
                   );
                 })}
               </div>
@@ -487,68 +490,16 @@ function ProductList() {
           <div className="container">
             <div className="productListRow row ">
               <div className="messageBox d-flex justify-content-center align-items-center flex-column ">
-                <span className="chineseText h4">聽聽我們忠實顧客怎麼說 ?</span>
+                <span className="chineseText h4">為什麼那麼多人想成為我們忠實顧客</span>
                 <div className="customersSayBox">
                   <p className="chineseText customersSayMargin h6">
                     「套裝品質非常好，工作人員也非常友善，我訂製了幾套西裝，嘗試了我一直很喜歡的斜紋款式，值得信賴及推薦的品牌！」
                     王小明
                   </p>
                 </div>
-                {/* <!------------ 聽聽我們忠實顧客怎麼說頁碼 ------------> */}
-                <div className="wrapper pagerMarginTop">
-                  <nav>
-                    <ul className="pager">
-                      <li className="pager__item pager__item--prev">
-                        <a className="pager__link" href="#/">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="8"
-                            height="12"
-                            viewBox="0 0 8 12"
-                          >
-                            <g fill="none" fillRule="evenodd">
-                              <path
-                                fill="#33313C"
-                                d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
-                              ></path>
-                            </g>
-                          </svg>
-                        </a>
-                      </li>
-                      <li className="pager__item active">
-                        <a className="pager__link fs-6" href="#/">
-                          1
-                        </a>
-                      </li>
-                      <li className="pager__item">
-                        <a className="pager__link " href="#/">
-                          2
-                        </a>
-                      </li>
-                      <li className="pager__item pager__item--next">
-                        <a className="pager__link" href="#/">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="8"
-                            height="12"
-                            viewBox="0 0 8 12"
-                          >
-                            <g fill="none" fillRule="evenodd">
-                              <path
-                                fill="#33313C"
-                                d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
-                              ></path>
-                            </g>
-                          </svg>
-                        </a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
               </div>
             </div>
           </div>
-          {/* <!------------ 聽聽我們忠實顧客怎麼說 ? ------------> */}
         </div>
       </div>
       <LayoutFooter />

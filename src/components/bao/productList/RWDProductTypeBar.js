@@ -37,10 +37,12 @@ const items = [
 
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4'];
 
-const ProductTypeBar = () => {
+const ProductTypeBar = (props) => {
+  const { setProductFilter } = props;
+
   const [visible, setVisible] = useState(false);
   const [placement, setPlacement] = useState('left');
-  const [openKeys, setOpenKeys] = useState(['sub1']);
+  const [openKeys, setOpenKeys] = useState([]);
 
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -60,6 +62,11 @@ const ProductTypeBar = () => {
     setVisible(false);
   };
 
+  const handleSelect = ({ key }) => {
+    setProductFilter(key);
+    setVisible(false)
+    // console.log(key);
+  };
   return (
     <>
       <Space>
@@ -80,6 +87,7 @@ const ProductTypeBar = () => {
           mode="inline"
           openKeys={openKeys}
           onOpenChange={onOpenChange}
+          onSelect={handleSelect}
           items={items}
         />
       </Drawer>

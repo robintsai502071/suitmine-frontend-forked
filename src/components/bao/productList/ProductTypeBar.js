@@ -38,7 +38,8 @@ const rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4'];
 
 const ProductTypeBar = (props) => {
   const { setProductFilter } = props;
-  const [openKeys, setOpenKeys] = useState(['sub1']);
+  // console.log(props, '342323');
+  const [openKeys, setOpenKeys] = useState([]);
 
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
@@ -60,6 +61,7 @@ const ProductTypeBar = (props) => {
       openKeys={openKeys}
       onOpenChange={onOpenChange}
       onSelect={handleSelect}
+      // onChange={(e) => e.key}
       style={{
         width: 229,
       }}

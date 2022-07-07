@@ -56,7 +56,7 @@ function MainForm(props) {
         setMemberId(response.data.user_id)
       } catch (err) {
         // 沒登入就導向登入頁面
-        // return history.push('/login');
+        return history.push('/login');
       }
     };
     checkIsLogin();

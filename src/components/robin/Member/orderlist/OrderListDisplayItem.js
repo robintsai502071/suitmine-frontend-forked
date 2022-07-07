@@ -4,7 +4,7 @@ import { Modal, Radio, Space } from 'antd';
 
 function OrderListDisplayItem(props) {
   const orderData = props.ordersItem;
-  console.log('55555555', orderData);
+  // console.log('55555555', orderData);
   // Modal 開啟狀態
   const [CancelOrderModal, setCancelOrderModal] = useState(false);
   // 開啟 Modal 後 radio 初始值

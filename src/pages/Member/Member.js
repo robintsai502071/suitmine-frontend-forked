@@ -36,7 +36,9 @@ function Member() {
             {sidebarActive === '更改密碼' && (
               <ChangePasswordForm givenMemberData={givenMemberData} />
             )}
-            {sidebarActive === '購買清單' && <OrderListDisplay />}
+            {sidebarActive === '購買清單' && (
+              <OrderListDisplay givenMemberData={givenMemberData} />
+            )}
             {sidebarActive === '我的禮物卡' && <MyGiftCardDisplay />}
             {sidebarActive === '我的收藏' && <MyFavoritesDisplay />}
           </div>

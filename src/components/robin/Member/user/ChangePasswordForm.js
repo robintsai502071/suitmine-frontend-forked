@@ -29,6 +29,7 @@ function ChangePasswordForm(props) {
       console.log('修改成功' + response.data.success);
     }
   };
+  
   return (
     <>
       <a href="http://localhost:3000/member/user" className="goBackBtn">

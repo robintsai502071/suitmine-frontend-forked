@@ -47,9 +47,9 @@ function App() {
           <OrderDetail />
         </Route>
 
-        <Route path="/member/my-order">
+        {/* <Route path="/member/my-order">
           <OrderList />
-        </Route>
+        </Route> */}
 
         <Route path="/member/m.user">
           <MainForm />

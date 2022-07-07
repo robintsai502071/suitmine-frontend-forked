@@ -10,6 +10,9 @@ import RWDpopconfirmTYN from '../components/bao/BookingMap/RWDpopconfirmTYN';
 import article1 from '../components/images/BookingMap/文章1.png';
 import article2 from '../components/images/BookingMap/文章2.png';
 import article3 from '../components/images/BookingMap/文章3.png';
+import LayoutMain from '../components/robert/LayoutMain';
+import LayoutHeader from '../components/robert/LayoutHeader';
+import LayoutFooter from '../components/robert/LayoutFooter';
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -24,6 +27,9 @@ function BookingMap() {
 
   return (
     <>
+      <header>
+        <LayoutHeader />
+      </header>
       <div className="main">
         {/* <!------------右側sticky功能欄------------> */}
         <div className="d-md-flex d-none sidebar py-2  flex-column align-items-center justify-content-around">
@@ -38,8 +44,10 @@ function BookingMap() {
           </a>
         </div>
         {/* <!------------banner------------> */}
-        {/* <div className="banner w-100"></div> */}
-        {/* <div className="bar w-100"></div> */}
+        <div className="bannerBookingMap w-100"></div>
+        <div className="bar w-100">
+          <LayoutMain />
+        </div>
         <div className="container-fluid mapContainerFluid ">
           <div data-aos="fade-down" className="chineseText h3 spanBorder ">
             <p>立即探索離你最近的SUITMINE</p>
@@ -524,7 +532,7 @@ function BookingMap() {
           </div>
           <div
             data-aos="fade-down"
-            className="row d-flex justify-content-center"
+            className="row d-flex justify-content-center my-5"
           >
             {/* <!------------推薦文章(第一篇)------------> */}
             <a
@@ -589,6 +597,9 @@ function BookingMap() {
           </div>
         </div>
       </div>
+      <footer>
+        <LayoutFooter />
+      </footer>
     </>
   );
 }

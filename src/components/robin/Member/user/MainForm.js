@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useLocation, useParams, useHistory } from 'react-router-dom';
 import { API_URL } from '../../../../utils/config';
 
-function MainForm() {
+function MainForm(props) {
   const [memberData, setMemberData] = useState({
     address: '',
     email: '',
@@ -69,6 +69,7 @@ function MainForm() {
         let response = await axios.get(`${API_URL}/member/${memberId}`);
 
         setMemberData(response.data.data);
+        props.setGivenMemberData(response.data.data)
         setInitialPhoto(response.data.data.photo);
       };
 

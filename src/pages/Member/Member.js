@@ -1,43 +1,42 @@
 import React from 'react';
 // import axios from 'axios';
 // import { API_URL } from '../../utils/config';
-// import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 // import { useParams, useLocation } from 'react-router-dom';
 import LayoutFooter from '../../components/robert/LayoutFooter';
 import LayoutHeader from '../../components/robert/LayoutHeader';
 import MainForm from '../../components/robin/Member/user/MainForm';
 import SideBar from '../../components/robin/Member/SideBar';
 import MemberMobileView from './MemberMobileView';
+import ChangePasswordForm from '../../components/robin/Member/user/ChangePasswordForm';
+import OrderListDisplay from '../../components/robin/Member/orderlist/OrderListDisplay';
+import MyGiftCardDisplay from '../../components/robin/Member/my-gift-card/MyGiftCardDisplay';
+import MyFavoritesDisplay from '../../components/robin/Member/my-favorites/MyFavoritesDisplay';
 
 function Member() {
-  // const [memberData, setMemberData] = useState([]);
-
-  // const { memberId } = useParams();
-  // const locationInfo = useLocation();
-  // 拿會員資料
-  // useEffect(() => {
-  //   let getMemberData = async () => {
-  //     // 防止使用者直接從瀏覽器改 memberId
-  //     // TODO: 導向 404 page
-  //     if (locationInfo.state === undefined) return;
-  //     let response = await axios.get(`${API_URL}/member/${memberId}`);
-  //     setMemberData(response.data.data);
-  //   };
-
-  //   getMemberData();
-  // }, []);
-
+  const [givenMemberData, setGivenMemberData] = useState({});
+  const [sidebarActive, setSidebarActive] = useState('個人檔案');
   return (
     <>
       <LayoutHeader />
       <div className="container member-container d-none d-lg-block">
         <div className="row">
           <div className="col-2">
-            <SideBar sidebarActiveNumber={'0'} />
+            <SideBar
+              sidebarActiveNumber={'0'}
+              givenMemberData={givenMemberData}
+              setSidebarActive={setSidebarActive}
+            />
           </div>
+
           <div className="col-8 offset-1">
-            {/* <MainForm memberData={memberData} /> */}
-            <MainForm />
+            {sidebarActive === '個人檔案' && (
+              <MainForm setGivenMemberData={setGivenMemberData} />
+            )}
+            {sidebarActive === '更改密碼' && <ChangePasswordForm />}
+            {sidebarActive === '購買清單' && <OrderListDisplay />}
+            {sidebarActive === '我的禮物卡' && <MyGiftCardDisplay />}
+            {sidebarActive === '我的收藏' && <MyFavoritesDisplay />}
           </div>
         </div>
       </div>

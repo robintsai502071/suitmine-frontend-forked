@@ -61,6 +61,7 @@ function ProductDetail() {
       `${API_URL}/prodetail/products/1`
       // , { params: { product }},
     );
+    console.log(responseProduct.data);
     setProduct(responseProduct.data);
   };
 

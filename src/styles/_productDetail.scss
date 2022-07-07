@@ -32,6 +32,7 @@
   background-color: gray;
   padding: 0;
   position: relative;
+  z-index: -1;
   @include mobile {
     display: none;
   }
@@ -83,12 +84,10 @@
     }
   }
 }
-
 // 商品內容
 .productContentBox {
   @include window {
     position: relative;
-    z-index: 2;
   }
   padding: 0%;
   width: 100%;
@@ -97,6 +96,7 @@
   //   background-color: aqua;
 
   .productContent {
+    z-index: 10;
     height: 750px;
     @include mobile {
       height: 1050px;
@@ -179,7 +179,7 @@
       .bottomSection {
         height: 40%;
         // background-color: green;
-        margin-top: 16%;
+        margin-top: 7%;
 
         .texture {
           padding-right: 10%;
@@ -278,29 +278,34 @@
 }
 
 //評論
+.noLastBottomBorder {
+  border-bottom: none;
+}
 .comment {
-  width: 80%;
+  z-index: 999;
+  width: 70%;
   padding-right: 10%;
   padding-left: 10%;
   margin-top: -30%;
   @include mobile {
-    margin-top: 10%;
+    margin-top: 20%;
     width: 100%;
   }
   //評論區塊
   .commentContainer {
     // 最後一個不要底線
-    & > div:last-child {
+    border-top: 1px solid $dark-gray;
+    & > div:first-child {
       border: 0;
     }
     .commentBlock {
-      height: 450px;
       margin-bottom: -1%;
       border-bottom: 1px solid $dark-gray;
       padding: 3%;
       padding-bottom: 0%;
+      height: 300px;
       @include mobile375 {
-        height: 360px;
+        height: 300px;
       }
       h3 {
         @include mobile {
@@ -336,8 +341,8 @@
           display: flex;
           align-items: center;
           .photo {
-            height: 70px;
-            width: 70px;
+            height: 55px;
+            width: 55px;
             border-radius: 50%;
             background-color: gray;
             @include mobile {
@@ -423,14 +428,12 @@
     }
   }
   .popBanner {
-    height: 60px;
+    height: 45px;
     background-color: black;
-    margin-top: 8%;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
   }
   //細節內容手風琴
   .Accordion {
-    margin-bottom: 20px;
     .ant-collapse > .ant-collapse-item > .ant-collapse-header {
       height: 45px;
       align-items: center;
@@ -459,13 +462,9 @@
         background-color: black;
       }
 
-      .ant-radio-button-wrapper:focus-within {
-        box-shadow: 0 0 0 3px $dark-gray;
-        padding: 0;
-      }
       .ant-radio-button-wrapper {
         padding: 0;
-        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
+        // box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
       }
 
       & > div {
@@ -488,6 +487,7 @@
         div:last-child {
           height: 100%;
           background-color: $dark-gray;
+          border: 3px solid rgba(0, 0, 0, 0);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -524,10 +524,10 @@
 //左邊照片樣式(手機板)
 .sliderMobile {
   margin-top: 50px;
-  height: 400px;
+  height: 12%;
   //   background-color: red;
   img {
-    height: 400px;
+    // height: 400px;
     margin: 0 auto;
   }
   .slick-prev:before,
@@ -555,4 +555,190 @@
       right: 37px;
     }
   }
+}
+.selectBorderTransparent {
+  border: 3px solid rgba(0, 0, 0, 0);
+  box-sizing: content-box;
+}
+.selectBorder {
+  border: 3px solid black !important;
+}
+.selectColor {
+  background-color: #000000 !important;
+  width: 101%;
+  height: 102%;
+}
+.productNarrative h6 {
+  color: #fff;
+  line-height: 21px;
+}
+.commentBox {
+  width: 50%;
+  height: 600px;
+  background-color: rgb(160, 160, 160);
+}
+.ProductDetailmain {
+  padding-left: 0%;
+  padding-right: 0%;
+}
+.commentTitleBottomBorder {
+  padding-bottom: 2%;
+}
+/* ------------ 商品列表頁碼 ------------ */
+.pager {
+  margin: 0 0 3.75rem;
+  font-size: 0;
+  text-align: center;
+}
+.pager__item {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0 2px;
+}
+.pager__item.active .pager__link {
+  background-color: #1d1d1d;
+  border-color: #1d1d1d;
+  color: #fff;
+  text-decoration: none;
+}
+.pager__item--prev svg,
+.pager__item--next svg {
+  width: 8px;
+  height: 12px;
+}
+.pager__item--next .pager__link svg {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+.pager__link {
+  position: relative;
+  border-radius: 26px;
+  display: block;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin-left: -1px;
+  color: #2f3640;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.pager__link:hover,
+.pager__link:focus,
+.pager__link:active {
+  background-color: #1d1d1d;
+  border-color: #1d1d1d;
+  color: #fff;
+  text-decoration: none;
+}
+.pager__link:hover svg path,
+.pager__link:focus svg path,
+.pager__link:active svg path {
+  fill: #fff;
+}
+.pager .pager__item.active + .pager__item .pager__link,
+.pager .pager__item:hover + .pager__item .pager__link {
+  border-left-color: #1d1d1d;
+}
+.pagerMarginTop {
+  margin-top: 40px;
+}
+@media screen and (max-width: 576px) {
+  .pager__item {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .pager__item.active,
+  .pager__item:first-of-type,
+  .pager__item:last-of-type,
+  .pager__item:nth-of-type(2),
+  .pager__item:nth-last-of-type(2) {
+    position: initial;
+    top: initial;
+    left: initial;
+  }
+  .pager__item.active + li {
+    position: initial;
+    top: initial;
+    left: initial;
+  }
+}
+// ---------------arrowSize------------------
+.arrowSize {
+  font-size: 23px;
+}
+.arrowBox {
+  z-index: 999;
+}
+.arrowbtn {
+  z-index: 999;
+}
+.slick-current img {
+  object-fit: cover;
+  width: 100%;
+  // height: 100%;
+}
+.sliderMobile .slick-next {
+  right: 65px;
+  top: 46%;
+  right: 14% !important;
+}
+.RwdImg {
+  height: 263.25px;
+}
+.productName h4 {
+  color: #fff;
+}
+@media screen and (max-width: 376px) {
+  .comment .commentContainer .commentBlock {
+    height: 135px;
+  }
+  .comment
+    .commentContainer
+    .commentBlock
+    .topSection
+    > div:first-child
+    .photo {
+    height: 50px;
+    width: 50px;
+    .customizedBox {
+      width: 82.23px;
+      height: 112px;
+    }
+    .priceTextBox {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+}
+.topSection h3 {
+  color: #fff;
+}
+.comment .commentContainer .commentBlock .topSection {
+  height: 40%;
+}
+.comment .commentContainer .commentBlock {
+  height: 240px;
+}
+
+.ant-comment-actions .likesTitle {
+  margin-right: 0px !important;
+}
+.ant-radio-button-wrapper:focus-within {
+  box-shadow: none !important;
+}
+.customized h6 {
+  color: #fff;
+}
+.ant-collapse-content > .ant-collapse-content-box {
+  padding: 0 !important;
+}
+.ant-collapse-content > .ant-collapse-content-box {
+  padding: 0 !important;
 }

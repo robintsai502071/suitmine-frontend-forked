@@ -115,18 +115,6 @@ function ShoppingCartChecking() {
               >
                 下一步
               </a>
-
-              {/* 查看訂單 */}
-              <button
-                href="#top"
-                class={
-                  steps === 3
-                    ? 'btn btn-primary widthbtn'
-                    : 'btn btn-primary widthbtn d-none'
-                }
-              >
-                送出訂單
-              </button>
             </div>
           </div>
         </div>

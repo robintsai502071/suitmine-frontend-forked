@@ -71,7 +71,7 @@ function Cheking(props) {
     },
   ];
 
-  //可使用的禮物卡
+  //可使用的禮物卡假資料
   // const usableGiftCard = [
   //   {
   //     id: 1,

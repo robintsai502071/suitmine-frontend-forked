@@ -22,10 +22,10 @@ import CustomizeSlient from './pages/CustomizeSlient';
 // import ShoppingCart from './pages/ShoppingCart';
 import Register from './pages/Register';
 import MeasurementTeaching from './pages/MeasurementTeaching';
-import ShoppingCartChecking from './pages/ShoppingCartChecking';
-import ShoppingCartPayment from './pages/ShoppingCartPayment';
-import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
-import ShoppingCartFinish from './pages/ShoppingCartFinish';
+// import ShoppingCartChecking from './pages/ShoppingCartChecking';
+// import ShoppingCartPayment from './pages/ShoppingCartPayment';
+// import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
+// import ShoppingCartFinish from './pages/ShoppingCartFinish';
 import Login from './pages/Login';
 
 function App() {

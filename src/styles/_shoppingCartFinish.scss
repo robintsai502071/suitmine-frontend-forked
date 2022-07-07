@@ -724,6 +724,12 @@
   }
 }
 
+@mixin mobile {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
 .shopingCart {
   // 更新後流程
   .showSteps {

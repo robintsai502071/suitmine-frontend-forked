@@ -25,6 +25,7 @@ function Finish(props) {
   const productsCost = localStorage.getItem('productsCost');
   const giftPrice = localStorage.getItem('giftPrice');
   const giftName = localStorage.getItem('giftName');
+  const giftId = localStorage.getItem('giftId');
   const sum = localStorage.getItem('sum');
   const newCheckedProducts = JSON.parse(
     localStorage.getItem('newCheckedProducts')
@@ -33,8 +34,8 @@ function Finish(props) {
     localStorage.getItem('newCheckedGiftCards')
   );
 
-  //找出該筆禮物卡ID
-  const getGiftCardId = newCheckedGiftCards[0].id;
+  //找出被使用禮物卡ID
+  const getGiftCardId = giftId;
 
   //找出該會員ID
   const menberId = id;
@@ -55,12 +56,6 @@ function Finish(props) {
     memberId: menberId,
     order_id: '',
   });
-
-  //表單更換函示
-  const handleChange = (e) => {
-    setOrder({ ...order, [e.target.name]: e.target.value });
-  };
-  console.log('order', order);
 
   //處理送出新訂單
   const handleSubmit = async (e) => {

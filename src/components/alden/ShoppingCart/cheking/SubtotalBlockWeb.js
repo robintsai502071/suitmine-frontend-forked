@@ -46,12 +46,21 @@ function SubtotalBlockWeb(props) {
     setgiftName(value.giver);
   };
 
+  //被選擇禮物卡ID的function
+  const [giftId, setgiftId] = useState(0);
+  const idHandler = (id) => {
+    const value = usableGiftCard.find((v) => v.id === id);
+    setgiftId(value.id);
+  };
+  // console.log('giftId', giftId);
+
   //塞下一頁需要的資料進localstorage
   // localStorage.clear();
   localStorage.setItem('totalCounts', totalCounts);
   localStorage.setItem('productsCost', productsCost);
   localStorage.setItem('giftPrice', giftPrice);
   localStorage.setItem('giftName', giftName);
+  localStorage.setItem('giftId', giftId);
   localStorage.setItem('sum', sum());
 
   return (
@@ -81,6 +90,7 @@ function SubtotalBlockWeb(props) {
                 onChange={(value) => {
                   priceHandler(value);
                   nameHandler(value);
+                  idHandler(value);
                 }}
               >
                 {usableGiftCard.map((usableGiftCard, i) => {

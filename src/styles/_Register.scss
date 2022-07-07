@@ -1,0 +1,125 @@
+.bgcImg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -9999;
+}
+.bgcImg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
+}
+// ------------------打造屬於您的專屬西裝----------------------
+.registerAllTextBox {
+  padding-right: 150px;
+}
+.registerAllTextBox p {
+  color: #fff;
+  letter-spacing: 1px;
+}
+.registerTextBox {
+  width: 390px;
+  line-height: 26px;
+}
+.registerImgBox {
+  width: 248px;
+  height: 145px;
+  background-color: #fff;
+  margin-top: 35px;
+}
+.registerImgBox img {
+  width: 100%;
+  object-fit: cover;
+}
+// ------------------錯誤訊息----------------------
+.errorMessage p{
+  font-size: 14px;
+  color: rgb(228, 0, 0);
+}
+
+
+// ==================打造屬於您的專屬西裝RWD==================
+@media screen and (max-width: 768px) {
+  .registerTitleCol {
+    padding: 0;
+    margin-bottom: 80px;
+  }
+}
+@media screen and (max-width: 465px) {
+  .registerAllTextBox {
+    padding: 0;
+    margin-bottom: 80px;
+  }
+  .registerTitleBox p {
+    font-size: 33px;
+  }
+  .registerTitleBox {
+    width: 350px;
+  }
+  .registerTextBox {
+    width: 350px;
+  }
+}
+
+// ------------------form表單----------------------
+.registerInputCol {
+  padding-left: 150px;
+}
+.registerInputBox {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 420px;
+  height: 100%;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+.registerInputBox form {
+  width: 80%;
+}
+.registerBtn {
+  width: 180px;
+  height: 40px;
+  background-color: #000;
+  border-radius: 0;
+}
+.registerBtn p {
+  color: #fff;
+}
+// --------form(蓋樣式)--------
+
+.registerRow .form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
+}
+.registerRow .form-select:focus {
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
+}
+// --------上傳按鈕(蓋樣式)--------
+.ant-btn:active {
+  color: #000000;
+  border-color: #000000;
+  background: #fff;
+}
+// ==================form表單RWD==================
+@media screen and (max-width: 768px) {
+  .registerInputCol {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 465px) {
+  .registerInputBox {
+    width: 350px;
+  }
+}

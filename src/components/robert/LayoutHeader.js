@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import React from 'react';
 import logo from '../../images/robert/layout/LOGO.svg';
 
@@ -13,21 +14,21 @@ const LayoutHeader = () => {
           <span></span>
 
           <ul className="menu">
-            <a href="#/">
+            <Link to="product-list">
               <li>商品總覽</li>
-            </a>
-            <a href="#/">
+            </Link>
+            <Link to="booking-map">
               <li>門市據點</li>
-            </a>
-            <a href="#/">
+            </Link>
+            <Link to="/member">
               <li>會員中心</li>
-            </a>
-            <a href="#/">
+            </Link>
+            <Link to="/blog">
               <li>部落格</li>
-            </a>
-            <a href="#/">
+            </Link>
+            <Link to="/gift-card">
               <li>禮物卡</li>
-            </a>
+            </Link>
           </ul>
         </div>
       </nav>
@@ -41,29 +42,34 @@ const LayoutHeader = () => {
 
       <ul className="header-menu w-50  justify-content-between align-item-center d-none d-md-flex me-5 py-2">
         <li>
-          <a href="#/" className="btn text-white">
+          <Link to="product-list" className="btn text-white">
             商品總覽
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#/" className="btn text-white">
+          <Link to="booking-map" className="btn text-white">
             門市據點
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#/" className="btn text-white">
+          <Link to="/member" className="btn text-white">
             會員中心
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#/" className="btn text-white">
+          <Link to="/blog" className="btn text-white">
             部落格
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#/" className="btn text-white">
+          <Link to="/gift-card" className="btn text-white">
             禮物卡
-          </a>
+          </Link>
+        </li>
+        <li>
+          <Link to="/login">
+            <i className="fa-regular fa-user text-white btn"></i>
+          </Link>
         </li>
       </ul>
     </div>

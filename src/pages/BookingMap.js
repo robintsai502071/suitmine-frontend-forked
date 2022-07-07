@@ -15,7 +15,7 @@ function BookingMap() {
   return (
     <>
       <div className="BookingMap">
-        <div className="main">
+        <div className="map-main">
           {/* <!------------右側sticky功能欄------------> */}
           <div className="d-md-flex d-none sidebar py-2  flex-column align-items-center justify-content-around">
             <a href="#/">

@@ -10,10 +10,11 @@ function GiftCardWed(props) {
     removeGiftCard,
     giftCardDel,
     setGiftCardDel,
+    receiver_email,
   } = props;
-  const handleChoosen = (id) => {
+  const handleChoosen = (receiver_email) => {
     const newGiftCardDel = giftCardDel.map((v, i) => {
-      if (v.id === id) {
+      if (v.receiver_email === receiver_email) {
         return { ...v, productChecked: v.productChecked === 0 ? 1 : 0 };
       }
 
@@ -34,7 +35,7 @@ function GiftCardWed(props) {
                   type={type}
                   id={`default-${type}`}
                   className="itslabel"
-                  onChange={() => handleChoosen(id)}
+                  onChange={() => handleChoosen(receiver_email)}
                 />
               </div>
             ))}

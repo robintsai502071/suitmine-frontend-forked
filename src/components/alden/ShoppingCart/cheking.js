@@ -52,56 +52,24 @@ function Cheking(props) {
   //待結帳禮物卡
   const giftCard = [
     {
-      id: 1,
       receiver: '小帥氣',
       amount: 500,
       message: '生日快樂500元送你',
+      receiver_email: '1@1',
     },
     {
-      id: 2,
       receiver: '小美麗',
       amount: 800,
       message: '800元給你買西裝喔',
+      receiver_email: '2@2',
     },
     {
-      id: 3,
       receiver: '小快樂',
       amount: 20,
       message: '不無小補',
+      receiver_email: '3@3',
     },
   ];
-
-  //可使用的禮物卡假資料
-  // const usableGiftCard = [
-  //   {
-  //     id: 1,
-  //     giver: '禮物卡暴發戶',
-  //     giver_user_id: 1,
-  //     receiver_user_id: 2,
-  //     amount: 3000,
-  //   },
-  //   {
-  //     id: 2,
-  //     giver: '好麻吉',
-  //     giver_user_id: 2,
-  //     receiver_user_id: 2,
-  //     amount: 6000,
-  //   },
-  //   {
-  //     id: 3,
-  //     giver: '好碰由',
-  //     giver_user_id: 3,
-  //     receiver_user_id: 2,
-  //     amount: 1400,
-  //   },
-  //   {
-  //     id: 4,
-  //     giver: '禮物卡人',
-  //     giver_user_id: 4,
-  //     receiver_user_id: 2,
-  //     amount: 230,
-  //   },
-  // ];
 
   //在原product的物件中新增屬性的initState
   const initState = (productArray) => {
@@ -136,6 +104,7 @@ function Cheking(props) {
     'newCheckedGiftCards',
     JSON.stringify(newCheckedGiftCards)
   );
+  console.log('newCheckedGiftCards', newCheckedGiftCards);
 
   //商品總數
   const totalNumber = () => {
@@ -252,7 +221,8 @@ function Cheking(props) {
 
               {/* 禮物卡 */}
               {giftCardDel.map((giftcards, i) => {
-                const { id, receiver, amount, message } = giftcards;
+                const { id, receiver, amount, message, receiver_email } =
+                  giftcards;
                 return (
                   <GiftCardWed
                     id={id}
@@ -271,6 +241,7 @@ function Cheking(props) {
                     }}
                     giftCardDel={giftCardDel}
                     setGiftCardDel={setGiftCardDel}
+                    receiver_email={receiver_email}
                   />
                 );
               })}

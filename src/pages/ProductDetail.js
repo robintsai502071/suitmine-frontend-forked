@@ -114,44 +114,41 @@ function ProductDetail() {
           <div className="productContent row">
             {/*---------- 左邊照片樣式(電腦版) ----------*/}
             <div className="col-5 imgControl d-none d-sm-block">
-              <img
-                src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
-                alt=""
-              />
+              <img src={require(product[0]?.productPhoto)} alt="" />
               <Image.PreviewGroup>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
+                    src={require(product[0]?.productDetailPhoto1)}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
+                    src={require(product[0]?.productDetailPhoto2)}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
+                    src={require(product[0]?.productDetailPhoto3)}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
+                    src={require(product[0]?.productDetailPhoto4)}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
+                    src={require(product[0]?.productDetailPhoto5)}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs6.png')}
+                    src={require(product[0]?.productDetailPhoto6)}
                     alt=""
                   />
                 </div>
@@ -161,40 +158,22 @@ function ProductDetail() {
             <div className="sliderMobile d-block d-sm-none">
               <Slider {...settings}>
                 <div className="RwdImg">
-                  <img
-                    src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
-                    alt=""
-                  />
+                  <img src={require(product[0]?.productDetailPhoto1)} alt="" />
                 </div>
                 <div className="RwdImg">
-                  <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
-                    alt=""
-                  />
+                  <img src={require(product[0]?.productDetailPhoto2)} alt="" />
                 </div>
                 <div className="RwdImg">
-                  <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
-                    alt=""
-                  />
+                  <img src={require(product[0]?.productDetailPhoto2)} alt="" />
                 </div>
                 <div className="RwdImg">
-                  <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
-                    alt=""
-                  />
+                  <img src={require(product[0]?.productDetailPhoto4)} alt="" />
                 </div>
                 <div className="RwdImg">
-                  <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
-                    alt=""
-                  />
+                  <img src={require(product[0]?.productDetailPhoto5)} alt="" />
                 </div>
                 <div className="RwdImg">
-                  <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
-                    alt=""
-                  />
+                  <img src={require(product[0]?.productDetailPhoto6)} alt="" />
                 </div>
               </Slider>
             </div>

@@ -162,19 +162,7 @@ function Cheking(props) {
             <div className="checking my-5">
               {/* 全選 */}
               <div className="allselect">
-                <Form>
-                  {['checkbox'].map((type) => (
-                    <div key={`default-${type}`} className="mb-3">
-                      <Form.Check
-                        type={type}
-                        id={`default-${type}`}
-                        label={`全選`}
-                        className="itslabel"
-                        checked
-                      />
-                    </div>
-                  ))}
-                </Form>
+                <h4>請勾選欲結帳之商品</h4>
               </div>
 
               {/* 商品列表 */}

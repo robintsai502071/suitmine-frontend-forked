@@ -173,7 +173,7 @@
     border: 1px solid $light-gray;
     //全選
     .allselect {
-      padding: 1% 2.3%;
+      padding: 3% 7.3%;
       height: 120px;
       border: 1px solid $light-gray;
       display: flex;
@@ -793,4 +793,16 @@
 .grayBar {
   height: 70px;
   background-color: $light-gray;
+}
+
+.handleSubmitBtn {
+  position: relative;
+}
+
+.submitBtn {
+  width: 23%;
+  position: absolute;
+  left: 55%;
+  /* top: -28%; */
+  bottom: -3.2%;
 }

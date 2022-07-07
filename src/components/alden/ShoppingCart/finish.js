@@ -101,7 +101,7 @@ function Finish(props) {
         }}
       >
         {/* finishWeb */}
-        <div className="container-fluid finishWeb">
+        <div className="container-fluid finishWeb handleSubmitBtn">
           <div className="row">
             <div className="col-7 m-auto">
               <div className="py-5">
@@ -362,6 +362,14 @@ function Finish(props) {
               </div>
             </div>
           </div>
+          {/* 查看訂單(送出按鈕) */}
+          <button
+            href="#top"
+            class="btn btn-primary widthbtn submitBtn"
+            type="submit"
+          >
+            送出訂單
+          </button>
         </div>
 
         {/* finishMobile */}
@@ -431,10 +439,10 @@ function Finish(props) {
             </div>
           </div>
         </div>
-        {/* 查看訂單(送出按鈕) */}
+        {/* 查看訂單(送出按鈕)
         <button href="#top" class={'btn btn-primary widthbtn'} type="submit">
           送出訂單
-        </button>
+        </button> */}
       </form>
     </>
   );

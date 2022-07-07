@@ -2,6 +2,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import iconTYN from '../../images/BookingMap/桃園-01.png';
 import TYNimg from '../../images/BookingMap/桃園店照片.jpg';
+import 'animate.css';
 
 function PopconfirmTYN() {
   return (
@@ -28,7 +29,7 @@ function PopconfirmTYN() {
                       <p class="">
                         {/* <i class="fa-solid fa-location-dot"></i> */}
                         <span className="popoverText">
-                        桃園市中壢區新生街226巷8弄5號
+                          桃園市中壢區新生街226巷8弄5號
                         </span>
                       </p>
                     </div>
@@ -38,7 +39,7 @@ function PopconfirmTYN() {
             </Popover>
           }
         >
-          <div className="TYNBox d-md-flex d-none">
+          <div className="TYNBox d-md-flex d-none animate__bounce">
             <img className="iconTPE btn" src={iconTYN} alt="" />
           </div>
         </OverlayTrigger>

@@ -3,6 +3,7 @@ import PopconfirmTPE from '../components/bao/BookingMap/PopconfirmTPE';
 import PopconfirmTYN from '../components/bao/BookingMap/PopconfirmTYN';
 import PopconfirmCWS from '../components/bao/BookingMap/PopconfirmCWS';
 
+
 import RWDpopconfirmCWS from '../components/bao/BookingMap/RWDpopconfirmCWS';
 import RWDpopconfirmTPE from '../components/bao/BookingMap/RWDpopconfirmTPE';
 import RWDpopconfirmTYN from '../components/bao/BookingMap/RWDpopconfirmTYN';
@@ -44,7 +45,8 @@ function BookingMap() {
           </a>
         </div>
         {/* <!------------banner------------> */}
-        <div className="bannerBookingMap w-100"></div>
+        <div className="bannerBookingMap ">
+        </div>
         <div className="bar w-100">
           <LayoutMain />
         </div>
@@ -532,7 +534,7 @@ function BookingMap() {
           </div>
           <div
             data-aos="fade-down"
-            className="row d-flex justify-content-center my-5"
+            className="row d-flex justify-content-center  articleAllBox"
           >
             {/* <!------------推薦文章(第一篇)------------> */}
             <a

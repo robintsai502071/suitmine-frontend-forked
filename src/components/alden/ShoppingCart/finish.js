@@ -40,7 +40,8 @@ function Finish(props) {
   //找出該會員ID
   const menberId = id;
 
-  //備送出訂單狀態
+  //----------------------準備送出的商品訂單狀態----------------------
+  // 處理商品
   let arr = [];
   newCheckedProducts.forEach((v, i) => {
     let obj = {
@@ -57,6 +58,24 @@ function Finish(props) {
     order_id: '',
   });
 
+  // 處理禮物卡
+  let arr2 = [];
+  newCheckedGiftCards.forEach((v, i) => {
+    let obj = {
+      gift_card_id: v.id,
+    };
+    arr2.push(obj);
+  });
+
+  const [orderGift, setOrderGift] = useState({
+    product_giftcard_id: arr2,
+    gift_card_id: getGiftCardId,
+    memberId: menberId,
+    order_id: '',
+  });
+
+  // console.log({ ...order, ...orderGift });
+
   //處理送出新訂單
   const handleSubmit = async (e) => {
     // 防止表單直接送出
@@ -64,9 +83,10 @@ function Finish(props) {
 
     try {
       //--- 送去後端 ---
-      let response = axios.post(`${API_URL}/shoCart/uploadOrder`, order);
-      // console.log(`${API_URL}/shoCart/uploadOrder`);
-      // console.log('order', order);
+      let response = axios.post(`${API_URL}/shoCart/uploadOrder`, {
+        ...order,
+        ...orderGift,
+      });
     } catch (e) {
       console.error(e);
     }
@@ -74,7 +94,11 @@ function Finish(props) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={(value) => {
+          handleSubmit(value);
+        }}
+      >
         {/* finishWeb */}
         <div className="container-fluid finishWeb">
           <div className="row">

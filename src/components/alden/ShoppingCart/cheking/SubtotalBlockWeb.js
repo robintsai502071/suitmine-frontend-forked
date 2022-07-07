@@ -52,7 +52,6 @@ function SubtotalBlockWeb(props) {
     const value = usableGiftCard.find((v) => v.id === id);
     setgiftId(value.id);
   };
-  // console.log('giftId', giftId);
 
   //塞下一頁需要的資料進localstorage
   // localStorage.clear();

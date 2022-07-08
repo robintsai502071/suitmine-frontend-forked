@@ -61,8 +61,12 @@ function ProductDetail() {
       `${API_URL}/prodetail/products/1`
       // , { params: { product }},
     );
+    // console.log(product[0].productDetailPhoto1);
+    console.log(responseProduct.data);
+
     setProduct(responseProduct.data);
   };
+  console.log(product[0]?.productDetailPhoto1);
 
   // ----- 刷新頁面 -----
   useEffect(() => {
@@ -114,44 +118,46 @@ function ProductDetail() {
           <div className="productContent row">
             {/*---------- 左邊照片樣式(電腦版) ----------*/}
             <div className="col-5 imgControl d-none d-sm-block">
+              {/* ------ 大圖 ------*/}
               <img
-                src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
+                src={`http://localhost:3001/${product[0]?.productPhoto}`}
                 alt=""
               />
               <Image.PreviewGroup>
+                {/* ------ 細節小圖 ------*/}
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto1}`}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto2}`}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto3}`}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto4}`}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto5}`}
                     alt=""
                   />
                 </div>
                 <div>
                   <Image
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs6.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto6}`}
                     alt=""
                   />
                 </div>
@@ -162,37 +168,37 @@ function ProductDetail() {
               <Slider {...settings}>
                 <div className="RwdImg">
                   <img
-                    src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto1}`}
                     alt=""
                   />
                 </div>
                 <div className="RwdImg">
                   <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto2}`}
                     alt=""
                   />
                 </div>
                 <div className="RwdImg">
                   <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto3}`}
                     alt=""
                   />
                 </div>
                 <div className="RwdImg">
                   <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto4}`}
                     alt=""
                   />
                 </div>
                 <div className="RwdImg">
                   <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto5}`}
                     alt=""
                   />
                 </div>
                 <div className="RwdImg">
                   <img
-                    src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto6}`}
                     alt=""
                   />
                 </div>
@@ -229,8 +235,8 @@ function ProductDetail() {
                   }`}
                 >
                   <h6>
-                    商品客製化細節:{productDetails.collar}/
-                    {productDetails.pocket}/{productDetails.button}
+                    商品客製化細節 : {productDetails.collar} /
+                    {productDetails.pocket} / {productDetails.button}
                   </h6>
                 </div>
               </div>

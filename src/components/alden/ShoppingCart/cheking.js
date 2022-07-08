@@ -9,45 +9,49 @@ import GiftCardWed from './cheking/GiftCardWed';
 
 function Cheking(props) {
   const { usableGiftCard } = props;
+
+  const products = JSON.parse(localStorage.getItem('cart'));
+  // console.log('productsTest', productsTest);
+
   //商品
-  const products = [
-    {
-      id: 1,
-      photo: ShoppingCartsample,
-      proName: 'Hayle Sharkskin Dark Navy Suit',
-      button: '單扣',
-      pocket: '有領口袋',
-      lapel: '標準領',
-      price: 2000,
-    },
-    {
-      id: 2,
-      photo: ShoppingCartsample,
-      proName: 'Hayle Sharkskin Dark Navy Suit2222',
-      button: '單扣2',
-      pocket: '有領口袋1',
-      lapel: '標準領3',
-      price: 5000,
-    },
-    {
-      id: 3,
-      photo: ShoppingCartsample,
-      proName: 'Hayle Sharkskin Dark Navy Suit2222',
-      button: '單扣2',
-      pocket: '有領口袋1',
-      lapel: '標準領3',
-      price: 3000,
-    },
-    {
-      id: 4,
-      photo: ShoppingCartsample,
-      proName: 'Hayle Sharkskin Dark Navy Suit2222',
-      button: '單扣2',
-      pocket: '有領口袋1',
-      lapel: '標準領3',
-      price: 5000,
-    },
-  ];
+  // const products = [
+  //   {
+  //     id: 1,
+  //     photo: ShoppingCartsample,
+  //     proName: 'Hayle Sharkskin Dark Navy Suit',
+  //     button: '單扣',
+  //     pocket: '有領口袋',
+  //     collar: '標準領',
+  //     price: 2000,
+  //   },
+  //   {
+  //     id: 2,
+  //     photo: ShoppingCartsample,
+  //     proName: 'Hayle Sharkskin Dark Navy Suit2222',
+  //     button: '單扣2',
+  //     pocket: '有領口袋1',
+  //     collar: '標準領3',
+  //     price: 5000,
+  //   },
+  //   {
+  //     id: 3,
+  //     photo: ShoppingCartsample,
+  //     proName: 'Hayle Sharkskin Dark Navy Suit2222',
+  //     button: '單扣2',
+  //     pocket: '有領口袋1',
+  //     collar: '標準領3',
+  //     price: 3000,
+  //   },
+  //   {
+  //     id: 4,
+  //     photo: ShoppingCartsample,
+  //     proName: 'Hayle Sharkskin Dark Navy Suit2222',
+  //     button: '單扣2',
+  //     pocket: '有領口袋1',
+  //     collar: '標準領3',
+  //     price: 5000,
+  //   },
+  // ];
 
   //待結帳禮物卡
   const giftCard = [
@@ -167,7 +171,7 @@ function Cheking(props) {
 
               {/* 商品列表 */}
               {productsInOrder.map((product, i) => {
-                const { id, photo, proName, button, pocket, lapel, price } =
+                const { id, photo, proName, button, pocket, collar, price } =
                   product;
                 const newProductCounts = productsInOrder[i].count;
                 return (
@@ -178,7 +182,7 @@ function Cheking(props) {
                     proName={proName}
                     button={button}
                     pocket={pocket}
-                    lapel={lapel}
+                    collar={collar}
                     price={price}
                     newProductCounts={newProductCounts}
                     setproductCounts={(newCount) => {

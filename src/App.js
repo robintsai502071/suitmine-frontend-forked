@@ -30,6 +30,7 @@ import TextEditorWysiwyg from './pages/TextEditorWysiwyg';
 import TextEditorUpdateWysiwyg from './pages/TextEditorUpdateWysiwyg';
 import TextEditorPrintWysiwyg from './pages/TextEditorPrintWysiwyg';
 import BlogBackendAll from './pages/BlogBackend/BlogBackend';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -105,7 +106,9 @@ function App() {
           <Register />
         </Route>
 
-        <Route path="/login">{/* <Login /> */}</Route>
+        <Route path="/login">
+          <Login />
+        </Route>
 
         <Route path="/booking-date">
           <BookingDate />

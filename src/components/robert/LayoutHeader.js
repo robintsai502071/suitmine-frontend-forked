@@ -28,6 +28,7 @@ const LayoutHeader = () => {
   // 登入後轉址到個人檔案頁面 /login to /member/user/xx
   // 有傳遞 state.isLogin = true 的狀態過來，在 LayoutHeader 的時候 setIsLogin 讓登出 icon 出現
   useEffect(() => {
+    if (location.state === undefined) return;
     if (location.state.isLogin) {
       setIsLogin(location.state.isLogin);
     }

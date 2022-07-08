@@ -14,6 +14,7 @@ import { API_URL } from '../utils/config';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { notification } from 'antd';
+import swal from 'sweetalert';
 
 function ShoppingCartChecking() {
   //Steps
@@ -127,7 +128,7 @@ function ShoppingCartChecking() {
                   if (steps < 2) {
                     setSteps(steps + 1);
                   } else if (checked === 0 && steps === 2) {
-                    openNotificationWithIcon('warning');
+                    swal('請於下方勾選退換貨條款，以利加速退款作業');
                   } else if (checked === 1 && steps === 2) {
                     setSteps(steps + 1);
                   }

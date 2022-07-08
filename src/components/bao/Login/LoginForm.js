@@ -16,7 +16,7 @@ function Form() {
     setMember({ ...member, [e.target.name]: e.target.value });
   };
 
-  const history = useHistory()
+  const history = useHistory();
   //--------- 表單送出事件 ---------
   const handleSubmit = async (e) => {
     // 防止表單直接送出
@@ -27,9 +27,16 @@ function Form() {
         withCredentials: true,
       });
       // 登入成功就轉址到會員頁
-      history.push(`/member/user/${response.data.user.user_id}`);
+      // history.push(`/member/user/${response.data.user.user_id}`);
+      history.push({
+        pathname: `/member/user/${response.data.user.user_id}`,
+        state: {
+          isLogin: true,
+        },
+      });
     } catch (e) {
       console.error('登入失敗', e.response.data);
+      // weitodo 失敗 hot toast
     }
   };
 

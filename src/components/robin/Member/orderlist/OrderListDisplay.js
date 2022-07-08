@@ -31,8 +31,11 @@ function OrderListDisplay(props) {
 
   useEffect(() => {
     if (!didUpdate) return;
-    setOrderData(initialOrderData);
 
+    if (activeBtn === '全部訂單') {
+      setOrderData(initialOrderData);
+      return;
+    }
     let filteredOrderData = [];
 
     if (activeBtn === '待出貨') {

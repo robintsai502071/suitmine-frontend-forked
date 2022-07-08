@@ -33,7 +33,7 @@ function OrderDetailDisplay(props) {
       let response = await axios.get(
         `${API_URL}/member/${givenMemberData.id}/orders/${orderIdForOrderDetail}`
       );
-      console.log(response.data.order);
+      // console.log(response.data.order);
       setOrderSummary(response.data.order.order_summary);
       setOrderContent(response.data.order.order_content);
     };

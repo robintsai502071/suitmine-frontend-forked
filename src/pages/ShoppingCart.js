@@ -13,7 +13,7 @@ import Finish from '../components/alden/ShoppingCart/finish';
 import { API_URL } from '../utils/config';
 import { useEffect } from 'react';
 import axios from 'axios';
-import { Button, message } from 'antd';
+import { notification } from 'antd';
 
 function ShoppingCartChecking() {
   //Steps
@@ -30,6 +30,12 @@ function ShoppingCartChecking() {
   }, []);
   const menbership = getShopCartInfo.user;
   const usableGiftCard = getShopCartInfo.giftCardList;
+  const openNotificationWithIcon = (type) => {
+    notification[type]({
+      message: '警告',
+      description: '請勾選同意退換貨服務條款，已立加速退款作業',
+    });
+  };
 
   //checkbox的useState
   const [checked, setChecked] = useState(0);
@@ -121,10 +127,7 @@ function ShoppingCartChecking() {
                   if (steps < 2) {
                     setSteps(steps + 1);
                   } else if (checked === 0 && steps === 2) {
-                    message.success(
-                      'This is a prompt message for success, and it will disappear in 10 seconds',
-                      10
-                    );
+                    openNotificationWithIcon('warning');
                   } else if (checked === 1 && steps === 2) {
                     setSteps(steps + 1);
                   }

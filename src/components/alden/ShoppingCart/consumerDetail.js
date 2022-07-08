@@ -130,7 +130,7 @@ function ConsumerDetail(props) {
                       checked === 0 ? setChecked(1) : setChecked(0);
                     }}
                   >
-                    我同意辦理退貨時，由SUITMINE代為處理電子發票及銷貨退回折讓單以加速退款作業
+                    我同意辦理退貨時，由SUITMINE代為處理電子發票及銷貨退回折讓單
                   </Checkbox>
                 </div>
               </div>

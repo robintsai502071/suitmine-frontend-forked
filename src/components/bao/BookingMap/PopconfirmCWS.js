@@ -36,7 +36,7 @@ function PopconfirmTYN() {
             </Popover>
           }
         >
-          <div className="CWSBox d-md-flex d-none">
+          <div className="CWSBox d-md-flex d-none animate__bounce">
             <img className="iconTPE btn" src={iconCWS} alt="" />
           </div>
         </OverlayTrigger>

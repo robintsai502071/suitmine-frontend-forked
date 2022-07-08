@@ -3,6 +3,10 @@
 @import './styles/reset';
 @import './styles/global';
 
+// 昱
+@import './styles/home';
+@import './styles/measurement';
+
 
 //cusomerService.sass
 @import './styles/customerService';
@@ -16,9 +20,11 @@
 //productDetail.scss
 @import './styles/productDetail';
 // -----------productList-----------
-@import './styles/productList'; 
+@import './styles/productList';
 // -----------bookingMap-----------
 @import './styles/BookingMap';
+// -----------bookingMap-----------
+@import './styles/Register';
 // -----------Register-----------
 @import './styles/Register';
 // -----------MeasurementTeaching-----------

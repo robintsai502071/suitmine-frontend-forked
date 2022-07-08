@@ -113,54 +113,54 @@
   margin: 0%;
   width: 90%;
 }
-  .ProductTypeBar .ant-menu-item:hover,
-  .ProductTypeBar .ant-menu-item-active,
-  .ProductTypeBar .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
-  .ProductTypeBar .ant-menu-submenu-active,
-  .ProductTypeBar .ant-menu-submenu-title:hover {
-    color: #00101f;
-  }
-  .ProductTypeBar .ant-menu-sub {
-    width: 100%;
-  }
-  .ProductTypeBar {
-    width: 100% !important;
-  }
-  .ProductTypeBar .ant-menu-submenu-title {
-    width: 100%;
-  }
-  .ProductTypeBar .ant-menu-submenu-selected {
-    color: $btn-hover-color;
-  }
-  .ProductTypeBar .ant-menu-item-selected {
-    color: $btn-hover-color;
-  }
-  .ProductTypeBar .ant-menu-item:active,
-  .ProductTypeBar .ant-menu-submenu-title:active {
-    background: #747474;
-  }
-  .ProductTypeBar .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    background-color: #ebebeb;
-  }
-  .ProductTypeBar .ant-menu-submenu-arrow::before,
-  .ProductTypeBar .ant-menu-submenu-arrow::after {
-    position: absolute;
-    width: 6px;
-    height: 1.5px;
-    background-color: #000;
-    border-radius: 2px;
-    transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-      transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-      top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-      color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    content: '';
-  }
-  .ProductTypeBar .ant-menu-vertical .ant-menu-item::after,
-  .ProductTypeBar .ant-menu-vertical-left .ant-menu-item::after,
-  .ProductTypeBar .ant-menu-vertical-right .ant-menu-item::after,
-  .ProductTypeBar .ant-menu-inline .ant-menu-item::after {
-    border-right: 3px solid #000000;
-  }
+.ProductTypeBar .ant-menu-item:hover,
+.ProductTypeBar .ant-menu-item-active,
+.ProductTypeBar .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ProductTypeBar .ant-menu-submenu-active,
+.ProductTypeBar .ant-menu-submenu-title:hover {
+  color: #00101f;
+}
+.ProductTypeBar .ant-menu-sub {
+  width: 100%;
+}
+.ProductTypeBar {
+  width: 100% !important;
+}
+.ProductTypeBar .ant-menu-submenu-title {
+  width: 100%;
+}
+.ProductTypeBar .ant-menu-submenu-selected {
+  color: $btn-hover-color;
+}
+.ProductTypeBar .ant-menu-item-selected {
+  color: $btn-hover-color;
+}
+.ProductTypeBar .ant-menu-item:active,
+.ProductTypeBar .ant-menu-submenu-title:active {
+  background: #747474;
+}
+.ProductTypeBar .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #ebebeb;
+}
+.ProductTypeBar .ant-menu-submenu-arrow::before,
+.ProductTypeBar .ant-menu-submenu-arrow::after {
+  position: absolute;
+  width: 6px;
+  height: 1.5px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  content: '';
+}
+.ProductTypeBar .ant-menu-vertical .ant-menu-item::after,
+.ProductTypeBar .ant-menu-vertical-left .ant-menu-item::after,
+.ProductTypeBar .ant-menu-vertical-right .ant-menu-item::after,
+.ProductTypeBar .ant-menu-inline .ant-menu-item::after {
+  border-right: 3px solid #000000;
+}
 
 /* ==================商品種類篩選抽屜RWD(蓋)================== */
 .RWDProductTypeBarDrawer .ant-drawer-content-wrapper {
@@ -294,325 +294,325 @@
   .cardStyle img {
     height: 300px;
   }
-  /* -----------右側sticky功能欄----------- */
-  .sidebar {
-    background-color: rgb(95, 95, 95);
-    float: right;
-    z-index: 9999;
+}
+/* -----------顧客怎麼說----------- */
+.bottomBanner {
+  height: 600px;
+  background: #ececec;
+}
+.messageBox {
+  height: 400px;
+  background: #fff;
+  padding-top: 40px;
+}
+.customersSayMargin {
+  margin: 20px;
+}
+.customersSayBox {
+  width: 90%;
+  text-align: center;
+}
+/* -----------右側sticky功能欄----------- */
+.sidebar {
+  background-color: rgb(95, 95, 95);
+  float: right;
+  z-index: 9999;
+}
+.sidebar {
+  width: 40px;
+  height: 15vh;
+  border-radius: 15px 0 0 15px;
+}
+.sidebar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 35%;
+}
+.sidebar i {
+  color: rgb(255, 255, 255);
+}
+/* -----------商品材質、顏色、價格篩選列表----------- */
+.dropdown .btn {
+  color: rgb(0, 0, 0);
+  background-color: #0d6dfd00;
+  border-color: #0d6dfd00;
+}
+.filterBar {
+  padding: 0%;
+}
+.btn-check:checked + .btn-primary,
+.btn-check:active + .btn-primary,
+.btn-primary:active,
+.btn-primary.active,
+.show > .btn-primary.dropdown-toggle {
+  color: #000;
+  background-color: #0a58ca00;
+  border-color: #0a53be00;
+}
+.btn-check:focus + .btn,
+.btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(233, 233, 233, 0);
+}
+.btn-check:checked + .btn-primary:focus,
+.btn-check:active + .btn-primary:focus,
+.btn-primary:active:focus,
+.btn-primary.active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.25rem rgb(104 125 157 / 0%);
+}
+.dropdown-item.active,
+.dropdown-item:active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #b8b8b8;
+}
+/* -----------材質展示switchButton----------- */
+.ant-switch-checked {
+  background: #000000;
+}
+/* =========== 商品材質、顏色、價格篩選列表 RWD ===========*/
+.ant-drawer-body {
+  padding: 0;
+}
+/* -----------搜尋欄位----------- */
+.ant-btn-primary {
+  border-color: #000000;
+  background: #000000;
+}
+.ant-input-group-wrapper {
+  width: 90%;
+}
+.ant-input-search .ant-input:hover,
+.ant-input-search .ant-input:focus {
+  border-color: #0d0f10;
+}
+.ant-input:focus,
+.ant-input:focus,
+.ant-input-focused {
+  border-color: #000000;
+  box-shadow: 0 0 0 2px rgba(24, 143, 255, 0);
+  border-right-width: 1px;
+  outline: 0;
+}
+.searchInput {
+  width: 100%;
+}
+.ant-space-vertical {
+  width: 100%;
+}
+html {
+  --antd-wave-shadow-color: #001e3a;
+}
+/* -----------商品種類篩選抽屜(蓋)----------- */
+.ant-menu-light .ant-menu-item:hover,
+.ant-menu-light .ant-menu-item-active,
+.ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-light .ant-menu-submenu-active,
+.ant-menu-light .ant-menu-submenu-title:hover {
+  color: #00101f;
+}
+.productTypeBar {
+  margin: 0%;
+  width: 90%;
+}
+.ant-menu-sub {
+  width: 100%;
+}
+.ant-menu {
+  width: 100% !important;
+}
+.ant-menu-submenu-title {
+  width: 100%;
+}
+.ant-menu-submenu-selected {
+  color: $btn-hover-color;
+}
+.ant-menu-item-selected {
+  color: $btn-hover-color;
+}
+.ant-menu-item:active,
+.ant-menu-submenu-title:active {
+  background: #747474;
+}
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: #ebebeb;
+}
+.ant-menu-submenu-arrow::before,
+.ant-menu-submenu-arrow::after {
+  position: absolute;
+  width: 6px;
+  height: 1.5px;
+  background-color: #000;
+  border-radius: 2px;
+  transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  content: '';
+}
+.ant-menu-vertical .ant-menu-item::after,
+.ant-menu-vertical-left .ant-menu-item::after,
+.ant-menu-vertical-right .ant-menu-item::after,
+.ant-menu-inline .ant-menu-item::after {
+  border-right: 3px solid #000000;
+}
+/* -----------商品列表----------- */
+.productList .card-body .h6 {
+  color: #000;
+}
+.productList .card-body p {
+  color: #000;
+}
+.cardSize {
+  padding: 0%;
+}
+.cardStyle {
+  --bs-card-border-radius: 0rem;
+  border: unset;
+}
+.imgSize {
+  height: 400px;
+  object-fit: cover;
+}
+.cardPadding {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.productList {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+.cardBottomMargin {
+  margin-bottom: 40px;
+  text-decoration: none;
+  color: #000;
+}
+.imgBox:hover:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background-color: rgba($color: #000000, $alpha: 0.8);
+}
+.imgBox:hover .viewProject {
+  display: block;
+}
+.viewProject {
+  z-index: 9999;
+  border: 0.8px solid #ffffff;
+  display: none;
+  width: 110px;
+  height: 28px;
+  text-align: center;
+}
+.viewProject p {
+  color: rgb(255, 255, 255);
+}
+.viewProject :hover {
+  background-color: #fff;
+  border: 0.1px solid #ffffff;
+  color: #000;
+}
+.price {
+  color: #000;
+}
+.product-fa-heart {
+  font-size: 20px;
+  color: $dark-gray;
+}
+/* ============ 商品列表 RWD============ */
+@media screen and (max-width: 420px) {
+  .cardStyle img {
+    height: 300px;
   }
-  .sidebar {
-    width: 40px;
-    height: 15vh;
-    border-radius: 15px 0 0 15px;
-  }
-  .sidebar {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 35%;
-  }
-  .sidebar i {
-    color: rgb(255, 255, 255);
-  }
-  /* -----------商品材質、顏色、價格篩選列表----------- */
-  .dropdown .btn {
-    color: rgb(0, 0, 0);
-    background-color: #0d6dfd00;
-    border-color: #0d6dfd00;
-  }
-  .filterBar {
-    padding: 0%;
-  }
-  .btn-check:checked + .btn-primary,
-  .btn-check:active + .btn-primary,
-  .btn-primary:active,
-  .btn-primary.active,
-  .show > .btn-primary.dropdown-toggle {
-    color: #000;
-    background-color: #0a58ca00;
-    border-color: #0a53be00;
-  }
-  .btn-check:focus + .btn,
-  .btn:focus {
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem rgba(233, 233, 233, 0);
-  }
-  .btn-check:checked + .btn-primary:focus,
-  .btn-check:active + .btn-primary:focus,
-  .btn-primary:active:focus,
-  .btn-primary.active:focus,
-  .show > .btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.25rem rgb(104 125 157 / 0%);
-  }
-  .dropdown-item.active,
-  .dropdown-item:active {
-    color: #fff;
-    text-decoration: none;
-    background-color: #b8b8b8;
-  }
-  /* -----------材質展示switchButton----------- */
-  .ant-switch-checked {
-    background: #000000;
-  }
-  /* =========== 商品材質、顏色、價格篩選列表 RWD ===========*/
-  .ant-drawer-body {
-    padding: 0;
-  }
-  /* -----------搜尋欄位----------- */
-  .ant-btn-primary {
-    border-color: #000000;
-    background: #000000;
-  }
-  .ant-input-group-wrapper {
-    width: 90%;
-  }
-  .ant-input-search .ant-input:hover,
-  .ant-input-search .ant-input:focus {
-    border-color: #0d0f10;
-  }
-  .ant-input:focus,
-  .ant-input:focus,
-  .ant-input-focused {
-    border-color: #000000;
-    box-shadow: 0 0 0 2px rgba(24, 143, 255, 0);
-    border-right-width: 1px;
-    outline: 0;
-  }
-  .searchInput {
-    width: 100%;
-  }
-  .ant-space-vertical {
-    width: 100%;
-  }
-  html {
-    --antd-wave-shadow-color: #001e3a;
-  }
-  /* -----------商品種類篩選抽屜(蓋)----------- */
-  .ant-menu-light .ant-menu-item:hover,
-  .ant-menu-light .ant-menu-item-active,
-  .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
-  .ant-menu-light .ant-menu-submenu-active,
-  .ant-menu-light .ant-menu-submenu-title:hover {
-    color: #00101f;
-  }
-  .productTypeBar {
-    margin: 0%;
-    width: 90%;
-  }
-  .ant-menu-sub {
-    width: 100%;
-  }
-  .ant-menu {
-    width: 100% !important;
-  }
-  .ant-menu-submenu-title {
-    width: 100%;
-  }
-  .ant-menu-submenu-selected {
-    color: $btn-hover-color;
-  }
-  .ant-menu-item-selected {
-    color: $btn-hover-color;
-  }
-  .ant-menu-item:active,
-  .ant-menu-submenu-title:active {
-    background: #747474;
-  }
-  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-    background-color: #ebebeb;
-  }
-  .ant-menu-submenu-arrow::before,
-  .ant-menu-submenu-arrow::after {
-    position: absolute;
-    width: 6px;
-    height: 1.5px;
-    background-color: #000;
-    border-radius: 2px;
-    transition: background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-      transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-      top 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
-      color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-    content: '';
-  }
-  .ant-menu-vertical .ant-menu-item::after,
-  .ant-menu-vertical-left .ant-menu-item::after,
-  .ant-menu-vertical-right .ant-menu-item::after,
-  .ant-menu-inline .ant-menu-item::after {
-    border-right: 3px solid #000000;
-  }
-  /* -----------商品列表----------- */
-  .productList .card-body .h6 {
-    color: #000;
-  }
-  .productList .card-body p {
-    color: #000;
-  }
-  .cardSize {
-    padding: 0%;
-  }
-  .cardStyle {
-    --bs-card-border-radius: 0rem;
-    border: unset;
-  }
-  .imgSize {
-    height: 400px;
-    object-fit: cover;
-  }
-  .cardPadding {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-  .productList {
-    padding-right: 0px;
-    padding-left: 0px;
-  }
-  .cardBottomMargin {
-    margin-bottom: 40px;
-    text-decoration: none;
-    color: #000;
-  }
-  .imgBox:hover:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 400px;
-    background-color: rgba($color: #000000, $alpha: 0.8);
-  }
-  .imgBox:hover .viewProject {
-    display: block;
-  }
-  .viewProject {
-    z-index: 9999;
-    border: 0.8px solid #ffffff;
-    display: none;
-    width: 110px;
-    height: 28px;
-    text-align: center;
-  }
-  .viewProject p {
-    color: rgb(255, 255, 255);
-  }
-  .viewProject :hover {
-    background-color: #fff;
-    border: 0.1px solid #ffffff;
-    color: #000;
-  }
-  .price {
-    color: #000;
-  }
-  .product-fa-heart {
-    font-size: 20px;
-    color: $dark-gray;
-  }
-  /* ============ 商品列表 RWD============ */
-  @media screen and (max-width: 420px) {
-    .cardStyle img {
-      height: 300px;
-    }
-  }
-  /* ------------ 商品列表頁碼 ------------ */
-  .pager {
-    margin: 0 0 3.75rem;
-    font-size: 0;
-    text-align: center;
-  }
+}
+/* ------------ 商品列表頁碼 ------------ */
+.pager {
+  margin: 0 0 3.75rem;
+  font-size: 0;
+  text-align: center;
+}
+.pager__item {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0 2px;
+}
+.pager__item.active .pager__link {
+  background-color: #1d1d1d;
+  border-color: #1d1d1d;
+  color: #fff;
+  text-decoration: none;
+}
+.pager__item--prev svg,
+.pager__item--next svg {
+  width: 8px;
+  height: 12px;
+}
+.pager__item--next .pager__link svg {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+.pager__link {
+  position: relative;
+  border-radius: 26px;
+  display: block;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin-left: -1px;
+  color: #2f3640;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.pager__link:hover,
+.pager__link:focus,
+.pager__link:active {
+  background-color: #1d1d1d;
+  border-color: #1d1d1d;
+  color: #fff;
+  text-decoration: none;
+}
+.pager__link:hover svg path,
+.pager__link:focus svg path,
+.pager__link:active svg path {
+  fill: #fff;
+}
+.pager .pager__item.active + .pager__item .pager__link,
+.pager .pager__item:hover + .pager__item .pager__link {
+  border-left-color: #1d1d1d;
+}
+.pagerMarginTop {
+  margin-top: 40px;
+}
+@media screen and (max-width: 576px) {
   .pager__item {
-    display: inline-block;
-    vertical-align: top;
-    font-size: 1.125rem;
-    font-weight: bold;
-    margin: 0 2px;
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
   }
-  .pager__item.active .pager__link {
-    background-color: #1d1d1d;
-    border-color: #1d1d1d;
-    color: #fff;
-    text-decoration: none;
+  .pager__item.active,
+  .pager__item:first-of-type,
+  .pager__item:last-of-type,
+  .pager__item:nth-of-type(2),
+  .pager__item:nth-last-of-type(2) {
+    position: initial;
+    top: initial;
+    left: initial;
   }
-  .pager__item--prev svg,
-  .pager__item--next svg {
-    width: 8px;
-    height: 12px;
-  }
-  .pager__item--next .pager__link svg {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
-    -webkit-transform-origin: center center;
-    transform-origin: center center;
-  }
-  .pager__link {
-    position: relative;
-    border-radius: 26px;
-    display: block;
-    text-align: center;
-    width: 2rem;
-    height: 2rem;
-    line-height: 2rem;
-    margin-left: -1px;
-    color: #2f3640;
-    text-decoration: none;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-  }
-  .pager__link:hover,
-  .pager__link:focus,
-  .pager__link:active {
-    background-color: #1d1d1d;
-    border-color: #1d1d1d;
-    color: #fff;
-    text-decoration: none;
-  }
-  .pager__link:hover svg path,
-  .pager__link:focus svg path,
-  .pager__link:active svg path {
-    fill: #fff;
-  }
-  .pager .pager__item.active + .pager__item .pager__link,
-  .pager .pager__item:hover + .pager__item .pager__link {
-    border-left-color: #1d1d1d;
-  }
-  .pagerMarginTop {
-    margin-top: 40px;
-  }
-  @media screen and (max-width: 576px) {
-    .pager__item {
-      position: absolute;
-      top: -9999px;
-      left: -9999px;
-    }
-    .pager__item.active,
-    .pager__item:first-of-type,
-    .pager__item:last-of-type,
-    .pager__item:nth-of-type(2),
-    .pager__item:nth-last-of-type(2) {
-      position: initial;
-      top: initial;
-      left: initial;
-    }
-    .pager__item.active + li {
-      position: initial;
-      top: initial;
-      left: initial;
-    }
-  }
-  /* -----------顧客怎麼說----------- */
-  .bottomBanner {
-    height: 600px;
-    background: #ececec;
-  }
-  .messageBox {
-    height: 400px;
-    background: #fff;
-    padding-top: 40px;
-  }
-  .customersSayMargin {
-    margin: 20px;
-  }
-  .customersSayBox {
-    width: 90%;
-    text-align: center;
+  .pager__item.active + li {
+    position: initial;
+    top: initial;
+    left: initial;
   }
 }
 /* -----------顧客怎麼說----------- */
@@ -633,3 +633,4 @@
   width: 90%;
   text-align: center;
 }
+

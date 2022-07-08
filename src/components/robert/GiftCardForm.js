@@ -6,7 +6,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import axios from 'axios';
 
-
 function GiftCard() {
   // --------------------------------------------------------------------
   // 表單驗證
@@ -44,6 +43,10 @@ function GiftCard() {
   function handleChange(e) {
     const newContent = { ...content, [e.target.name]: e.target.value };
     setContent(newContent);
+    console.log('這裡是新資料', newContent);
+    let putInLocalStorage = newContent;
+    let newPutInLocalStorage = JSON.stringify(putInLocalStorage);
+    localStorage.setItem('newPutInLocalStorage', newPutInLocalStorage);
   }
 
   // ------------------------------------------------------------------------

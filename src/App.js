@@ -26,7 +26,10 @@ import MeasurementTeaching from './pages/MeasurementTeaching';
 // import ShoppingCartPayment from './pages/ShoppingCartPayment';
 // import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
 // import ShoppingCartFinish from './pages/ShoppingCartFinish';
-import Login from './pages/Login';
+import TextEditorWysiwyg from './pages/TextEditorWysiwyg';
+import TextEditorUpdateWysiwyg from './pages/TextEditorUpdateWysiwyg';
+import TextEditorPrintWysiwyg from './pages/TextEditorPrintWysiwyg';
+import BlogBackendAll from './pages/BlogBackend/BlogBackend';
 
 function App() {
   return (
@@ -40,9 +43,35 @@ function App() {
           <MyFavorites />
         </Route> */}
 
+        {/* [新增] 文字編輯器 */}
+        <Route path="/text-editor">
+          <TextEditorWysiwyg />
+        </Route>
+
+        {/* [更新] 文字編輯器 */}
+        {/* <Route path="/text-editor-update">
+          <TextEditorUpdateWysiwyg />
+        </Route> */}
+        {/* <Route path="/text-editor-update/:blogUpdateId">
+          <TextEditorUpdateWysiwyg />
+        </Route> */}
+        <Route path="/text-editor-update/:blogId">
+          <TextEditorUpdateWysiwyg />
+        </Route>
+
+        {/* [網站顯示文章功能] 文字編輯器 */}
+        <Route path="/text-editor-print/:blogId">
+          <TextEditorPrintWysiwyg />
+        </Route>
+
+        {/* 文字編輯器後台 */}
+        <Route path="/blog-dashboard">
+          <BlogBackendAll />
+        </Route>
+
         {/* <Route path="/member/my-gift-card">
           <MyGiftCard />
-        </Route> */}
+        </Route>  */}
 
         {/* <Route path="/member/my-order/detail">
           <OrderDetail />
@@ -76,9 +105,7 @@ function App() {
           <Register />
         </Route>
 
-        <Route path="/login">
-          <Login />
-        </Route>
+        <Route path="/login">{/* <Login /> */}</Route>
 
         <Route path="/booking-date">
           <BookingDate />

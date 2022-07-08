@@ -4,6 +4,7 @@ import { Button, Modal } from 'antd';
 import { useState } from 'react';
 import Accordion from './Accordion';
 import { Form } from 'antd';
+import swal from 'sweetalert';
 
 const AddDetail = (props) => {
   const { setProductDetails, productDetails } = props;
@@ -21,6 +22,7 @@ const AddDetail = (props) => {
       productDetails.pocket === ''
     ) {
       setIsModalVisible(true);
+      swal('請選擇所有細節');
     } else {
       setIsModalVisible(false);
     }

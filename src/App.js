@@ -13,11 +13,11 @@ import Member from './pages/Member/Member';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
 import ShoppingCart from './pages/ShoppingCart';
-// import ChangePassword from './pages/Member/ChangePassword';
-// import OrderList from './pages/Member/OrderList';
-// import MyGiftCard from './pages/Member/MyGiftCard';
-// import MyFavorites from './pages/Member/MyFavorites';
-// import OrderDetail from './pages/Member/OrderDetail';
+import ChangePassword from './pages/Member/ChangePassword';
+import OrderList from './pages/Member/OrderList';
+import MyGiftCard from './pages/Member/MyGiftCard';
+import MyFavorites from './pages/Member/MyFavorites';
+import OrderDetail from './pages/Member/OrderDetail';
 import CustomizeSlient from './pages/CustomizeSlient';
 // import ShoppingCart from './pages/ShoppingCart';
 import Register from './pages/Register';
@@ -36,13 +36,13 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        {/* <Route path="/member/user/change-password">
+        <Route path="/member/user/change-password">
           <ChangePassword />
-        </Route> */}
+        </Route>
 
-        {/* <Route path="/member/my-favorites">
+        <Route path="/member/my-favorites">
           <MyFavorites />
-        </Route> */}
+        </Route>
 
         {/* [新增] 文字編輯器 */}
         <Route path="/text-editor">
@@ -50,12 +50,14 @@ function App() {
         </Route>
 
         {/* [更新] 文字編輯器 */}
-        {/* <Route path="/text-editor-update">
+        <Route path="/text-editor-update">
           <TextEditorUpdateWysiwyg />
-        </Route> */}
-        {/* <Route path="/text-editor-update/:blogUpdateId">
+        </Route>
+
+        <Route path="/text-editor-update/:blogUpdateId">
           <TextEditorUpdateWysiwyg />
-        </Route> */}
+        </Route>
+
         <Route path="/text-editor-update/:blogId">
           <TextEditorUpdateWysiwyg />
         </Route>
@@ -70,17 +72,17 @@ function App() {
           <BlogBackendAll />
         </Route>
 
-        {/* <Route path="/member/my-gift-card">
+        <Route path="/member/my-gift-card">
           <MyGiftCard />
-        </Route>  */}
+        </Route>
 
-        {/* <Route path="/member/my-order/detail">
+        <Route path="/member/my-order/detail">
           <OrderDetail />
-        </Route> */}
+        </Route>
 
-        {/* <Route path="/member/my-order">
+        <Route path="/member/my-order">
           <OrderList />
-        </Route> */}
+        </Route>
 
         <Route path="/member/m.user">
           <MainForm />

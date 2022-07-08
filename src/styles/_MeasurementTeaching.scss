@@ -1,0 +1,194 @@
+
+.VedioContainerFluid {
+  padding: 0;
+  min-height: 100vh;
+  background-color: rgb(0, 0, 0);
+}
+//---------------------slick sliders arrows 箭頭樣式必加！---------------------
+.MeasurementTeaching .slick-prev {
+  left: 3% !important;
+  z-index: 1;
+  transform: scale(2);
+}
+.MeasurementTeaching .slick-next {
+  right: 3% !important;
+  z-index: 1;
+  transform: scale(2);
+}
+.MeasurementTeaching .lapel {
+  background-color: rgb(0, 0, 0);
+}
+//=====================slick sliders arrows 箭頭樣式必加！=====================
+@media screen and (max-width: 768px) {
+  .MeasurementTeaching .slick-next {
+    right: 11% !important;
+    top: 47%;
+    z-index: 1;
+    transform: scale(2.5);
+  }
+  .MeasurementTeaching .slick-prev {
+    left: 11% !important;
+    top: 47%;
+    z-index: 1;
+    transform: scale(2.5);
+  }
+}
+
+//---------------------vedio尺寸---------------------
+.MeasurementTeaching .vedio {
+  position: relative;
+}
+.MeasurementTeaching .vedio .reactPlayer {
+  width: 100% !important;
+  height: 100% !important;
+}
+//---------------------input尺寸---------------------
+.MeasurementTeaching .vedio input {
+  width: 140px;
+  height: 80px;
+}
+//=====================input尺寸RWD=====================
+@media screen and (max-width: 768px) {
+  .MeasurementTeaching .vedio input {
+    width: 113px;
+    height: 66px;
+  }
+}
+//---------------------身高、體重欄位定位---------------------
+.heightAndWeightBox {
+  width: max-content;
+  position: absolute;
+  top: 72%;
+  left: 38.5%;
+}
+.heightAndWeightBox p {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+//=====================身高、體重欄位 RWD=====================
+@media screen and (max-width: 768px) {
+  .heightAndWeightBox {
+    align-items: center;
+    flex-direction: column;
+    position: static;
+    width: 100%;
+    margin-top: 10%;
+  }
+  .heightInputBox {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+  }
+  .weightInputBox {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin-top: 8%;
+  }
+  .heightAndWeightBox p {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    margin-bottom: 13px;
+    letter-spacing: 1px;
+  }
+}
+
+//---------------------欄位定位---------------------
+.InputBox {
+  position: absolute;
+  top: 72%;
+  left: 42.5%;
+  width: max-content;
+  text-align: center;
+}
+.InputBox p {
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+//=====================欄位定位RWD=====================
+@media screen and (max-width: 768px) {
+  .InputBox {
+    position: static;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 12%;
+  }
+}
+//---------------------最後一頁展現+送出buton---------------------
+.submitPageImgBox {
+  width: 100%;
+}
+.submitPageImgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.positionBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.submitPageImgBox .btn-check:focus + .btn, .btn:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(70, 70, 70, 0.25); 
+}
+//=====================最後一頁展現+送出buton RWD=====================
+@media screen and (max-width: 768px) {
+  .positionBox {
+    margin-top: 5%;
+    position: static !important;
+    transform: translate(0, 0);
+    .registerBtn{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+// --------form(蓋樣式)--------
+.submitPage .form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
+}
+.submitPage .form-select:focus {
+  border-color: #6161617c;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
+}
+.submitPage .registerInputBox {
+  background-color: #fff;
+  border-radius: 10px;
+  width: 420px;
+  height: 745px;
+}
+//=====================表單RWD=====================
+@media screen and (max-width: 768px) {
+  .submitPage .registerInputBox {
+    background-color: #fff;
+    border-radius: 10px;
+    width:80%;
+    height: 100%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+
+  }
+  .submitPage .registerInputBox p {
+    font-size: 26px;
+  }
+  .submitPage .registerInputBox label{
+    font-size: 15px;
+
+  }
+}
+

@@ -1,0 +1,95 @@
+// ******** header ********
+.m-header {
+  &__user-info {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  background-color: $light-gray;
+
+  &__avatar {
+    width: 70px;
+    height: 70px;
+    &__image {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__username {
+    @include h6;
+    margin-left: 0.5rem;
+  }
+}
+
+.welcome-text {
+  @include eng-text;
+  padding: 0.25rem 1rem;
+  background-color: $dark-gray;
+  color: $light-gray;
+}
+
+// ******** main ********
+.m-main__my-order,
+.m-main__my-service {
+  padding: 1rem 0;
+}
+
+.m-main__my-service {
+  margin-bottom: 5rem;
+}
+
+.m-main__my-order__title,
+.m-main__my-service__title {
+  @include h6;
+  padding: 1rem;
+  border-bottom: 1px solid $light-gray;
+  color: $dark-gray;
+}
+
+.m-main__my-order__buttons,
+.m-main__my-service__buttons {
+  display: flex;
+  justify-content: space-between;
+  & > * {
+    padding: .5rem;
+    @include text;
+    color: $dark-gray;
+  }
+}
+
+@media screen and (max-width: 996px) {
+  .goBackBtn {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: -3rem;
+    padding: 1rem;
+    color: $dark-gray;
+    @include h6;
+    &.m-user-position {
+      top: 0;
+    }
+  }
+
+  .main__form {
+    // height: 100vh;
+    border-radius: 0px;
+    &__title {
+      text-align: center;
+    }
+  }
+  // 個人檔案 input 樣式覆蓋
+  .ant-row.ant-form-item {
+    width: 100% !important;
+  }
+
+  .main__form__avatar__wrapper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

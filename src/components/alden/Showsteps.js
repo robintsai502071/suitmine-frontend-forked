@@ -2,8 +2,9 @@ import { Steps } from 'antd';
 import { useState } from 'react';
 const { Step } = Steps;
 
-const Showsteps = () => {
+const Showsteps = (props) => {
   const [current, setCurrent] = useState(0);
+  const { steps } = props;
 
   const onChange = (value) => {
     console.log('onChange:', current);
@@ -12,7 +13,7 @@ const Showsteps = () => {
 
   return (
     <>
-      <Steps current={current} onChange={onChange}>
+      <Steps current={steps} onChange={onChange}>
         <Step title="First" description="確認購物車" />
         <Step title="Second" description="付款與運送方式" />
         <Step title="Third" description="填寫資料" />

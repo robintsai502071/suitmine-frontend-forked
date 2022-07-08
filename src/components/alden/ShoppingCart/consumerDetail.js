@@ -16,8 +16,8 @@ function ConsumerDetail(props) {
   ];
   const [activedBut, setActivedBut] = useState('電子發票-個人');
 
-  //使用者資料
-  const { menbership } = props;
+  //使用者資料和checkbox的useState
+  const { menbership, checked, setChecked } = props;
   // const menbership = [{ id: 1, name: '大金主', phone: '0900000000' }];
   const { name, phone, address } = menbership[0];
 
@@ -29,6 +29,8 @@ function ConsumerDetail(props) {
   const [adress, setAdress] = useState({ adress: '' });
   const newAdress = adress.adress;
   localStorage.setItem('adress', newAdress);
+
+  console.log(checked, '12345');
   return (
     <div>
       {/* consumerDetailWeb */}
@@ -122,9 +124,13 @@ function ConsumerDetail(props) {
                     <Input placeholder="請再次輸入手機條碼(限大寫英數字)" />
                   </div>
                 </div>
-                <div>
-                  <Checkbox>
-                    我同意辦理退貨時，由SUITMINE代為處理電子發票及銷貨退回折讓單以加速退款作業。
+                <div className="Imagree">
+                  <Checkbox
+                    onChange={() => {
+                      checked === 0 ? setChecked(1) : setChecked(0);
+                    }}
+                  >
+                    我同意辦理退貨時，由SUITMINE代為處理電子發票及銷貨退回折讓單以加速退款作業
                   </Checkbox>
                 </div>
               </div>

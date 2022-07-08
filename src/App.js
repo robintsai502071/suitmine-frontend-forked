@@ -12,6 +12,7 @@ import Member from './pages/Member/Member';
 import MemberMobileView from './pages/Member/MemberMobileView';
 import ProductDetail from './pages/ProductDetail';
 import ProductList from './pages/ProductList';
+import ShoppingCart from './pages/ShoppingCart';
 import ChangePassword from './pages/Member/ChangePassword';
 import OrderList from './pages/Member/OrderList';
 import MyGiftCard from './pages/Member/MyGiftCard';
@@ -21,10 +22,11 @@ import CustomizeSlient from './pages/CustomizeSlient';
 // import ShoppingCart from './pages/ShoppingCart';
 import Register from './pages/Register';
 import MeasurementTeaching from './pages/MeasurementTeaching';
-import ShoppingCartChecking from './pages/ShoppingCartChecking';
-import ShoppingCartPayment from './pages/ShoppingCartPayment';
-import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
-import ShoppingCartFinish from './pages/ShoppingCartFinish';
+// import ShoppingCartChecking from './pages/ShoppingCartChecking';
+// import ShoppingCartPayment from './pages/ShoppingCartPayment';
+// import ShoppingCartConsumerDetail from './pages/ShoppingCartConsumerDetail';
+// import ShoppingCartFinish from './pages/ShoppingCartFinish';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -74,24 +76,16 @@ function App() {
           <Register />
         </Route>
 
+        <Route path="/login">
+          <Login />
+        </Route>
+
         <Route path="/booking-date">
           <BookingDate />
         </Route>
 
-        <Route path="/shopping-cart-checking">
-          <ShoppingCartChecking />
-        </Route>
-
-        <Route path="/shopping-cart-payment">
-          <ShoppingCartPayment />
-        </Route>
-
-        <Route path="/shopping-cart-consumerdetail">
-          <ShoppingCartConsumerDetail />
-        </Route>
-
-        <Route path="/shopping-cart-finish">
-          <ShoppingCartFinish />
+        <Route path="/shopping-cart">
+          <ShoppingCart />
         </Route>
 
         <Route path="/booking-map">

@@ -7,7 +7,7 @@ function LastPageSubmit(props) {
   // -------------------處理表單送出的函示-----------------------
   const handleSubmit = (e) => {
     // 阻擋表單送出
-    e.preventDefault();
+    // e.preventDefault();
   };
   return (
     <>

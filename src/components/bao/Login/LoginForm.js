@@ -2,20 +2,21 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../utils/config';
-
+import { useHistory } from 'react-router-dom';
 function Form() {
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
     email: '',
     password: '',
   });
-  console.log(member);
+  // console.log(member);
 
   //--------- 表單更換函示 ---------
   const handleChange = (e) => {
     setMember({ ...member, [e.target.name]: e.target.value });
   };
 
+  const history = useHistory();
   //--------- 表單送出事件 ---------
   const handleSubmit = async (e) => {
     // 防止表單直接送出
@@ -25,9 +26,17 @@ function Form() {
         // 如果想要跨源讀寫 cookie
         withCredentials: true,
       });
-      console.log('登入成功', response.data);
+      // 登入成功就轉址到會員頁
+      // history.push(`/member/user/${response.data.user.user_id}`);
+      history.push({
+        pathname: `/member/user/${response.data.user.user_id}`,
+        state: {
+          isLogin: true,
+        },
+      });
     } catch (e) {
       console.error('登入失敗', e.response.data);
+      // weitodo 失敗 hot toast
     }
   };
 

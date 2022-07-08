@@ -5,6 +5,7 @@ import LayoutFooter from '../components/robert/LayoutFooter';
 import BlogBanner from '../components/robert/BlogBanner';
 import Bloglist from '../components/robert/BlogList';
 import BlogSidebar from '../components/robert/BlogSidebar';
+import { useState } from 'react';
 function Blog() {
   // 載入更多頁面
   // function handleScroll(e) {
@@ -13,7 +14,8 @@ function Blog() {
   //   console.log('clientHeight:', clientHeight);
   //   console.log('scrollHeight:', scrollHeight);
   // }
-
+  const [searchWord, setSearchWord] = useState('');
+  const [selectOption, setSelectOption] = useState('');
   return (
     // <div className="Blog" onScroll={handleScroll}>
     <div className="Blog">
@@ -24,10 +26,13 @@ function Blog() {
         {/* <h2>SUITMINE BLOG</h2> */}
         <div className="row">
           <div className="blog-list col-md-9 col-12">
-            <Bloglist />
+            <Bloglist searchWord={searchWord} selectOption={selectOption} />
           </div>
           <div className="col-md-3 col-12">
-            <BlogSidebar />
+            <BlogSidebar
+              setSearchWord={setSearchWord}
+              setSelectOption={setSelectOption}
+            />
           </div>
         </div>
       </div>

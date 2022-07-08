@@ -4,25 +4,18 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-function BlogList() {
-  const [pageNow, setPageNow] = useState(1)
-  // let offset = 0;
-  // const handleScroll = (e) => {
-  //   // console.log('hi');
-  //   console.log('top', e.target.documentElement.scrollTop);
-  //   console.log('win', window.innerHeight);
-  //   console.log('height', e.target.documentElement.scrollHeight);
-  //   if (
-  //     window.innerHeight + e.target.documentElement.scrollTop + 1 >=
-  //     e.target.documentElement.scrollHeight
-  //   ) {
-  //     // console.log('在視窗最底部');
-  //     dataGet();
-  //   }
-  // };
-
-  // 撈資料
+function BlogList(props) {
+  const { searchWord, selectOption } = props;
   const [dataGet, setDataGet] = useState([]);
+  const [newData, setNewData] = useState([]);
+  const [pageNow, setPageNow] = useState(1);
+  const [perData, setPerData] = useState([]);
+  let total = newData.length;
+  let perpage = 9;
+  let lastPage = Math.ceil(total / perpage);
+  // console.log('allPage', allPage);
+
+  // ------------------------------撈資料----------------------------------
   useEffect(() => {
     let dataGet = async () => {
       // http://localhost:3001/stocks/2330?page=1
@@ -34,12 +27,14 @@ function BlogList() {
       // console.log(response.data.results);
       // 抓出title和images的資料
       let allData = response.data.blogs.map((value) => {
+        // console.log(response.data);
         return {
           title: value.title,
           images: value.images,
           content: value.content,
           create_time: value.create_time,
           id: value.id,
+          category_id: value.category_id,
         };
       });
       // console.log('所有data要的', allData);
@@ -54,6 +49,82 @@ function BlogList() {
     // window.addEventListener('scroll', handleScroll);
   }, []);
 
+  // --------------------------------搜尋--------------------------------------
+  useEffect(() => {
+    console.log(searchWord);
+    //  ||item.content.includes(searchWord)
+    setNewData(dataGet.filter((item) => item.title.includes(searchWord)));
+  }, [dataGet, searchWord]);
+
+  // ----------------------------------------種類------------------------------------------
+  // console.log(12345);
+  let [newArticle, setNewArticle] = useState([...dataGet]);
+  useEffect(() => {
+    // console.log(selectOption);
+    //  ||item.content.includes(selectOption)
+    // setNewData(
+    //   dataGet.filter(
+    //     (v,i) =>
+    // item.category_id == '西裝穿搭'
+    // item.category_id == '穿搭新聞'
+    // item.category_id == '名人穿搭'
+    // item.category_id == '西裝配件'
+    // switch (selectOption){
+    //   case '西裝穿搭':
+
+    console.log(selectOption);
+    console.log(dataGet);
+
+    setNewData(
+      dataGet.filter((value) => {
+        console.log('category_id', value.category_id);
+        if (selectOption === '所有文章') {
+          return value;
+        }
+
+        if (value.category_id === selectOption) {
+          return value.category_id === selectOption;
+        }
+      })
+    );
+  }, [selectOption]);
+
+  // ------------------------------分頁-----------------------------------------
+  useEffect(() => {
+    // let firstItemIndex = (pageNow - 1) * perpage * pageNow;
+    // let lastItemIndex = (pageNow - 1) * perpage * pageNow + perpage;
+    let firstItemIndex = (pageNow - 1) * perpage;
+    // console.log('第一1筆數', firstItemIndex);
+    let lastItemIndex = pageNow * perpage - 1;
+    // console.log('最後筆數', lastItemIndex);
+
+    setPerData(newData.slice(firstItemIndex, lastItemIndex + 1));
+  }, [pageNow, newData]);
+  console.log(perData);
+
+  let getPage = () => {
+    let pages = [];
+    for (let i = 0; i < lastPage; i++) {
+      pages.push(
+        <li
+          className={`pager__item ${i + 1 === pageNow ? 'active' : ''}`}
+          key={i}
+        >
+          <a
+            className="pager__link fs-6"
+            href="#/"
+            onClick={() => {
+              setPageNow(i + 1);
+            }}
+          >
+            {i + 1}
+          </a>
+        </li>
+      );
+    }
+    return pages;
+  };
+
   // 存資料
   // const [pokemon, setPokemon] = useState([])
 
@@ -67,9 +138,9 @@ function BlogList() {
   return (
     <>
       <div className="card-group">
-        <div className="row justify-content-center g-3 align-items-start">
+        <div className="row justify-content-center g-4 align-items-start">
           <h2>SUITMINE BLOG</h2>
-          {dataGet.map((value, index) => {
+          {perData.map((value, index) => {
             return (
               <>
                 <div className="col-lg-4 col-md-4 col-12 d-flex">
@@ -144,28 +215,10 @@ function BlogList() {
                 {/* 創造一個依照pageTotal長度的陣列，來呈現目前的分頁元件項目 */}
                 {/* 切換分頁都是在設定pageNow狀態而已 */}
 
-                {Array(8)
-                  .fill(1)
-                  .map((v, i) => {
-                    return (
-                      <li
-                        className={`pager__item ${
-                          i + 1 === pageNow ? 'active' : ''
-                        }`}
-                        key={i}
-                      >
-                        <a
-                          className="pager__link fs-6"
-                          href="#/"
-                          onClick={() => {
-                            setPageNow(i + 1);
-                          }}
-                        >
-                          {i + 1}
-                        </a>
-                      </li>
-                    );
-                  })}
+                {/* {pages.map((v, i) => {
+                  return v
+                })} */}
+                {getPage()}
 
                 <li className="pager__item pager__item--next">
                   <a className="pager__link" href="#/">

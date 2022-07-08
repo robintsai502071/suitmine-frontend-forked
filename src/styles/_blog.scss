@@ -12,7 +12,7 @@
   // .card-title{
   //   overflow: hidden;
   //   text-overflow: ellipsis;
-  //   white-space: nowrap;    
+  //   white-space: nowrap;
   // }
 
   // .blog-card h6{
@@ -93,12 +93,13 @@
   }
 
   // blogsidebar
-  .blog-new a:hover {
-    text-decoration: underline !important;
-  }
+  // .blog-new a:hover {
+  //   text-decoration: underline !important;
+  // }
 
   .blog-card {
     border-bottom: 10px solid transparent;
+    transition: 0.8s;
   }
   .blog-card:hover {
     border-bottom: 10px solid rgb(239, 66, 66);
@@ -106,14 +107,53 @@
   }
 }
 
-
 // 部落格後台
-.article-back-end{
-  width: 80%;
+.article-back-end {
+  // width: %;
   // height: 55px;
-  border-radius: 5px;
-  background-color: rgb(179, 178, 178);
+  // border-radius: 5px;
+  // background-color: rgb(234, 233, 233);
   padding: 8px;
+  padding-top: 15px;
+  height: 50px;
+  border-bottom: 5px solid rgb(212, 210, 210);
+}
+
+.article-back-end:hover {
+  padding-top: 15px;
+  height: 50px;
+  border-bottom: 5px solid rgb(186, 227, 227);
+  transition: 0.5s;
+}
+
+.blog-backend-bar1 :hover,
+.blog-backend-bar2 :hover,
+.blog-backend-bar3 :hover {
+  background: rgb(186, 227, 227);
+}
+
+.blog-backend-blog-item-bar {
+  background-color: rgb(191, 191, 191);
+  padding-top: 15px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.blog-backend-header {
+  margin-bottom: 40px;
+}
+
+.images-backend {
+  height: 60px;
+  width: 60px;
+}
+
+.images-backend-inside {
+  object-fit: contain;
+}
+
+.blog-backend-trash {
+  cursor: pointer;
 }
 
 // 分頁
@@ -203,3 +243,20 @@
   }
 }
 
+// -------------bar------------
+.blog-bar-text {
+  line-height: 25px;
+  text-decoration: none;
+  transition: 0.8s;
+}
+
+.blog-bar-text:hover {
+  background-color: rgba(249, 132, 132, 0.616);
+  transition: 0.8s;
+  line-height: 25px;
+  text-decoration: none;
+}
+
+.blog-article-search {
+  margin-top: 50px;
+}

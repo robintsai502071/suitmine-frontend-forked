@@ -6,7 +6,11 @@ function SideBar(props) {
       <div className="main__sidebar">
         <div className="main__sidebar__user-info mb-3 d-flex align-items-center">
           <figure className="main__sidebar__user-info__avatar">
-            <img className="main__sidebar__user-info__avatar__image" src="https://fakeimg.pl/250x100/" alt="" />
+            <img
+              className="main__sidebar__user-info__avatar__image"
+              src="https://fakeimg.pl/250x100/"
+              alt=""
+            />
           </figure>
           <h5 className="main__sidebar__username mb-1 ms-1">br502071</h5>
         </div>
@@ -48,7 +52,10 @@ function SideBar(props) {
             </Accordion.Item>
           </a>
 
-          <a href="http://localhost:3000/member/my-gift-card" className="d-block main__sidebar__list__link">
+          <a
+            href="http://localhost:3000/member/my-gift-card"
+            className="d-block main__sidebar__list__link"
+          >
             <Accordion.Item eventKey="2">
               <Accordion.Header>
                 <i className="fa-solid fa-gift me-1"></i>我的禮物卡
@@ -56,7 +63,10 @@ function SideBar(props) {
             </Accordion.Item>
           </a>
 
-          <a href="http://localhost:3000/member/my-favorites" className="d-block main__sidebar__list__link">
+          <a
+            href="http://localhost:3000/member/my-favorites"
+            className="d-block main__sidebar__list__link"
+          >
             <Accordion.Item eventKey="3">
               <Accordion.Header>
                 <i className="fa-solid fa-heart me-1"></i>我的收藏

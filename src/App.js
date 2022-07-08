@@ -88,7 +88,7 @@ function App() {
 
         <Route path="/member/user/:memberId">
           <Member />
-        </Route>
+        </Route> */}
 
         <Route path="/customize-silent">
           <CustomizeSlient />

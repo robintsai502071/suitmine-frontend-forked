@@ -9,11 +9,17 @@
     @content;
   }
 }
+@mixin mobile375 {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
 
 //控制圖片
 .imgControl {
   img {
     height: 100%;
+    object-fit: cover;
     @include mobile {
       width: 100%;
     }
@@ -26,6 +32,7 @@
   background-color: gray;
   padding: 0;
   position: relative;
+  z-index: -1;
   @include mobile {
     display: none;
   }
@@ -66,17 +73,21 @@
     left: 50%;
     top: 50%;
     width: 70%;
+    @include mobile375 {
+      text-align: center;
+    }
     h2 {
       color: white;
+      @include mobile375 {
+        font-size: 1.5rem;
+      }
     }
   }
 }
-
 // 商品內容
 .productContentBox {
   @include window {
     position: relative;
-    z-index: 2;
   }
   padding: 0%;
   width: 100%;
@@ -85,20 +96,22 @@
   //   background-color: aqua;
 
   .productContent {
-    height: 1000px;
+    z-index: 10;
+    height: 750px;
     @include mobile {
       height: 1050px;
+      width: 100%;
     }
-    width: 100%;
+    width: 60%;
     background-color: $dark-gray;
     margin: 0%;
     @include window {
-      box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.7);
-      width: 80%;
+      // box-shadow: 12px 12px 7px rgba(0, 0, 0, 0.7);
+      width: 50%;
 
       position: absolute;
-      right: -30%;
-      top: 25%;
+      right: 0%;
+      top: -1%;
       transform: translate(-50%, -50%);
     }
 
@@ -110,7 +123,7 @@
       position: relative;
       & > div {
         position: absolute;
-        width: 65px;
+        width: 40px;
         height: 65px;
         left: 27%;
         // background-color: red;
@@ -154,16 +167,20 @@
           h4 {
             color: $light-gray;
           }
+          h5 {
+            @include mobile375 {
+              font-size: 1rem;
+              line-height: 1.5rem;
+            }
+          }
         }
       }
       //右下方區塊
       .bottomSection {
         height: 40%;
         // background-color: green;
-        margin-top: 16%;
-        @include mobile {
-          margin-top: 0;
-        }
+        margin-top: 7%;
+
         .texture {
           padding-right: 10%;
           padding-left: 7%;
@@ -175,6 +192,7 @@
             h4 {
               color: $light-gray;
               margin-bottom: 10px;
+              font-size: 1rem;
             }
           }
           height: 50%;
@@ -194,6 +212,11 @@
             & > div:last-child h5 {
               color: $dark-gray;
             }
+            h5 {
+              @include mobile375 {
+                font-size: 1rem;
+              }
+            }
           }
         }
         //按鈕
@@ -203,7 +226,7 @@
           margin-left: 7%;
           margin-top: 5%;
           @include mobile {
-            margin-top: 12%;
+            margin-top: 17%;
           }
           //   background-color: green;
           div {
@@ -255,26 +278,35 @@
 }
 
 //評論
+.noLastBottomBorder {
+  border-bottom: none;
+}
 .comment {
-  width: 100%;
+  z-index: 999;
+  width: 70%;
   padding-right: 10%;
   padding-left: 10%;
-  margin-top: -8%;
+  margin-top: -30%;
   @include mobile {
-    margin-top: 10%;
+    margin-top: 20%;
+    width: 100%;
   }
   //評論區塊
   .commentContainer {
     // 最後一個不要底線
-    & > div:last-child {
+    border-top: 1px solid $dark-gray;
+    & > div:first-child {
       border: 0;
     }
     .commentBlock {
-      height: 350px;
-      margin-bottom: 4%;
+      margin-bottom: -1%;
       border-bottom: 1px solid $dark-gray;
       padding: 3%;
       padding-bottom: 0%;
+      height: 300px;
+      @include mobile375 {
+        height: 300px;
+      }
       h3 {
         @include mobile {
           font-size: 1.3rem;
@@ -289,10 +321,18 @@
         height: 50%;
         display: flex;
         justify-content: space-between;
+        @include mobile375 {
+          height: 30%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 10%;
+        }
         & > div {
-          width: 30%;
+          width: 50%;
           @include mobile {
-            width: 50%;
+            width: 65%;
           }
         }
         //使用者照片ID
@@ -301,18 +341,23 @@
           display: flex;
           align-items: center;
           .photo {
-            height: 100px;
-            width: 100px;
+            height: 55px;
+            width: 55px;
             border-radius: 50%;
             background-color: gray;
             @include mobile {
               margin-left: -26%;
-              height: 80px;
-              width: 80px;
+              height: 55px;
+              width: 55px;
             }
           }
           .userName {
             margin-left: 8%;
+            h4 {
+              @include mobile375 {
+                font-size: 1rem;
+              }
+            }
           }
         }
         //評論建立時間
@@ -324,6 +369,9 @@
           h5 {
             font-size: 1rem;
           }
+          @include mobile375 {
+            width: 100%;
+          }
         }
       }
       //評論內容
@@ -331,6 +379,19 @@
         height: 50%;
         padding-right: 2%;
         padding-left: 10%;
+        @include mobile375 {
+          padding-right: 2%;
+          padding-left: 2%;
+          margin-top: 10%;
+        }
+        h5 {
+          font-size: 1rem;
+          line-height: 2rem;
+          @include mobile {
+            font-size: 1rem;
+            line-height: 1.2rem;
+          }
+        }
       }
     }
   }
@@ -367,14 +428,12 @@
     }
   }
   .popBanner {
-    height: 60px;
+    height: 45px;
     background-color: black;
-    margin-top: 8%;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
   }
   //細節內容手風琴
   .Accordion {
-    margin-bottom: 20px;
     .ant-collapse > .ant-collapse-item > .ant-collapse-header {
       height: 45px;
       align-items: center;
@@ -403,13 +462,9 @@
         background-color: black;
       }
 
-      .ant-radio-button-wrapper:focus-within {
-        box-shadow: 0 0 0 3px black;
-        padding: 0;
-      }
       .ant-radio-button-wrapper {
         padding: 0;
-        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
+        // box-shadow: 0 0 0 3px rgba(0, 0, 0, 0);
       }
 
       & > div {
@@ -432,6 +487,7 @@
         div:last-child {
           height: 100%;
           background-color: $dark-gray;
+          border: 3px solid rgba(0, 0, 0, 0);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -468,10 +524,10 @@
 //左邊照片樣式(手機板)
 .sliderMobile {
   margin-top: 50px;
-  height: 400px;
+  height: 12%;
   //   background-color: red;
   img {
-    height: 400px;
+    // height: 400px;
     margin: 0 auto;
   }
   .slick-prev:before,
@@ -488,9 +544,201 @@
     left: 30px;
     z-index: 20;
     top: 46%;
+    @include mobile375 {
+      left: -1px;
+    }
   }
   .slick-next {
     right: 65px;
     top: 46%;
+    @include mobile375 {
+      right: 37px;
+    }
   }
+}
+.selectBorderTransparent {
+  border: 3px solid rgba(0, 0, 0, 0);
+  box-sizing: content-box;
+}
+.selectBorder {
+  border: 3px solid black !important;
+}
+.selectColor {
+  background-color: #000000 !important;
+  width: 101%;
+  height: 102%;
+}
+.productNarrative h6 {
+  color: #fff;
+  line-height: 21px;
+}
+.commentBox {
+  width: 50%;
+  height: 600px;
+  background-color: rgb(160, 160, 160);
+}
+.ProductDetailmain {
+  padding-left: 0%;
+  padding-right: 0%;
+}
+.commentTitleBottomBorder {
+  padding-bottom: 2%;
+}
+/* ------------ 商品列表頁碼 ------------ */
+.pager {
+  margin: 0 0 3.75rem;
+  font-size: 0;
+  text-align: center;
+}
+.pager__item {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0 2px;
+}
+.pager__item.active .pager__link {
+  background-color: #1d1d1d;
+  border-color: #1d1d1d;
+  color: #fff;
+  text-decoration: none;
+}
+.pager__item--prev svg,
+.pager__item--next svg {
+  width: 8px;
+  height: 12px;
+}
+.pager__item--next .pager__link svg {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+.pager__link {
+  position: relative;
+  border-radius: 26px;
+  display: block;
+  text-align: center;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin-left: -1px;
+  color: #2f3640;
+  text-decoration: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.pager__link:hover,
+.pager__link:focus,
+.pager__link:active {
+  background-color: #1d1d1d;
+  border-color: #1d1d1d;
+  color: #fff;
+  text-decoration: none;
+}
+.pager__link:hover svg path,
+.pager__link:focus svg path,
+.pager__link:active svg path {
+  fill: #fff;
+}
+.pager .pager__item.active + .pager__item .pager__link,
+.pager .pager__item:hover + .pager__item .pager__link {
+  border-left-color: #1d1d1d;
+}
+.pagerMarginTop {
+  margin-top: 40px;
+}
+@media screen and (max-width: 576px) {
+  .pager__item {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  .pager__item.active,
+  .pager__item:first-of-type,
+  .pager__item:last-of-type,
+  .pager__item:nth-of-type(2),
+  .pager__item:nth-last-of-type(2) {
+    position: initial;
+    top: initial;
+    left: initial;
+  }
+  .pager__item.active + li {
+    position: initial;
+    top: initial;
+    left: initial;
+  }
+}
+// ---------------arrowSize------------------
+.arrowSize {
+  font-size: 23px;
+}
+.arrowBox {
+  z-index: 999;
+}
+.arrowbtn {
+  z-index: 999;
+}
+.slick-current img {
+  object-fit: cover;
+  width: 100%;
+  // height: 100%;
+}
+.sliderMobile .slick-next {
+  right: 65px;
+  top: 46%;
+  right: 14% !important;
+}
+.RwdImg {
+  height: 263.25px;
+}
+.productName h4 {
+  color: #fff;
+}
+@media screen and (max-width: 376px) {
+  .comment .commentContainer .commentBlock {
+    height: 135px;
+  }
+  .comment
+    .commentContainer
+    .commentBlock
+    .topSection
+    > div:first-child
+    .photo {
+    height: 50px;
+    width: 50px;
+    .customizedBox {
+      width: 82.23px;
+      height: 112px;
+    }
+    .priceTextBox {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+}
+.topSection h3 {
+  color: #fff;
+}
+.comment .commentContainer .commentBlock .topSection {
+  height: 40%;
+}
+.comment .commentContainer .commentBlock {
+  height: 240px;
+}
+
+.ant-comment-actions .likesTitle {
+  margin-right: 0px !important;
+}
+.ant-radio-button-wrapper:focus-within {
+  box-shadow: none !important;
+}
+.customized h6 {
+  color: #fff;
+}
+.ant-collapse-content > .ant-collapse-content-box {
+  padding: 0 !important;
+}
+.ant-collapse-content > .ant-collapse-content-box {
+  padding: 0 !important;
 }

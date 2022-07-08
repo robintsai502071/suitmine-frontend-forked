@@ -1,6 +1,6 @@
 import Accordion from 'react-bootstrap/Accordion';
-
 function SideBar(props) {
+  const { givenMemberData, setSidebarActive } = props;
   return (
     <>
       <div className="main__sidebar">
@@ -8,7 +8,7 @@ function SideBar(props) {
           <figure className="main__sidebar__user-info__avatar">
             <img
               className="main__sidebar__user-info__avatar__image"
-              src="https://fakeimg.pl/250x100/"
+              src={givenMemberData.photo}
               alt=""
             />
           </figure>
@@ -26,15 +26,22 @@ function SideBar(props) {
             </Accordion.Header>
             <Accordion.Body>
               <a
-                href="http://localhost:3000/member/user"
                 className="d-block main__sidebar__list__link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSidebarActive('個人檔案');
+                }}
               >
                 個人檔案
               </a>
 
               <a
-                href="http://localhost:3000/member/user/change-password"
+                to={`/member/user/change-password`}
                 className="d-block main__sidebar__list__link"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setSidebarActive('更改密碼');
+                }}
               >
                 更改密碼
               </a>
@@ -42,10 +49,15 @@ function SideBar(props) {
           </Accordion.Item>
 
           <a
-            href="http://localhost:3000/member/my-order"
+            // href="http://localhost:3000/member/my-order"
             className="d-block main__sidebar__list__link"
           >
-            <Accordion.Item eventKey="1">
+            <Accordion.Item
+              eventKey="1"
+              onClick={() => {
+                setSidebarActive('購買清單');
+              }}
+            >
               <Accordion.Header>
                 <i className="fa-solid fa-table-list me-1"></i>購買清單
               </Accordion.Header>
@@ -53,10 +65,15 @@ function SideBar(props) {
           </a>
 
           <a
-            href="http://localhost:3000/member/my-gift-card"
+            // href="http://localhost:3000/member/my-gift-card"
             className="d-block main__sidebar__list__link"
           >
-            <Accordion.Item eventKey="2">
+            <Accordion.Item
+              eventKey="2"
+              onClick={() => {
+                setSidebarActive('我的禮物卡');
+              }}
+            >
               <Accordion.Header>
                 <i className="fa-solid fa-gift me-1"></i>我的禮物卡
               </Accordion.Header>
@@ -64,10 +81,15 @@ function SideBar(props) {
           </a>
 
           <a
-            href="http://localhost:3000/member/my-favorites"
+            // href="http://localhost:3000/member/my-favorites"
             className="d-block main__sidebar__list__link"
           >
-            <Accordion.Item eventKey="3">
+            <Accordion.Item
+              eventKey="3"
+              onClick={() => {
+                setSidebarActive('我的收藏');
+              }}
+            >
               <Accordion.Header>
                 <i className="fa-solid fa-heart me-1"></i>我的收藏
               </Accordion.Header>

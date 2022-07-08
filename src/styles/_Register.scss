@@ -1,14 +1,20 @@
-
 .bgcImg {
-  background-image: url(../components/images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png);
-  background-repeat: no-repeat;
-  height: 100%;
-  background-size: cover;
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
   z-index: -9999;
 }
-.registerRow {
-  padding-top: 100px;
-  padding-bottom: 100px;
+.bgcImg img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  min-width: 50%;
+  min-height: 50%;
 }
 // ------------------打造屬於您的專屬西裝----------------------
 .registerAllTextBox {
@@ -32,25 +38,32 @@
   width: 100%;
   object-fit: cover;
 }
+// ------------------錯誤訊息----------------------
+.errorMessage p{
+  font-size: 14px;
+  color: rgb(228, 0, 0);
+}
+
+
 // ==================打造屬於您的專屬西裝RWD==================
 @media screen and (max-width: 768px) {
-  .registerTitleCol{
+  .registerTitleCol {
     padding: 0;
     margin-bottom: 80px;
   }
 }
 @media screen and (max-width: 465px) {
-  .registerAllTextBox{
+  .registerAllTextBox {
     padding: 0;
     margin-bottom: 80px;
   }
-  .registerTitleBox p{
+  .registerTitleBox p {
     font-size: 33px;
   }
-  .registerTitleBox{
+  .registerTitleBox {
     width: 350px;
   }
-  .registerTextBox{
+  .registerTextBox {
     width: 350px;
   }
 }
@@ -63,7 +76,9 @@
   background-color: #fff;
   border-radius: 10px;
   width: 420px;
-  height: 680px;
+  height: 100%;
+  margin-top: 10%;
+  margin-bottom: 10%;
 }
 .registerInputBox form {
   width: 80%;
@@ -83,29 +98,30 @@
   color: #212529;
   background-color: #fff;
   border-color: #6161617c;
-   outline: 0; 
-   box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062); 
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
 }
 .registerRow .form-select:focus {
   border-color: #6161617c;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062); 
-
+  box-shadow: 0 0 0 0.25rem rgba(88, 88, 88, 0.062);
+}
+// --------上傳按鈕(蓋樣式)--------
+.ant-btn:active {
+  color: #000000;
+  border-color: #000000;
+  background: #fff;
 }
 // ==================form表單RWD==================
 @media screen and (max-width: 768px) {
-  .registerInputCol{
+  .registerInputCol {
     padding: 0;
   }
 }
 @media screen and (max-width: 465px) {
-  .registerInputBox{
+  .registerInputBox {
     width: 350px;
   }
 }
 
-// ------------------header----------------------
-.footer {
-  height: 200px;
-  background-color: rgb(143, 3, 3);
-}
+

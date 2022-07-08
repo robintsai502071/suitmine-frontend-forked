@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState, useParams } from 'react';
 import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import AddInCart from '../components/alden/ProductDetail/AddInCart';
 import AddDetail from '../components/alden/ProductDetail/AddDetail';
+import Comment from '../components/alden/ProductDetail/Comment/Comment';
+import axios from 'axios';
 import { Image } from 'antd';
 import Slider from 'react-slick';
+import { API_URL } from '../utils/config';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import AOS from 'aos';
 function SampleNextArrow(props) {
+  // --------- slider設定檔 ---------
   const { className, style, onClick } = props;
   return (
     <div
@@ -30,6 +35,7 @@ function SamplePrevArrow(props) {
 }
 
 function ProductDetail() {
+  // --------- slider設定檔 ---------
   const settings = {
     dots: false,
     slidesToShow: 1,
@@ -37,304 +43,269 @@ function ProductDetail() {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   };
+  // --------- 商品資訊狀態 ---------
+  const [product, setProduct] = useState([]);
+
+  // --------- 商品資訊狀態 ---------
+  const [productDetails, setProductDetails] = useState({
+    collar: '',
+    pocket: '',
+    button: '',
+  });
+
+  // const { stockId } = useParams();
+
+  // ========== 從後端傳送單筆商品資料過來(待用) ==========
+  const productAxios = async () => {
+    const responseProduct = await axios.get(
+      `${API_URL}/prodetail/products/1`
+      // , { params: { product }},
+    );
+    // console.log(product[0].productDetailPhoto1);
+    console.log(responseProduct.data);
+
+    setProduct(responseProduct.data);
+  };
+  console.log(product[0]?.productDetailPhoto1);
+
+  // ----- 刷新頁面 -----
+  useEffect(() => {
+    //呼叫productAxios
+    productAxios();
+  }, []);
+
+  // ----- 刷新一次 -----
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   return (
     <>
-      {/* header */}
-      <div>
-        <LayoutHeader />
-      </div>
-      {/* 背景圖片 */}
-      <div className="container-fluid productDetailBanner">
-        <img
-          src={require('../images/alden/ProductDetail/productDetailBannerImg.png')}
-          alt=""
-        />
-        <div className="fliter"></div>
-        <div className="productName">
-          <h1>Harrogate Gray Suit</h1>
+      <div className="container-fluid ProductDetailmain">
+        {/* header */}
+        <div>
+          <LayoutHeader />
         </div>
-      </div>
-      {/* 背景圖片(手機板) */}
-      <div className="container-fluid productDetailBannerMobile imgControl">
-        <img
-          src={require('../images/alden/ProductDetail/productDetailBannerImgMobile.png')}
-          alt=""
-        />
-        <div className="productName">
-          <h2>Harrogate Gray Suit</h2>
+        {/* 背景圖片 */}
+        <div className="container-fluid productDetailBanner">
+          <img
+            src={require('../images/alden/ProductDetail/productDetailBannerImg.png')}
+            alt=""
+          />
+          <div className="fliter"></div>
+          <div className="productName">
+            {/* 調用一個東西的時候 */}
+            <h1>{product[0]?.productName}</h1>
+          </div>
         </div>
-      </div>
-      {/* 商品內容 */}
-      <div className="container-fluid productContentBox">
-        <div className="productContent row">
-          {/* 左邊照片樣式(電腦版) */}
-          <div className="col-5 imgControl d-none d-sm-block">
-            <img
-              src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
-              alt=""
-            />
-            <Image.PreviewGroup>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs6.png')}
-                  alt=""
-                />
-              </div>
-            </Image.PreviewGroup>
+        {/* 背景圖片(手機板) */}
+        <div className="container-fluid productDetailBannerMobile imgControl">
+          <img
+            src={require('../images/alden/ProductDetail/productDetailBannerImgMobile.png')}
+            alt=""
+          />
+          <div className="productName text-center">
+            <h4>{product[0]?.productName}</h4>
           </div>
-          {/* 左邊照片樣式(手機板) */}
-          <div className="sliderMobile d-block d-sm-none">
-            <Slider {...settings}>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailMainImg.png')}
-                  alt=""
-                />
-              </div>
-
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs1.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs2.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs3.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs4.png')}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={require('../images/alden/ProductDetail/productDetailSideImgs5.png')}
-                  alt=""
-                />
-              </div>
-            </Slider>
-          </div>
-
-          {/* 右邊產品細節 */}
-          <div className="col-sm-7">
-            {/* 右上方區塊 */}
-            <div className="topSection">
-              {/* 商品名 */}
-              <div className="d-none d-sm-block">
-                <h2>Harrogate Gray Suit</h2>
-              </div>
-              {/* 商品名 */}
-              <div className="d-flex justify-content-center d-sm-none ">
-                <h2>產品介紹</h2>
-              </div>
-              {/* 商品敘述 */}
-              <div>
-                <h5>
-                  現在，正視羅蘭特灰西裝的問題，是非常非常重要的。因為，羅蘭特灰西裝勢必能夠左右未來。羅蘭特灰西裝絕對是史無前例的。我們需要淘汰舊有的觀念，羅蘭特灰西裝似乎是一種巧合，但如果我們從一個更大的角度看待問題，這似乎是一種不可避免的事實。
-                </h5>
-              </div>
-              {/* 單價 */}
-              <div className="d-none d-sm-block">
-                <h4>NT $3500</h4>
-              </div>
+        </div>
+        {/*---------- 商品內容 ----------*/}
+        <div
+          data-aos="fade-up"
+          data-aos-anchor-placement="top-bottom"
+          className="container-fluid productContentBox "
+        >
+          <div className="productContent row">
+            {/*---------- 左邊照片樣式(電腦版) ----------*/}
+            <div className="col-5 imgControl d-none d-sm-block">
+              {/* ------ 大圖 ------*/}
+              <img
+                src={`http://localhost:3001/${product[0]?.productPhoto}`}
+                alt=""
+              />
+              <Image.PreviewGroup>
+                {/* ------ 細節小圖 ------*/}
+                <div>
+                  <Image
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto1}`}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto2}`}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto3}`}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto4}`}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto5}`}
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <Image
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto6}`}
+                    alt=""
+                  />
+                </div>
+              </Image.PreviewGroup>
             </div>
-            {/* 右下方區塊 */}
-            <div className="bottomSection">
-              {/* 材質 */}
-              <div className="texture">
-                <div className="textureTitle">
-                  <div>
-                    <h4>商品細節</h4>
-                  </div>
+            {/*---------- 左邊照片樣式(手機板) ----------*/}
+            <div className="sliderMobile d-block d-sm-none">
+              <Slider {...settings}>
+                <div className="RwdImg">
+                  <img
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto1}`}
+                    alt=""
+                  />
                 </div>
-                {/* 顏色 */}
-                <div>
-                  <div>
-                    <h5>顏色</h5>
-                  </div>
-                  <div>
-                    <h5>灰</h5>
-                  </div>
+                <div className="RwdImg">
+                  <img
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto2}`}
+                    alt=""
+                  />
                 </div>
-                {/* 花紋 */}
-                <div>
-                  <div>
-                    <h5>花紋</h5>
-                  </div>
-                  <div>
-                    <h5>線條</h5>
-                  </div>
+                <div className="RwdImg">
+                  <img
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto3}`}
+                    alt=""
+                  />
                 </div>
+                <div className="RwdImg">
+                  <img
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto4}`}
+                    alt=""
+                  />
+                </div>
+                <div className="RwdImg">
+                  <img
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto5}`}
+                    alt=""
+                  />
+                </div>
+                <div className="RwdImg">
+                  <img
+                    src={`http://localhost:3001/${product[0]?.productDetailPhoto6}`}
+                    alt=""
+                  />
+                </div>
+              </Slider>
+            </div>
+            {/*---------- 右邊產品細節 ----------*/}
+            <div className="col-sm-7 d-flex flex-column justify-content-md-between">
+              {/* 右上方區塊 */}
+              <div className="topSection">
+                {/* 商品名 */}
+                <div className="d-none d-sm-block">
+                  <h4 className="text-nowrap">{product[0]?.productName}</h4>
+                </div>
+                {/* 商品名 */}
+                <div className="d-flex justify-content-center d-sm-none ">
+                  <h2 className="d-md-flex d-none">產品介紹</h2>
+                  <h3 className="d-flex d-md-none">產品介紹</h3>
+                </div>
+                {/* 商品敘述 */}
+                <div className=" productNarrative">
+                  <h6>{product[0]?.productContent}</h6>
+                </div>
+                {/* 單價 */}
+                <div className="my-3 priceTextBox">
+                  <h4>NTD $ {product[0]?.price}</h4>
+                </div>
+                <div
+                  // 如果商品客製化都為空字串就不顯示
+                  className={`customized ${
+                    productDetails.collar === '' &&
+                    productDetails.pocket === '' &&
+                    productDetails.button === '' &&
+                    'd-none'
+                  }`}
+                >
+                  <h6>
+                    商品客製化細節 : {productDetails.collar} /
+                    {productDetails.pocket} / {productDetails.button}
+                  </h6>
+                </div>
+              </div>
+              {/* 右下方區塊 */}
+              <div className="bottomSection">
                 {/* 材質 */}
-                <div>
-                  <div>
-                    <h5>材質</h5>
+                <div className="texture">
+                  <div className="textureTitle">
+                    <div>
+                      <h4>商品細節</h4>
+                    </div>
                   </div>
+                  {/* 顏色 */}
                   <div>
-                    <h5>95%羊毛，5%克什米爾</h5>
+                    <div>
+                      <h6>顏色</h6>
+                    </div>
+                    <div>
+                      <h6>{product[0]?.color}</h6>
+                    </div>
+                  </div>
+                  {/* 花紋 */}
+                  <div>
+                    <div>
+                      <h6>花紋</h6>
+                    </div>
+                    <div>
+                      <h6>{product[0]?.pattern}</h6>
+                    </div>
+                  </div>
+                  {/* 材質 */}
+                  <div>
+                    <div>
+                      <h6>材質</h6>
+                    </div>
+                    <div>
+                      <h6>{product[0]?.texture}</h6>
+                    </div>
                   </div>
                 </div>
-              </div>
-              {/* 按鈕 */}
-              <div className="btns">
-                {/* 客製化細節 */}
-                <div className="addDetail">
-                  <AddDetail />
-                </div>
-                {/* 加入購物車 */}
-                <div className="addInCart">
-                  <AddInCart />
+                {/* 按鈕 */}
+                <div className="btns">
+                  {/* 客製化細節 */}
+                  <div className="addDetail">
+                    <AddDetail
+                      product={product}
+                      setProductDetails={setProductDetails}
+                      productDetails={productDetails}
+                    />
+                  </div>
+                  {/* 加入購物車 */}
+                  <div className="addInCart">
+                    {/* 傳送資料給AddInCart */}
+                    <AddInCart
+                      productDetails={productDetails}
+                      product={product}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* 評論  */}
-      <div className="container-fluid comment">
-        {/* 評論區塊 */}
-        <div className="commentContainer">
-          <div className="commentBlock">
-            {/* 使用者訊息 */}
-            <div className="topSection">
-              {/* 使用者照片ID */}
-              <div>
-                <div className="photo"></div>
-                <div className="userName">
-                  <h3>cklasjl23412341</h3>
-                </div>
-              </div>
-              {/* 評論建立時間 */}
-              <div className="date">
-                <h3 className="d-none d-sm-block">2022/06/06</h3>
-                <h5 className="d-block d-sm-none">2022/06/06</h5>
-              </div>
-            </div>
-            {/* 評論內容 */}
-            <div className="buttonSection">
-              <h3>
-                問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。{' '}
-              </h3>
-            </div>
-          </div>
-          <div className="commentBlock">
-            {/* 使用者訊息 */}
-            <div className="topSection">
-              {/* 使用者照片ID */}
-              <div>
-                <div className="photo"></div>
-                <div className="userName">
-                  <h3>cklasjl23412341</h3>
-                </div>
-              </div>
-              {/* 評論建立時間 */}
-              <div className="date">
-                <h3 className="d-none d-sm-block">2022/06/06</h3>
-                <h5 className="d-block d-sm-none">2022/06/06</h5>
-              </div>
-            </div>
-            {/* 評論內容 */}
-            <div className="buttonSection">
-              <h3>
-                問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。{' '}
-              </h3>
-            </div>
-          </div>
-          <div className="commentBlock">
-            {/* 使用者訊息 */}
-            <div className="topSection">
-              {/* 使用者照片ID */}
-              <div>
-                <div className="photo"></div>
-                <div className="userName">
-                  <h3>cklasjl23412341</h3>
-                </div>
-              </div>
-              {/* 評論建立時間 */}
-              <div className="date">
-                <h3 className="d-none d-sm-block">2022/06/06</h3>
-                <h5 className="d-block d-sm-none">2022/06/06</h5>
-              </div>
-            </div>
-            {/* 評論內容 */}
-            <div className="buttonSection">
-              <h3>
-                問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。{' '}
-              </h3>
-            </div>
-          </div>
-          <div className="commentBlock">
-            {/* 使用者訊息 */}
-            <div className="topSection">
-              {/* 使用者照片ID */}
-              <div>
-                <div className="photo"></div>
-                <div className="userName">
-                  <h3>cklasjl23412341</h3>
-                </div>
-              </div>
-              {/* 評論建立時間 */}
-              <div className="date">
-                <h3 className="d-none d-sm-block">2022/06/06</h3>
-                <h5 className="d-block d-sm-none">2022/06/06</h5>
-              </div>
-            </div>
-            {/* 評論內容 */}
-            <div className="buttonSection">
-              <h3>
-                問題的關鍵看似不明確，但想必在諸位心中已有了明確的從對於美麗東西的知覺中體驗到快樂，並且用盡一切方法使美麗的東西體現在行動中。這段話雖短，卻足以改變人類的歷史。在人生的歷程中，顧客評論的出現是必然的。
-              </h3>
-            </div>
-          </div>
+        {/* ---------- 評論 ----------*/}
+        <Comment />
+        {/* footer */}
+        <div>
+          <LayoutFooter />
         </div>
-        {/* 頁數 */}
-        <div className="pages"></div>
-      </div>
-
-      {/* footer */}
-      <div>
-        <LayoutFooter />
       </div>
     </>
   );

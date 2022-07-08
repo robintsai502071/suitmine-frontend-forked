@@ -2,8 +2,22 @@ import React from 'react';
 import { useState } from 'react';
 import { Modal, Radio, Space } from 'antd';
 import ProductLink from './ProductLink';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { API_URL } from '../../../../utils/config';
+function OrderDetailDisplay(props) {
+  const { orderIdForOrderDetail, givenMemberData } = props;
+  // const [orderInfo, setOrderInfo] = useState({});
+  const [orderSummary, setOrderSummary] = useState({
+    order_amount_total: '',
+    order_create_time: '',
+    order_deliver_time: '',
+    order_finish_time: '',
+    order_id: '',
+    order_is_valid: '',
+  });
+  const [orderContent, setOrderContent] = useState([]);
 
-function OrderDetailDisplay() {
   // Modal 開啟狀態
   const [CancelOrderModal, setCancelOrderModal] = useState(false);
   // 開啟 Modal 後 radio 初始值
@@ -13,6 +27,19 @@ function OrderDetailDisplay() {
     console.log('radio checked', e.target.value);
     setRadioInitialValue(e.target.value);
   };
+  useEffect(() => {
+    if (orderIdForOrderDetail === null) return;
+    const getOrderDetail = async () => {
+      let response = await axios.get(
+        `${API_URL}/member/${givenMemberData.id}/orders/${orderIdForOrderDetail}`
+      );
+      // console.log(response.data.order);
+      setOrderSummary(response.data.order.order_summary);
+      setOrderContent(response.data.order.order_content);
+    };
+    getOrderDetail();
+  }, []);
+
   return (
     <>
       <div className="order-detail position-relative mb-3">
@@ -28,28 +55,34 @@ function OrderDetailDisplay() {
           <div className="order-datail-display__header__shipping-info mb-3 pb-1">
             <i className="fa-solid fa-truck-fast me-1"></i> 運送資訊
             <div className="order-datail-display__header__shipping-info__status py-2">
-              賣家已寄出商品
+              {orderSummary.order_deliver_time !== null ? '賣家已寄出商品' : ''}
+              {orderSummary.order_finish_time !== null ? '訂單已完成' : ''}
             </div>
             <div className="order-datail-display__header__shipping-info__date">
-              2022-06-16 17:01
+              {orderSummary.order_deliver_time !== null
+                ? orderSummary.order_deliver_time
+                : ''}
             </div>
           </div>
         </div>
 
         <div className="order-datail-display__body mb-3 pb-1">
           <div className="order-datail-display__body__title">訂單內容</div>
-          <ProductLink/>
-          <ProductLink/>
-          <ProductLink/>
-          <ProductLink/>
-          <ProductLink/>
+          {orderContent?.map((item) => {
+            return <ProductLink item={item} />;
+          })}
+
+          {/* <ProductLink />
+          <ProductLink />
+          <ProductLink />
+          <ProductLink /> */}
 
           <div className="order-datail-display__body__order-price d-flex">
             <div className="order-datail-display__body__order-price__title">
               訂單金額：
             </div>
             <div className="order-datail-display__body__order-price__value">
-              $999
+              {orderSummary.order_amount_total}
             </div>
           </div>
         </div>
@@ -60,7 +93,7 @@ function OrderDetailDisplay() {
               訂單號碼：
             </div>
             <div className="order-datail-display__footer__order-number__value">
-              0123456789
+              {orderSummary.order_id}
             </div>
           </li>
           <li className="order-datail-display__footer__order-time pb-1 mb-1">
@@ -68,7 +101,7 @@ function OrderDetailDisplay() {
               訂單時間：
             </div>
             <div className="order-datail-display__footer__order-time__value">
-              2022-0616 00:38
+              {orderSummary.order_create_time}
             </div>
           </li>
 
@@ -77,7 +110,9 @@ function OrderDetailDisplay() {
               出貨時間：
             </div>
             <div className="order-datail-display__footer__order-time__value">
-              2022-0616 00:38
+              {orderSummary.deliver_time !== null
+                ? orderSummary.deliver_time
+                : ''}
             </div>
           </li>
           <li className="order-datail-display__footer__order-complete-time pb-1 mb-1">
@@ -85,19 +120,25 @@ function OrderDetailDisplay() {
               完成時間：
             </div>
             <div className="order-datail-display__footer__order-complete-time__value">
-              2022-0616 00:38
+              {orderSummary.finish_time !== null
+                ? orderSummary.dinish_time
+                : ''}
             </div>
           </li>
 
           <div className="order-datail-display__btns mt-4">
-            <button
-              onClick={() => {
-                setCancelOrderModal(true);
-              }}
-            >
-              取消訂單
-            </button>
-            <button>再買一次</button>
+            {orderSummary.order_finish_time === null && (
+              <button
+                onClick={() => {
+                  setCancelOrderModal(true);
+                }}
+              >
+                取消訂單
+              </button>
+            )}
+            {orderSummary.order_finish_time != null && (
+              <button>再買一次</button>
+            )}
           </div>
         </ul>
 

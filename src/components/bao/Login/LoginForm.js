@@ -3,6 +3,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../utils/config';
 import { useHistory } from 'react-router-dom';
+import swal from 'sweetalert';
+
 function Form() {
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
@@ -34,15 +36,28 @@ function Form() {
       });
       // 登入成功就轉址到會員頁
       // history.push(`/member/user/${response.data.user.user_id}`);
-      history.push({
-        pathname: `/member/user/${response.data.user.user_id}`,
-        state: {
-          isLogin: true,
-        },
+      swal({
+        title: '登入成功',
+        text: '為您跳轉頁面中......',
+        icon: 'success',
+        buttons: false,
+        timer: 1500,
+      }).then(() => {
+        history.push({
+          pathname: `/member/user/${response.data.user.user_id}`,
+          state: {
+            isLogin: true,
+          },
+        });
       });
     } catch (e) {
       console.error('登入失敗', e.response.data);
-      // weitodo 失敗 hot toast
+      swal({
+        title: '登入失敗',
+        text: '帳號或密碼錯誤！',
+        icon: 'error',
+        button: '確認',
+      });
     }
   };
   // -----------表單用，有不合法的驗証情況出現時觸發-----------

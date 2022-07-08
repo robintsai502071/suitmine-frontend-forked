@@ -31,7 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path="/member/user/change-password">
+        {/* <Route path="/member/user/change-password">
           <ChangePassword />
         </Route>
 
@@ -57,7 +57,7 @@ function App() {
 
         <Route path="/member/user">
           <Member />
-        </Route>
+        </Route> */}
 
         <Route path="/customize-silent">
           <CustomizeSlient />

@@ -10,17 +10,19 @@ import LayoutMain from '../components/robert/LayoutMain';
 import LayoutFooter from '../components/robert/LayoutFooter';
 
 function Measurement() {
+  
   return (
     <div>
-      <LayoutHeader/>
+      <LayoutHeader />
       <FitMatters />
-      <LayoutMain/>
+      <LayoutMain />
 
       <GetNoticed />
       <MeasurementProfile />
       <PredictiveMeasurements />
       <EaseOfMind />
       <Cellphone />
+      <LayoutFooter />
     </div>
   );
 }

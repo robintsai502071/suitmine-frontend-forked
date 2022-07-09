@@ -30,8 +30,8 @@ function ShoppingCartChecking() {
   }, []);
   const menbership = getShopCartInfo.user;
   const usableGiftCard = getShopCartInfo.giftCardList;
-  console.log('menbership', menbership);
-  console.log('usableGiftCard', usableGiftCard);
+  // console.log('menbership', menbership);
+  // console.log('usableGiftCard', usableGiftCard);
 
   //checkbox的useState
   const [checked, setChecked] = useState(0);

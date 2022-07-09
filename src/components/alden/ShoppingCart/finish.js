@@ -20,7 +20,7 @@ function Finish(props) {
     leg_length,
     arm_length,
   } = menbership[0];
-  console.log('heigh', height);
+  // console.log('heigh', height);
 
   //從localstorage中取得需要的資料
   const totalCounts = localStorage.getItem('totalCounts');
@@ -93,15 +93,16 @@ function Finish(props) {
   });
 
   //合併
-  const [order, setOrder] = useState({
+  const order = {
     productlist: arr,
     giftCardlist: arr2,
+    bodyList: bodyList,
     gift_card_id: getGiftCardId,
     memberId: menberId,
     order_id: '',
-    bodyList: bodyList,
-  });
-  console.log('order', order);
+    updateAddress: updateAdress,
+  };
+  // console.log('showOrder', order.bodyList);
 
   //處理送出新訂單
   const handleSubmit = async (e) => {

@@ -130,7 +130,7 @@ function Form() {
             請輸入密碼
           </label>
           <input
-            type="text"
+            type="password"
             name="password"
             value={member.password}
             onChange={handleChange}

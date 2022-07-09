@@ -2,10 +2,14 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../../utils/config';
+import { useHistory } from 'react-router-dom';
 //--------- 下拉式選單陣列 ---------
 const genderArr = ['男士', '女士', '不提供'];
 
 function Form() {
+  //--------- 使用useHistory ---------
+  const history = useHistory();
+
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
     username: '',
@@ -62,8 +66,18 @@ function Form() {
       formData.append('photo', member.photo);
 
       //--- 送去後端 ---
-      let response = axios.post(`${API_URL}/auth/register`, formData);
-      console.log(response.data);
+      let response = await axios.post(
+        `http://localhost:3001/api/auth/register`,
+        formData
+      );
+      console.log(response);
+      //--- 當資料傳送成功時，切換網址 ---
+      history.push({
+        pathname: '/measurement-teaching',
+        state: {
+          insertId: response.data.response.insertId,
+        },
+      });
     } catch (e) {
       console.error(e);
     }
@@ -214,7 +228,7 @@ function Form() {
             {/* 用map將 genderArr 跑出所有選項*/}
             {genderArr.map((v, i) => {
               return (
-                <option key={i} value={v}>
+                <option key={i} value={i}>
                   {v}
                 </option>
               );

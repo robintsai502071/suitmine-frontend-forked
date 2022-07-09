@@ -165,7 +165,6 @@ label {
   @include text;
   font-weight: 500;
   font-size: 0.875rem;
-
 }
 
 // 洧
@@ -307,4 +306,15 @@ label {
   color: $dark-gray;
   background-color: $light-gray;
   box-shadow: none;
+}
+
+//sweet alert 樣式
+.swal-button {
+  background-color: $dark-gray;
+  color: #fff;
+}
+
+.swal-button:not([disabled]):hover {
+  background-color: $light-gray;
+  color: $dark-gray;
 }

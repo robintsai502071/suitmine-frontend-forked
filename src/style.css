@@ -1,0 +1,25 @@
+
+.rdw-editor-toolbar{
+    display: flex;
+    justify-content: center;
+    /* width: 100%; */
+    /* margin: 0 auto; */
+    /* text-align: center; */
+    background: rgb(171, 208, 207);
+    border: 3px solid rgb(171, 208, 207);
+    box-shadow: 0px 20px 15px -20px rgba(0,0,0,0.5);
+}
+
+
+.rdw-editor-main{
+    border-left: 5px solid rgb(224, 242, 106);
+}
+
+.rdw-fontfamily-placeholder, .rdw-dropdown-selectedtext{
+    color: black;
+}
+
+.rdw-option-wrapper{
+    height: auto;
+    border: 2.7px solid white;
+}

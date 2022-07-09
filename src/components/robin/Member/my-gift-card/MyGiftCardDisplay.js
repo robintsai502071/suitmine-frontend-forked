@@ -2,7 +2,9 @@ import React from 'react';
 import { Select } from 'antd';
 import MyGiftCardDisplayItem from './MyGiftCardDisplayItem';
 
-function MyGiftCardDisplay() {
+function MyGiftCardDisplay(props) {
+  const giftCardData = props.giftCardData;
+  // console.log('giftCardData', giftCardData.giftcards);
   const { Option } = Select;
   return (
     <>
@@ -27,8 +29,14 @@ function MyGiftCardDisplay() {
           </div>
         </div>
         <div className="my-gift-list__display">
-          <MyGiftCardDisplayItem />
-          <MyGiftCardDisplayItem />
+          {giftCardData.giftcards?.map((giftCardItems) => {
+            return (
+              <MyGiftCardDisplayItem
+                key={giftCardItems.id}
+                giftCardItems={giftCardItems}
+              />
+            );
+          })}
         </div>
       </div>
     </>

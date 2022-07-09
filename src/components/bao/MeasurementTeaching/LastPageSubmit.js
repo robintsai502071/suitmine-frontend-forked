@@ -1,13 +1,29 @@
 import React from 'react';
+import axios from 'axios';
 import LastPageBgc from '../../images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png';
 
 function LastPageSubmit(props) {
   const { fields, handleFieldChange } = props;
 
   // -------------------處理表單送出的函示-----------------------
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // 阻擋表單送出
-    // e.preventDefault();
+    e.preventDefault();
+    try {
+      // 當你的表單沒有圖片的時候，可以直接傳輸 json 到後端去
+      // axios.post(URL, data, config)
+      let response = await axios.patch(
+        `http://localhost:3001/api/auth/login`,
+        fields,
+        {
+          // 如果想要跨源讀寫 cookie
+          withCredentials: true,
+        }
+      );
+      console.log('登入成功', response.data);
+    } catch (e) {
+      console.error('登入失敗', e.response.data);
+    }
   };
   return (
     <>

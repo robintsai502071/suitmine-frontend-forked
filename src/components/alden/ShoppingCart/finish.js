@@ -139,7 +139,7 @@ function Finish(props) {
                 {newCheckedProducts.map((v, i) => {
                   const {
                     id,
-                    photo,
+                    productPhoto,
                     proName,
                     button,
                     pocket,
@@ -148,13 +148,15 @@ function Finish(props) {
                     count,
                   } = v;
                   const productsTotal = price * count;
+                  const newPhoto = `http://localhost:3001/${productPhoto}`;
+
                   return (
                     <div className="productDetail row">
                       {/* 商品選擇紐 */}
                       <div className="col-1"></div>
                       {/* 商品照片 */}
                       <div className="col-2 finishImg">
-                        <img src={photo} alt="" />
+                        <img src={newPhoto} alt="" />
                       </div>
                       {/* 商品名&客製化按鈕 */}
                       <div className="col-4">

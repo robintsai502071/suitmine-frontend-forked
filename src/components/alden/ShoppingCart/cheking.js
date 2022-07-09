@@ -10,8 +10,10 @@ import GiftCardWed from './cheking/GiftCardWed';
 function Cheking(props) {
   const { usableGiftCard } = props;
 
+  //localstorage來的資料
   const products = JSON.parse(localStorage.getItem('cart'));
-  console.log('products', products);
+  // localStorage.clear('cart');
+  // console.log('products', products);
   // console.log('productsTest', productsTest);
 
   //商品

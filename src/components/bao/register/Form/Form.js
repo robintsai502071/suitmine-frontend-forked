@@ -223,10 +223,10 @@ function Form() {
         </div>
         <div class="mb-3 mx-1">
           <label for="exampleFormControlInput1" class="form-label">
-            年齡
+            生日
           </label>
           <input
-            type="text"
+            type="date"
             name="age"
             value={member.age}
             onChange={handleChange}

@@ -116,7 +116,10 @@ function MainForm(props) {
                   htmlFor="avatarInput"
                   className="position-absolute w-100 h-100"
                 ></label>
-                <i className="fa-solid fa-cloud-arrow-up position-absolute main__form__avatar__wrapper__upload-icon"></i>
+                {/* <i className="fa-solid fa-cloud-arrow-up position-absolute main__form__avatar__wrapper__upload-icon"></i> */}
+                <h6 className="position-absolute main__form__avatar__wrapper__upload-icon">
+                  上傳圖片<i class="fa-solid fa-arrow-up-from-bracket"></i>
+                </h6>
               </>
             )}
 
@@ -259,7 +262,7 @@ function MainForm(props) {
           </Form.Item>
 
           {editMode && (
-            <div className="d-flex">
+            <div className="d-flex editModeBtns">
               <Form.Item className="me-2">
                 <Button
                   onClick={() => {

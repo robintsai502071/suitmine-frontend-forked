@@ -122,16 +122,7 @@ const LayoutHeader = () => {
           </Link>
         </li>
         <li>
-<<<<<<< HEAD
-          <Link to="/member/user" className="btn text-white">
-            會員中心
-          </Link>
-        </li>
-        <li>
-          <Link to="/login">
-=======
           <a onClick={checkIsLogin}>
->>>>>>> dev
             <i className="fa-regular fa-user text-white btn"></i>
           </a>
         </li>

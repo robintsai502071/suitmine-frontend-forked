@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import axios from 'axios';
 import { API_URL } from '../../../utils/config';
 import { useState } from 'react';
+import swal from 'sweetalert';
 
 function Finish(props) {
   //使用者資料
@@ -367,8 +368,12 @@ function Finish(props) {
             href="#top"
             class="btn btn-primary widthbtn submitBtn"
             type="submit"
+            // swal('成功!您的訂單編號為', '1234124312!', 'success')
+            onClick={() => {
+              swal('成功!您的訂單編號為', '1234124312!', 'success');
+            }}
           >
-            送出訂單
+            送出訂單jkojiwjdwjdwiko
           </button>
         </div>
 

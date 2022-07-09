@@ -2,13 +2,21 @@ import { Form, Input, Button } from 'antd';
 import axios from 'axios';
 import React from 'react';
 import { API_URL } from '../../../../utils/config';
+import swal from 'sweetalert';
+import { useRef } from 'react';
 function ChangePasswordForm(props) {
   const { givenMemberData } = props;
-
+  // 清空 antd input 欄位用
+  const formRef = useRef();
   const handleSubmit = async (values) => {
     // 新密碼與確認密碼不相同時
     if (values.new_password !== values.comfirm_new_password) {
-      // weitodo 跳出失敗訊息 記得要 return
+      swal({
+        title: '修改密碼失敗',
+        text: '新密碼與確認密碼不相同，請您再試一次！',
+        icon: 'error',
+        button: '確認',
+      });
       return console.log('新密碼與確認密碼不相同');
     }
 
@@ -25,11 +33,19 @@ function ChangePasswordForm(props) {
     );
 
     if (response.data.success) {
-      // weitodo
-      console.log('修改成功' + response.data.success);
+      swal({
+        // title: '修改密碼成功',
+        text: '修改密碼成功',
+        icon: 'success',
+        buttons: false,
+        timer: 1500,
+      }).then(() => {
+        formRef.current.resetFields();
+        console.log('修改成功' + response.data.success);
+      });
     }
   };
-  
+
   return (
     <>
       <a href="http://localhost:3000/member/user" className="goBackBtn">
@@ -43,6 +59,7 @@ function ChangePasswordForm(props) {
           autoComplete="off"
           colon={false}
           onFinish={handleSubmit}
+          ref={formRef}
         >
           <Form.Item
             label="目前密碼"

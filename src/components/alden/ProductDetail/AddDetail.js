@@ -4,8 +4,11 @@ import { Button, Modal } from 'antd';
 import { useState } from 'react';
 import Accordion from './Accordion';
 import { Form } from 'antd';
+import swal from 'sweetalert';
 
 const AddDetail = (props) => {
+  const { setProductDetails, productDetails } = props;
+
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {
@@ -13,14 +16,21 @@ const AddDetail = (props) => {
   };
 
   const handleOk = () => {
-    setIsModalVisible(false);
+    if (
+      productDetails.button === '' ||
+      productDetails.collar === '' ||
+      productDetails.pocket === ''
+    ) {
+      setIsModalVisible(true);
+      swal('請選擇所有細節');
+    } else {
+      setIsModalVisible(false);
+    }
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
   };
-
-  const { setProductDetails, productDetails } = props;
 
   return (
     <>

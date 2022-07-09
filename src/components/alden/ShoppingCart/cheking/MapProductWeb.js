@@ -39,7 +39,8 @@ function MapProductWeb(props) {
     });
     setProductsInOrder(newProductsInOrder);
   };
-  //console.log('測試商品勾選功能', choosen);
+
+  const newPhoto = `http://localhost:3001/${photo}`;
 
   return (
     <>
@@ -61,7 +62,7 @@ function MapProductWeb(props) {
         </div>
         {/* 商品照片 */}
         <div className="col-2">
-          <img src={photo} alt="" />
+          <img src={newPhoto} alt="" />
         </div>
         {/* 客製化內容 */}
         <div className="col-4">

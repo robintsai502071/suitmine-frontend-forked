@@ -27,7 +27,6 @@ function ConsumerDetail(props) {
 
   //地址的useState
   localStorage.setItem('address', address);
-  console.log(address);
   const [updateAdress, setUpdateAdress] = useState(address);
   //傳上localstorage
   localStorage.setItem('updateAdress', updateAdress);

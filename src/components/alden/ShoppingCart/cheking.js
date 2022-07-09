@@ -11,6 +11,7 @@ function Cheking(props) {
   const { usableGiftCard } = props;
 
   const products = JSON.parse(localStorage.getItem('cart'));
+  console.log('products', products);
   // console.log('productsTest', productsTest);
 
   //商品
@@ -172,15 +173,22 @@ function Cheking(props) {
 
               {/* 商品列表 */}
               {productsInOrder.map((product, i) => {
-                const { id, photo, proName, button, pocket, collar, price } =
-                  product;
+                const {
+                  id,
+                  productPhoto,
+                  productName,
+                  button,
+                  pocket,
+                  collar,
+                  price,
+                } = product;
                 const newProductCounts = productsInOrder[i].count;
                 return (
                   <MapProductWeb
                     key={id}
                     id={id}
-                    photo={photo}
-                    proName={proName}
+                    photo={productPhoto}
+                    proName={productName}
                     button={button}
                     pocket={pocket}
                     collar={collar}

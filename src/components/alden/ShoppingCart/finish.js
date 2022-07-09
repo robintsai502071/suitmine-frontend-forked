@@ -4,6 +4,7 @@ import 'antd/dist/antd.css';
 import axios from 'axios';
 import { API_URL } from '../../../utils/config';
 import { useState } from 'react';
+import { Input } from 'antd';
 import swal from 'sweetalert';
 
 function Finish(props) {
@@ -12,13 +13,14 @@ function Finish(props) {
   const {
     id,
     name,
-    heigh,
+    height,
     shoulder_width,
     chest_width,
     waist_width,
     leg_length,
     arm_length,
   } = menbership[0];
+  console.log('heigh', height);
 
   //從localstorage中取得需要的資料
   const totalCounts = localStorage.getItem('totalCounts');
@@ -44,10 +46,28 @@ function Finish(props) {
   //找出會員name
   const menberName = name;
 
-  //照出待結帳禮物卡email
+  //找出待結帳禮物卡email
   const giftCardEmail = newCheckedGiftCards[0].receiver_email;
 
+  //修改身體數值useState
+  const [updateHeigh, setUpdateHeigh] = useState(height);
+  const [updateShoulder, setUpdateShoulder] = useState(shoulder_width);
+  const [updateChest, setUpdateChest] = useState(chest_width);
+  const [updateWaist, setUpdateWaist] = useState(waist_width);
+  const [updateLeg, setUpdateLeg] = useState(leg_length);
+  const [updateArm, setUpdateArm] = useState(arm_length);
+
   //----------------------準備送出的商品訂單狀態----------------------
+  //將身體資訊處理成後端資料
+  let bodyList = {
+    height: updateHeigh,
+    shoulder_width: updateShoulder,
+    chest_width: updateChest,
+    waist_width: updateWaist,
+    leg_length: updateLeg,
+    arm_length: updateArm,
+  };
+
   // 處理商品
   let arr = [];
   newCheckedProducts.forEach((v, i) => {
@@ -79,7 +99,9 @@ function Finish(props) {
     gift_card_id: getGiftCardId,
     memberId: menberId,
     order_id: '',
+    bodyList: bodyList,
   });
+  console.log('order', order);
 
   //處理送出新訂單
   const handleSubmit = async (e) => {
@@ -215,14 +237,22 @@ function Finish(props) {
                 {/* 客製化尺寸 */}
                 <div className="info">
                   <div>
-                    <h4>請最後確認您的專屬客製化尺寸</h4>
+                    <h4>請最後確認您的專屬客製化尺寸(請點擊以修改)</h4>
                   </div>
                   <div>
                     <div className="w-25">
                       <h5>身高</h5>
                     </div>
                     <div>
-                      <h5>{heigh}cm</h5>
+                      <Input
+                        type="text"
+                        value={updateHeigh}
+                        onChange={(e) => {
+                          setUpdateHeigh(e.target.value);
+                        }}
+                        className="changeAddress"
+                      />
+                      (公分單位)
                     </div>
                   </div>
                   <div>
@@ -230,7 +260,15 @@ function Finish(props) {
                       <h5>肩寬</h5>
                     </div>
                     <div>
-                      <h5>{shoulder_width}cm</h5>
+                      <Input
+                        type="text"
+                        value={updateShoulder}
+                        onChange={(e) => {
+                          setUpdateShoulder(e.target.value);
+                        }}
+                        className="changeAddress"
+                      />
+                      (公分單位)
                     </div>
                   </div>
                   <div>
@@ -238,7 +276,15 @@ function Finish(props) {
                       <h5>胸圍</h5>
                     </div>
                     <div>
-                      <h5>{chest_width}cm</h5>
+                      <Input
+                        type="text"
+                        value={updateChest}
+                        onChange={(e) => {
+                          setUpdateChest(e.target.value);
+                        }}
+                        className="changeAddress"
+                      />
+                      (公分單位)
                     </div>
                   </div>
                   <div>
@@ -246,7 +292,15 @@ function Finish(props) {
                       <h5>腰圍</h5>
                     </div>
                     <div>
-                      <h5>{waist_width}cm</h5>
+                      <Input
+                        type="text"
+                        value={updateWaist}
+                        onChange={(e) => {
+                          setUpdateWaist(e.target.value);
+                        }}
+                        className="changeAddress"
+                      />
+                      (公分單位)
                     </div>
                   </div>
                   <div>
@@ -254,7 +308,15 @@ function Finish(props) {
                       <h5>腿長</h5>
                     </div>
                     <div>
-                      <h5>{leg_length}cm</h5>
+                      <Input
+                        type="text"
+                        value={updateLeg}
+                        onChange={(e) => {
+                          setUpdateLeg(e.target.value);
+                        }}
+                        className="changeAddress"
+                      />
+                      (公分單位)
                     </div>
                   </div>
                   <div>
@@ -262,7 +324,15 @@ function Finish(props) {
                       <h5>臂長</h5>
                     </div>
                     <div>
-                      <h5>{arm_length}cm</h5>
+                      <Input
+                        type="text"
+                        value={updateArm}
+                        onChange={(e) => {
+                          setUpdateArm(e.target.value);
+                        }}
+                        className="changeAddress"
+                      />
+                      (公分單位)
                     </div>
                   </div>
                 </div>

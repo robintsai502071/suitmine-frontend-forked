@@ -98,9 +98,11 @@ const LayoutHeader = () => {
         </div>
       </nav>
 
-      <div className="logo ms-5 d-flex">
+      {/* 連到首頁 */}
+      <Link to="/home" className="logo ms-5 d-flex">
         <img src={logo} alt="" />
-      </div>
+      </Link>
+
       <div className="shoppingCar fs-4 me-3 d-md-none">
         <i className="fa-solid fa-cart-shopping"></i>
       </div>
@@ -116,11 +118,7 @@ const LayoutHeader = () => {
             門市據點
           </Link>
         </li>
-        <li>
-          <Link to="/member" className="btn text-white">
-            會員中心
-          </Link>
-        </li>
+
         <li>
           <Link to="/blog" className="btn text-white">
             部落格

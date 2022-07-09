@@ -26,11 +26,12 @@ function ConsumerDetail(props) {
   const sum = localStorage.getItem('sum');
 
   //地址的useState
-  const [adress, setAdress] = useState({ adress: '' });
-  const newAdress = adress.adress;
-  localStorage.setItem('adress', newAdress);
+  localStorage.setItem('address', address);
+  console.log(address);
+  const [updateAdress, setUpdateAdress] = useState(address);
+  //傳上localstorage
+  localStorage.setItem('updateAdress', updateAdress);
 
-  console.log(checked, '12345');
   return (
     <div>
       {/* consumerDetailWeb */}
@@ -79,7 +80,14 @@ function ConsumerDetail(props) {
                   <div className="w-25">
                     <h5>取貨地址</h5>
                   </div>
-                  <div>{address}</div>
+                  <Input
+                    type="text"
+                    value={updateAdress}
+                    onChange={(e) => {
+                      setUpdateAdress(e.target.value);
+                    }}
+                    className="changeAddress"
+                  />
                 </div>
               </div>
               {/* 發票 */}

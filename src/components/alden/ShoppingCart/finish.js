@@ -18,7 +18,6 @@ function Finish(props) {
     waist_width,
     leg_length,
     arm_length,
-    address,
   } = menbership[0];
 
   //從localstorage中取得需要的資料
@@ -34,6 +33,7 @@ function Finish(props) {
   const newCheckedGiftCards = JSON.parse(
     localStorage.getItem('newCheckedGiftCards')
   );
+  const updateAdress = localStorage.getItem('updateAdress');
 
   //找出被使用禮物卡ID
   const getGiftCardId = giftId;
@@ -295,7 +295,7 @@ function Finish(props) {
                       <h5>取貨地點</h5>
                     </div>
                     <div>
-                      <h5>{address}</h5>
+                      <h5>{updateAdress}</h5>
                     </div>
                   </div>
                   <div>
@@ -373,7 +373,7 @@ function Finish(props) {
               swal('成功!您的訂單編號為', '1234124312!', 'success');
             }}
           >
-            送出訂單jkojiwjdwjdwiko
+            送出訂單
           </button>
         </div>
 

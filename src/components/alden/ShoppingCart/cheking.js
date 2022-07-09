@@ -82,6 +82,7 @@ function Cheking(props) {
 
   // 商品
   const [productsInOrder, setProductsInOrder] = useState(initState(products));
+  console.log(products);
 
   //待結帳禮物卡
   const [giftCardDel, setGiftCardDel] = useState(initState(giftCard));

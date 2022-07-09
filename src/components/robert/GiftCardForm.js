@@ -45,17 +45,6 @@ function GiftCard() {
     setContent(newContent);
     console.log('這裡是新資料', newContent);
     // input的type為text onchange setting
-    let obj = {};
-    obj = { ...content };
-
-    // ============== 判斷有沒有車因為沒有車會錯誤所以要先判斷 ===========
-    if (localStorage.getItem('giftCard') == null) {
-      let arr = [];
-      localStorage.setItem('giftCard', JSON.stringify(arr));
-    }
-    let oldCart = JSON.parse(localStorage.getItem('giftCard'));
-    var newArr = [...oldCart, obj];
-    localStorage.setItem('giftCard', JSON.stringify(newArr));
   }
 
   // ------------------------------------------------------------------------
@@ -245,18 +234,18 @@ function GiftCard() {
             <button
               type="submit"
               variant="dark"
-              // onClick={(e) => {
-              //   e.preventDefault();
-              //   console.log(content);
-              //   setContent({
-              //     // 不需要giver: '',
-              //     receiver: '',
-              //     amount: '',
-              //     receiver_email: '',
-              //     message: '',
-              //     amount: '',
-              //   });
-              // }}
+              onClick={() => {
+                // ============== 判斷有沒有車因為沒有車會錯誤所以要先判斷 ===========
+                let obj = {};
+                obj = { ...content };
+                if (localStorage.getItem('giftCard') == null) {
+                  let arr = [];
+                  localStorage.setItem('giftCard', JSON.stringify(arr));
+                }
+                let oldCart = JSON.parse(localStorage.getItem('giftCard'));
+                var newArr = [...oldCart, obj];
+                localStorage.setItem('giftCard', JSON.stringify(newArr));
+              }}
             >
               Submit
             </button>

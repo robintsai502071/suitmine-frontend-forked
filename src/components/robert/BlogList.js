@@ -161,6 +161,7 @@ function BlogList(props) {
                       {/* </a> */}
                     </Link>
                     <div className="card-body text-start">
+                      <p className="card-list-hashtag mb-2">#{value.category_id}</p>
                       <h5 className="card-title">
                         {/* <a
                             className="text-dark text-decoration-none"

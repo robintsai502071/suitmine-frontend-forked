@@ -8,6 +8,8 @@ import draftToHtml from 'draftjs-to-html';
 import { useState, useRef, useEffect } from 'react';
 import '../../style.css';
 import axios from 'axios';
+import swal from 'sweetalert';
+import { useHistory } from 'react-router-dom';
 // import toast, { Toaster } from "react-hot-toast";
 
 function uploadImageCallBack(file) {
@@ -33,6 +35,7 @@ function uploadImageCallBack(file) {
 }
 
 const TextEditor = () => {
+  const history = useHistory();
   // ------------------將文字編輯器所有欄位內容撈回文字編輯器----------------------------------
   let initialContentBlock = htmlToDraft(``);
 
@@ -99,6 +102,38 @@ const TextEditor = () => {
     }
   }
   // console.log(mainArea);
+
+  function handleCancel() {
+    swal({
+      title: '取消',
+      text: '取消後將遺失目前修改',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal('為您跳轉頁面中', {
+          buttons: false,
+          timer: 1200,
+          icon: 'success',
+        }).then(() => {
+          history.push('/blog-dashboard');
+          // history.push({
+          //   pathname: '/blog',
+          //   state: {
+          //     name: '3333',
+          //   },
+          // });
+        });
+      }
+      // else {
+      //   swal('保留文章修改', {
+      //     icon: 'success',
+      //   });
+      // }
+    });
+  }
+
   async function handleSubmit(e) {
     // 停掉預設行為
     e.preventDefault();
@@ -113,11 +148,25 @@ const TextEditor = () => {
       //   `標題:${mainArea.title}, 文章分類:${mainArea.category}, 主要內文:${data}, 縮圖:${mainArea.photo}`
       // );
       // const notify = () => toast('新增完成');
+      // await
       let response = axios.post(`http://localhost:3001/api/blogs`, {
         ...mainArea,
         content: data,
       });
-      console.log(response.data);
+      // console.log(response.data);
+      setTimeout(async () => {
+        await swal('新增成功', {
+          buttons: false,
+          timer: 1500,
+          icon: 'success',
+        });
+
+        history.push('/blog-dashboard');
+
+        // .then(() => {
+        //   history.push('/blog-dashboard');
+        // });
+      }, 300);
     } catch (e) {
       console.error(e);
     }
@@ -207,10 +256,12 @@ const TextEditor = () => {
         ></textarea> */}
 
         {/* 送出文字檔 */}
-        <button className="px-3 py-1 me-3" onClick={handleSubmit}>
+        <button className="px-3 py-1 me-3" onClick={handleSubmit} type="button">
           送出
         </button>
-        <button className="px-3 py-1">取消</button>
+        <button className="px-3 py-1" onClick={handleCancel} type="button">
+          取消
+        </button>
       </form>
     </div>
   );

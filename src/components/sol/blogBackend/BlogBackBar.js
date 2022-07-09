@@ -1,6 +1,8 @@
 import { Menu } from 'antd';
 import { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import { Link } from 'react-router-dom';
+
 
 // function getItem(label, key, children, type) {
 //   return {
@@ -109,30 +111,24 @@ function BlogBackBar() {
             </Accordion.Body>
           </Accordion.Item> */}
 
-          <a
-            href="http://localhost:3000/text-editor"
-            className="d-block main__sidebar__list__link"
-          >
+          <Link to="/text-editor" className="d-block main__sidebar__list__link">
             <Accordion.Item eventKey="1" className="blog-backend-bar1">
               <Accordion.Header>
                 <i class="fa-solid fa-file-circle-plus me-1"></i>新增文章
               </Accordion.Header>
             </Accordion.Item>
-          </a>
+          </Link>
 
-          <a
-            href="http://localhost:3000/blog"
-            className="d-block main__sidebar__list__link"
-          >
+          <Link to="/blog" className="d-block main__sidebar__list__link">
             <Accordion.Item eventKey="2" className="blog-backend-bar2">
               <Accordion.Header>
                 <i class="fa-solid fa-folder-open me-1"></i>前台所有文章
               </Accordion.Header>
             </Accordion.Item>
-          </a>
+          </Link>
 
-          <a
-            href="http://localhost:3000/member/my-favorites"
+          <Link
+            to="/member/my-favorites"
             className="d-block main__sidebar__list__link"
           >
             <Accordion.Item eventKey="3" className="blog-backend-bar3">
@@ -140,7 +136,7 @@ function BlogBackBar() {
                 <i class="fa-solid fa-list-check me-1"></i>文章管理
               </Accordion.Header>
             </Accordion.Item>
-          </a>
+          </Link>
         </Accordion>
       </div>
     </>

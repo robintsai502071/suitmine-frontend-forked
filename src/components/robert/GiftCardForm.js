@@ -5,7 +5,7 @@ import giftCard from '../../images/robert/giftCard/gift_card.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import axios from 'axios';
-
+import swal from 'sweetalert';
 
 function GiftCard() {
   // --------------------------------------------------------------------
@@ -44,6 +44,10 @@ function GiftCard() {
   function handleChange(e) {
     const newContent = { ...content, [e.target.name]: e.target.value };
     setContent(newContent);
+    console.log('newContent', newContent);
+    let putInLocalStorage = newContent;
+    localStorage.setItem('newPutInLocalStorage', newPutInLocalStorage);
+    let newPutInLocalStorage = JSON.stringify(putInLocalStorage);
   }
 
   // ------------------------------------------------------------------------
@@ -67,6 +71,7 @@ function GiftCard() {
   // 表單驗證+送出
   function handleFrom(e) {
     const form = e.currentTarget;
+    // console.log(e.currentTarget);
     console.log(form.checkValidity());
     e.preventDefault();
 
@@ -75,13 +80,23 @@ function GiftCard() {
       // console.log(content.amount, content.receiver)
       setValidated(true);
     } else {
-      console.log(
-        content.giver,
-        content.amount,
-        content.receiver,
-        content.receiver_email,
-        content.message
-      );
+      // console.log(
+      //   content.giver,
+      //   content.amount,
+      //   content.receiver,
+      //   content.receiver_email,
+      //   content.message
+      // );
+
+      // const localStorage = form
+
+      // setTimeout(() => {
+      swal('新增成功', {
+        buttons: false,
+        timer: 1500,
+        icon: 'success',
+      });
+      // }, 300);
       // setValidated(false);
       setContent({
         // 不需要giver: '',
@@ -97,6 +112,14 @@ function GiftCard() {
       //.validated = false;
     }
   }
+
+  // function handleClick() {
+  //   swal('修改成功', {
+  //     buttons: false,
+  //     timer: 800,
+  //     icon: 'success',
+  //   });
+  // }
 
   // 老師寫法
   // function handleFrom(e) {
@@ -233,6 +256,7 @@ function GiftCard() {
             <button
               type="submit"
               variant="dark"
+              // onClick={handleClick}
               // onClick={(e) => {
               //   e.preventDefault();
               //   console.log(content);

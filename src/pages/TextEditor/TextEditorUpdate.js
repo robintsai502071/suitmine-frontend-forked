@@ -9,6 +9,9 @@ import { useState, useRef, useEffect } from 'react';
 import '../../style.css';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
+import { useHistory } from 'react-router-dom';
 
 function uploadImageCallBack(file) {
   return new Promise((resolve, reject) => {
@@ -125,6 +128,10 @@ const TextEditorUpdate = () => {
   // 文字編輯器內文
   const data = draftToHtml(convertToRaw(editorState.getCurrentContent()));
 
+  // -------------------------------------------------
+
+  // ---------------------------------------------------
+
   function handleChange(e) {
     console.log(e.target.name);
     console.log(e.target.value);
@@ -178,18 +185,48 @@ const TextEditorUpdate = () => {
         ...mainArea,
         content: data,
       });
-      console.log(response.data);
+      // console.log(response.data);
+      setTimeout(async () => {
+        await swal({
+          title: '修改成功',
+          text: '為您跳轉頁面中',
+          buttons: false,
+          timer: 1500,
+          icon: 'success',
+        });
+        history.push('/blog-dashboard');
+      }, 300);
     } catch (e) {
       console.error(e);
     }
   }
 
-
-
-
-
-
-
+  const history = useHistory();
+  function handleCancel() {
+    swal({
+      title: '取消',
+      text: '取消後將遺失目前修改',
+      icon: 'warning',
+      buttons: true,
+      dangerMode: true,
+    }).then((willDelete) => {
+      if (willDelete) {
+        swal('為您跳轉頁面', {
+          buttons: false,
+          timer: 1200,
+          icon: 'success',
+        }).then(() => {
+          history.push('/blog-dashboard');
+          // history.push({
+          //   pathname: '/blog',
+          //   state: {
+          //     name: '3333',
+          //   },
+          // });
+        });
+      }
+    });
+  }
 
   return (
     <div>
@@ -275,11 +312,20 @@ const TextEditorUpdate = () => {
         ></textarea> */}
 
         {/* 送出文字檔 */}
-        <button className="px-3 py-1 me-3" onClick={handleSubmit}>
-          送出
-        </button>
+        <div className="d-flex justify-content-center">
+          <button className="px-3 py-1 me-3" onClick={handleSubmit}>
+            送出
+          </button>
 
-        <button className="px-3 py-1">取消</button>
+          {/* <Link
+            to="/blog-dashboard"
+            className="d-block main__sidebar__list__link"
+          > */}
+          <button className="px-3 py-1" onClick={handleCancel} type="button">
+            取消
+          </button>
+          {/* </Link> */}
+        </div>
       </form>
     </div>
   );

@@ -1,14 +1,30 @@
 // OrderListDisplay.js
 .order-list__btns {
-  background-color: $light-gray;
+  // background-color: $light-gray;
   & > * {
-    padding: 1rem 0;
+    padding: 0.75rem 0;
     flex-grow: 1;
     width: 0;
     text-align: center;
     color: $dark-gray;
+    &::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background-color: black;
+      margin-top: 10px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      right: 50%;
+    }
     &.active {
-      background-color: #ccc;
+      color: black;
+    }
+    &.active::after {
+      transition: .5s;
+      left: 0%;
+      right: 0%;
     }
   }
 }

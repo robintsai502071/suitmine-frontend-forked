@@ -1,3 +1,11 @@
+// 覆蓋 member page 底下的所有 button 樣式
+.member-container {
+  .ant-btn:hover {
+    color: black;
+    border-color: black;
+  }
+}
+
 // ******** 桌機版 Member.js 上下間距 ********
 .member-container {
   padding-top: 100px;
@@ -62,17 +70,6 @@
 .goBackBtn {
   @include text;
   display: none;
-}
-
-// 編輯個人檔案時出現的 button 樣式修改 editMode
-.editModeBtns {
-  // .ant-btn {
-  //   background-color: black;
-  //   color: white;
-  // }
-  .ant-btn:hover {
-    border-color: black;
-  }
 }
 
 // 使用者大頭貼大小

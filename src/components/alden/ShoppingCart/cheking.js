@@ -12,9 +12,8 @@ function Cheking(props) {
 
   //localstorage來的資料
   const products = JSON.parse(localStorage.getItem('cart'));
-  // localStorage.clear('cart');
-  // console.log('products', products);
-  // console.log('productsTest', productsTest);
+  const giftCard = JSON.parse(localStorage.getItem('giftCard'));
+  // console.log('giftCard', giftCard[0].amount);
 
   //商品
   // const products = [
@@ -57,26 +56,26 @@ function Cheking(props) {
   // ];
 
   //待結帳禮物卡
-  const giftCard = [
-    {
-      receiver: '小帥氣',
-      amount: 500,
-      message: '生日快樂500元送你',
-      receiver_email: '1@1',
-    },
-    {
-      receiver: '小美麗',
-      amount: 800,
-      message: '800元給你買西裝喔',
-      receiver_email: '2@2',
-    },
-    {
-      receiver: '小快樂',
-      amount: 20,
-      message: '不無小補',
-      receiver_email: '3@3',
-    },
-  ];
+  // const giftCard = [
+  //   {
+  //     receiver: '小帥氣',
+  //     amount: 500,
+  //     message: '生日快樂500元送你',
+  //     receiver_email: '1@1',
+  //   },
+  //   {
+  //     receiver: '小美麗',
+  //     amount: 800,
+  //     message: '800元給你買西裝喔',
+  //     receiver_email: '2@2',
+  //   },
+  //   {
+  //     receiver: '小快樂',
+  //     amount: 20,
+  //     message: '不無小補',
+  //     receiver_email: '3@3',
+  //   },
+  // ];
 
   //在原product的物件中新增屬性的initState
   const initState = (productArray) => {
@@ -85,7 +84,7 @@ function Cheking(props) {
 
   // 商品
   const [productsInOrder, setProductsInOrder] = useState(initState(products));
-  console.log(products);
+  // console.log(products);
 
   //待結帳禮物卡
   const [giftCardDel, setGiftCardDel] = useState(initState(giftCard));
@@ -154,7 +153,7 @@ function Cheking(props) {
     let result = 0;
     for (let i = 0; i < giftCardDel.length; i++) {
       if (giftCardDel[i].productChecked == 1) {
-        result += giftCardDel[i].amount;
+        result += Number(giftCardDel[i].amount);
       }
     }
     return result;
@@ -225,11 +224,13 @@ function Cheking(props) {
               {giftCardDel.map((giftcards, i) => {
                 const { id, receiver, amount, message, receiver_email } =
                   giftcards;
+                const newAmount = Number(amount);
+
                 return (
                   <GiftCardWed
                     id={id}
                     receiver={receiver}
-                    amount={amount}
+                    amount={newAmount}
                     message={message}
                     removeGiftCard={(e) => {
                       //findIndex找出該id

@@ -245,6 +245,7 @@ function GiftCard() {
                 let oldCart = JSON.parse(localStorage.getItem('giftCard'));
                 var newArr = [...oldCart, obj];
                 localStorage.setItem('giftCard', JSON.stringify(newArr));
+                // localStorage.clear('giftCard');
               }}
             >
               Submit

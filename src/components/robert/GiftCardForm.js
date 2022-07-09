@@ -44,9 +44,18 @@ function GiftCard() {
     const newContent = { ...content, [e.target.name]: e.target.value };
     setContent(newContent);
     console.log('這裡是新資料', newContent);
-    let putInLocalStorage = newContent;
-    let newPutInLocalStorage = JSON.stringify(putInLocalStorage);
-    localStorage.setItem('newPutInLocalStorage', newPutInLocalStorage);
+    // input的type為text onchange setting
+    let obj = {};
+    obj = { ...content };
+
+    // ============== 判斷有沒有車因為沒有車會錯誤所以要先判斷 ===========
+    if (localStorage.getItem('giftCard') == null) {
+      let arr = [];
+      localStorage.setItem('giftCard', JSON.stringify(arr));
+    }
+    let oldCart = JSON.parse(localStorage.getItem('giftCard'));
+    var newArr = [...oldCart, obj];
+    localStorage.setItem('giftCard', JSON.stringify(newArr));
   }
 
   // ------------------------------------------------------------------------

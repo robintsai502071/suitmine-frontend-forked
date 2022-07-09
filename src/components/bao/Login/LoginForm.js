@@ -4,6 +4,7 @@ import axios from 'axios';
 import { API_URL } from '../../../utils/config';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 
 function Form() {
   //--------- 會員狀態 ---------
@@ -142,13 +143,16 @@ function Form() {
             maxLength={10}
             required
           ></input>
-          <p className="my-2 errorMessage">
+          <p className="mt-2 errorMessage">
             {fieldErrors.password && fieldErrors.password}
           </p>
         </div>
-        <button className="btn registerBtn mx-auto mt-3" type="submit">
+        <button className="btn registerBtn w-100 mx-auto mt-1" type="submit">
           <p>送出</p>
         </button>
+        <Link className='mx-auto registerButonBox' to="/register">
+          <p className="my-3">註冊會員</p>
+        </Link>
       </form>
     </>
   );

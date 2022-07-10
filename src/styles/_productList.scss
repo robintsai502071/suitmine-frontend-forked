@@ -289,9 +289,12 @@
   font-size: 20px;
   color: $dark-gray;
 }
+.product-fa-heart.active{
+  color: red;
+}
 /* ============ 商品列表 RWD============ */
 @media screen and (max-width: 420px) {
-  .cardStyle img {
+  product-fa-heart.cardStyle img {
     height: 300px;
   }
 }

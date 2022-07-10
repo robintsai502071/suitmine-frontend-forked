@@ -372,6 +372,9 @@ function ProductList() {
                       key={v.id}
                       href="#/"
                       className="col-xxl-3 col-lg-4 col-md-6 col-6 px-3 d-flex cardSize cardBottomMargin"
+                      onClick={()=>{
+                        console.log('a')
+                      }}
                     >
                       <div className="card cardStyle ">
                         <div className="imgBox position-relative">
@@ -394,7 +397,12 @@ function ProductList() {
                             <p className="h6 price card-text englishText  CardP_Padding">
                               {v.price}
                             </p>
-                            <i className="fa-solid fa-heart product-fa-heart"></i>
+                            
+                            <i className="fa-solid fa-heart product-fa-heart" onClick={(e)=>{
+                              e.stopPropagation()
+                              e.preventDefault()
+                              e.target.classList.toggle('active')
+                            }}></i>
                           </div>
                         </div>
                       </div>

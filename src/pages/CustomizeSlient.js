@@ -400,11 +400,8 @@ function CustomizeSlient() {
       <div className="container my-5">
         <div className="intro1">
           <div data-aos="fade-right" className="row">
-            <div  className="col-lg-6">
-              <div
-                
-                className="intro1__info px-4 px-lg-0 d-lg-flex flex-lg-column justify-content-lg-center h-100"
-              >
+            <div className="col-lg-6">
+              <div className="intro1__info px-4 px-lg-0 d-lg-flex flex-lg-column justify-content-lg-center h-100">
                 <h4 className="mb-3">您的選擇</h4>
                 <h6 className="mb-5">
                   我們獨特的定制流程允許您為您的西裝選擇您想要的確切定制。從鈕扣和開衩到口袋和翻領，你可以說出你想要的樣子，這就是我們將如何建造它。

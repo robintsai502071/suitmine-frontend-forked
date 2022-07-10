@@ -50,7 +50,7 @@ function MyGiftCardDisplay() {
   // ];
 
   //Select按鈕的選擇狀態
-  const [nowSelect, setNowSelect] = useState(0);
+  const [nowSelect, setNowSelect] = useState(2);
 
   //以選擇狀態return不同篩選陣列
   let nowGiftCardData = giftCardData?.filter((v, i) => {

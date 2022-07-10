@@ -7,6 +7,7 @@ function MyGiftCardDisplayItem(props) {
     <>
       <div className="my-gift-card-display-item p-4">
         <div className=" d-flex justify-content-between">
+          {/* 圖片 */}
           <div className="my-gift-card-display-item__image-wrapper">
             <img
               className="my-gift-card-display-item__image"
@@ -15,6 +16,7 @@ function MyGiftCardDisplayItem(props) {
             />
           </div>
 
+          {/* 右方文字 */}
           <div className="my-gift-card-display-item__wrapper ">
             <div className="my-gift-card-display-item__info d-flex flex-column">
               <div className="my-gift-card-display-item__info__title my-1">
@@ -37,12 +39,16 @@ function MyGiftCardDisplayItem(props) {
             <div className="my-gift-card-display-item__btns mt-3 d-flex">
               <button className="btnss">回贈</button>
               <button
-                className={` btnss ${is_used === 0 ? 'd-flex' : 'd-none'}`}
+                className={` btnss rightBtn ${
+                  is_used === 0 ? 'd-flex' : 'd-none'
+                }`}
               >
                 前往使用
               </button>
               <button
-                className={`btnss  ${is_used === 1 ? 'd-flex' : 'd-none'}`}
+                className={`btnss rightBtn usedBtn ${
+                  is_used === 1 ? 'd-flex' : 'd-none'
+                }`}
                 disabled
               >
                 已使用

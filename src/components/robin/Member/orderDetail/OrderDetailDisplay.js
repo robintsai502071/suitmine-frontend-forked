@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Modal, Radio, Space } from 'antd';
+import { Modal, Radio, Space, Button } from 'antd';
 import ProductLink from './ProductLink';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -128,16 +128,16 @@ function OrderDetailDisplay(props) {
 
           <div className="order-datail-display__btns mt-4">
             {orderSummary.order_finish_time === null && (
-              <button
+              <Button
                 onClick={() => {
                   setCancelOrderModal(true);
                 }}
               >
                 取消訂單
-              </button>
+              </Button>
             )}
             {orderSummary.order_finish_time != null && (
-              <button>再買一次</button>
+              <Button className="ms-2">再買一次</Button>
             )}
           </div>
         </ul>

@@ -154,8 +154,8 @@ function MeasurementTeaching() {
       />
     ),
     prevArrow: <SamplePrevArrow perPage={perPage} />,
+    // ----------- 設定現在頁數 -----------
     afterChange: (current) => {
-      // ----------- 設定現在頁數 -----------
       setperPage(current);
       // console.log(current);
     },

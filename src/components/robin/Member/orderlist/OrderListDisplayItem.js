@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { Modal, Radio, Space } from 'antd';
+import { Modal, Radio, Space, Button } from 'antd';
 
 function OrderListDisplayItem(props) {
   const orderData = props.ordersItem;
@@ -62,16 +62,17 @@ function OrderListDisplayItem(props) {
             </div>
           </div>
 
-          <div className="order-list-display-item__footer">
-            <button
-              onClick={() => {
+          {/* <div className="order-list-display-item__footer">
+            <Button
+              onClick={(e) => {
+                e.preventDefault()
                 setCancelOrderModal(true);
               }}
             >
               取消訂單
-            </button>
-            <button>再買一次</button>
-          </div>
+            </Button>
+            <Button className='ms-2'>再買一次</Button>
+          </div> */}
         </div>
       </a>
 

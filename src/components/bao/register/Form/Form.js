@@ -228,7 +228,7 @@ function Form() {
             {/* 用map將 genderArr 跑出所有選項*/}
             {genderArr.map((v, i) => {
               return (
-                <option key={i} value={v}>
+                <option key={i} value={i}>
                   {v}
                 </option>
               );

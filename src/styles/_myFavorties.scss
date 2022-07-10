@@ -9,7 +9,6 @@
     @include text;
     color: $dark-gray;
   }
-  
 }
 
 .heart-icon {
@@ -21,4 +20,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.classForFit {
+  object-fit: contain;
 }

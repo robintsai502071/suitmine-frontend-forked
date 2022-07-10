@@ -1,17 +1,7 @@
 import React from 'react';
 
 function MyGiftCardDisplayItem(props) {
-  // const giftCardItems = props;
-  const { giftCardItems } = props;
-  console.log('cc', giftCardItems);
-
-  const { giver, create_time, amount } = giftCardItems || {
-    giver: null,
-    create_time: null,
-    amount: null,
-  };
-
-  // console.log(giver, create_time, amount);
+  const { id, giver, create_time, amount, message } = props;
 
   return (
     <>
@@ -19,7 +9,7 @@ function MyGiftCardDisplayItem(props) {
         <div className="my-gift-card-display-item__image-wrapper">
           <img
             className="my-gift-card-display-item__image"
-            src="https://fakeimg.pl/250x100/"
+            src={require('../../../../images/alden/ShoppingCart/gift_card.png')}
             alt=""
           />
         </div>
@@ -34,12 +24,12 @@ function MyGiftCardDisplayItem(props) {
               贈送日期：{create_time}
             </div>
 
-            <div className="my-gift-card-display-item__info__counts my-1">
-              數量：{amount}
+            <div className="my-gift-card-display-item__info__amount my-1">
+              禮物卡金額 ${amount}
             </div>
 
-            <div className="my-gift-card-display-item__info__amount my-1">
-              禮物卡金額 $80
+            <div className="my-gift-card-display-item__info__counts my-1 ">
+              留給我的訊息：{message}
             </div>
           </div>
 

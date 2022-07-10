@@ -12,6 +12,7 @@ function GiftCardWed(props) {
     setGiftCardDel,
     receiver_email,
   } = props;
+  // console.log('amount in son', amount);
   const handleChoosen = (receiver_email) => {
     const newGiftCardDel = giftCardDel.map((v, i) => {
       if (v.receiver_email === receiver_email) {

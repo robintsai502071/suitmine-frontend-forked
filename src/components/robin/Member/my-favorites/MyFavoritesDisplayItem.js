@@ -16,7 +16,10 @@ function MyFavoritesDisplayItem(props) {
 
       <h6 className="my-favorites-display-item__title my-2">{name}</h6>
       <div className="my-favorites-display-item__price">${price}</div>
-      <i className="fa-solid fa-heart my-2 heart-icon"></i>
+      <button className="loveBtn">
+        <i className="fa-solid fa-heart my-2"></i>
+        {/* <i class="fa-solid fa-heart-crack"></i> */}
+      </button>
     </a>
   );
 }

@@ -48,7 +48,7 @@ function SampleNextArrow(props) {
           openNotification();
           return;
         }
-        if (!fields.chest && perPage === 2) {
+        if (!fields.chest_width && perPage === 2) {
           openNotification();
           return;
         }
@@ -56,7 +56,7 @@ function SampleNextArrow(props) {
           openNotification();
           return;
         }
-        if (!fields.waist && perPage === 4) {
+        if (!fields.waist_width && perPage === 4) {
           openNotification();
           return;
         }
@@ -67,10 +67,6 @@ function SampleNextArrow(props) {
         //如果以上為真就不執行onClick()
 
         onClick();
-        // console.log('click', perPage);
-        // const perpageArr = [false, false, false, false, false, false];
-        // perpageArr[perPage + 1] = true;
-        // setPlaying(perpageArr);
       }}
     />
   );
@@ -113,24 +109,13 @@ function MeasurementTeaching() {
     height: '',
     weight: '',
     shoulder_width: '',
-    chest: '',
+    chest_width: '',
     arm_length: '',
-    waist: '',
+    waist_width: '',
     leg_length: '',
   });
   // -------------------現在在第幾頁狀態-----------------------
   const [perPage, setperPage] = useState(0);
-
-  // -------------------影片播放狀態-----------------------
-  // const [playing, setPlaying] = useState([
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  //   false,
-  // ]);
-  // console.log(playing);
 
   // -------------------專門處理每個欄位的輸入用函示-----------------------
   let handleFieldChange = (e) => {
@@ -239,7 +224,7 @@ function MeasurementTeaching() {
                 <input
                   placeholder="0"
                   type="number"
-                  name="chest"
+                  name="chest_width"
                   style={inputFontSize}
                   onChange={handleFieldChange}
                   value={fields.chest}
@@ -283,7 +268,7 @@ function MeasurementTeaching() {
                 <input
                   placeholder="0"
                   type="number"
-                  name="waist"
+                  name="waist_width"
                   style={inputFontSize}
                   onChange={handleFieldChange}
                   value={fields.waist}

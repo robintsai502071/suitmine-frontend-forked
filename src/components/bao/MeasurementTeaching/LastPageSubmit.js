@@ -7,9 +7,6 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 
 function LastPageSubmit(props) {
-  // -------------------錯誤訊息狀態-----------------------
-  const [errorMessage, seterrorMessage] = useState('');
-
   // -------------------useLocation-----------------------
   // 將history傳送過來的資料取下來
   const location = useLocation();
@@ -28,6 +25,9 @@ function LastPageSubmit(props) {
   const newFields = { ...fields, memberId: location.state.insertId };
   console.log(newFields);
 
+  // 使用者ID
+  const memberId = location.state.insertId;
+
   // -------------------處理表單送出的函示-----------------------
   const handleSubmit = async (e) => {
     // 阻擋表單送出
@@ -36,7 +36,7 @@ function LastPageSubmit(props) {
       // 當你的表單沒有圖片的時候，可以直接傳輸 json 到後端去
       // axios.post(URL, data, config)
       let response = await axios.patch(
-        `http://localhost:3001/api/auth/register`,
+        `http://localhost:3001/api/member/${memberId}/body-info`,
         newFields,
         {
           // 如果想要跨源讀寫 cookie
@@ -44,10 +44,8 @@ function LastPageSubmit(props) {
         }
       );
       console.log('登入成功', response.data);
-      seterrorMessage('登入成功');
     } catch (e) {
       console.error('登入失敗', e.response.data);
-      seterrorMessage('登入失敗');
     }
   };
   return (
@@ -118,7 +116,7 @@ function LastPageSubmit(props) {
                       type="number"
                       class="form-control"
                       id="exampleFormControlInput1"
-                      value={fields.chest}
+                      value={fields.chest_width}
                       name="chest"
                       placeholder="請輸入胸圍"
                       onChange={handleFieldChange}
@@ -148,7 +146,7 @@ function LastPageSubmit(props) {
                       type="number"
                       class="form-control"
                       id="exampleFormControlInput1"
-                      value={fields.waist}
+                      value={fields.waist_width}
                       name="waist"
                       placeholder="請輸入腰圍"
                       onChange={handleFieldChange}

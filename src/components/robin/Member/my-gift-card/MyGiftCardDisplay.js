@@ -92,7 +92,7 @@ function MyGiftCardDisplay() {
         </div>
         <div className="my-gift-list__display">
           {nowGiftCardData?.map((v, i) => {
-            const { id, giver, create_time, amount, message } = v;
+            const { id, giver, create_time, amount, message, is_used } = v;
             return (
               <MyGiftCardDisplayItem
                 key={id}
@@ -101,6 +101,7 @@ function MyGiftCardDisplay() {
                 create_time={create_time}
                 amount={amount}
                 message={message}
+                is_used={is_used}
               />
             );
           })}

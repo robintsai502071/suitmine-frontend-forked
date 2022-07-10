@@ -15,7 +15,7 @@ function MyFavoritesDisplay() {
     };
     getStocks();
   }, []);
-  const newGetMyfavorite = getMyfavorite.giftCards;
+  const newGetMyfavorite = getMyfavorite.my_favorites;
 
   return (
     <>

@@ -61,7 +61,7 @@ function MyGiftCardDisplayItem(props) {
               </button>
             </div>
             <Drawer
-              title="Basic Drawer"
+              title={giver}
               placement="right"
               closable={false}
               onClose={onClose}
@@ -71,7 +71,7 @@ function MyGiftCardDisplayItem(props) {
                 position: 'absolute',
               }}
             >
-              <p>Some contents...</p>
+              <h5>{message}</h5>
             </Drawer>
             {/* 抽屜按鈕 */}
             <div
@@ -83,10 +83,9 @@ function MyGiftCardDisplayItem(props) {
               <Button
                 type="primary"
                 onClick={showDrawer}
-                shape="circle"
                 className="btnForMessage"
               >
-                this
+                訊息
               </Button>
             </div>
           </div>

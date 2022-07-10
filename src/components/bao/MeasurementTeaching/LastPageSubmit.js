@@ -24,7 +24,7 @@ function LastPageSubmit(props) {
       // 當你的表單沒有圖片的時候，可以直接傳輸 json 到後端去
       // axios.post(URL, data, config)
       let response = await axios.patch(
-        `http://localhost:3001/api/auth/login`,
+        `http://localhost:3001/api/auth/register`,
         newFields,
         {
           // 如果想要跨源讀寫 cookie

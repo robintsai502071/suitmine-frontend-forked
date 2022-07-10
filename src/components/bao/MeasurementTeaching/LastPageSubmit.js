@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import LastPageBgc from '../../images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png';
 import { useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function LastPageSubmit(props) {
   // -------------------useLocation-----------------------
@@ -160,7 +161,9 @@ function LastPageSubmit(props) {
                     type="submit"
                     className="btn registerBtn mx-auto mt-3"
                   >
-                    <p>送出</p>
+                    <Link to="/login">
+                      <p>送出</p>
+                    </Link>
                   </button>
                 </div>
               </div>

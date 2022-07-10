@@ -33,3 +33,16 @@
     margin-left: 1rem;
   }
 }
+
+.btnss {
+  width: 45%;
+  margin-left: 5%;
+  border: 0px;
+  padding: 2%;
+  border: white 1px solid;
+}
+
+.btnss:hover {
+  background-color: white;
+  border: $light-gray 1px solid;
+}

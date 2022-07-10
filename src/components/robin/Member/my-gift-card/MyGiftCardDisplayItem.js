@@ -34,8 +34,8 @@ function MyGiftCardDisplayItem(props) {
           </div>
 
           <div className="my-gift-card-display-item__btns mt-3">
-            <button>回贈</button>
-            <button>前往使用</button>
+            <button className="btnss sendBack">回贈</button>
+            <button className="btnss useIt">前往使用</button>
           </div>
         </div>
       </div>

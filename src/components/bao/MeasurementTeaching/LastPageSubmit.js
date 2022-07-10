@@ -2,11 +2,22 @@ import React from 'react';
 import axios from 'axios';
 import LastPageBgc from '../../images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png';
 import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 function LastPageSubmit(props) {
+  // -------------------錯誤訊息狀態-----------------------
+  const [errorMessage, seterrorMessage] = useState('');
+
   // -------------------useLocation-----------------------
+  // 將history傳送過來的資料取下來
   const location = useLocation();
+
+  // -------------------useLocation-----------------------
+  // 將history傳送過來的資料取下來
+  const history = useHistory();
+
   // -------------------阻擋非正當管道進入的人(打網址會直接空白)-----------------------
   if (location.state === undefined) {
     return;
@@ -33,8 +44,10 @@ function LastPageSubmit(props) {
         }
       );
       console.log('登入成功', response.data);
+      seterrorMessage('登入成功');
     } catch (e) {
       console.error('登入失敗', e.response.data);
+      seterrorMessage('登入失敗');
     }
   };
   return (
@@ -158,12 +171,24 @@ function LastPageSubmit(props) {
                     ></input>
                   </div>
                   <button
+                    onClick={() => {
+                      Swal.fire({
+                        icon: 'success',
+                        title: '註冊成功',
+                        // 按鈕api
+                        confirmButtonText: '確認',
+                        // 假如按下確認
+                      }).then((result) => {
+                        // 就連接至/login
+                        if (result.isConfirmed) {
+                          history.push('/login');
+                        }
+                      });
+                    }}
                     type="submit"
                     className="btn registerBtn mx-auto mt-3"
                   >
-                    <Link to="/login">
-                      <p>送出</p>
-                    </Link>
+                    <p>送出</p>
                   </button>
                 </div>
               </div>

@@ -307,3 +307,14 @@ label {
   background-color: $light-gray;
   box-shadow: none;
 }
+
+//sweet alert 樣式
+.swal-button {
+  background-color: $dark-gray;
+  color: #fff;
+}
+
+.swal-button:not([disabled]):hover {
+  background-color: $light-gray;
+  color: $dark-gray;
+}

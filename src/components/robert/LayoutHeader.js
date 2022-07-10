@@ -13,6 +13,8 @@ import { responsivePropType } from 'react-bootstrap/esm/createUtilityClasses';
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import swal from 'sweetalert';
+
 const LayoutHeader = () => {
   // const [userInfo, setUserInfo] = useState({
   //   user_id: '',
@@ -54,12 +56,18 @@ const LayoutHeader = () => {
     try {
       let response = await axios.get(`${API_URL}/auth/logout`);
       setIsLogin(false);
-      // weotodo hot toast
+      await swal({
+        text: '登出成功',
+        icon: 'success',
+        buttons: false,
+        timer: 1500,
+      })
       history.push('/login');
     } catch (e) {
       console.error(e);
     }
   };
+  
   return (
     <div className="header bg-dark d-flex justify-content-between p-2">
       <nav role="navigation" className="d-md-none">
@@ -90,9 +98,11 @@ const LayoutHeader = () => {
         </div>
       </nav>
 
-      <div className="logo ms-5 d-flex">
+      {/* 連到首頁 */}
+      <Link to="/home" className="logo ms-5 d-flex">
         <img src={logo} alt="" />
-      </div>
+      </Link>
+
       <div className="shoppingCar fs-4 me-3 d-md-none">
         <i className="fa-solid fa-cart-shopping"></i>
       </div>
@@ -108,11 +118,7 @@ const LayoutHeader = () => {
             門市據點
           </Link>
         </li>
-        <li>
-          <Link to="/member" className="btn text-white">
-            會員中心
-          </Link>
-        </li>
+
         <li>
           <Link to="/blog" className="btn text-white">
             部落格

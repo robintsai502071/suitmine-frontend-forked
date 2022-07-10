@@ -21,7 +21,7 @@ const LayoutMain = () => {
             </li>
             <li className="col-4">
               <Link
-                to="/customize"
+                to="/customize-silent"
                 className="d-flex justify-content-center align-items-center text-dark p-3"
               >
                 <img src={icon1} alt="" />

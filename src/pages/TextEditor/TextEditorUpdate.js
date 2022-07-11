@@ -40,6 +40,7 @@ const TextEditorUpdate = () => {
   // const textTag = useRef();
   const [throwBackText, setThrowback] = useState('');
   const { blogId } = useParams();
+  console.log('blogId', blogId);
 
   // // useEffect(() => {
   // //   let throwBackText = async () => {
@@ -73,12 +74,13 @@ const TextEditorUpdate = () => {
         `http://localhost:3001/api/blogs/${blogId}`
       );
       // console.log(response.data.blog[0].content);
-      console.log(response.data.blog[0]);
+      // console.log(response.data);
       // setThrowback(response.data.blog[0].content);
       setMainArea({
         ...mainArea,
         title: response.data.blog[0].title,
         category: response.data.blog[0].category_id,
+        // images: response.data.blog[0].images,
       });
       setThrowback(response.data.blog[0].content);
     };

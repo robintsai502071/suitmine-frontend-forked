@@ -1,3 +1,11 @@
+// 覆蓋 member page 底下的所有 button 樣式
+.member-container {
+  .ant-btn:hover {
+    color: black;
+    border-color: black;
+  }
+}
+
 // ******** 桌機版 Member.js 上下間距 ********
 .member-container {
   padding-top: 100px;
@@ -46,7 +54,8 @@
     border-bottom: 2px solid $light-gray;
   }
   // 移除 ANTD input 欄位 requried 前墜紅色星號
-  .ant-form-item-label>label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
+  .ant-form-item-label
+    > label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
     display: none;
   }
 }
@@ -73,10 +82,14 @@
   }
   &__upload-icon {
     bottom: 0%;
-    left: 50%;
-    transform: translate(-50%);
-    color: white;
-    font-size: 2rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    border: 1px solid $dark-gray;
+    padding: 0.25rem;
+    background-color: white;
+    // color: $dark-gray;
+    // opacity: .8;
   }
 }
 // 使用者大頭貼圓形

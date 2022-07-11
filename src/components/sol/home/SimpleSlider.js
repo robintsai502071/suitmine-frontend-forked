@@ -25,7 +25,7 @@ export default class MultipleItems extends Component {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true,
+            dots: false,
           },
         },
         {
@@ -34,7 +34,7 @@ export default class MultipleItems extends Component {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true,
+            dots: false,
           },
         },
         {
@@ -43,7 +43,7 @@ export default class MultipleItems extends Component {
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true,
+            dots: false,
           },
         },
         {
@@ -52,7 +52,7 @@ export default class MultipleItems extends Component {
             slidesToShow: 2,
             slidesToScroll: 2,
             infinite: true,
-            dots: true,
+            dots: false,
           },
         },
         {
@@ -61,7 +61,7 @@ export default class MultipleItems extends Component {
             slidesToShow: 2,
             slidesToScroll: 2,
             infinite: true,
-            dots: true,
+            dots: false,
           },
         },
         {
@@ -88,7 +88,7 @@ export default class MultipleItems extends Component {
         data-aos-duration="700"
         data-aos-easing="ease-out-cubic"
       >
-        <div className="row justify-content-center align-items-center">
+        <div className="row justify-content-center align-items-center simpleStyle-container-inner">
           <div className="simpleStyle-slider-outer-wrap-outside">
             <h4 className="simpleStyle-title"> Suit Style</h4>
           </div>

@@ -12,7 +12,7 @@ function SideBar(props) {
               alt=""
             />
           </figure>
-          <h5 className="main__sidebar__username mb-1 ms-1">br502071</h5>
+          <h5 className="main__sidebar__username mb-1 ms-2">br502071</h5>
         </div>
 
         <Accordion

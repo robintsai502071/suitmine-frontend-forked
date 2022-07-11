@@ -22,9 +22,9 @@ function TextEditorPrintWysiwyg() {
       <div className=" container blog blog-print-container text-center">
         {/* <h2>SUITMINE BLOG</h2> */}
         <div className="row justify-content-center blog-print-row">
-          <div className="col-md-3 col-12">
-            {/* <BlogSidebar /> */}
-          </div>
+          {/* <div className="col-md-3 col-12">
+            <BlogSidebar />
+          </div> */}
           <div className="blog-list col-md-9 col-12">
             <TextEditorPrint />
           </div>

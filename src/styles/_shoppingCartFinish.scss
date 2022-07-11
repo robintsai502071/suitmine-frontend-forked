@@ -810,5 +810,14 @@
   position: absolute;
   left: 55%;
   /* top: -28%; */
-  bottom: -3.2%;
+  bottom: -4%;
+}
+
+.Imagree {
+  .ant-checkbox:hover .ant-checkbox-inner {
+    border-color: #000000;
+  }
+  .ant-checkbox-checked .ant-checkbox-inner {
+    background-color: #000000;
+  }
 }

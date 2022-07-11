@@ -9,7 +9,7 @@ function SuitStyle() {
         data-speed="3"
         data-type="background"
       >
-        <div className="container-fluid">
+        <div className="container-fluid suit-style-middle-container">
           <div className="row justify-content-center align-items-center ">
             <div
               data-aos="fade-right"

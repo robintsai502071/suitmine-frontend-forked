@@ -42,6 +42,7 @@ const Accordion = (props) => {
   const localStorageSetItem = () => {
     setProductDetails(productDetails);
   };
+  console.log();
   return (
     <>
       <Collapse defaultActiveKey={['1', '2', '3']}>

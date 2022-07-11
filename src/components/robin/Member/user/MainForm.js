@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import { useLocation, useParams, useHistory } from 'react-router-dom';
 import { API_URL } from '../../../../utils/config';
+import swal from 'sweetalert';
 
 function MainForm(props) {
   const [memberData, setMemberData] = useState({
@@ -16,9 +17,9 @@ function MainForm(props) {
     photo: '',
     valid: '',
   });
-  const [reuploadPhoto, setReuploadPhoto] = useState('');
+  const [reuploadPhoto, setReuploadPhoto] = useState(null);
   const [initialPhoto, setInitialPhoto] = useState('');
-  const [memberId, setMemberId] = useState(39);
+  const [memberId, setMemberId] = useState(0);
   const [isLogin, setIsLogin] = useState(false);
   const [editMode, setEditMode] = useState(false);
   const history = useHistory();
@@ -30,9 +31,19 @@ function MainForm(props) {
   async function handleSubmit(values) {
     let response = await axios.patch(`${API_URL}/member/${memberId}`, {
       ...values,
-      photo: reuploadPhoto,
+      photo: reuploadPhoto || memberData.photo,
     });
-    // weitodo=> 修改成功要跳 toast 重新 render
+
+    swal({
+      // title: '修改密碼成功',
+      text: '修改個人檔案成功',
+      icon: 'success',
+      buttons: false,
+      timer: 1500,
+    }).then(() => {
+      props.setGivenMemberData({ ...memberData, photo: reuploadPhoto });
+      setEditMode(false);
+    });
   }
   async function handleUploadPhoto(e) {
     let formData = new FormData();
@@ -53,7 +64,7 @@ function MainForm(props) {
         });
         setIsLogin(true);
         // console.log(response.data.user_id);
-        setMemberId(response.data.user_id)
+        setMemberId(response.data.user_id);
       } catch (err) {
         // 沒登入就導向登入頁面
         return history.push('/login');
@@ -69,7 +80,7 @@ function MainForm(props) {
         let response = await axios.get(`${API_URL}/member/${memberId}`);
 
         setMemberData(response.data.data);
-        props.setGivenMemberData(response.data.data)
+        props.setGivenMemberData(response.data.data);
         setInitialPhoto(response.data.data.photo);
       };
 
@@ -105,7 +116,10 @@ function MainForm(props) {
                   htmlFor="avatarInput"
                   className="position-absolute w-100 h-100"
                 ></label>
-                <i className="fa-solid fa-cloud-arrow-up position-absolute main__form__avatar__wrapper__upload-icon"></i>
+                {/* <i className="fa-solid fa-cloud-arrow-up position-absolute main__form__avatar__wrapper__upload-icon"></i> */}
+                <h6 className="position-absolute main__form__avatar__wrapper__upload-icon">
+                  上傳圖片<i class="fa-solid fa-arrow-up-from-bracket"></i>
+                </h6>
               </>
             )}
 
@@ -248,7 +262,7 @@ function MainForm(props) {
           </Form.Item>
 
           {editMode && (
-            <div className="d-flex">
+            <div className="d-flex editModeBtns">
               <Form.Item className="me-2">
                 <Button
                   onClick={() => {

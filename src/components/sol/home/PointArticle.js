@@ -2,6 +2,7 @@ import React from 'react';
 import article1 from '../../../images/sol/article1.jpeg';
 import article2 from '../../../images/sol/article2.jpg';
 import rule from '../../../images/sol/rule.png';
+import { Link } from 'react-router-dom';
 
 function PointArticle() {
   return (
@@ -71,12 +72,19 @@ function PointArticle() {
                   data-aos-easing="ease-out-cubic"
                   data-aos-duration="700"
                 >
-                  <img src={article1} className="card-img-top" alt="..." />
+
+
+                          <Link
+            to="/text-editor-print/47"
+          >
+
+                  <img src={article1} className="card-img-top2" alt="..." />
                   <div className="card-body">
                     <h6 className="pointArticle-text text-center">
-                      盤點2022男裝週時髦型男的風格西裝造型
+                    提升男人味必學的「粗糙紳士」穿搭指南
                     </h6>
                   </div>
+          </Link>
                 </div>
 
                 <div
@@ -112,13 +120,16 @@ function PointArticle() {
                   data-aos-easing="ease-out-cubic"
                   data-aos-duration="700"
                 >
-                  <img src={article2} className="card-img-top" alt="..." />
+                                          <Link
+            to="/text-editor-print/56"
+          >
+                  <img src={article2} className="card-img-top2" alt="..." />
                   <div className="card-body">
                     <h6 className="pointArticle-text text-center">
-                      《金牌特務》的西裝如何訂製？由Savile Row一號Gieves &
-                      Hawkes 的金剪刀打版師來跟你說！
+                    型男第一課！訂做一件屬於你的西裝外套
                     </h6>
                   </div>
+                  </Link>
                 </div>
               </div>
             </div>

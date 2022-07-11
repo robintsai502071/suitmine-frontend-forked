@@ -102,6 +102,35 @@ code {
   }
 }
 
+.main1 .button1:hover {
+  color: rgba(40, 40, 40, 0.607);
+  background: rgba(255, 255, 255, 0.29);
+  border: 1px solid rgba(40, 40, 40, 0.607);
+  transition: 0.8s;
+}
+
+.card-group-a {
+  display: block;
+  position: relative;
+  overflow: hidden; //圖片放大
+  transition: 0.8s;
+}
+
+.card-group-a:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.8s;
+}
+
+
+// .card-title:hover{
+//   color: white;
+// }
 // -------------------------------------ProductCategory部分---------------------------------------------------------
 
 .Section_1_pic {
@@ -121,7 +150,7 @@ code {
 }
 
 .card-group11 {
-  margin: 10rem 0;
+  margin: 2rem 0 7rem 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -156,9 +185,21 @@ code {
   padding-bottom: 1rem;
 }
 
+.suit-style-middle-container {
+  margin-top: 3rem;
+  margin-bottom: 4.5rem;
+}
+
 @media screen and (max-width: 768px) {
   .suit-style-title {
     @include h3;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .suit-style-middle-container {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
   }
 }
 
@@ -259,6 +300,14 @@ code {
   width: 30rem;
   bottom: 0;
 }
+
+
+// .card-img-top2{
+//   border-bottom: 5px solid transparent;
+// }
+
+
+
 
 // ----------------------------------------------fabric部分------------------------------------------
 
@@ -363,14 +412,14 @@ code {
 }
 
 // --------------------------------------simple-slider部分--------------------------------
-.slider-outer-wrap {
+.simpleStyle-container .slider-outer-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
 }
 
-.slider-outer {
+.simpleStyle-container .slider-outer {
   max-width: 28rem;
   height: 28rem;
   display: flex;
@@ -380,29 +429,35 @@ code {
   border: 4px solid white;
 }
 
-.slider-img {
+.simpleStyle-container .slider-img {
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
-.simpleStyle-container {
+.simpleStyle-container .simpleStyle-container {
   margin-top: 10rem;
 }
 
-.simpleStyle-title {
+.simpleStyle-container .simpleStyle-title {
   border-bottom: 2px solid black;
   // display: inline-block;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
 }
 
+.simpleStyle-container-inner{
+  margin-bottom: 8rem;
+}
+
+
+
 @media screen and (max-width: 768px) {
-  .slider-text {
+  .simpleStyle-container .slider-text {
     @include h4;
   }
 
-  .simpleStyle-title {
+  .simpleStyle-container .simpleStyle-title {
     margin-left: 2.3rem;
     text-align: center;
     border: none;
@@ -410,7 +465,7 @@ code {
   }
 
   .simpleStyle-container {
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
 }
 
@@ -453,7 +508,7 @@ code {
 // }
 
 .slick-track {
-  height: 420px !important;
+  height: 400px !important;
   margin-top: -30px;
 }
 
@@ -493,3 +548,11 @@ code {
 //     background-size: cover;
 //   }
 // }
+
+.simpleStyle-container {
+  margin-top: 13rem;
+}
+
+.simpleStyle-container .slider-outer-wrap {
+  height: 480px;
+}

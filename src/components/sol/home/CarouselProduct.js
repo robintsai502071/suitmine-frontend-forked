@@ -31,10 +31,10 @@ function CarouselProduct() {
     <Carousel
       responsive={responsive}
       swipeable={false}
-      draggable={false}
+      // draggable={false}
       // showDots={true}
       infinite={true}
-      ssr={true} // means to render carousel on server-side.
+      // ssr={true} // means to render carousel on server-side.
       // autoplay壞掉
       // autoPlay={this.props.deviceType !== 'mobile' ? true : false}
       keyBoardControl={true}
@@ -50,6 +50,10 @@ function CarouselProduct() {
       <div>
         <figure className="carouselProduct_pic_outer1">
           <img src={suit_style1} alt="" />
+          <div className="carouselProduct_pic_outer-text">
+            <h5>213</h5>
+            <p>1111</p>
+          </div>
         </figure>
       </div>
 

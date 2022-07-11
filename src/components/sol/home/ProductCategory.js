@@ -3,6 +3,7 @@ import product_pic1 from '../../../images/sol/suit1.svg';
 import product_pic2 from '../../../images/sol/suit22.svg';
 import product_pic3 from '../../../images/sol/pant1.svg';
 import product_pic4 from '../../../images/sol/item1.svg';
+import { Link } from 'react-router-dom';
 // import AOS from 'aos';
 
 // componentDidMount() {
@@ -81,7 +82,7 @@ function ProductCategory() {
         // data-aos-easing="ease-out-cubic"
         // data-aos-duration="800"
       >
-        <div className="row gx-0 d-flex justify-content-center align-item-center flex-row">
+        <div className="row gx-0 d-flex justify-content-center align-item-center flex-row card-group11-outer">
           <h4
             className="product_category_h mt-5 pb-3 mb-3"
             data-aos="fade-down"
@@ -96,13 +97,15 @@ function ProductCategory() {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="800"
           >
-            <div className="card card-group-a">
-              <img src={product_pic2} className="card-img-top" alt="..." />
-              <div className="card-body d-flex justify-content-center align-item-center flex-column">
-                <h5 className="card-title text-center">西裝類</h5>
-                <h6 className="card-title text-center">Suit</h6>
+            <Link to="/product-list">
+              <div className="card card-group-a">
+                <img src={product_pic2} className="card-img-top" alt="..." />
+                <div className="card-body d-flex justify-content-center align-item-center flex-column">
+                  <h5 className="card-title text-center">西裝類</h5>
+                  <h6 className="card-title text-center">Suit</h6>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           <div
@@ -111,13 +114,15 @@ function ProductCategory() {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="800"
           >
-            <div className="card card-group-a">
-              <img src={product_pic1} className="card-img-top" alt="..." />
-              <div className="card-body d-flex justify-content-center align-item-center flex-column">
-                <h5 className="card-title text-center">襯衫類</h5>
-                <h6 className="card-title text-center">Shirt</h6>
+            <Link to="/product-list">
+              <div className="card card-group-a">
+                <img src={product_pic1} className="card-img-top" alt="..." />
+                <div className="card-body d-flex justify-content-center align-item-center flex-column">
+                  <h5 className="card-title text-center">襯衫類</h5>
+                  <h6 className="card-title text-center">Shirt</h6>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           <div
@@ -126,13 +131,15 @@ function ProductCategory() {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="800"
           >
-            <div className="card card-group-a">
-              <img src={product_pic3} className="card-img-top" alt="..." />
-              <div className="card-body d-flex justify-content-center align-item-center flex-column">
-                <h5 className="card-title text-center">西裝褲類</h5>
-                <h6 className="card-title text-center">Suit pants</h6>
+            <Link to="/product-list">
+              <div className="card card-group-a">
+                <img src={product_pic3} className="card-img-top" alt="..." />
+                <div className="card-body d-flex justify-content-center align-item-center flex-column">
+                  <h5 className="card-title text-center">西裝褲類</h5>
+                  <h6 className="card-title text-center">Suit pants</h6>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
 
           <div
@@ -141,13 +148,15 @@ function ProductCategory() {
             data-aos-easing="ease-out-cubic"
             data-aos-duration="800"
           >
-            <div className="card card-group-a">
-              <img src={product_pic4} className="card-img-top" alt="..." />
-              <div className="card-body d-flex justify-content-center align-item-center flex-column">
-                <h5 className="card-title text-center">配件類</h5>
-                <h6 className="card-title text-center">Suit Accessories</h6>
+            <Link to="/product-list">
+              <div className="card card-group-a">
+                <img src={product_pic4} className="card-img-top" alt="..." />
+                <div className="card-body d-flex justify-content-center align-item-center flex-column">
+                  <h5 className="card-title text-center">配件類</h5>
+                  <h6 className="card-title text-center">Suit Accessories</h6>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

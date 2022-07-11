@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import BlogBackBar from '../../sol/blogBackend/BlogBackBar';
+import swal from 'sweetalert';
 
 function BlogBackend() {
   const [newData, setNewData] = useState([]);
@@ -42,20 +43,36 @@ function BlogBackend() {
     dataGet();
   }, []);
 
-  // ----------------刪除一筆
-  async function handleDelete(e) {
+  // ----------------刪除一筆-----------------
+  function handleDelete(e) {
     // 停掉預設行為
     // e.preventDefault();
-    try {
-      let response = await axios.delete(
-        `http://localhost:3001/api/blogs/${e.target.dataset.id}`
-      );
 
-      let newDataGet = [...dataGet].filter((v) => {
-        return v.id != e.target.dataset.id;
+    try {
+      swal({
+        title: '刪除',
+        text: '確認刪除本筆資料',
+        icon: 'warning',
+        buttons: true,
+        dangerMode: true,
+      }).then((willDelete) => {
+        if (willDelete) {
+          swal('刪除單筆文章成功', {
+            icon: 'success',
+          });
+          let response = axios.delete(
+            `http://localhost:3001/api/blogs/${e.target.dataset.id}`
+          );
+
+          let newDataGet = [...dataGet].filter((v) => {
+            return v.id != e.target.dataset.id;
+          });
+          // console.log('新的', newDataGet);
+          setDataGet(newDataGet);
+        }
       });
-      // console.log('新的', newDataGet);
-      setDataGet(newDataGet);
+
+      // --------------alert---------------
     } catch (e) {
       console.error(e);
     }

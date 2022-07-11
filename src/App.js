@@ -45,14 +45,6 @@ function App() {
         </Route>
 
         {/* [更新] 文字編輯器 */}
-        <Route path="/text-editor-update">
-          <TextEditorUpdateWysiwyg />
-        </Route>
-
-        <Route path="/text-editor-update/:blogUpdateId">
-          <TextEditorUpdateWysiwyg />
-        </Route>
-
         <Route path="/text-editor-update/:blogId">
           <TextEditorUpdateWysiwyg />
         </Route>

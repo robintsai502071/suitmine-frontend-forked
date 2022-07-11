@@ -17,12 +17,17 @@ function Home() {
       <LayoutHeader />
       <VideoBG />
       <LayoutMain />
-      <ProductCategory />
-      {/* <Meature /> */}
-      <SuitStyle />
-      <PointArticle />
-      <Fabric />
-      <SimpleSlider />
+
+      <div className="home-main-bg2">
+        <div className="home-main-mobile-bg">
+          <ProductCategory />
+          {/* <Meature /> */}
+          <SuitStyle />
+          <PointArticle />
+          <Fabric />
+          <SimpleSlider  className="simple-slider-home"/>
+        </div>
+      </div>
       <LayoutFooter />
     </>
   );

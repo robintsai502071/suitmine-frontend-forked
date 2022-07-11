@@ -42,7 +42,7 @@ function BlogList(props) {
 
       setDataGet(allData);
       // console.log(stringToHtml.__html[0].title);
-      // console.log(allData[0].content);
+      console.log(allData[0].content);
     };
     dataGet();
     // offset += 6;
@@ -161,6 +161,7 @@ function BlogList(props) {
                       {/* </a> */}
                     </Link>
                     <div className="card-body text-start">
+                      <p className="card-list-hashtag mb-2">#{value.category_id}</p>
                       <h5 className="card-title">
                         {/* <a
                             className="text-dark text-decoration-none"

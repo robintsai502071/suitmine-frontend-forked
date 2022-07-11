@@ -12,6 +12,8 @@ import LayoutMain from '../components/robert/LayoutMain';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import { API_URL } from '../utils/config';
 import { Link } from 'react-router-dom';
+import { Button, Modal } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 function ProductList() {
   // 原始資料
@@ -42,6 +44,8 @@ function ProductList() {
 
   //錯誤訊息用
   const [error, setError] = useState('');
+
+  // antd
 
   //商品分頁頁碼功能
   // const [pagenation, setPagenation] = useState({
@@ -349,6 +353,38 @@ function ProductList() {
     // 偵測這幾個變數有更動就會執行上面的動作
   }, [pageNow, searchWord, sortBy, colorFilter, productFilter]);
 
+  const success = () => {
+    Modal.success({
+      content: '成功加入我的收藏',
+      centered: true,
+    });
+  };
+
+  const { confirm } = Modal;
+
+  const destroyAll = () => {
+    Modal.destroyAll();
+  };
+
+  const showConfirm = () => {
+    for (let i = 0; i < 1; i += 1) {
+      setTimeout(() => {
+        confirm({
+          icon: <ExclamationCircleOutlined />,
+          content: "確定要移除我的收藏嗎？",
+
+          onOk() {
+            console.log('確定');
+          },
+
+          onCancel() {
+            console.log('取消');
+          },
+        });
+      }, i * 500);
+    }
+  };
+
   return (
     <div className="ProductList">
       <LayoutHeader />
@@ -470,10 +506,12 @@ function ProductList() {
                                   e.preventDefault();
                                   if (e.target.classList.contains('active')) {
                                     deleteFavData(v.id);
-                                    console.log('yes');
+                                    showConfirm();
+                                    // console.log('yes');
                                   } else {
                                     postFavData(v.id);
-                                    console.log('no');
+                                    success();
+                                    // console.log('no');
                                   }
                                   e.target.classList.toggle('active');
                                 }}
@@ -488,10 +526,12 @@ function ProductList() {
                                   // postFavData(v.id);
                                   if (e.target.classList.contains('active')) {
                                     deleteFavData(v.id);
-                                    console.log('yes');
+                                    showConfirm();
+                                    // console.log('yes');
                                   } else {
                                     postFavData(v.id);
-                                    console.log('no');
+                                    success();
+                                    // console.log('no');
                                   }
                                   e.target.classList.toggle('active');
                                 }}

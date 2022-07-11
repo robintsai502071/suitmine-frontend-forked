@@ -13,6 +13,7 @@ import Finish from '../components/alden/ShoppingCart/finish';
 import { API_URL } from '../utils/config';
 import { useEffect } from 'react';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 function ShoppingCartChecking() {
   //Steps
@@ -29,6 +30,9 @@ function ShoppingCartChecking() {
   }, []);
   const menbership = getShopCartInfo.user;
   const usableGiftCard = getShopCartInfo.giftCardList;
+
+  //checkbox的useState
+  const [checked, setChecked] = useState(0);
 
   return (
     <div className="shopingCart">
@@ -54,7 +58,11 @@ function ShoppingCartChecking() {
         {steps === 1 && <Payment />}
 
         {steps === 2 && menbership && (
-          <ConsumerDetail menbership={menbership} />
+          <ConsumerDetail
+            menbership={menbership}
+            checked={checked}
+            setChecked={setChecked}
+          />
         )}
 
         {steps === 3 && menbership && <Finish menbership={menbership} />}
@@ -110,7 +118,13 @@ function ShoppingCartChecking() {
                     : 'btn btn-primary widthbtn'
                 }
                 onClick={() => {
-                  steps >= 3 ? setSteps(3) : setSteps(steps + 1);
+                  if (steps < 2) {
+                    setSteps(steps + 1);
+                  } else if (checked === 0 && steps === 2) {
+                    swal('請於下方勾選退換貨條款，以利加速退款作業');
+                  } else if (checked === 1 && steps === 2) {
+                    setSteps(steps + 1);
+                  }
                 }}
               >
                 下一步

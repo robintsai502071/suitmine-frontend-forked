@@ -1,31 +1,50 @@
 import React from 'react';
 // import measurementProfile from '../../../images/sol/measurement-profile.jpg';
 import ipad_img from '../../../images/sol/ipad.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 function PredictiveMeasurements() {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
   return (
     <>
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-6 col-12 d-flex justify-content-center align-items-center">
             <div className="row flex-column gy-5">
-              <div className="col-12 d-md-none d-block">
+              <div
+                className="col-12 d-md-none d-block"
+                data-aos="fade-down"
+                data-aos-duration="1000"
+              >
                 <h5 className="predictive-measurements-title">無需裁縫</h5>
                 <p className="predictive-measurements-p">
                   我們使用在線流程可讓您在 10-15
                   分鐘內設置好自己的客製測量結果。您只需要一個朋友和一個捲尺，剩下的就交給我們
                 </p>
                 <a className="" href="#/">
-                  立即測量
+                  立即註冊 開始測量
                 </a>
               </div>
-              <div className="col-12">
+              <div
+                className="col-12"
+                data-aos="fade-down"
+                data-aos-duration="900"
+              >
                 <h5 className="predictive-measurements-title">預測性測量</h5>
                 <p className="predictive-measurements-p">
                   我們的智能演算法使用您的身高和體重來建議測量值，以指導您完成訂製
                 </p>
               </div>
-              <div className="col-12">
+              <div
+                className="col-12"
+                data-aos="fade-down"
+                data-aos-duration="950"
+              >
                 <h5 className="predictive-measurements-title">測量審查</h5>
                 <p className="predictive-measurements-p">
                   我們的主裁縫會審查每個測量配置，並會提醒我們的團隊在任何測量結果需要調整時與您聯繫，以確保西裝的合身
@@ -34,7 +53,11 @@ function PredictiveMeasurements() {
             </div>
           </div>
           <div className="col-6 col-md-6 d-md-block d-none d-flex justify-content-center align-items-center d-md-block d-none">
-            <div className="row flex-column">
+            <div
+              className="row flex-column"
+              data-aos="fade-left"
+              data-aos-duration="900"
+            >
               <figure className="ipad-outer d-flex justify-content-end align-items-center">
                 <img src={ipad_img} alt="" className="ipad-img" />
               </figure>

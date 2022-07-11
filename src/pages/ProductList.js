@@ -7,6 +7,8 @@ import ProductTypeBar from '../components/bao/productList/ProductTypeBar';
 import RWDProductTypeBar from '../components/bao/productList/RWDProductTypeBar';
 import SwitchButton from '../components/bao/productList/SwitchButton';
 import LayoutHeader from '../components/robert/LayoutHeader';
+import LayoutMain from '../components/robert/LayoutMain';
+// import LayoutFooter from '../components/robert/LayoutFooter';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import { API_URL } from '../utils/config';
 import { Link } from 'react-router-dom';

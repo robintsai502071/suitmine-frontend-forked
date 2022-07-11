@@ -42,7 +42,7 @@
   object-fit: cover;
 }
 // ------------------錯誤訊息----------------------
-.Login .errorMessage p{
+ .errorMessage {
   font-size: 14px;
   color: rgb(228, 0, 0);
 }
@@ -114,6 +114,9 @@
   color: #000000;
   border-color: #000000;
   background: #fff;
+}
+.registerButonBox p {
+  color: #000;
 }
 // ==================form表單RWD==================
 @media screen and (max-width: 768px) {

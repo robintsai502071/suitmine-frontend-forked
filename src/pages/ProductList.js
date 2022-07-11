@@ -19,6 +19,7 @@ function ProductList() {
   //  我的收藏資料
   const [favData, setFavData] = useState([]);
   // const { memberId } = useParams();
+  const [favPro, setFavPro] = useState([]);
   let memberId = 1;
 
   // 分頁
@@ -111,12 +112,31 @@ function ProductList() {
     getFavData();
   }, []);
 
-  let postFavData = async () => {
-    let postFav = { user_id: memberId, product_id: favData.data.product_id };
+  console.log('miu', favData);
 
-    let response3 = await axios.post('https://reqres.in/api/articles', postFav);
+  const postFavData = async (product_id) => {
+    try {
+      let response3 = await axios.post(
+        `${API_URL}/member/${memberId}/my-favorites`,
+        { product_id: product_id }
+      );
+    } catch (e) {
+      console.error(e);
+    }
+    // console.log(postFav);
   };
 
+  const deleteFavData = async (product_id) => {
+    try {
+      let response4 = await axios.delete(
+        `${API_URL}/member/${memberId}/my-favorites`,
+        { data: { product_id: product_id } }
+      );
+    } catch (e) {
+      console.error(e);
+    }
+    // console.log(postFav);
+  };
   // 顏色篩選
   const handleColorChange = (product, colorFilter) => {
     let newProducts = [...product];
@@ -429,35 +449,54 @@ function ProductList() {
                             <p className="h6 price card-text englishText  CardP_Padding">
                               {v.price}
                             </p>
-                            <i
-                              className="fa-solid fa-heart product-fa-heart text-red"
-                              // onClick={(e) => {
-                              //   e.stopPropagation();
-                              //   e.preventDefault();
-                              //   e.target.classList.toggle('active');
-                              // }}
-                            ></i>
-                            {/* {favData?.findIndex((item) => {
-                              return item.id == v.id;
+
+                            {/* <i
+                              className="fa-solid fa-heart product-fa-heart text-"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                e.target.classList.toggle('active');
+                                postFavData(v.id);
+                              }}
+                            ></i> */}
+                            {favData?.findIndex((item) => {
+                              return item.product_id == v.id;
                             }) > -1 ? (
                               <i
-                                className="fa-solid fa-heart product-fa-heart text-red"
-                                // onClick={(e) => {
-                                //   e.stopPropagation();
-                                //   e.preventDefault();
-                                //   e.target.classList.toggle('active');
-                                // }}
+                                className="fa-solid fa-heart product-fa-heart active"
+                                data-id={v.id}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  e.preventDefault();
+                                  if (e.target.classList.contains('active')) {
+                                    deleteFavData(v.id);
+                                    console.log('yes');
+                                  } else {
+                                    postFavData(v.id);
+                                    console.log('no');
+                                  }
+                                  e.target.classList.toggle('active');
+                                }}
                               ></i>
                             ) : (
                               <i
                                 className="fa-solid fa-heart product-fa-heart"
-                                // onClick={(e) => {
-                                //   e.stopPropagation();
-                                //   e.preventDefault();
-                                //   e.target.classList.toggle('');
-                                // }}
+                                data-id={v.id}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  e.preventDefault();
+                                  // postFavData(v.id);
+                                  if (e.target.classList.contains('active')) {
+                                    deleteFavData(v.id);
+                                    console.log('yes');
+                                  } else {
+                                    postFavData(v.id);
+                                    console.log('no');
+                                  }
+                                  e.target.classList.toggle('active');
+                                }}
                               ></i>
-                            )} */}
+                            )}
                           </div>
                         </div>
                       </div>

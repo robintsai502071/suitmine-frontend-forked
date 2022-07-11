@@ -492,7 +492,9 @@ function ProductList() {
           <div className="container">
             <div className="productListRow row ">
               <div className="messageBox d-flex justify-content-center align-items-center flex-column ">
-                <span className="chineseText h4">為什麼那麼多人想成為我們忠實顧客</span>
+                <span className="chineseText h4">
+                  為什麼那麼多人想成為我們忠實顧客
+                </span>
                 <div className="customersSayBox">
                   <p className="chineseText customersSayMargin h6">
                     「套裝品質非常好，工作人員也非常友善，我訂製了幾套西裝，嘗試了我一直很喜歡的斜紋款式，值得信賴及推薦的品牌！」

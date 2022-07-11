@@ -16,41 +16,69 @@ import { useEffect } from 'react';
 import swal from 'sweetalert';
 
 const LayoutHeader = () => {
-  // const [userInfo, setUserInfo] = useState({
-  //   user_id: '',
-  //   email: '',
-  //   name: '',
-  //   photo: '',
-  // });
+  const [userInfo, setUserInfo] = useState({
+    user_id: '',
+    email: '',
+    name: '',
+    photo: '',
+  });
   const [isLogin, setIsLogin] = useState(false);
   const history = useHistory();
-  const location = useLocation();
-  // console.log('location' + location.state.isLogin);
+  // const location = useLocation();
 
   // 登入後轉址到個人檔案頁面 /login to /member/user/xx
   // 有傳遞 state.isLogin = true 的狀態過來，在 LayoutHeader 的時候 setIsLogin 讓登出 icon 出現
-  useEffect(() => {
-    if (location.state === undefined) return;
-    if (location.state.isLogin) {
-      setIsLogin(location.state.isLogin);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (location.state === undefined) return;
+  //   if (location.state.isLogin) {
+  //     setIsLogin(location.state.isLogin);
+  //   }
+  // }, []);
 
-  const checkIsLogin = async (e) => {
-    e.preventDefault();
-    try {
+  // 載入時就要確認是否登入
+  useEffect(() => {
+    const checkIsLogin = async () => {
       let response = await axios.get(`${API_URL}/auth/checkIsLogin`, {
         // 允許跨源讀寫 cookie
         withCredentials: true,
       });
-      // 登入成功就轉址到會員頁
+      // 有登入就把使用者資訊提取出來
       setIsLogin(true);
-      history.push(`/member/user/${response.data.user_id}`);
-    } catch (err) {
-      // 如果尚未登入就轉址到登入頁面
-      history.push('/login');
+      setUserInfo({
+        user_id: response.data.user_id,
+        email: response.data.email,
+        name: response.data.name,
+        photo: response.data.photo,
+      });
+    };
+    checkIsLogin();
+  }, []);
+
+  const handleLogin = () => {
+    // 有登入就轉向會員個人檔案頁面
+    if (isLogin === true) {
+      history.push(`/member/user/${userInfo.user_id}`);
+    } else {
+      // 沒登入就回登入頁面
+      history.push(`/login`);
     }
   };
+  // const checkIsLogin = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     let response = await axios.get(`${API_URL}/auth/checkIsLogin`, {
+  //       // 允許跨源讀寫 cookie
+  //       withCredentials: true,
+  //     });
+  //     // 登入成功就轉址到會員頁
+  //     setIsLogin(true);
+  //     history.push(`/member/user/${response.data.user_id}`);
+  //   } catch (err) {
+  //     // 如果尚未登入就轉址到登入頁面
+  //     history.push('/login');
+  //   }
+  // };
+
   const logout = async (e) => {
     e.preventDefault();
     try {
@@ -61,13 +89,13 @@ const LayoutHeader = () => {
         icon: 'success',
         buttons: false,
         timer: 1500,
-      })
+      });
       history.push('/login');
     } catch (e) {
       console.error(e);
     }
   };
-  
+
   return (
     <div className="header bg-dark d-flex justify-content-between p-2">
       <nav role="navigation" className="d-md-none">
@@ -84,9 +112,6 @@ const LayoutHeader = () => {
             </Link>
             <Link to="booking-map">
               <li>門市據點</li>
-            </Link>
-            <Link to="/member">
-              <li>會員中心</li>
             </Link>
             <Link to="/blog">
               <li>部落格</li>
@@ -130,7 +155,7 @@ const LayoutHeader = () => {
           </Link>
         </li>
         <li>
-          <a onClick={checkIsLogin}>
+          <a onClick={handleLogin}>
             <i className="fa-regular fa-user text-white btn"></i>
           </a>
         </li>

@@ -7,7 +7,10 @@ import { useState } from 'react';
 import Swal from 'sweetalert2';
 
 function LastPageSubmit(props) {
-  // -------------------useLocation-----------------------
+  // -------------------錯誤訊息狀態-----------------------
+  const [errorMessage, seterrorMessage] = useState('');
+
+  // ----giver---------------useLocation-----------------------
   // 將history傳送過來的資料取下來
   const location = useLocation();
 

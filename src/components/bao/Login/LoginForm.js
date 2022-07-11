@@ -44,12 +44,13 @@ function Form() {
         buttons: false,
         timer: 1500,
       }).then(() => {
-        history.push({
-          pathname: `/member/user/${response.data.user.user_id}`,
-          state: {
-            isLogin: true,
-          },
-        });
+        history.push('/home');
+        // history.push({
+        //   pathname: `/member/user/${response.data.user.user_id}`,
+        //   state: {
+        //     isLogin: true,
+        //   },
+        // });
       });
     } catch (e) {
       console.error('登入失敗', e.response.data);

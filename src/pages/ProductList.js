@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
+import { useParams } from 'react-router-dom';
 import FilterBar from '../components/bao/productList/FilterBar';
 import SearchInput from '../components/bao/productList/SearchInput';
 import ProductTypeBar from '../components/bao/productList/ProductTypeBar';
@@ -16,6 +16,12 @@ import { Link } from 'react-router-dom';
 function ProductList() {
   // 原始資料
   const [product, setProduct] = useState([]);
+  //  我的收藏資料
+  const [favData, setFavData] = useState([]);
+  // const { memberId } = useParams();
+  const [favPro, setFavPro] = useState([]);
+  let memberId = 1;
+
   // 分頁
   const [pageTotal, setPageTotal] = useState(1);
   const [pageNow, setPageNow] = useState(1);
@@ -23,7 +29,6 @@ function ProductList() {
   const [isMounted, setIsMounted] = useState(false);
   const perPage = 12;
   let totalProduct = [];
-
   //商品名稱搜尋
   const [searchWord, setSearchWord] = useState('');
 
@@ -68,7 +73,7 @@ function ProductList() {
         // 如果不是回傳陣列有可能是錯誤或得不到正確資料
         // state users必須保持為陣列，不然map會發生中斷錯誤
         if (Array.isArray(response.data)) {
-          // setProduct(response.data);
+          // setProduct(response.data,"42123");
           totalProduct = response.data;
           // console.log([...totalProduct].length);
           setProduct([...totalProduct].slice(0, perPage));
@@ -86,7 +91,52 @@ function ProductList() {
     getProduct();
     setIsMounted(true);
   }, []);
+  // 拿我的收藏資料
+  useEffect(() => {
+    let getFavData = async () => {
+      //try catch 做錯誤處理
 
+      try {
+        // axios.get(URL, config)
+        let response2 = await axios.get(
+          `${API_URL}/member/${memberId}/my-favorites`
+        );
+
+        setFavData(response2.data.myFavorites);
+        console.log(response2.data, '34567');
+      } catch (e) {
+        console.error(e);
+        setError(e.message);
+      }
+    };
+    getFavData();
+  }, []);
+
+  console.log('miu', favData);
+
+  const postFavData = async (product_id) => {
+    try {
+      let response3 = await axios.post(
+        `${API_URL}/member/${memberId}/my-favorites`,
+        { product_id: product_id }
+      );
+    } catch (e) {
+      console.error(e);
+    }
+    // console.log(postFav);
+  };
+
+  const deleteFavData = async (product_id) => {
+    try {
+      let response4 = await axios.delete(
+        `${API_URL}/member/${memberId}/my-favorites`,
+        { data: { product_id: product_id } }
+      );
+    } catch (e) {
+      console.error(e);
+    }
+    // console.log(postFav);
+  };
   // 顏色篩選
   const handleColorChange = (product, colorFilter) => {
     let newProducts = [...product];
@@ -374,6 +424,9 @@ function ProductList() {
                       key={v.id}
                       href="#/"
                       className="col-xxl-3 col-lg-4 col-md-6 col-6 px-3 d-flex cardSize cardBottomMargin"
+                      onClick={() => {
+                        console.log('a');
+                      }}
                     >
                       <div className="card cardStyle ">
                         <div className="imgBox position-relative">
@@ -396,7 +449,54 @@ function ProductList() {
                             <p className="h6 price card-text englishText  CardP_Padding">
                               {v.price}
                             </p>
-                            <i className="fa-solid fa-heart product-fa-heart"></i>
+
+                            {/* <i
+                              className="fa-solid fa-heart product-fa-heart text-"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                e.target.classList.toggle('active');
+                                postFavData(v.id);
+                              }}
+                            ></i> */}
+                            {favData?.findIndex((item) => {
+                              return item.product_id == v.id;
+                            }) > -1 ? (
+                              <i
+                                className="fa-solid fa-heart product-fa-heart active"
+                                data-id={v.id}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  e.preventDefault();
+                                  if (e.target.classList.contains('active')) {
+                                    deleteFavData(v.id);
+                                    console.log('yes');
+                                  } else {
+                                    postFavData(v.id);
+                                    console.log('no');
+                                  }
+                                  e.target.classList.toggle('active');
+                                }}
+                              ></i>
+                            ) : (
+                              <i
+                                className="fa-solid fa-heart product-fa-heart"
+                                data-id={v.id}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  e.preventDefault();
+                                  // postFavData(v.id);
+                                  if (e.target.classList.contains('active')) {
+                                    deleteFavData(v.id);
+                                    console.log('yes');
+                                  } else {
+                                    postFavData(v.id);
+                                    console.log('no');
+                                  }
+                                  e.target.classList.toggle('active');
+                                }}
+                              ></i>
+                            )}
                           </div>
                         </div>
                       </div>

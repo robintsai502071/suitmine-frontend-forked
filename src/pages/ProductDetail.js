@@ -56,12 +56,14 @@ function ProductDetail() {
   // const { stockId } = useParams();
 
   // ========== 從後端傳送單筆商品資料過來(待用) ==========
+
+  //抓網址上的productsId
+  const { productsId } = useParams();
   const productAxios = async () => {
     const responseProduct = await axios.get(
-      `${API_URL}/prodetail/products/1`
-      // , { params: { product }},
+      // 將網址上的productsId帶到axios的網址向後端發請求
+      `${API_URL}/prodetail/products/${productsId}`
     );
-    // console.log(product[0].productDetailPhoto1);
     console.log(responseProduct.data);
 
     setProduct(responseProduct.data);

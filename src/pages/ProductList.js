@@ -28,7 +28,6 @@ function ProductList() {
   const [isMounted, setIsMounted] = useState(false);
   const perPage = 12;
   let totalProduct = [];
-
   //商品名稱搜尋
   const [searchWord, setSearchWord] = useState('');
 
@@ -73,7 +72,7 @@ function ProductList() {
         // 如果不是回傳陣列有可能是錯誤或得不到正確資料
         // state users必須保持為陣列，不然map會發生中斷錯誤
         if (Array.isArray(response.data)) {
-          // setProduct(response.data);
+          // setProduct(response.data,"42123");
           totalProduct = response.data;
           // console.log([...totalProduct].length);
           setProduct([...totalProduct].slice(0, perPage));
@@ -101,27 +100,22 @@ function ProductList() {
         let response2 = await axios.get(
           `${API_URL}/member/${memberId}/my-favorites`
         );
-        // console.log(response2);
-        // 設定到state
-        // 如果不是回傳陣列有可能是錯誤或得不到正確資料
-        // state users必須保持為陣列，不然map會發生中斷錯誤
 
-        setFavData(response2.data);
+        setFavData(response2.data.myFavorites);
         console.log(response2.data, '34567');
       } catch (e) {
         console.error(e);
         setError(e.message);
       }
     };
-    //呼叫getProduct函式
     getFavData();
   }, []);
-  // useEffect(() => {
-  //   let postFavData = async () => {
-  //     let postFav = { user_id: id, product_id: productId };
-  //     let response3 = await axios.post('https://reqres.in/api/articles', postFav);
-  //   };
-  // });
+
+  let postFavData = async () => {
+    let postFav = { user_id: memberId, product_id: favData.data.product_id };
+
+    let response3 = await axios.post('https://reqres.in/api/articles', postFav);
+  };
 
   // 顏色篩選
   const handleColorChange = (product, colorFilter) => {
@@ -435,15 +429,35 @@ function ProductList() {
                             <p className="h6 price card-text englishText  CardP_Padding">
                               {v.price}
                             </p>
-
                             <i
-                              className="fa-solid fa-heart product-fa-heart"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                e.preventDefault();
-                                e.target.classList.toggle('active');
-                              }}
+                              className="fa-solid fa-heart product-fa-heart text-red"
+                              // onClick={(e) => {
+                              //   e.stopPropagation();
+                              //   e.preventDefault();
+                              //   e.target.classList.toggle('active');
+                              // }}
                             ></i>
+                            {/* {favData?.findIndex((item) => {
+                              return item.id == v.id;
+                            }) > -1 ? (
+                              <i
+                                className="fa-solid fa-heart product-fa-heart text-red"
+                                // onClick={(e) => {
+                                //   e.stopPropagation();
+                                //   e.preventDefault();
+                                //   e.target.classList.toggle('active');
+                                // }}
+                              ></i>
+                            ) : (
+                              <i
+                                className="fa-solid fa-heart product-fa-heart"
+                                // onClick={(e) => {
+                                //   e.stopPropagation();
+                                //   e.preventDefault();
+                                //   e.target.classList.toggle('');
+                                // }}
+                              ></i>
+                            )} */}
                           </div>
                         </div>
                       </div>

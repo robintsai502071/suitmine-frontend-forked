@@ -9,7 +9,6 @@
     @include text;
     color: $dark-gray;
   }
-  
 }
 
 .heart-icon {
@@ -21,4 +20,17 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+.classForFit {
+  object-fit: contain;
+}
+
+.loveBtn {
+  border: 0px;
+  background-color: white;
+}
+
+.loveBtn:hover {
+  color: lightgray !important;
 }

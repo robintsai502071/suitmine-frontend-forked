@@ -27,23 +27,34 @@ function ChangePasswordForm(props) {
       user_id: givenMemberData.id,
     };
 
-    let response = await axios.post(
-      `${API_URL}/auth/change-password`,
-      formData
-    );
-
-    if (response.data.success) {
-      swal({
+    try {
+      let response = await axios.post(
+        `${API_URL}/auth/change-password`,
+        formData
+      );
+      await swal({
         // title: '修改密碼成功',
         text: '修改密碼成功',
         icon: 'success',
         buttons: false,
         timer: 1500,
-      }).then(() => {
-        formRef.current.resetFields();
-        console.log('修改成功' + response.data.success);
+      });
+      formRef.current.resetFields();
+    } catch (err) {
+      await swal({
+        // title: '修改密碼成功',
+        text: '目前密碼錯誤！',
+        icon: 'error',
+        button: '確認',
+        // timer: 1500,
       });
     }
+
+    // if (response.data.success) {
+
+    //   // console.log('修改成功' + response.data.success);
+    // }
+    // console.log(response);
   };
 
   return (

@@ -139,7 +139,7 @@ function App() {
           <Measurement />
         </Route>
 
-        <Route path="/product-detail">
+        <Route path="/product-detail/:productsId">
           <ProductDetail />
         </Route>
 

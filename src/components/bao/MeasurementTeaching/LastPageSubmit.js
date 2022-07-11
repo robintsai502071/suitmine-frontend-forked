@@ -173,6 +173,7 @@ function LastPageSubmit(props) {
                   </div>
                   <button
                     onClick={() => {
+                      // 此為套件sweetAleartAPI
                       Swal.fire({
                         icon: 'success',
                         title: '註冊成功',

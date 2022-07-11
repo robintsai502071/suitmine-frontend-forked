@@ -134,12 +134,12 @@ const LayoutHeader = () => {
 
       <ul className="header-menu w-50  justify-content-between align-item-center d-none d-md-flex me-5 py-2">
         <li>
-          <Link to="product-list" className="btn text-white">
+          <Link to="/product-list" className="btn text-white">
             商品總覽
           </Link>
         </li>
         <li>
-          <Link to="booking-map" className="btn text-white">
+          <Link to="/booking-map" className="btn text-white">
             門市據點
           </Link>
         </li>

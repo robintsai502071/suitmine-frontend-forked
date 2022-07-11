@@ -4,14 +4,17 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../../../utils/config';
+import { useParams } from 'react-router-dom';
 
 function MyFavoritesDisplay() {
   let [arr, setArr] = useState([]);
   //從後端撈資料
   const [getMyfavorite, setGetMyfavorite] = useState([]);
+  const useId = useParams();
   useEffect(() => {
     let getStocks = async () => {
-      let response = await axios.get(`${API_URL}/myFavorite/1`);
+      console.log('useId', useId.memberId);
+      let response = await axios.get(`${API_URL}/myFavorite/${useId.memberId}`);
       setGetMyfavorite(response.data);
       console.log(response.data.my_favorites);
       setArr(response.data.my_favorites);
@@ -19,15 +22,16 @@ function MyFavoritesDisplay() {
     getStocks();
   }, []);
 
-  useEffect(() => {
-    let getStocks = async () => {
-      let response = await axios.get(`${API_URL}/myFavorite/1`);
-      setGetMyfavorite(response.data);
-      console.log(response.data.my_favorites);
-      setArr(response.data.my_favorites);
-    };
-    getStocks();
-  }, [arr]);
+  // useEffect(() => {
+  //   console.log('useId', useId);
+  //   let getStocks = async () => {
+  //     let response = await axios.get(`${API_URL}/myFavorite/28`);
+  //     setGetMyfavorite(response.data);
+  //     console.log(response.data.my_favorites);
+  //     setArr(response.data.my_favorites);
+  //   };
+  //   getStocks();
+  // }, [arr]);
 
   const newGetMyfavorite = getMyfavorite.my_favorites;
   //刪除

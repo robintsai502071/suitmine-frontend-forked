@@ -155,6 +155,11 @@ const LayoutHeader = () => {
           </Link>
         </li>
         <li>
+          <Link to="/shopping-cart" className="btn text-white">
+            購物車
+          </Link>
+        </li>
+        <li>
           <a onClick={handleLogin}>
             <i className="fa-regular fa-user text-white btn"></i>
           </a>

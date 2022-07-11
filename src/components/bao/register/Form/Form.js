@@ -16,7 +16,7 @@ function Form() {
     email: '',
     password: '',
     confirmPassword: '',
-    gender: '男',
+    gender: 0,
     age: '',
     photo: '',
   });

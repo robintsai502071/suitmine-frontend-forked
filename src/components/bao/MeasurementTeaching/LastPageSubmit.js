@@ -2,10 +2,22 @@ import React from 'react';
 import axios from 'axios';
 import LastPageBgc from '../../images/register/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png';
 import { useLocation } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 function LastPageSubmit(props) {
-  // -------------------useLocation-----------------------
+  // -------------------錯誤訊息狀態-----------------------
+  const [errorMessage, seterrorMessage] = useState('');
+
+  // ----giver---------------useLocation-----------------------
+  // 將history傳送過來的資料取下來
   const location = useLocation();
+
+  // -------------------useLocation-----------------------
+  // 將history傳送過來的資料取下來
+  const history = useHistory();
+
   // -------------------阻擋非正當管道進入的人(打網址會直接空白)-----------------------
   if (location.state === undefined) {
     return;
@@ -16,6 +28,9 @@ function LastPageSubmit(props) {
   const newFields = { ...fields, memberId: location.state.insertId };
   console.log(newFields);
 
+  // 使用者ID
+  const memberId = location.state.insertId;
+
   // -------------------處理表單送出的函示-----------------------
   const handleSubmit = async (e) => {
     // 阻擋表單送出
@@ -24,7 +39,7 @@ function LastPageSubmit(props) {
       // 當你的表單沒有圖片的時候，可以直接傳輸 json 到後端去
       // axios.post(URL, data, config)
       let response = await axios.patch(
-        `http://localhost:3001/api/auth/login`,
+        `http://localhost:3001/api/member/${memberId}/body-info`,
         newFields,
         {
           // 如果想要跨源讀寫 cookie
@@ -104,7 +119,7 @@ function LastPageSubmit(props) {
                       type="number"
                       class="form-control"
                       id="exampleFormControlInput1"
-                      value={fields.chest}
+                      value={fields.chest_width}
                       name="chest"
                       placeholder="請輸入胸圍"
                       onChange={handleFieldChange}
@@ -134,7 +149,7 @@ function LastPageSubmit(props) {
                       type="number"
                       class="form-control"
                       id="exampleFormControlInput1"
-                      value={fields.waist}
+                      value={fields.waist_width}
                       name="waist"
                       placeholder="請輸入腰圍"
                       onChange={handleFieldChange}
@@ -157,6 +172,21 @@ function LastPageSubmit(props) {
                     ></input>
                   </div>
                   <button
+                    onClick={() => {
+                      // 此為套件sweetAleartAPI
+                      Swal.fire({
+                        icon: 'success',
+                        title: '註冊成功',
+                        // 按鈕api
+                        confirmButtonText: '確認',
+                        // 假如按下確認
+                      }).then((result) => {
+                        // 就連接至/login
+                        if (result.isConfirmed) {
+                          history.push('/login');
+                        }
+                      });
+                    }}
                     type="submit"
                     className="btn registerBtn mx-auto mt-3"
                   >

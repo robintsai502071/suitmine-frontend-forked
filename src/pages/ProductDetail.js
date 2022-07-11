@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useParams } from 'react';
+import React, { useEffect, useState } from 'react';
 import LayoutHeader from '../components/robert/LayoutHeader';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import AddInCart from '../components/alden/ProductDetail/AddInCart';
@@ -11,6 +11,8 @@ import { API_URL } from '../utils/config';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import AOS from 'aos';
+import { useParams } from 'react-router-dom';
+
 function SampleNextArrow(props) {
   // --------- slider設定檔 ---------
   const { className, style, onClick } = props;
@@ -56,12 +58,15 @@ function ProductDetail() {
   // const { stockId } = useParams();
 
   // ========== 從後端傳送單筆商品資料過來(待用) ==========
+
+  const { productsId } = useParams();
+  console.log(productsId);
+
   const productAxios = async () => {
     const responseProduct = await axios.get(
-      `${API_URL}/prodetail/products/1`
-      // , { params: { product }},
+      `${API_URL}/prodetail/products/${productsId}`
     );
-    // console.log(product[0].productDetailPhoto1);
+
     console.log(responseProduct.data);
 
     setProduct(responseProduct.data);

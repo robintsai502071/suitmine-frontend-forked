@@ -202,7 +202,7 @@ function GiftCard() {
             <Form.Group className="mb-3">
               <Form.Control
                 type="email"
-                className="form-control"
+                className="form-control mb-2"
                 placeholder="被贈者的信箱"
                 onChange={handleChange}
                 value={content.receiver_email}
@@ -213,7 +213,7 @@ function GiftCard() {
               <Form.Control.Feedback type="invalid">
                 請輸入正確被贈者信箱，需包含@
               </Form.Control.Feedback>
-              <Form.Text className="text-muted">
+              <Form.Text className="text-muted ">
                 注意！我們的禮物卡將於1天工作天內送達指定信箱，立即輸入信箱製造驚喜吧！
               </Form.Text>
             </Form.Group>
@@ -254,6 +254,20 @@ function GiftCard() {
 
             {/* button加上Type是好習慣 */}
             <button
+              onClick={() => {
+                // ============== 判斷有沒有車因為沒有車會錯誤所以要先判斷 ===========
+                let obj = {};
+                obj = { ...content };
+                if (localStorage.getItem('giftCard') == null) {
+                  let arr = [];
+                  localStorage.setItem('giftCard', JSON.stringify(arr));
+                }
+                let oldCart = JSON.parse(localStorage.getItem('giftCard'));
+                var newArr = [...oldCart, obj];
+                localStorage.setItem('giftCard', JSON.stringify(newArr));
+                // localStorage.clear('giftCard');
+              }}
+              className="btn registerBtn mx-auto mt-3"
               type="submit"
               variant="dark"
               // onClick={handleClick}
@@ -270,7 +284,7 @@ function GiftCard() {
               //   });
               // }}
             >
-              Submit
+              <p>送出</p>
             </button>
           </Form>
         </div>

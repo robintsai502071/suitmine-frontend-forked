@@ -23,7 +23,7 @@ function ShoppingCartChecking() {
   const [getShopCartInfo, setGetShopCartInfo] = useState([]);
   useEffect(() => {
     let getStocks = async () => {
-      let response = await axios.get(`${API_URL}/shoCart/1`);
+      let response = await axios.get(`${API_URL}/shoCart/28`);
       setGetShopCartInfo(response.data);
     };
     getStocks();

@@ -10,7 +10,7 @@ function MyGiftCardDisplay() {
   const [getGiftCardtest, setGetGiftCard] = useState([]);
   useEffect(() => {
     let getStocks = async () => {
-      let response = await axios.get(`${API_URL}/giftCard/1`);
+      let response = await axios.get(`${API_URL}/giftCard/28`);
       setGetGiftCard(response.data);
     };
     getStocks();

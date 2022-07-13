@@ -10,11 +10,12 @@ function MyFavoritesDisplay() {
   let [arr, setArr] = useState([]);
   //從後端撈資料
   const [getMyfavorite, setGetMyfavorite] = useState([]);
-  const useId = useParams();
+  // const useId = useParams();
+  let memberId = 28;
   useEffect(() => {
     let getStocks = async () => {
-      console.log('useId', useId.memberId);
-      let response = await axios.get(`${API_URL}/myFavorite/${useId.memberId}`);
+      // console.log('useId', useId.memberId);
+      let response = await axios.get(`${API_URL}/myFavorite/${memberId}`);
       setGetMyfavorite(response.data);
       console.log(response.data.my_favorites);
       setArr(response.data.my_favorites);

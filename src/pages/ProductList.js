@@ -20,9 +20,9 @@ function ProductList() {
   const [product, setProduct] = useState([]);
   //  我的收藏資料
   const [favData, setFavData] = useState([]);
-  // const { memberId } = useParams();
   const [favPro, setFavPro] = useState([]);
-  let memberId = 1;
+  let memberId = 28;
+  // const { memberId } = useParams();
 
   // 分頁
   const [pageTotal, setPageTotal] = useState(1);
@@ -371,7 +371,7 @@ function ProductList() {
       setTimeout(() => {
         confirm({
           icon: <ExclamationCircleOutlined />,
-          content: "確定要移除我的收藏嗎？",
+          content: '確定要移除我的收藏嗎？',
 
           onOk() {
             console.log('確定');

@@ -47,7 +47,9 @@ function Finish(props) {
   const menberName = name;
 
   //找出待結帳禮物卡email
+  console.log('1', newCheckedGiftCards);
   const giftCardEmail = newCheckedGiftCards[0].receiver_email;
+  console.log('2', giftCardEmail);
 
   //修改身體數值useState
   const [updateHeigh, setUpdateHeigh] = useState(height);

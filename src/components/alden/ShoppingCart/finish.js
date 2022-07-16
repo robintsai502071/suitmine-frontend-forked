@@ -445,7 +445,11 @@ function Finish(props) {
             type="submit"
             // swal('成功!您的訂單編號為', '1234124312!', 'success')
             onClick={() => {
-              swal('成功!您的訂單編號為', '1234124312!', 'success');
+              swal(
+                '成功!您的訂單編號為',
+                '9ac2e4f0-0baa-447e-bf1e-bbe77872a06c!',
+                'success'
+              );
             }}
           >
             送出訂單

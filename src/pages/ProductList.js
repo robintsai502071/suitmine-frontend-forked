@@ -471,13 +471,9 @@ function ProductList() {
                             src={`http://localhost:3001/${v.product_photo}`}
                             alt="..."
                           />
-                          <a
-                            to={`/productDetail/${product.id}`}
-                            href="#/"
-                            className="viewProject position-absolute top-50 start-50 translate-middle"
-                          >
+                          <div className="viewProject position-absolute top-50 start-50 translate-middle">
                             <p className="text-nowrap viewProjectP">查看商品</p>
-                          </a>
+                          </div>
                         </div>
                         <div className="card-body cardPadding">
                           <h6 className="card-title englishText ">{v.name}</h6>

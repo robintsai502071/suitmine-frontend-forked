@@ -7,7 +7,7 @@ function ProductLink(props) {
     <a className="d-block prodcut-link d-flex my-2 py-1 align-items-center">
       <figure className="prodcut-link__figure">
         <img
-          src={item.product_photo}
+          src={`http://localhost:3001/${item.product_photo}`}
           alt=""
           className="prodcut-link__figure__image"
         />

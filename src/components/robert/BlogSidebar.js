@@ -97,11 +97,11 @@ function BlogSidebar(props) {
         >
           {categories.map((v, i) => {
             return (
-              <>
+              <React.Fragment key={i}>
                 <Option key={i} value={v}>
                   {v}
                 </Option>
-              </>
+              </React.Fragment>
             );
           })}
         </Select>

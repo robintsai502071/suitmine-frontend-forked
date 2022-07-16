@@ -142,7 +142,7 @@ function BlogList(props) {
           <h2>SUITMINE BLOG</h2>
           {perData.map((value, index) => {
             return (
-              <>
+              <React.Fragment key={index}>
                 <div className="col-lg-4 col-md-4 col-12 d-flex">
                   <div className="card blog-card shadow cursor-pointer">
                     {/* <a href="#/"> */}
@@ -161,7 +161,9 @@ function BlogList(props) {
                       {/* </a> */}
                     </Link>
                     <div className="card-body text-start">
-                      <p className="card-list-hashtag mb-2">#{value.category_id}</p>
+                      <p className="card-list-hashtag mb-2">
+                        #{value.category_id}
+                      </p>
                       <h5 className="card-title">
                         {/* <a
                             className="text-dark text-decoration-none"
@@ -188,7 +190,7 @@ function BlogList(props) {
                     </div>
                   </div>
                 </div>
-              </>
+              </React.Fragment>
             );
           })}
 

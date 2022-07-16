@@ -15,7 +15,7 @@ function Register() {
             <div className="row registerRow align-items-center justify-content-center">
               {/* -------------------打造屬於您的專屬西裝-------------------- */}
               <div className="col-md-6 col-12 registerAllTextBox d-flex justify-content-md-end justify-content-center">
-                <div>
+                <div className="loginText">
                   <div className="registerTitleBox">
                     <p className="h2">打造屬於您的專屬西裝</p>
                   </div>

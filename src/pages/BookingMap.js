@@ -3,7 +3,6 @@ import PopconfirmTPE from '../components/bao/BookingMap/PopconfirmTPE';
 import PopconfirmTYN from '../components/bao/BookingMap/PopconfirmTYN';
 import PopconfirmCWS from '../components/bao/BookingMap/PopconfirmCWS';
 
-
 import RWDpopconfirmCWS from '../components/bao/BookingMap/RWDpopconfirmCWS';
 import RWDpopconfirmTPE from '../components/bao/BookingMap/RWDpopconfirmTPE';
 import RWDpopconfirmTYN from '../components/bao/BookingMap/RWDpopconfirmTYN';
@@ -45,8 +44,7 @@ function BookingMap() {
           </a>
         </div>
         {/* <!------------banner------------> */}
-        <div className="bannerBookingMap ">
-        </div>
+        <div className="bannerBookingMap "></div>
         <div className="bar w-100">
           <LayoutMain />
         </div>
@@ -538,7 +536,7 @@ function BookingMap() {
           >
             {/* <!------------推薦文章(第一篇)------------> */}
             <a
-              href="#/"
+              href="http://localhost:3000/text-editor-print/28"
               className="d-md-flex d-none col-3 position-relative articleBox"
             >
               <img className="articleImg" src={article1} alt="" />
@@ -548,7 +546,7 @@ function BookingMap() {
             </a>
             {/* <!============推薦文章(第一篇)RWD============> */}
             <a
-              href="#/"
+              href="http://localhost:3000/text-editor-print/28"
               className="d-flex d-md-none col-12 position-relative articleBox"
             >
               <img className="articleImg" src={article1} alt="" />
@@ -558,7 +556,7 @@ function BookingMap() {
             </a>
             {/* <!------------推薦文章(第二篇)------------> */}
             <a
-              href="#/"
+              href="http://localhost:3000/text-editor-print/31"
               className="d-md-flex d-none col-3 position-relative articleBox"
             >
               <img className="articleImg" src={article2} alt="" />
@@ -568,7 +566,7 @@ function BookingMap() {
             </a>
             {/* <!============推薦文章(第一篇)RWD============> */}
             <a
-              href="#/"
+              href="http://localhost:3000/text-editor-print/31"
               className="my-5 d-flex d-md-none col-12 position-relative articleBox"
             >
               <img className="articleImg" src={article2} alt="" />
@@ -578,7 +576,7 @@ function BookingMap() {
             </a>
             {/* <!------------推薦文章(第三篇)------------> */}
             <a
-              href="#/"
+              href="http://localhost:3000/text-editor-print/39"
               className="d-md-flex d-none col-3 position-relative articleBox"
             >
               <img className="articleImg" src={article3} alt="" />
@@ -588,7 +586,7 @@ function BookingMap() {
             </a>
             {/* <!============推薦文章(第一篇)RWD============> */}
             <a
-              href="#/"
+              href="http://localhost:3000/text-editor-print/39"
               className="d-flex d-md-none col-12 position-relative articleBox"
             >
               <img className="articleImg" src={article3} alt="" />

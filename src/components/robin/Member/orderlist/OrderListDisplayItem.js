@@ -42,7 +42,7 @@ function OrderListDisplayItem(props) {
             <div className="order-list-display-item__body__wrapper">
               <img
                 className="order-list-display-item__body__wrapper__image"
-                src="https://fakeimg.pl/250x100/"
+                src="http://localhost:3001/products/suit/black/image 55.png"
                 alt=""
               />
 

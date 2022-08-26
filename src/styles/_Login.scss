@@ -16,7 +16,7 @@
   min-width: 50%;
   min-height: 50%;
 }
-.LoginRow{
+.LoginRow {
   height: 100vh;
 }
 // ------------------打造屬於您的專屬西裝----------------------
@@ -42,11 +42,10 @@
   object-fit: cover;
 }
 // ------------------錯誤訊息----------------------
-.Login .errorMessage p{
+.errorMessage {
   font-size: 14px;
   color: rgb(228, 0, 0);
 }
-
 
 // ==================打造屬於您的專屬西裝RWD==================
 @media screen and (max-width: 768px) {
@@ -68,6 +67,9 @@
   }
   .Login .registerTextBox {
     width: 350px;
+  }
+  .loginText {
+    margin-top: 150px;
   }
 }
 
@@ -115,6 +117,9 @@
   border-color: #000000;
   background: #fff;
 }
+.registerButonBox p {
+  color: #000;
+}
 // ==================form表單RWD==================
 @media screen and (max-width: 768px) {
   .Login .registerInputCol {
@@ -126,4 +131,3 @@
     width: 350px;
   }
 }
-

@@ -3,76 +3,126 @@ import { Input, Space } from 'antd';
 import React from 'react';
 import { Select } from 'antd';
 import 'antd/dist/antd.css';
-// ant search
-const { Search } = Input;
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1890ff',
-    }}
-  />
-);
+function BlogSidebar(props) {
+  const { setSearchWord, setSelectOption } = props;
+  const { Search } = Input;
 
-const onSearch = (value) => console.log(value);
+  const suffix = (
+    <AudioOutlined
+      style={{
+        fontSize: 16,
+        color: '#1890ff',
+      }}
+    />
+  );
 
-// ant select
-const { Option } = Select;
+  // ant select
+  const { Option } = Select;
+  const categories = [
+    '所有文章',
+    '西裝穿搭',
+    '穿搭新聞',
+    '名人穿搭',
+    '西裝配件',
+  ];
+  const [optionSeperate, setOptionSeperate] = useState('');
 
-const handleChange = (value) => {
-  console.log(value); // { value: "lucy", key: "lucy", label: "Lucy (101)" }
-};
+  // -------------------------------------撈資料-----------------------------------------
 
-function BlogSidebar() {
+  //  -----------------------------------------------------------------------------------------
+  const [dataGet, setDataGet] = useState([]);
+  useEffect(() => {
+    let dataGet = async () => {
+      // http://localhost:3001/stocks/2330?page=1
+      // http://localhost:3001/api/auth/checkIsLogin
+      let response = await axios.get(
+        // `https://pokeapi.co/api/v2/pokemon?limit=20`
+        `http://localhost:3001/api/blogs`
+      );
+      // console.log(response.data.results);
+      // 抓出title和images的資料
+      let allData = response.data.blogs.map((value) => {
+        return {
+          title: value.title,
+          images: value.images,
+          content: value.content,
+          create_time: value.create_time,
+          id: value.id,
+        };
+      });
+      //  console.log('所有data要的', allData);
+      //  console.log('將資料拆借', allData[0].title);
+
+      setDataGet(allData);
+      // console.log(stringToHtml.__html[0].title);
+      // console.log(allData[0].content);
+    };
+    dataGet();
+  }, []);
+
   return (
     <div>
-      <Space direction="vertical">
+      {/* --------------------------------------文章搜尋------------------------------------- */}
+      <Space direction="vertical" className="blog-article-search">
         <Search
+          type="text"
           placeholder="搜尋文章"
-          onSearch={onSearch}
+          onSearch={(v, e) => {
+            // console.log(v)
+            setSearchWord(v);
+            // console.log(v);
+          }}
           style={{ width: 200 }}
+          name="searchBar"
         />
       </Space>
+      {/* --------------------------------文章select---------------------------------------- */}
       <div className="blog-category">
-        <h5 className="mt-3 bg-light text-secondary">文章種類</h5>
+        <h5 className="mt-3 bg-light text-secondary mb-2">文章種類</h5>
         <Select
-          labelInValue
-          defaultValue={{
-            value: '種類一',
-            label: '分類',
-          }}
+          // labelInValue
+          defaultValue="請選擇"
           style={{
             width: 200,
           }}
-          onChange={handleChange}
+          className="optionSeperates"
+          // value={setSelectOption}
+          onSelect={(v) => {
+            setSelectOption(v);
+            // console.log('555');
+          }}
         >
-          
-          <Option value="種類一">西裝穿搭</Option>
-          <Option value="種類二">穿搭新聞</Option>
-          <Option value="種類三">名人穿搭</Option>
-          <Option value="種類四">西裝配變</Option>
+          {categories.map((v, i) => {
+            return (
+              <React.Fragment key={i}>
+                <Option key={i} value={v}>
+                  {v}
+                </Option>
+              </React.Fragment>
+            );
+          })}
         </Select>
       </div>
 
       <div className="blog-new">
-        <h5 className="mt-3 bg-light text-secondary">最新消息</h5>
-        <p className="text-start">
-          <a href="#" className="text-dark">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+        <h5 className="mt-3 bg-light text-secondary mb-2">最新消息</h5>
+        <p className="text-start mb-4">
+          <a href="#/" className="text-dark blog-bar-text">
+            《腥紅山莊 Crimoson Peak》湯姆希德斯頓 Tom Hiddleston
+            教你用西裝打造不同型男LOOK
           </a>
         </p>
-        <p className="text-start">
-          <a className="text-dark">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+        <p className="text-start mb-4">
+          <a href="#/" className="text-dark blog-bar-text">
+            型男衣櫃必備單品！2種超簡單「襯衫」穿搭教學，輕鬆穿出時尚品味！
           </a>
         </p>
-        <p className="text-start">
-          <a className="text-dark">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
+        <p className="text-start mb-4">
+          <a href="#/" className="text-dark blog-bar-text">
+            超簡單圍巾圍法，手殘也能圍出紳士雅痞味！
           </a>
         </p>
       </div>

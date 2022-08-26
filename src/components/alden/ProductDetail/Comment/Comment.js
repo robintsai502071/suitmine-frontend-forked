@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { API_URL } from '../../../../utils/config';
 import Liks from './Likes/Liks';
+import userPhoto from '../../../images/comment/userphoto1.jpg';
 
 // ----- 假資料 -----
 
@@ -168,10 +169,12 @@ function Comment() {
               <div key={i} className="commentContainer">
                 <div className="commentBlock">
                   {/* 使用者訊息 */}
-                  <div className="topSection">
+                  <div className="topSection d-flex justify-content-center">
                     {/* 使用者照片ID */}
                     <div>
-                      <div className="photo"></div>
+                      <div className="photo">
+                        <img className="userPhoto" src={userPhoto} alt="" />
+                      </div>
                       <div className="userName">
                         <h5>{v.userName}</h5>
                       </div>

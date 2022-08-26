@@ -1,67 +1,65 @@
 // -------------------------------------fit matters部分--------------------------------------------
-.fit-matter{
-    // background-position: center;
-    // transition-property: opacity;
-    // color: rgb(255, 255, 255);
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height:678px;
+.fit-matter {
+  // background-position: center;
+  // transition-property: opacity;
+  // color: rgb(255, 255, 255);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 660px;
+  // margin-top: 70px;
 }
 
-.fit-matter::after{
-    content: "";
-    position:absoulte;
-    background: url("../images/sol/FitMatters.jpg");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height:678px;
-    position: absolute;
-    z-index: -1;
+.fit-matter::after {
+  content: '';
+  position: absoulte;
+  background: url('../images/sol/FitMatters.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 678px;
+  position: absolute;
+  z-index: -1;
 }
 
-
-.fit-matter-title{
-    position: relative;
-    transform: translateY(180px);
-    color: white;
-    font-weight: 800;
-    letter-spacing: 2px;
-    padding-left: 20px;
+.fit-matter-title {
+  position: relative;
+  transform: translateY(180px);
+  color: white;
+  font-weight: 800;
+  letter-spacing: 2px;
+  padding-left: 20px;
+  text-shadow: 0.1em 0.1em 0.2em black;
 }
 
-.fit-matters-describe{
-    top: 400px;
-    left: 3%;
-    right: 3%;
-    font-size: 13px;
+.fit-matters-describe {
+  top: 400px;
+  left: 3%;
+  right: 3%;
+  font-size: 13px;
+  text-shadow: 0.1em 0.1em 0.2em #fff;
 }
 
-.fit-matters-p{
-    line-height: 22px;
+.fit-matters-p {
+  line-height: 22px;
 }
 
-.fit-matters-span{
-    margin-right: 3%;
+.fit-matters-span {
+  margin-right: 3%;
 }
 
+@media screen and (max-width: 768px) {
+  .fit-matters-describe {
+    transform: translateY(300px);
+    // text-align: start;
+    margin: 0;
+  }
 
-@media screen and (max-width:768px) {
-    .fit-matters-describe{
-        transform: translateY(300px);
-        // text-align: start;
-        margin: 0;
-    }
-
-    .fit-matters-p{
-        display: none;
-    }
-
+  .fit-matters-p {
+    display: none;
+  }
 }
-
-
 
 // -------------------------------------get noticed部分--------------------------------------------
 // .get-noticed-man{
@@ -84,34 +82,31 @@
 //     z-index: -1;
 // }
 
-
-.get-notice-man-text-wrapper{
-    position: absolute;
+.get-notice-man-text-wrapper {
+  position: absolute;
 }
 
-
-.get-noticed-hr{
-    width: 15rem;
-    // border: 1px solid black;
+.get-noticed-hr {
+  width: 15rem;
+  // border: 1px solid black;
 }
 
-.get-notice-part{
-    position: absolute;
-    top: 2rem;
+.get-notice-part {
+  position: absolute;
+  top: 2rem;
 }
 
-.get-noticed-figure{
-    max-width: 154px;
+.get-noticed-figure {
+  max-width: 154px;
 }
 
-.get-noticed-img{
-    width: 100%;
-
+.get-noticed-img {
+  width: 100%;
 }
 
-.get-notice-sec1{
-    right: 10.4rem;
-    top: 5.3rem;
+.get-notice-sec1 {
+  right: 10.4rem;
+  top: 5.3rem;
 }
 
 // .get-noticed-hr-trans{
@@ -119,170 +114,148 @@
 //     top:2rem;
 // }
 
-.get-notice-sec2{
-    right: 9.5rem;
-    top: 14rem;
+.get-notice-sec2 {
+  right: 9.5rem;
+  top: 14rem;
 }
 
-.get-notice-sec3{
-    right: 9rem;
-    top: 27.4rem;
+.get-notice-sec3 {
+  right: 9rem;
+  top: 27.4rem;
 }
 
+.get-notice-sec4 {
+  right: -120%;
+  top: 40%;
+  width: 100%;
+}
 
-.get-notice-sec4{
-    right: -120%;
-    top: 40%;
+.get-notice-sec {
+  width: 100%;
+}
+
+.get-notice-man-title {
+  margin-bottom: 5%;
+}
+
+.get-notice-man-p {
+  line-height: 28px;
+}
+
+@media screen and (max-width: 991px) {
+  .get-noticed-figure-mobile {
+    max-width: 100px;
+  }
+
+  .get-noticed-img-mobile {
     width: 100%;
-}
+  }
 
-.get-notice-sec{
-    width: 100%;
-}
+  .get-notice-wrapper-mobile {
+    margin-bottom: 2rem;
+  }
 
-.get-notice-man-title{
-    margin-bottom: 5%;
-}
+  .get-notice-title-mobile {
+    margin-bottom: 2%;
+  }
 
-.get-notice-man-p{
+  .get-notice-p-mobile {
     line-height: 28px;
+  }
 }
-
-@media screen and (max-width:991px) {
-    .get-noticed-figure-mobile {
-        max-width: 100px;
-    }
-
-    .get-noticed-img-mobile {
-        width: 100%;
-    }
-
-    .get-notice-wrapper-mobile{
-        margin-bottom: 2rem;
-        
-    }
-
-    .get-notice-title-mobile{
-        margin-bottom: 2%;
-    }
-
-    .get-notice-p-mobile{
-        line-height: 28px;
-
-    }
-
-}
-
-
 
 // ------------------measuremennt-profile部分-----------------------------------------------------------------------------
-.measurement-profile{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 750px;
+.measurement-profile {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 750px;
 }
 
-
-
-
-.measurement-profile::after{
-    content: '';
-    background-image: url(../images/sol/measurement-profile.jpg);
-    position:absoulte;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 750px;
-    position: absolute;
-    z-index: -1;
+.measurement-profile::after {
+  content: '';
+  background-image: url(../images/sol/measurement-profile.jpg);
+  position: absoulte;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 750px;
+  position: absolute;
+  z-index: -1;
 }
 
-.measurement-profile-row1{
-    margin-top: 3.5rem;
+.measurement-profile-row1 {
+  margin-top: 3.5rem;
 }
 
-.measurement-profile-row2{
-    margin-top: 16rem;
+.measurement-profile-row2 {
+  margin-top: 16rem;
 }
 
-.measurement-profile-title2{
-    margin-bottom: 5%;
-    margin-top: 2%;
+.measurement-profile-title2 {
+  margin-bottom: 5%;
+  margin-top: 2%;
 }
 
-.measurement-profile-p1{
-    line-height: 26px;
-    margin-bottom: 2%;
+.measurement-profile-p1 {
+  line-height: 26px;
+  margin-bottom: 2%;
 }
-
-
-
-
-
 
 // @media screen and (max-width: 991px) {
-    
+
 //     .measurement-profile-mobile-h4{
 //         color: white;
 //         top: 13.5rem;
 //         left: 26%;
-    
+
 //     }
 // }
 
 @media screen and (max-width: 768px) {
-    .measurement-profile{
-
-        display: none;
-    }
-
+  .measurement-profile {
+    display: none;
+  }
 }
-.measurement-profile-mobile-img{
-    width: 100%;
+.measurement-profile-mobile-img {
+  width: 100%;
 }
 
-
-.measurement-profile-mobile-imgouter{
-    max-width: 100%;
+.measurement-profile-mobile-imgouter {
+  max-width: 100%;
 }
 
-
-.measurement-profile-mobile-h4{
-    color: white;
-    bottom: 0.5rem;
-
+.measurement-profile-mobile-h4 {
+  color: white;
+  bottom: 0.5rem;
 }
 
-.measurement-profile{
-    margin-top: 8rem;
+.measurement-profile {
+  margin-top: 8rem;
 }
 
-.measurement-profile-mobile{
-    margin-top: 2rem;
+.measurement-profile-mobile {
+  margin-top: 2rem;
 }
-
 
 // -------------------------------------有ipad部分-------------------------------------------
-.ipad-outer{
-    max-width: 100%;
+.ipad-outer {
+  max-width: 100%;
 }
 
-.ipad-img{
-    width: 80%;
+.ipad-img {
+  width: 80%;
 }
 
-.predictive-measurements-title{
-    margin-bottom: 2%;
+.predictive-measurements-title {
+  margin-bottom: 2%;
 }
 
-.predictive-measurements-p{
-    line-height: 26px;
-    margin-bottom: 4%;
+.predictive-measurements-p {
+  line-height: 26px;
+  margin-bottom: 4%;
 }
-
-
 
 // -------------------------------------------------ease-of-mind---------------------------------------
 
@@ -290,12 +263,10 @@
 //     max-width: 100%;
 // }
 
-
 // .ease-of-mind-imgouter{
 //     max-width: 100%;
 //     padding: 0;
 // }
-
 
 // @media screen and (max-width: 768px) {
 //     .ease-of-mind-imgouter{
@@ -303,30 +274,24 @@
 //     }
 // }
 
-
-
-
-.ease-of-mind{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    height: 750px;
+.ease-of-mind {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 750px;
 }
 
-
-
-
-.ease-of-mind::after{
-    content: '';
-    background-image: url(../images/sol/ease-of-mind.jpg);
-    position:absoulte;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 750px;
-    position: absolute;
-    z-index: -1;
+.ease-of-mind::after {
+  content: '';
+  background-image: url(../images/sol/ease-of-mind.jpg);
+  position: absoulte;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 750px;
+  position: absolute;
+  z-index: -1;
 }
 
 // .ease-of-mind-row1{
@@ -337,89 +302,76 @@
 //     margin-top: 16rem;
 // }
 
-
-.ease-of-mind-row1{
-    margin-top: 20rem;
+.ease-of-mind-row1 {
+  margin-top: 20rem;
 }
 
-.ease-of-mind-row2{
-    margin-top: 10rem;
+.ease-of-mind-row2 {
+  margin-top: 10rem;
 }
 
-
-.ease-of-mind-title{
-    margin-bottom: 2%;
+.ease-of-mind-title {
+  margin-bottom: 2%;
 }
 
-.ease-of-mind-title-p{
-    line-height: 26px;
-    margin-bottom: 4%;
+.ease-of-mind-title-p {
+  line-height: 26px;
+  margin-bottom: 4%;
 }
-
 
 @media screen and (max-width: 768px) {
-    .ease-of-mind{
-
-        display: none;
-    }
-
+  .ease-of-mind {
+    display: none;
+  }
 }
-.ease-of-mind-mobile-img{
-    width: 100%;
+.ease-of-mind-mobile-img {
+  width: 100%;
 }
 
-
-.ease-of-mind-mobile-imgouter{
-    max-width: 100%;
+.ease-of-mind-mobile-imgouter {
+  max-width: 100%;
 }
 
-
-.ease-of-mind{
-    margin-top: 8rem;
+.ease-of-mind {
+  margin-top: 8rem;
 }
 
-
-.ease-of-mind-mobile-h4{
-    top: 8rem;
+.ease-of-mind-mobile-h4 {
+  top: 8rem;
 }
-
 
 // ------------------------------------------cellphone部分----------------------------
-.cellphone-outer{
-    max-width: 90%;
+.cellphone-outer {
+  max-width: 90%;
 }
 
-.cellphone-img{
-    width: 100%;
+.cellphone-img {
+  width: 100%;
 }
 
-
-.cellphone-p{
-    line-height: 26px;
-    width: 80%;
+.cellphone-p {
+  line-height: 26px;
+  width: 80%;
 }
 
-.cellphone-container{
-    margin-top: 8rem;
-}
-
-
+// .cellphone-container{
+//     margin-top: 8rem;
+// }
 
 @media screen and (max-width: 768px) {
-    .cellphone-p{
-        width: 100%;;
-    }
+  .cellphone-p {
+    width: 100%;
+  }
 
-    .cellphone-container{
-        margin-top: 3rem;
-    }
-
+  .cellphone-container {
+    margin-top: 3rem;
+  }
 }
 
-.cellphone-appear-p{
-    line-height: 26px;
+.cellphone-appear-p {
+  line-height: 26px;
 }
 
-.cellphone-appear-title{
-    margin-bottom: 5%;
+.cellphone-appear-title {
+  margin-bottom: 5%;
 }

@@ -282,7 +282,6 @@
   border-bottom: none;
 }
 .comment {
-  z-index: 999;
   width: 70%;
   padding-right: 10%;
   padding-left: 10%;
@@ -682,7 +681,6 @@
 .slick-current img {
   object-fit: cover;
   width: 100%;
-  // height: 100%;
 }
 .sliderMobile .slick-next {
   right: 65px;
@@ -741,4 +739,7 @@
 }
 .ant-collapse-content > .ant-collapse-content-box {
   padding: 0 !important;
+}
+.photo {
+  overflow: hidden;
 }

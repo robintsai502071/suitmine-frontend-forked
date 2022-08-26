@@ -7,17 +7,28 @@ import Fabric from '../components/sol/home/Fabric';
 // import SuitDisplay from '../components/sol/home/SuitDisplay';
 import SimpleSlider from '../components/sol/home/SimpleSlider';
 import Meature from '../components/sol/home/Meature';
+import LayoutHeader from '../components/robert/LayoutHeader';
+import LayoutMain from '../components/robert/LayoutMain';
+import LayoutFooter from '../components/robert/LayoutFooter';
 
 function Home() {
   return (
     <>
+      <LayoutHeader />
       <VideoBG />
-      <ProductCategory />
-      {/* <Meature /> */}
-      <SuitStyle />
-      <PointArticle />
-      <Fabric />
-      <SimpleSlider />
+      <LayoutMain />
+
+      <div className="home-main-bg2">
+        <div className="home-main-mobile-bg">
+          <ProductCategory />
+          {/* <Meature /> */}
+          <SuitStyle />
+          <PointArticle />
+          <Fabric />
+          <SimpleSlider  className="simple-slider-home"/>
+        </div>
+      </div>
+      <LayoutFooter />
     </>
   );
 }

@@ -1,19 +1,29 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
-
+import { useParams } from 'react-router-dom';
 import FilterBar from '../components/bao/productList/FilterBar';
 import SearchInput from '../components/bao/productList/SearchInput';
 import ProductTypeBar from '../components/bao/productList/ProductTypeBar';
 import RWDProductTypeBar from '../components/bao/productList/RWDProductTypeBar';
 import SwitchButton from '../components/bao/productList/SwitchButton';
 import LayoutHeader from '../components/robert/LayoutHeader';
+import LayoutMain from '../components/robert/LayoutMain';
+// import LayoutFooter from '../components/robert/LayoutFooter';
 import LayoutFooter from '../components/robert/LayoutFooter';
 import { API_URL } from '../utils/config';
 import { Link } from 'react-router-dom';
+import { Button, Modal } from 'antd';
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 
 function ProductList() {
   // 原始資料
   const [product, setProduct] = useState([]);
+  //  我的收藏資料
+  const [favData, setFavData] = useState([]);
+  const [favPro, setFavPro] = useState([]);
+  let memberId = 28;
+  // const { memberId } = useParams();
+
   // 分頁
   const [pageTotal, setPageTotal] = useState(1);
   const [pageNow, setPageNow] = useState(1);
@@ -21,7 +31,6 @@ function ProductList() {
   const [isMounted, setIsMounted] = useState(false);
   const perPage = 12;
   let totalProduct = [];
-
   //商品名稱搜尋
   const [searchWord, setSearchWord] = useState('');
 
@@ -35,6 +44,8 @@ function ProductList() {
 
   //錯誤訊息用
   const [error, setError] = useState('');
+
+  // antd
 
   //商品分頁頁碼功能
   // const [pagenation, setPagenation] = useState({
@@ -66,7 +77,7 @@ function ProductList() {
         // 如果不是回傳陣列有可能是錯誤或得不到正確資料
         // state users必須保持為陣列，不然map會發生中斷錯誤
         if (Array.isArray(response.data)) {
-          // setProduct(response.data);
+          // setProduct(response.data,"42123");
           totalProduct = response.data;
           // console.log([...totalProduct].length);
           setProduct([...totalProduct].slice(0, perPage));
@@ -84,7 +95,52 @@ function ProductList() {
     getProduct();
     setIsMounted(true);
   }, []);
+  // 拿我的收藏資料
+  useEffect(() => {
+    let getFavData = async () => {
+      //try catch 做錯誤處理
 
+      try {
+        // axios.get(URL, config)
+        let response2 = await axios.get(
+          `${API_URL}/member/${memberId}/my-favorites`
+        );
+
+        setFavData(response2.data.myFavorites);
+        console.log(response2.data, '34567');
+      } catch (e) {
+        console.error(e);
+        setError(e.message);
+      }
+    };
+    getFavData();
+  }, []);
+
+  console.log('miu', favData);
+
+  const postFavData = async (product_id) => {
+    try {
+      let response3 = await axios.post(
+        `${API_URL}/member/${memberId}/my-favorites`,
+        { product_id: product_id }
+      );
+    } catch (e) {
+      console.error(e);
+    }
+    // console.log(postFav);
+  };
+
+  const deleteFavData = async (product_id) => {
+    try {
+      let response4 = await axios.delete(
+        `${API_URL}/member/${memberId}/my-favorites`,
+        { data: { product_id: product_id } }
+      );
+    } catch (e) {
+      console.error(e);
+    }
+    // console.log(postFav);
+  };
   // 顏色篩選
   const handleColorChange = (product, colorFilter) => {
     let newProducts = [...product];
@@ -297,6 +353,38 @@ function ProductList() {
     // 偵測這幾個變數有更動就會執行上面的動作
   }, [pageNow, searchWord, sortBy, colorFilter, productFilter]);
 
+  const success = () => {
+    Modal.success({
+      content: '成功加入我的收藏',
+      centered: true,
+    });
+  };
+
+  const { confirm } = Modal;
+
+  const destroyAll = () => {
+    Modal.destroyAll();
+  };
+
+  const showConfirm = () => {
+    for (let i = 0; i < 1; i += 1) {
+      setTimeout(() => {
+        confirm({
+          icon: <ExclamationCircleOutlined />,
+          content: '確定要移除我的收藏嗎？',
+
+          onOk() {
+            console.log('確定');
+          },
+
+          onCancel() {
+            console.log('取消');
+          },
+        });
+      }, i * 500);
+    }
+  };
+
   return (
     <div className="ProductList">
       <LayoutHeader />
@@ -372,6 +460,9 @@ function ProductList() {
                       key={v.id}
                       href="#/"
                       className="col-xxl-3 col-lg-4 col-md-6 col-6 px-3 d-flex cardSize cardBottomMargin"
+                      onClick={() => {
+                        console.log('a');
+                      }}
                     >
                       <div className="card cardStyle ">
                         <div className="imgBox position-relative">
@@ -380,13 +471,9 @@ function ProductList() {
                             src={`http://localhost:3001/${v.product_photo}`}
                             alt="..."
                           />
-                          <a
-                            to={`/productDetail/${product.id}`}
-                            href="#/"
-                            className="viewProject position-absolute top-50 start-50 translate-middle"
-                          >
+                          <div className="viewProject position-absolute top-50 start-50 translate-middle">
                             <p className="text-nowrap viewProjectP">查看商品</p>
-                          </a>
+                          </div>
                         </div>
                         <div className="card-body cardPadding">
                           <h6 className="card-title englishText ">{v.name}</h6>
@@ -394,7 +481,58 @@ function ProductList() {
                             <p className="h6 price card-text englishText  CardP_Padding">
                               {v.price}
                             </p>
-                            <i className="fa-solid fa-heart product-fa-heart"></i>
+
+                            {/* <i
+                              className="fa-solid fa-heart product-fa-heart text-"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                e.preventDefault();
+                                e.target.classList.toggle('active');
+                                postFavData(v.id);
+                              }}
+                            ></i> */}
+                            {favData?.findIndex((item) => {
+                              return item.product_id == v.id;
+                            }) > -1 ? (
+                              <i
+                                className="fa-solid fa-heart product-fa-heart active"
+                                data-id={v.id}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  e.preventDefault();
+                                  if (e.target.classList.contains('active')) {
+                                    deleteFavData(v.id);
+                                    showConfirm();
+                                    // console.log('yes');
+                                  } else {
+                                    postFavData(v.id);
+                                    success();
+                                    // console.log('no');
+                                  }
+                                  e.target.classList.toggle('active');
+                                }}
+                              ></i>
+                            ) : (
+                              <i
+                                className="fa-solid fa-heart product-fa-heart"
+                                data-id={v.id}
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  e.preventDefault();
+                                  // postFavData(v.id);
+                                  if (e.target.classList.contains('active')) {
+                                    deleteFavData(v.id);
+                                    showConfirm();
+                                    // console.log('yes');
+                                  } else {
+                                    postFavData(v.id);
+                                    success();
+                                    // console.log('no');
+                                  }
+                                  e.target.classList.toggle('active');
+                                }}
+                              ></i>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -490,7 +628,9 @@ function ProductList() {
           <div className="container">
             <div className="productListRow row ">
               <div className="messageBox d-flex justify-content-center align-items-center flex-column ">
-                <span className="chineseText h4">為什麼那麼多人想成為我們忠實顧客</span>
+                <span className="chineseText h4">
+                  為什麼那麼多人想成為我們忠實顧客
+                </span>
                 <div className="customersSayBox">
                   <p className="chineseText customersSayMargin h6">
                     「套裝品質非常好，工作人員也非常友善，我訂製了幾套西裝，嘗試了我一直很喜歡的斜紋款式，值得信賴及推薦的品牌！」

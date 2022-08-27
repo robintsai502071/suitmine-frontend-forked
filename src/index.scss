@@ -1,4 +1,24 @@
 // 這個檔案只連結其他scss檔
-@import './styles/reset';
 @import './styles/variables';
+@import './styles/reset';
 @import './styles/global';
+
+// components/layout
+@import './components/layout/layout-main/layoutMain.styles.scss';
+@import './components/layout/layout-footer/layoutFooter.styles.scss';
+
+// components/for-home
+@import './components/for-home/fabic/fabric.styles.scss';
+@import './components/for-home/point-article/pointArticle.styles.scss';
+@import './components/for-home/product-category/productCategory.styles.scss';
+@import './components/for-home/simple-slider/simpleSlider.styles.scss';
+@import './components/for-home/suit-style/suitStyle.styles.scss';
+
+@import './components/login-form/loginForm.styles.scss';
+@import './components/register-form/registerForm.styles.scss';
+
+// routes
+@import './routes/home/home.styles.scss';
+@import './routes/login/login.styles.scss';
+@import './routes/navigation/navigation.styles.scss';
+@import './routes/register/register.styles.scss';

@@ -1,0 +1,12 @@
+/* layout footer*/
+.footer {
+  padding: 80px;
+  background: url(../../../assests/images/layout/FOOTER.png);
+}
+.footer-btn-title {
+  letter-spacing: 0rem;
+  @include h5;
+}
+.footer-icon img {
+  width: 35px;
+}

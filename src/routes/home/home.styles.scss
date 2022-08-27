@@ -1,0 +1,114 @@
+// -------------------------------------header部分---------------------------------------------------------
+.main1 {
+  width: 100%;
+  height: 100vh;
+  // z-index: -1;
+  // 解決absolute浮起來辣
+  overflow: hidden;
+}
+
+.video1 {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  // height: 100%;
+  top: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  // z-index: -1;
+}
+
+.overlay {
+  // position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*為什麼沒吃到background-color  */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* opacity: .7; */
+}
+
+.button1 {
+  color: white;
+  text-decoration: none;
+  border: 0.1rem solid white;
+  padding: 2rem 5rem;
+  // letter-spacing: 3px;
+}
+
+.text-white1 {
+  margin: 0;
+  margin-bottom: 0.6rem;
+  padding: 1px;
+}
+
+.text-white2 {
+  margin: 0;
+  margin-bottom: 3rem;
+  padding: 1px;
+}
+
+.product_category_h {
+  border-bottom: 2px solid black;
+}
+
+@media screen and (max-width: 768px) {
+  .text-white1 {
+    padding: 0;
+    margin: 0 0 1rem 0;
+    @include h3;
+    letter-spacing: 1px;
+  }
+
+  .text-white2 {
+    padding: 0;
+    margin: 0;
+    @include h3;
+    letter-spacing: 1px;
+  }
+
+  .button1 {
+    padding: 0.5rem 1rem;
+    margin: 2rem 0 0 0;
+    @include h4;
+  }
+
+  .product_category_h {
+    border: none;
+    text-align: center;
+  }
+}
+
+.main1 .button1:hover {
+  color: rgba(40, 40, 40, 0.607);
+  background: rgba(255, 255, 255, 0.29);
+  border: 1px solid rgba(40, 40, 40, 0.607);
+  transition: 0.8s;
+}
+
+.card-group-a {
+  display: block;
+  position: relative;
+  overflow: hidden; //圖片放大
+  transition: 0.8s;
+}
+
+.card-group-a:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.8s;
+}

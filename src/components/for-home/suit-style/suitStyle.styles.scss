@@ -1,0 +1,23 @@
+// -----------------------------------------------------SuitStyle部分------------------------------
+
+.suit-style-title {
+  padding-bottom: 1rem;
+}
+
+.suit-style-middle-container {
+  margin-top: 3rem;
+  margin-bottom: 4.5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .suit-style-title {
+    @include h3;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .suit-style-middle-container {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+}

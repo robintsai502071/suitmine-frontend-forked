@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import './registerForm.styles.scss'
+
 // import { API_URL } from '../../../../utils/config';
 
 //--------- 下拉式選單陣列 ---------

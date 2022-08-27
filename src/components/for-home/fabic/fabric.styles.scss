@@ -1,0 +1,92 @@
+// ----------------------------------------------fabric部分------------------------------------------
+
+.fabricClass1-outer {
+  max-width: 20rem;
+  border: 2px solid white;
+}
+
+.fabricClass1 {
+  width: 100%;
+  // opacity: .9;
+}
+
+.fabricClass2-outer {
+  max-width: 20rem;
+  position: absolute;
+  left: 20%;
+  border: 2px solid white;
+}
+
+.fabricClass2 {
+  width: 100%;
+  // opacity: .9;
+}
+
+.fabricClass3-outer {
+  max-width: 25rem;
+  position: absolute;
+  left: 30%;
+  top: 50%;
+  border: 2px solid white;
+}
+
+.fabricClass3 {
+  width: 100%;
+  // opacity: .9;
+}
+
+.figure-text {
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .fabricClass1-outer {
+    max-width: 100%;
+    border: 1px solid white;
+    position: relative;
+  }
+
+  .fabricClass1 {
+    width: 100%;
+  }
+
+  .fabricClass2-outer {
+    max-width: 60%;
+    position: absolute;
+    left: 30%;
+    border: 1px solid white;
+    display: none;
+  }
+
+  .fabricClass2 {
+    width: 100%;
+  }
+
+  .bg-gray {
+    display: none;
+  }
+
+  .figure-text-inner {
+    @include h4;
+    z-index: 4;
+    color: rgb(255, 255, 255);
+    justify-content: start;
+  }
+
+  .figure-text {
+    position: absolute;
+  }
+
+  .fabricClass3-outer {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1726px) and (min-width: 768px) {
+  .figure-text-inner {
+    @include h2;
+    z-index: 4;
+    color: rgb(129, 129, 129);
+    justify-content: start;
+  }
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-
 const LayoutFooter = () => {
   return (
     <div className="container-fluid">

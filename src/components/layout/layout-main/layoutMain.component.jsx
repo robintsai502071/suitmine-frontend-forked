@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import React from 'react';
-import icon1 from '../../images/robert/layout/icon1.svg';
-import icon2 from '../../images/robert/layout/icon2.svg';
-import icon3 from '../../images/robert/layout/icon3.svg';
+import './layoutMain.styles.scss'
+import icon1 from '../../../assests/images/layout/icon1.svg';
+import icon2 from '../../../assests/images/layout/icon2.svg';
+import icon3 from '../../../assests/images/layout/icon3.svg';
 
 const LayoutMain = () => {
   return (

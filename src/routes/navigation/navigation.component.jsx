@@ -1,7 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import React from 'react';
 import logo from '../../assests/images/layout/logo.svg';
-import './navigation.styles.scss';
 
 const Navigation = () => {
   return (

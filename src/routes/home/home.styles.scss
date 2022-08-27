@@ -95,20 +95,5 @@
   transition: 0.8s;
 }
 
-.card-group-a {
-  display: block;
-  position: relative;
-  overflow: hidden; //圖片放大
-  transition: 0.8s;
-}
 
-.card-group-a:hover::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: 0.8s;
-}
+

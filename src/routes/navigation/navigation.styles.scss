@@ -5,30 +5,21 @@ img {
 .bg-menu {
   background: #ececec;
 }
-/* layout header */
 
-// .header{
-//     position: relative;
-// }
-// .header{
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   z-index: 999;
-//   width: 100%;
-//   margin-bottom: 70px;
-// }
-.shoppingCar {
+.shoppingCart {
   line-height: 70px;
   color: #fff;
 }
-.shoppingCar:hover {
+
+.shoppingCart:hover {
   cursor: pointer;
   color: #ececec;
 }
+
 .logo {
   line-height: 62px;
 }
+
 .logo img {
   width: 150px;
 }
@@ -159,27 +150,6 @@ img {
   transform: none;
 }
 
-/* layout main */
-.main-menu li a {
-  text-decoration: none;
-  white-space: nowrap;
-}
-.main-menu li a:hover {
-  background: gray;
-  color: #fff !important;
-}
-.main-menu img {
-  width: 50px;
-}
-/* layout footer*/
-.footer {
-  padding: 80px;
-  background: url(../images/robert/layout/FOOTER.png);
-}
-.footer-btn-title {
-  letter-spacing: 0rem;
-  @include h5;
-}
-.footer-icon img {
-  width: 35px;
+.header-menu {
+  margin-bottom: 0 !important;
 }

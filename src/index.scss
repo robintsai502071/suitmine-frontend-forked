@@ -3,6 +3,7 @@
 @import './styles/reset';
 @import './styles/global';
 
+
 // components/layout
 @import './components/layout/layout-main/layoutMain.styles.scss';
 @import './components/layout/layout-footer/layoutFooter.styles.scss';
@@ -22,3 +23,4 @@
 @import './routes/login/login.styles.scss';
 @import './routes/navigation/navigation.styles.scss';
 @import './routes/register/register.styles.scss';
+@import './routes/product-list/productList.styles.scss';

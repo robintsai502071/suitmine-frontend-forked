@@ -1,0 +1,9 @@
+.cart__content__item__price {
+  text-align: right;
+}
+
+@media screen and (min-width: 768px){
+  .cart__content__item__price {
+    text-align: left;
+  }
+}

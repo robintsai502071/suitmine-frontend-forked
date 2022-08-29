@@ -1,0 +1,43 @@
+.steps__item {
+  position: relative;
+  margin: 0 1rem;
+
+  // 偽元素橫線
+  & + .steps__item::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    display: block;
+    top: 35%;
+    left: -40px;
+    width: 50px;
+    height: 5px;
+    background-color: #ececec;
+  }
+  &__number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    background-color: $light-gray;
+    border-radius: 50%;
+  }
+  &__description {
+    margin-top: 0.5rem;
+  }
+}
+
+// 平板以上 steps 中間橫線拉寬
+@media screen and (min-width: 768px){
+  .steps__item {
+    margin: 0 3rem;
+  
+    // 偽元素橫線
+    & + .steps__item::before {
+      left: -110px;
+      width: 120px;
+    }
+  }
+}

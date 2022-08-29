@@ -3,7 +3,6 @@
 @import './styles/reset';
 @import './styles/global';
 
-
 // components/layout
 @import './components/layout/layout-main/layoutMain.styles.scss';
 @import './components/layout/layout-footer/layoutFooter.styles.scss';
@@ -15,8 +14,12 @@
 @import './components/for-home/simple-slider/simpleSlider.styles.scss';
 @import './components/for-home/suit-style/suitStyle.styles.scss';
 
+// components/for-shopping-cart
+@import './components/for-shopping-cart/steps/steps.styles.scss';
+
 @import './components/login-form/loginForm.styles.scss';
 @import './components/register-form/registerForm.styles.scss';
+@import './components/shopping-cart-item/shopping-cart-item.styles.scss';
 
 // routes
 @import './routes/home/home.styles.scss';
@@ -25,3 +28,4 @@
 @import './routes/register/register.styles.scss';
 @import './routes/product-list/productList.styles.scss';
 @import './routes/booking-map/bookingMap.styles.scss';
+@import './routes/shopping-cart/shoppingCart.styles.scss';

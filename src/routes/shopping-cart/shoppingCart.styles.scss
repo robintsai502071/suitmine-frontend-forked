@@ -1,5 +1,33 @@
-@media screen and (min-width: 768px) {
-  .cart__title {
-    @include h5;
+.cart-detail__form {
+  padding: 20px;
+}
+
+.cart-detail__form__select-group {
+  &__remind {
+    font-size: 14px;
+    color: $dark-gray;
+  }
+}
+
+.order-info__body {
+  padding: 20px;
+  ul {
+    border-bottom: 1px solid $light-gray;
+    padding-bottom: 10px;
+  }
+  button {
+    background-color: $light-gray;
+    border: 1px solid $dark-gray;
+    border-radius: 0;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+  .reminders {
+    p {
+      font-size: 14px;
+      color: $dark-gray;
+    }
   }
 }

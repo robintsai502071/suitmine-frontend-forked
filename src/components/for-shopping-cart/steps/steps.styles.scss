@@ -23,6 +23,10 @@
     height: 50px;
     background-color: $light-gray;
     border-radius: 50%;
+    &.active {
+      background-color: $dark-gray;
+      color: white;
+    }
   }
   &__description {
     margin-top: 0.5rem;
@@ -30,10 +34,10 @@
 }
 
 // 平板以上 steps 中間橫線拉寬
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   .steps__item {
     margin: 0 3rem;
-  
+
     // 偽元素橫線
     & + .steps__item::before {
       left: -110px;

@@ -24,7 +24,7 @@ const ShoppingCartItem = () => {
             <div className="cart__content__item__quantity__arrow">&#10095;</div>
           </div>
         </div>
-        <div className="col-6 col-md-2 order-md-2 mt-2 mt-md-0 d-flex align-items-md-center">
+        <div className="col-6 col-md-2 order-md-2 mt-2 mt-md-0 d-flex align-items-md-center justify-content-end justify-content-md-start">
           <div className="cart__content__item__price">NT $1,215</div>
         </div>
         <div className="col-md-2 cart__content__item__subtotal d-none d-md-flex order-md-4 align-items-md-center">

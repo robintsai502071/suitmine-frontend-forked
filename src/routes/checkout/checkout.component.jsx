@@ -1,7 +1,6 @@
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
-import ShoppingCartItem from '../../components/shopping-cart-item/shopping-cart-item.component';
-import Accordion from 'react-bootstrap/Accordion';
+import CartReconfirmAccordion from '../../components/for-shopping-cart/cart-reconfirm-accordion/cartReconfirmAccordion.component';
 const stepStatus = 'checkout';
 
 const Checkout = () => {
@@ -25,45 +24,7 @@ const Checkout = () => {
             </ul>
           </div> */}
 
-          <Accordion className="cart-reconfirm">
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>訂單金額：NT $5,000</Accordion.Header>
-              <Accordion.Body>
-                <ul className="list-group list-group-flush cart__content">
-                  <li className="list-group-item cart__content__title d-none d-md-block">
-                    <div className="row">
-                      <div className="col-4">商品資訊</div>
-                      <div className="col-2">單件價格</div>
-                      <div className="col-2">數量</div>
-                      <div className="col-2">小計</div>
-                    </div>
-                  </li>
-                  <ShoppingCartItem stepStatus={stepStatus} />
-                  <ShoppingCartItem stepStatus={stepStatus} />
-                  <ShoppingCartItem stepStatus={stepStatus} />
-                  <div className="row">
-                    <div className="col-12 col-md-3 offset-md-9 ">
-                      <ul className="cart-reconfirm__summary">
-                        <li className="d-flex justify-content-between">
-                          <p>小計：</p>
-                          <p>$1,215</p>
-                        </li>
-                        <li className="d-flex justify-content-between mt-1">
-                          <p>運費</p>
-                          <p>$0</p>
-                        </li>
-                        <li className="d-flex justify-content-between mt-2">
-                          <p>合計：</p>
-                          <p>$1,215</p>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </ul>
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-
+          <CartReconfirmAccordion stepStatus={stepStatus} />
           <Form>
             <div className="row">
               <div className="col-12 col-md-6">
@@ -110,7 +71,7 @@ const Checkout = () => {
                     <div className="shipping-info__form__delivery-way mb-3">
                       <p>已選擇的送貨方式：宅配</p>
                       <input type="checkbox" id="same" />
-                      <label for="same" className="ms-1">
+                      <label htmlFor="same" className="ms-1">
                         收件人與顧客資料相同
                       </label>
                     </div>
@@ -124,7 +85,6 @@ const Checkout = () => {
                       <p className="mt-4 mb-2">收件人電話號碼</p>
                       <Form.Control type="text" />
                     </Form.Group>
-                    <hr />
 
                     <Form.Group>
                       <p className="mt-4 mb-2">地址</p>
@@ -132,7 +92,7 @@ const Checkout = () => {
                       <Form.Control type="text" placeholder="地址" />
                       <input type="checkbox" id="setDefault" />
                       <label
-                        for="setDefault"
+                        htmlFor="setDefault"
                         className="ms-1 mt-2 set-default-address-btn"
                       >
                         設為預設地址
@@ -212,7 +172,7 @@ const Checkout = () => {
                     </div>
                   </div>
                 </div>
-                <div className='text-center'>
+                <div className="text-center">
                   <button type="submit" className="btn send-order-btn mt-3">
                     提交訂單
                   </button>

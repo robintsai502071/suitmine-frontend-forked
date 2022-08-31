@@ -1,4 +1,4 @@
-const StepsArray = ['購物車', '填寫資料', '訂單確認'];
+const StepsArray = ['購物車', '填寫資料', '訂單完成'];
 
 const Steps = ({ stepStatus }) => {
   return (

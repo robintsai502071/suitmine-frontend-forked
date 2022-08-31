@@ -29,6 +29,7 @@ ul {
   letter-spacing: $letter-spacing;
   // line-height: 110%;
   // color: $color-font;
+  font-size: 14px;
 }
 
 @mixin eng-text {
@@ -80,6 +81,10 @@ h6 {
 }
 
 label {
+  @include text;
+}
+
+p {
   @include text;
 }
 
@@ -170,9 +175,9 @@ label {
 // 洧
 // ******** 覆蓋 accordian 樣式(react-bootsrap) ******** //
 // 取消 accordian 的 arrow
-.accordion-button::after {
-  display: none;
-}
+// .accordion-button::after {
+//   display: none;
+// }
 
 //btns
 //黑底白字按鈕，請在各頁面@include到各按鈕中
@@ -282,9 +287,9 @@ label {
   border-right-width: 1px;
 }
 // 取消 accordian-item 的 border
-.accordion-item {
-  border: none;
-}
+// .accordion-item {
+//   border: none;
+// }
 
 .accordion-body {
   padding: 0;
@@ -302,11 +307,11 @@ label {
 }
 
 // 覆蓋點選之後的背景色
-.accordion-button:not(.collapsed) {
-  color: $dark-gray;
-  background-color: $light-gray;
-  box-shadow: none;
-}
+// .accordion-button:not(.collapsed) {
+//   color: $dark-gray;
+//   background-color: $light-gray;
+//   box-shadow: none;
+// }
 
 //sweet alert 樣式
 .swal-button {

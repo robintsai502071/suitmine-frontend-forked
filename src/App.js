@@ -6,6 +6,8 @@ import Register from './routes/register/register.component';
 import ProductList from './routes/product-list/productList.component';
 import BookingMap from './routes/booking-map/bookingMap.component';
 import ShoppingCart from './routes/shopping-cart/shoppingCart.component';
+import Checkout from './routes/checkout/checkout.component';
+
 function App() {
   return (
     <Routes>
@@ -16,6 +18,7 @@ function App() {
         <Route path="product-list" element={<ProductList />} />
         <Route path="booking-map" element={<BookingMap />} />
         <Route path="Shopping-cart" element={<ShoppingCart />} />
+        <Route path="checkout" element={<Checkout />} />
       </Route>
     </Routes>
   );

@@ -23,6 +23,7 @@ const ShoppingCart = () => {
               <ShoppingCartItem />
             </ul>
           </div>
+          
           <div className="row">
             <div className="col-12 col-md-6">
               <div className="card cart-detail mt-4">
@@ -74,6 +75,10 @@ const ShoppingCart = () => {
                     <li className="d-flex justify-content-between mt-1">
                       <p>運費</p>
                       <p>$0</p>
+                    </li>
+                    <li className="d-flex justify-content-between mt-2">
+                      <p>合計：</p>
+                      <p>$1,215</p>
                     </li>
                   </ul>
                   <button class="btn w-100 mx-auto mt-4" type="button">

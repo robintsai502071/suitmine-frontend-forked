@@ -14,6 +14,7 @@
     height: 5px;
     background-color: #ececec;
   }
+
   &__number {
     display: flex;
     justify-content: center;
@@ -28,8 +29,20 @@
       color: white;
     }
   }
+
   &__description {
     margin-top: 0.5rem;
+  }
+
+  // active 變深色
+  &.active {
+    .steps__item__number {
+      background-color: $dark-gray;
+      color: white;
+    }
+    &::before {
+      background-color: $dark-gray;
+    }
   }
 }
 

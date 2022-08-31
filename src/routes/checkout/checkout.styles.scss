@@ -1,0 +1,59 @@
+// 顧客資料 form
+.customer-info__form {
+  padding: 20px;
+  input {
+    background-color: #fff !important;
+    border-radius: 5px;
+  }
+}
+
+// cart-reconfirm accordion 覆蓋樣式
+.cart-reconfirm {
+  .accordion-button:not(.collapsed) {
+    background-color: #00000008;
+    color: #000;
+  }
+  .accordion-button:not(.collapsed)::after {
+    background-image: url('../../assests/images/checkout/black-arrow.svg');
+  }
+}
+
+.cart-reconfirm__summary {
+  padding: 20px;
+}
+
+// 送貨資料 form
+.shipping-info__form {
+  padding: 20px;
+  // &__delivery-way {
+  //   p,
+  //   label {
+  //     font-size: 14px;
+  //   }
+  // }
+  strong {
+    // font-size: 14px;
+    color: #e00068;
+  }
+  .set-default-address-btn {
+    font-size: 14px;
+  }
+}
+
+// 付款資料 form
+.payment-info__form {
+  padding: 20px;
+}
+
+// 索取發票 form
+.invoice-info__form {
+  padding: 20px;
+}
+
+// 提交訂單按鈕
+.send-order-btn {
+  background-color: $light-green;
+  border: 1px solid $dark-gray;
+  border-radius: 0;
+  color: #e00068;
+}

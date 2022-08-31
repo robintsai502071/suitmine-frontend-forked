@@ -12,17 +12,20 @@
 .order-info__body {
   padding: 20px;
   ul {
-    border-bottom: 1px solid $light-gray;
-    padding-bottom: 10px;
+    li:nth-child(2) {
+      border-bottom: 1px solid $light-gray;
+      padding-bottom: 10px;
+    }
   }
   button {
-    background-color: $light-gray;
+    background-color: $light-green;
     border: 1px solid $dark-gray;
     border-radius: 0;
-    &:hover {
-      background-color: black;
-      color: white;
-    }
+    // color: white;
+    // &:hover {
+    //   background-color: black;
+    //   color: white;
+    // }
   }
   .reminders {
     p {

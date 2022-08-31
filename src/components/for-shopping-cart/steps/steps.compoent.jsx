@@ -12,7 +12,7 @@ const Steps = ({ stepStatus }) => {
             (stepStatus === 'checkout' && stepIndex === 1)
               ? 'active'
               : ''
-          }`}
+          } ${stepStatus === 'order-finished' ? 'active' : ''}`}
           key={stepIndex}
         >
           <div className="steps__item__number">{stepIndex + 1}</div>

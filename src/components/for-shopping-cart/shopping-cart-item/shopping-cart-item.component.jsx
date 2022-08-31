@@ -16,7 +16,9 @@ const ShoppingCartItem = ({ stepStatus }) => {
         </div>
         <div
           className={`col-2 col-md-2 d-flex justify-content-center align-items-center order-md-5 ${
-            stepStatus === 'checkout' ? 'd-none' : ''
+            stepStatus === 'checkout' || stepStatus === 'order-finished'
+              ? 'd-none'
+              : ''
           }`}
         >
           <div className="col-2 cart__content__item__remove-btn ">&#10005;</div>
@@ -25,7 +27,9 @@ const ShoppingCartItem = ({ stepStatus }) => {
           <div className=" cart__content__item__quantity d-flex">
             <div
               className={`cart__content__item__quantity__arrow ${
-                stepStatus === 'checkout' ? 'd-none' : ''
+                stepStatus === 'checkout' || stepStatus === 'order-finished'
+                  ? 'd-none'
+                  : ''
               }`}
             >
               &#10094;
@@ -33,7 +37,9 @@ const ShoppingCartItem = ({ stepStatus }) => {
             <div className="cart__content__item__quantity__value px-2">
               <span
                 className={`d-md-none ${
-                  stepStatus === 'checkout' ? 'd-inline' : ''
+                  stepStatus === 'checkout' || stepStatus === 'order-finished'
+                    ? 'd-inline'
+                    : ''
                 }`}
               >
                 數量：
@@ -42,7 +48,9 @@ const ShoppingCartItem = ({ stepStatus }) => {
             </div>
             <div
               className={`cart__content__item__quantity__arrow ${
-                stepStatus === 'checkout' ? 'd-none' : ''
+                stepStatus === 'checkout' || stepStatus === 'order-finished'
+                  ? 'd-none'
+                  : ''
               }`}
             >
               &#10095;
@@ -55,12 +63,16 @@ const ShoppingCartItem = ({ stepStatus }) => {
 
         <div
           className={`col-md-2 cart__content__item__subtotal  ${
-            stepStatus === 'checkout' ? 'mt-3' : 'd-none'
+            stepStatus === 'checkout' || stepStatus === 'order-finished'
+              ? 'mt-3'
+              : 'd-none'
           } d-md-flex order-md-4 align-items-md-center text-end`}
         >
           <span
             className={`d-md-none ${
-              stepStatus === 'checkout' ? 'd-inline' : ''
+              stepStatus === 'checkout' || stepStatus === 'order-finished'
+                ? 'd-inline'
+                : ''
             }`}
           >
             小計：

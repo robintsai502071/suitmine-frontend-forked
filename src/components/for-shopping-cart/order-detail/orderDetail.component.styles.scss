@@ -1,0 +1,36 @@
+.order-detail {
+  & > .row > * {
+    padding: 20px 25px 0px 30px;
+    & > div {
+      padding-bottom: 5px;
+      border-bottom: 1px solid $light-gray;
+    }
+  }
+
+  h6 {
+    margin-bottom: 10px;
+  }
+
+  li {
+    margin-bottom: 5px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .order-detail {
+    & > .row > * {
+      padding: 20px 25px 0px 50px;
+      & > div {
+       border: none;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 996px) {
+  .order-detail {
+    & > .row > * {
+      padding: 20px 25px 0px 80px;
+    }
+  }
+}

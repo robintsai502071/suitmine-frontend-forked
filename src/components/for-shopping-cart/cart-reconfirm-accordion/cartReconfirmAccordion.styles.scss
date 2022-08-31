@@ -1,0 +1,14 @@
+// cart-reconfirm accordion 覆蓋樣式
+.cart-reconfirm {
+  .accordion-button:not(.collapsed) {
+    background-color: #00000008;
+    color: #000;
+  }
+  .accordion-button:not(.collapsed)::after {
+    background-image: url('../../../assests/images/checkout/black-arrow.svg');
+  }
+}
+
+.cart-reconfirm__summary {
+  padding: 20px;
+}

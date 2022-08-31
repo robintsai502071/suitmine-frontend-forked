@@ -37,11 +37,11 @@
   // active 變深色
   &.active {
     .steps__item__number {
-      background-color: $dark-gray;
-      color: white;
+      background-color: $light-green;
+      color: #000;
     }
     &::before {
-      background-color: $dark-gray;
+      background-color: $light-green;
     }
   }
 }

@@ -7,7 +7,7 @@ import ProductList from './routes/product-list/productList.component';
 import BookingMap from './routes/booking-map/bookingMap.component';
 import ShoppingCart from './routes/shopping-cart/shoppingCart.component';
 import Checkout from './routes/checkout/checkout.component';
-
+import OrderFinshed from './routes/order-finished/orderFinished.component';
 function App() {
   return (
     <Routes>
@@ -19,6 +19,7 @@ function App() {
         <Route path="booking-map" element={<BookingMap />} />
         <Route path="Shopping-cart" element={<ShoppingCart />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route path="order-finished" element={<OrderFinshed />} />
       </Route>
     </Routes>
   );

@@ -9,6 +9,7 @@ import ShoppingCart from './routes/shopping-cart/shoppingCart.component';
 import Checkout from './routes/checkout/checkout.component';
 import OrderFinshed from './routes/order-finished/orderFinished.component';
 import Measurement from './routes/silent-pages/measurement/measurement.component'
+import CustomizedShow from './routes/silent-pages/customized-show/customizeShow.component';
 function App() {
   return (
     <Routes>
@@ -24,6 +25,7 @@ function App() {
 
         <Route path="booking-map" element={<BookingMap />} />
         <Route path="measurement" element={<Measurement />} />
+        <Route path="customized-show" element={<CustomizedShow />} />
       </Route>
     </Routes>
   );

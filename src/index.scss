@@ -29,8 +29,10 @@
 @import './routes/navigation/navigation.styles.scss';
 @import './routes/register/register.styles.scss';
 @import './routes/product-list/productList.styles.scss';
-@import './routes/booking-map/bookingMap.styles.scss';
 @import './routes/shopping-cart/shoppingCart.styles.scss';
 @import './routes/checkout/checkout.styles.scss';
 @import './routes/order-finished/orderFinished.styles.scss';
+
+@import './routes/booking-map/bookingMap.styles.scss';
 @import './routes/silent-pages/measurement/measurement.styles.scss';
+@import './routes/silent-pages/customized-show/customizeShow.styles.scss';

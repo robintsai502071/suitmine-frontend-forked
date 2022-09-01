@@ -1,0 +1,8 @@
+.check-sign {
+  font-size: 4rem;
+  color: $success;
+  margin-bottom: 1rem;
+  & ~ p {
+    color: $success;
+  }
+}

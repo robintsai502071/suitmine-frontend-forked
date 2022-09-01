@@ -39,6 +39,7 @@
     .steps__item__number {
       background-color: $light-green;
       color: #000;
+      border: 1px solid $light-gray;
     }
     &::before {
       background-color: $light-green;

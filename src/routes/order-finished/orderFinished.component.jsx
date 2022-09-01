@@ -9,6 +9,10 @@ const OrderFinshed = () => {
 
       <main className="mt-3">
         <div className="container">
+          <div className="card order-finished-result py-3 mb-4 text-center">
+            <i class="fa-regular fa-circle-check check-sign"></i>
+            <p>您的訂單已提交成功！</p>
+          </div>
           <CartReconfirmAccordion stepStatus={stepStatus} />
           <OrderDetail />
         </div>

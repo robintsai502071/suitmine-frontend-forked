@@ -9,7 +9,7 @@ function Fabric() {
       <div className="container-fluid position-relative px-0">
         <div
           className="bg-gray"
-          data-aos="fade-right"
+          data-aos="fade-down"
           data-aos-easing="ease-out-cubic"
           data-aos-duration="800"
         ></div>

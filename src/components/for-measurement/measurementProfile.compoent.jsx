@@ -21,13 +21,13 @@ function MeasurementProfile() {
             <div className="col-kg-8 col-6 offset-xl-1 offset-0 d-flex justify-content-start align-items-start">
               <h2
                 className="measurement-profile-title text-white"
-                data-aos="fade-right"
+                data-aos="fade-down"
                 data-aos-duration="800"
               >
                 FROM THE COMFORT{' '}
                 <span
                   className="d-lg-block d-inline text-white text-shadow"
-                  data-aos="fade-right"
+                  data-aos="fade-down"
                   data-aos-duration="900"
                 >
                   {' '}
@@ -42,7 +42,7 @@ function MeasurementProfile() {
               <section className="measurement-profile-describe">
                 <h4
                   className=" d-lg-inlined-none text-white text-shadow"
-                  data-aos="fade-left"
+                  data-aos="fade-down"
                   data-aos-duration="800"
                 >
                   Made to Fit You
@@ -50,14 +50,14 @@ function MeasurementProfile() {
                 <div className="div">
                   <h5
                     className="measurement-profile-title2 text-white text-shadow"
-                    data-aos="fade-left"
+                    data-aos="fade-down"
                     data-aos-duration="850"
                   >
                     無需裁縫
                   </h5>
                   <p
                     className="measurement-profile-p1 text-white text-shadow"
-                    data-aos="fade-left"
+                    data-aos="fade-down"
                     data-aos-duration="900"
                   >
                     我們使用在線流程可讓您在 10-15
@@ -66,7 +66,7 @@ function MeasurementProfile() {
                   <Link
                     className="measurement-profile-button btn-sm btn-primary"
                     to="/register"
-                    data-aos="fade-left"
+                    data-aos="fade-down"
                     data-aos-duration="950"
                   >
                     立即註冊 開始測量

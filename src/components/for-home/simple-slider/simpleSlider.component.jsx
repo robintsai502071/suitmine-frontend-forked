@@ -83,7 +83,7 @@ export default class MultipleItems extends Component {
     return (
       <div
         className="container simpleStyle-container"
-        data-aos="fade-right"
+        data-aos="fade-down"
         data-aos-duration="700"
         data-aos-easing="ease-out-cubic"
       >

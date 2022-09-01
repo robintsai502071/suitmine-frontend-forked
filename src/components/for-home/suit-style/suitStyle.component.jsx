@@ -12,7 +12,7 @@ function SuitStyle() {
         <div className="container-fluid suit-style-middle-container">
           <div className="row justify-content-center align-items-center ">
             <div
-              data-aos="fade-right"
+              data-aos="fade-down"
               data-aos-easing="ease-out-cubic"
               data-aos-duration="1000"
               className="col-md-8 col-12 d-flex justify-content-center flex-column align-items-center"

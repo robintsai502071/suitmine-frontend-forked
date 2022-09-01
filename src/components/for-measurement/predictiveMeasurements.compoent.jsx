@@ -55,7 +55,7 @@ function PredictiveMeasurements() {
           <div className="col-6 col-md-6 d-md-block d-none d-flex justify-content-center align-items-center d-md-block d-none">
             <div
               className="row flex-column"
-              data-aos="fade-left"
+              data-aos="fade-down"
               data-aos-duration="900"
             >
               <figure className="ipad-outer d-flex justify-content-end align-items-center">

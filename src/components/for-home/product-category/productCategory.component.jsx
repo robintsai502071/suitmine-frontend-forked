@@ -10,7 +10,7 @@ function ProductCategory() {
     <div className="container">
       <div
         className="card-group11"
-        // data-aos="fade-right"
+        // data-aos="fade-down"
         // data-aos-easing="ease-out-cubic"
         // data-aos-duration="800"
       >

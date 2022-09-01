@@ -28,7 +28,7 @@ function GetNoticed() {
                     <hr className="get-noticed-hr get-noticed-hr-trans" />
                     <div
                       className="get-notice-man-text-wrapper get-notice-man-shoulder"
-                      data-aos="fade-right"
+                      data-aos="fade-down"
                       data-aos-duration="800"
                     >
                       <h5 className="get-notice-man-title">肩膀</h5>
@@ -40,7 +40,7 @@ function GetNoticed() {
                     <hr className="get-noticed-hr" />
                     <div
                       className="get-notice-man-text-wrapper"
-                      data-aos="fade-right"
+                      data-aos="fade-down"
                       data-aos-duration="900"
                     >
                       <h5 className="get-notice-man-title">夾克長度</h5>
@@ -54,7 +54,7 @@ function GetNoticed() {
                     <hr className="get-noticed-hr" />
                     <div
                       className="get-notice-man-text-wrapper"
-                      data-aos="fade-right"
+                      data-aos="fade-down"
                       data-aos-duration="950"
                     >
                       <h5 className="get-notice-man-title">褲長</h5>
@@ -66,7 +66,7 @@ function GetNoticed() {
                   {/* <hr className="get-noticed-hr" /> */}
                   <div
                     className="get-notice-man-text-wrapper"
-                    data-aos="fade-left"
+                    data-aos="fade-down"
                     data-aos-duration="1000"
                   >
                     <h5 className="get-notice-man-title">Get Noticed</h5>
@@ -96,7 +96,7 @@ function GetNoticed() {
         <div className="row get-noticed-mobile">
           <div
             className="col-lg-12 get-notice-wrapper-mobile"
-            data-aos="fade-right"
+            data-aos="fade-down"
             data-aos-duration="950"
           >
             <h5 className="get-notice-title-mobile">Made to Fit You</h5>
@@ -119,7 +119,7 @@ function GetNoticed() {
               </div> */}
               <div
                 className="col get-notice-wrapper-mobile"
-                data-aos="fade-right"
+                data-aos="fade-down"
                 data-aos-duration="950"
               >
                 <h5 className="get-notice-title-mobile">Get Noticed</h5>
@@ -129,7 +129,7 @@ function GetNoticed() {
               </div>
               <div
                 className="col get-notice-wrapper-mobile"
-                data-aos="fade-right"
+                data-aos="fade-down"
                 data-aos-duration="800"
               >
                 <h5 className="get-notice-title-mobile">Rules</h5>
@@ -145,7 +145,7 @@ function GetNoticed() {
             <div className="row">
               <div
                 className="col d-flex justify-content-end align-items-center"
-                data-aos="fade-left"
+                data-aos="fade-down"
                 data-aos-duration="800"
               >
                 <figure className="get-noticed-figure-mobile">

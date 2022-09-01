@@ -11,7 +11,7 @@ const LayoutMain = () => {
       <div className="main ">
         <div className="container-fluid px-0 bg-menu">
           <ul className="main-menu  nav row gx-0 text-center">
-            <li className="col-4">
+            <li className="col-12 col-md-4">
               <Link
                 to="/measurement"
                 className="d-flex justify-content-center align-items-center text-dark p-3"
@@ -20,7 +20,7 @@ const LayoutMain = () => {
                 詳細解說
               </Link>
             </li>
-            <li className="col-4">
+            <li className="col-12 col-md-4">
               <Link
                 to="/customize-silent"
                 className="d-flex justify-content-center align-items-center text-dark p-3"
@@ -29,7 +29,7 @@ const LayoutMain = () => {
                 客製化教學
               </Link>
             </li>
-            <li className="col-4">
+            <li className="col-12 col-md-4">
               <Link
                 to=""
                 className="d-flex justify-content-center align-items-center text-dark p-3"

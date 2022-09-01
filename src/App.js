@@ -8,6 +8,7 @@ import BookingMap from './routes/booking-map/bookingMap.component';
 import ShoppingCart from './routes/shopping-cart/shoppingCart.component';
 import Checkout from './routes/checkout/checkout.component';
 import OrderFinshed from './routes/order-finished/orderFinished.component';
+import Measurement from './routes/silent-pages/measurement/measurement.component'
 function App() {
   return (
     <Routes>
@@ -16,10 +17,13 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="product-list" element={<ProductList />} />
-        <Route path="booking-map" element={<BookingMap />} />
         <Route path="Shopping-cart" element={<ShoppingCart />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="order-finished" element={<OrderFinshed />} />
+
+
+        <Route path="booking-map" element={<BookingMap />} />
+        <Route path="measurement" element={<Measurement />} />
       </Route>
     </Routes>
   );

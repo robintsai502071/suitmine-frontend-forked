@@ -10,23 +10,42 @@ import {
 
 function LoginForm() {
   const signInWithGooglePopupHandler = async () => {
-    const response = await signInWithGooglePopup();
-    console.log(response.user);
+    try {
+      const {
+        user: { email, displayName, uid },
+      } = await signInWithGooglePopup();
+      // 從 Firebase 取得 user 資訊並送去後端判斷 email 有無在官網註冊過
+      // const { email, displayName, uid } = response.user;
+      const userInfoFromGoogle = { email, displayName, uid };
 
-    // 取得 unique uid、displayName、email 值並存入資料庫
+      const response = await axios.post(
+        `${API_URL}/auth/login-with-google`,
+        userInfoFromGoogle,
+        {
+          // 如果想要跨源讀寫 cookie
+          withCredentials: true,
+        }
+      );
+      const { user } = response.data;
+    } catch (error) {
+      if (
+        error.response.data.errorMessage ===
+        '此 Gmail 已於官方網站註冊過！請改用信箱/密碼方式登入。'
+      ) {
+        // 清除 Firebase 的驗證狀態
+        await signOutGoogle();
+        console.log(error.response.data.errorMessage);
+      }
+    }
   };
 
-  const signOutGoogleHandler = async () => {
-    const response = await signOutGoogle();
-    console.log(response);
-  };
-
-  const handleLogOut = async () => {
-    let response = await axios.get(`${API_URL}/auth/logout`, {
+  const handleSignOut = async () => {
+    await axios.get(`${API_URL}/auth/logout`, {
       // 如果想要跨源讀寫 cookie
       withCredentials: true,
     });
-    console.log(response);
+    // 清除 Firebase 的驗證狀態
+    await signOutGoogle();
   };
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
@@ -182,15 +201,7 @@ function LoginForm() {
         <button
           className="btn googleBtn w-100 mx-auto mt-1"
           type="button"
-          onClick={signOutGoogleHandler}
-        >
-          <p>Google 登出</p>
-        </button>
-
-        <button
-          className="btn googleBtn w-100 mx-auto mt-1"
-          type="button"
-          onClick={handleLogOut}
+          onClick={handleSignOut}
         >
           <p>登出</p>
         </button>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
 import {
   signInWithGooglePopup,
   signOutGoogle,
@@ -19,6 +21,13 @@ function LoginForm() {
     console.log(response);
   };
 
+  const handleLogOut = async () => {
+    let response = await axios.get(`${API_URL}/auth/logout`, {
+      // 如果想要跨源讀寫 cookie
+      withCredentials: true,
+    });
+    console.log(response);
+  };
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
     email: '',
@@ -37,41 +46,41 @@ function LoginForm() {
   };
 
   //--------- 表單送出事件 ---------
-  // const handleSubmit = async (e) => {
-  //   // 防止表單直接送出
-  //   e.preventDefault();
-  //   try {
-  //     let response = await axios.post(`${API_URL}/auth/login`, member, {
-  //       // 如果想要跨源讀寫 cookie
-  //       withCredentials: true,
-  //     });
-  //     // 登入成功就轉址到會員頁
-  //     // history.push(`/member/user/${response.data.user.user_id}`);
-  //     swal({
-  //       title: '登入成功',
-  //       text: '為您跳轉頁面中......',
-  //       icon: 'success',
-  //       buttons: false,
-  //       timer: 1500,
-  //     }).then(() => {
-  //       history.push('/home');
-  //       // history.push({
-  //       //   pathname: `/member/user/${response.data.user.user_id}`,
-  //       //   state: {
-  //       //     isLogin: true,
-  //       //   },
-  //       // });
-  //     });
-  //   } catch (e) {
-  //     console.error('登入失敗', e.response.data);
-  //     swal({
-  //       title: '登入失敗',
-  //       text: '帳號或密碼錯誤！',
-  //       icon: 'error',
-  //       button: '確認',
-  //     });
-  //   }
-  // };
+  const handleSubmit = async (e) => {
+    // 防止表單直接送出
+    e.preventDefault();
+    try {
+      let response = await axios.post(`${API_URL}/auth/login`, member, {
+        // 如果想要跨源讀寫 cookie
+        withCredentials: true,
+      });
+      // 登入成功就轉址到會員頁
+      console.log(response);
+      // swal({
+      //   title: '登入成功',
+      //   text: '為您跳轉頁面中......',
+      //   icon: 'success',
+      //   buttons: false,
+      //   timer: 1500,
+      // }).then(() => {
+      //   history.push('/home');
+      //   // history.push({
+      //   //   pathname: `/member/user/${response.data.user.user_id}`,
+      //   //   state: {
+      //   //     isLogin: true,
+      //   //   },
+      //   // });
+      // });
+    } catch (e) {
+      console.error('登入失敗', e.response.data);
+      // swal({
+      //   title: '登入失敗',
+      //   text: '帳號或密碼錯誤！',
+      //   icon: 'error',
+      //   button: '確認',
+      // });
+    }
+  };
   // -----------表單用，有不合法的驗証情況出現時觸發-----------
 
   const handleInvalid = (e) => {
@@ -103,14 +112,13 @@ function LoginForm() {
     //
     const newFieldErrors = { ...fieldErrors, [e.target.name]: '' };
     setFieldErrors(newFieldErrors);
-    console.log('handle form change', e.target.name);
   };
 
   return (
     <>
       <form
         //--- 表單送出事件 ---
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         //--- 表單錯誤事件，觸發handleInvalid函數 ---
         onInvalid={handleInvalid}
         //--- 表單更動事件，觸發handleFormChange函數 ---
@@ -179,6 +187,13 @@ function LoginForm() {
           <p>Google 登出</p>
         </button>
 
+        <button
+          className="btn googleBtn w-100 mx-auto mt-1"
+          type="button"
+          onClick={handleLogOut}
+        >
+          <p>登出</p>
+        </button>
         <Link className="mx-auto registerButonBox" to="/register">
           <p className="my-3">註冊會員</p>
         </Link>

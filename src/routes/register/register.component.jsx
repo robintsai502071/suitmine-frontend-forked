@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterForm from '../../components/register-form/registerForm';
+import RegisterForm from '../../components/register-form/registerForm.component';
 import RegisterBgImg from '../../assests/images/login/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png';
 
 function Register() {

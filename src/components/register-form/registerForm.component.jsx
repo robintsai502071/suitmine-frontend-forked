@@ -2,14 +2,12 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 
-// import { API_URL } from '../../../../utils/config';
+import { API_URL } from '../../utils/config';
 
 //--------- 下拉式選單陣列 ---------
 const genderArr = ['男士', '女士', '不提供'];
 
 function RegisterForm() {
-  //--------- 使用useHistory ---------
-
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
     username: '',
@@ -17,84 +15,49 @@ function RegisterForm() {
     password: '',
     confirmPassword: '',
     gender: 0,
-    age: '',
-    photo: '',
+    birth_date: '',
   });
 
   //--------- 保存誤訊息狀態 ---------
-
   const [errorMessage, seterrorMessage] = useState({
     username: '',
     email: '',
     password: '',
     confirmPassword: '',
     age: '',
-    photo: '',
   });
-  //--------- 表單更換函示 ---------
 
+  //--------- 表單更換函示 ---------
   const handleChange = (e) => {
     setMember({ ...member, [e.target.name]: e.target.value });
   };
 
-  //--------- 表單上傳圖片函示 ---------
-
-  // --- 抓取上傳圖片事件 ---
-
-  const handlePhoto = (e) => {
+  //--------- 表單送出函示 ---------
+  const handleSubmit = async (e) => {
+    // 防止表單直接送出
     e.preventDefault();
-    // 陣列的索引0(因為只會上傳一張圖片)
-    setMember({ ...member, photo: e.target.files[0] });
+
+    // 驗證密碼與確認密碼是否一致
+    if (member.password !== member.confirmPassword) {
+      // 密碼與確認密碼錯誤訊息
+      // 自訂並取代原有錯誤訊息
+      const updatePasswordDoubleCheckErrorMessage = {
+        ...errorMessage,
+        confirmPassword: '密碼與確認密碼不同',
+      };
+      seterrorMessage(updatePasswordDoubleCheckErrorMessage);
+      return;
+    }
+
+    try {
+      //--- 送去後端 ---
+      let response = await axios.post(`${API_URL}/auth/register`, member);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
-  //--------- 表單送出函示 ---------
-
-  // const handleSubmit = async (e) => {
-  //   // 防止表單直接送出
-  //   e.preventDefault();
-
-  //   //--- 如果表單有圖片，會用 FormData 的方式來上傳 ---
-  //   try {
-  //     let formData = new FormData();
-  //     formData.append('username', member.username);
-  //     formData.append('email', member.email);
-  //     formData.append('password', member.password);
-  //     formData.append('confirmPassword', member.confirmPassword);
-  //     formData.append('gender', member.gender);
-  //     formData.append('age', member.age);
-  //     formData.append('photo', member.photo);
-
-  //     //--- 送去後端 ---
-  //     let response = await axios.post(
-  //       `http://localhost:3001/api/auth/register`,
-  //       formData
-  //     );
-  //     console.log(response);
-  //     //--- 當資料傳送成功時，切換網址 ---
-  //     history.push({
-  //       pathname: '/measurement-teaching',
-  //       state: {
-  //         insertId: response.data.response.insertId,
-  //       },
-  //     });
-  //   } catch (e) {
-  //     console.error(e);
-  //   }
-
-  //   // --- 密碼與確認密碼篩選錯誤訊息 ---
-  //   // 作客製/自訂驗証
-  //   if (member.password !== member.confirmPassword) {
-  //     //自訂並取代原有錯誤訊息
-  //     const updatePasswordDoubleCheakErrorMessage = {
-  //       ...errorMessage,
-  //       confirmPassword: '密碼與確認密碼輸入值不同',
-  //     };
-  //     seterrorMessage(updatePasswordDoubleCheakErrorMessage);
-  //   }
-  // };
-
   //--------- 表單錯誤事件(有不合法的驗証情況出現時觸發) ---------
-
   const handleInvalid = (e) => {
     // 擋住錯誤泡泡訊息跳出(太醜、太大)
     e.preventDefault();
@@ -105,14 +68,13 @@ function RegisterForm() {
       [e.target.name]: e.target.validationMessage,
     };
     seterrorMessage(newErrorMessage);
+    console.log(e.target.validationMessage);
   };
   //--------- 表單錯誤更正事件，重新輸入正確資訊會消除錯誤訊息 ---------
-
   // 用於讓使用者輸入某欄位時清空某欄位錯誤訊息
   // 填完資料送出後，更改原本錯誤的表單觸發onChange事件
   // 將空的錯誤訊息傳回狀態內
   // 原本顯示的錯誤訊息就會消失
-
   const handleFormChange = (e) => {
     // 如果以修正成正確資訊，錯誤訊息的欄位顯示 "" <--空(等於沒有錯誤)
     const fixErrorsMessage = { ...errorMessage, [e.target.name]: '' };
@@ -123,17 +85,17 @@ function RegisterForm() {
     <>
       <form
         //--- 表單送出事件 ---
-        // onSubmit={handleSubmit}
+        onSubmit={handleSubmit}
         //--- 表單錯誤事件 ---
-        // onInvalid={handleInvalid}
+        onInvalid={handleInvalid}
         //--- 表單錯誤更正事件 ---
-        // onChange={handleFormChange}
+        onChange={handleFormChange}
         className=" mx-auto d-flex flex-column justify-content-center"
         target="framFile"
       >
         {/* 您的姓名 */}
-        <div class="mb-3 mx-1">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             您的姓名
           </label>
           <input
@@ -141,7 +103,7 @@ function RegisterForm() {
             name="username"
             value={member.username}
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="請輸入姓名"
             required
@@ -150,9 +112,10 @@ function RegisterForm() {
             <p>{errorMessage.username && errorMessage.username}</p>
           </div>
         </div>
+
         {/* Email */}
-        <div class="mb-3 mx-1">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Email
           </label>
           <input
@@ -160,7 +123,7 @@ function RegisterForm() {
             name="email"
             value={member.email}
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
             required
@@ -169,9 +132,10 @@ function RegisterForm() {
             <p>{errorMessage.email && errorMessage.email}</p>
           </div>
         </div>
+
         {/* 請輸入密碼 */}
-        <div class="mb-3 mx-1">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             請輸入密碼
           </label>
           <input
@@ -179,7 +143,7 @@ function RegisterForm() {
             name="password"
             value={member.password}
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="請輸入密碼"
             // 密碼長度驗證
@@ -191,9 +155,10 @@ function RegisterForm() {
             <p>{errorMessage.password && errorMessage.password}</p>
           </div>
         </div>
+
         {/* 再次確認密碼 */}
-        <div class="mb-3 mx-1">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             再次確認密碼
           </label>
           <input
@@ -201,7 +166,7 @@ function RegisterForm() {
             name="confirmPassword"
             value={member.confirmPassword}
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="請再次輸入密碼"
             required
@@ -212,13 +177,14 @@ function RegisterForm() {
             </p>
           </div>
         </div>
-        <div class="mb-3 mx-1">
-          <label for="exampleFormControlInput1" class="form-label">
+
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             請選擇性別
           </label>
           <select
             type="text"
-            class="form-select"
+            className="form-select"
             aria-label="Default select example "
             name="gender"
             value={member.gender}
@@ -234,16 +200,17 @@ function RegisterForm() {
             })}
           </select>
         </div>
-        <div class="mb-3 mx-1">
-          <label for="exampleFormControlInput1" class="form-label">
-            生日
+
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            出生日期
           </label>
           <input
             type="date"
-            name="age"
+            name="birth_date"
             value={member.age}
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="請輸入年齡"
             required
@@ -252,22 +219,7 @@ function RegisterForm() {
             <p>{errorMessage.age && errorMessage.age}</p>
           </div>
         </div>
-        {/* 上傳大頭貼 */}
-        <div class="mb-3 mx-1 d-flex flex-column">
-          <label for="exampleFormControlInput1" class="form-label">
-            上傳大頭貼
-          </label>
-          <div class="input-group mb-3">
-            <input
-              type="file"
-              name="photo"
-              // value={member.photo}
-              onChange={handlePhoto}
-              class="form-control"
-              id="inputGroupFile02"
-            />
-          </div>
-        </div>
+
         <button className="btn registerBtn mx-auto mt-3" type="submit">
           <p>送出</p>
         </button>

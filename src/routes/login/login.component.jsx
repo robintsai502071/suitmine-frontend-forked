@@ -1,6 +1,7 @@
 import React from 'react';
-import LoginForm from '../../components/login-form/loginForm';
+import LoginForm from '../../components/login-form/loginForm.component';
 import LoginBgImg from '../../assests/images/login/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png';
+
 
 function Login() {
   return (
@@ -8,7 +9,7 @@ function Login() {
       <div className="Login">
         <div className="header"></div>
         <div className="main">
-          <div className="container-fluid ">
+          <div className="container">
             <div className="bgcImg">
               <img src={LoginBgImg} alt="" />
             </div>

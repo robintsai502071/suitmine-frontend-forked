@@ -1,14 +1,29 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  signInWithGooglePopup,
+  signOutGoogle,
+} from '../../utils/firebase/firebase.utils';
 
 function LoginForm() {
+  const signInWithGooglePopupHandler = async () => {
+    const response = await signInWithGooglePopup();
+    console.log(response.user);
+
+    // 取得 unique uid、displayName、email 值並存入資料庫
+  };
+
+  const signOutGoogleHandler = async () => {
+    const response = await signOutGoogle();
+    console.log(response);
+  };
+
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
     email: '',
     password: '',
   });
-  // console.log(member);
 
   //--------- 設定一個狀態，為記錄錯誤訊息用 ---------
   const [fieldErrors, setFieldErrors] = useState({
@@ -88,6 +103,7 @@ function LoginForm() {
     //
     const newFieldErrors = { ...fieldErrors, [e.target.name]: '' };
     setFieldErrors(newFieldErrors);
+    console.log('handle form change', e.target.name);
   };
 
   return (
@@ -96,15 +112,15 @@ function LoginForm() {
         //--- 表單送出事件 ---
         // onSubmit={handleSubmit}
         //--- 表單錯誤事件，觸發handleInvalid函數 ---
-        // onInvalid={handleInvalid}
+        onInvalid={handleInvalid}
         //--- 表單更動事件，觸發handleFormChange函數 ---
-        // onChange={handleFormChange}
+        onChange={handleFormChange}
         className=" mx-auto d-flex flex-column justify-content-center"
         target="framFile"
       >
         {/* Email */}
-        <div class="mb-3 mx-1">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             Email
           </label>
           <input
@@ -112,7 +128,7 @@ function LoginForm() {
             name="email"
             value={member.email}
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="name@example.com"
             required
@@ -122,8 +138,8 @@ function LoginForm() {
           </p>
         </div>
         {/* 請輸入密碼 */}
-        <div class="mb-3 mx-1">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
             請輸入密碼
           </label>
           <input
@@ -131,7 +147,7 @@ function LoginForm() {
             name="password"
             value={member.password}
             onChange={handleChange}
-            class="form-control"
+            className="form-control"
             id="exampleFormControlInput1"
             placeholder="請輸入密碼"
             // 密碼長度驗證
@@ -147,8 +163,20 @@ function LoginForm() {
           <p>送出</p>
         </button>
 
-        <button className="btn googleBtn w-100 mx-auto mt-1" type="button">
+        <button
+          className="btn googleBtn w-100 mx-auto mt-1"
+          type="button"
+          onClick={signInWithGooglePopupHandler}
+        >
           <p>Google 登入</p>
+        </button>
+
+        <button
+          className="btn googleBtn w-100 mx-auto mt-1"
+          type="button"
+          onClick={signOutGoogleHandler}
+        >
+          <p>Google 登出</p>
         </button>
 
         <Link className="mx-auto registerButonBox" to="/register">

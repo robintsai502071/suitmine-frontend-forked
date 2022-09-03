@@ -2,17 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-// import 'antd/dist/antd.css';
+
+// redux
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 import 'antd/dist/antd.min.css'; // or 'antd/dist/antd.less'
 import 'aos/dist/aos.css';
 import 'animate.css';
-import './index.scss'
+import './index.scss';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );

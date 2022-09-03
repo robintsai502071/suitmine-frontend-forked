@@ -8,7 +8,12 @@ import {
   signOutGoogle,
 } from '../../utils/firebase/firebase.utils';
 
+import { setCurrentUser } from '../../store/user/user.slice';
+import { useDispatch } from 'react-redux';
+
 function LoginForm() {
+  const dispatch = useDispatch();
+
   const signInWithGooglePopupHandler = async () => {
     try {
       const {
@@ -27,6 +32,8 @@ function LoginForm() {
         }
       );
       const { user } = response.data;
+      // 將從後端返回的 user 存入 redux store
+      dispatch(setCurrentUser(user));
     } catch (error) {
       if (
         error.response.data.errorMessage ===
@@ -46,6 +53,7 @@ function LoginForm() {
     });
     // 清除 Firebase 的驗證狀態
     await signOutGoogle();
+    dispatch(setCurrentUser(null));
   };
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
@@ -73,8 +81,9 @@ function LoginForm() {
         // 如果想要跨源讀寫 cookie
         withCredentials: true,
       });
-      // 登入成功就轉址到會員頁
-      console.log(response);
+      // 將從後端返回的 user 存入 redux store
+      const { user } = response.data;
+      dispatch(setCurrentUser(user));
       // swal({
       //   title: '登入成功',
       //   text: '為您跳轉頁面中......',

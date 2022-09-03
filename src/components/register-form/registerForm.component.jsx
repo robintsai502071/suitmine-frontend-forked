@@ -51,7 +51,8 @@ function RegisterForm() {
 
     try {
       //--- 送去後端 ---
-      let response = await axios.post(`${API_URL}/auth/register`, member);
+      await axios.post(`${API_URL}/auth/register`, member);
+      // TODO: 註冊成功導回登入頁面讓使用者登入
     } catch (e) {
       console.error(e);
     }

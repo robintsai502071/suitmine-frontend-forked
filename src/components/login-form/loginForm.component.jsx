@@ -46,15 +46,6 @@ function LoginForm() {
     }
   };
 
-  const handleSignOut = async () => {
-    await axios.get(`${API_URL}/auth/logout`, {
-      // 如果想要跨源讀寫 cookie
-      withCredentials: true,
-    });
-    // 清除 Firebase 的驗證狀態
-    await signOutGoogle();
-    dispatch(setCurrentUser(null));
-  };
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
     email: '',
@@ -207,13 +198,6 @@ function LoginForm() {
           <p>Google 登入</p>
         </button>
 
-        <button
-          className="btn googleBtn w-100 mx-auto mt-1"
-          type="button"
-          onClick={handleSignOut}
-        >
-          <p>登出</p>
-        </button>
         <Link className="mx-auto registerButonBox" to="/register">
           <p className="my-3">註冊會員</p>
         </Link>

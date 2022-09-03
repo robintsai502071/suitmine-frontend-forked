@@ -1,8 +1,36 @@
-import { Link, Outlet } from 'react-router-dom';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import React from 'react';
 import logo from '../../assests/images/layout/logo.svg';
 
+import axios from 'axios';
+import { API_URL } from '../../utils/config';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentUser } from '../../store/user/user.slice';
+import { signOutGoogle } from '../../utils/firebase/firebase.utils';
+import { selectCurrentUser } from '../../store/user/user.slector';
+
 const Navigation = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const currentUser = useSelector(selectCurrentUser);
+
+  const handleSignOut = async () => {
+    await axios.get(`${API_URL}/auth/logout`, {
+      // 如果想要跨源讀寫 cookie
+      withCredentials: true,
+    });
+    // 清除 Firebase 的驗證狀態
+    await signOutGoogle();
+    dispatch(setCurrentUser(null));
+  };
+
+  const handleSignIn = () => {
+    // 如果不是登入狀態就導向登入頁面
+    if (!currentUser) {
+      navigate('/login');
+      return;
+    }
+  };
   return (
     <>
       <div className="header bg-dark d-flex justify-content-between">
@@ -21,12 +49,6 @@ const Navigation = () => {
               </Link>
               <Link to="booking-map">
                 <li>門市據點</li>
-              </Link>
-              <Link to="/blog">
-                <li>部落格</li>
-              </Link>
-              <Link to="/gift-card">
-                <li>禮物卡</li>
               </Link>
             </ul>
           </div>
@@ -55,29 +77,27 @@ const Navigation = () => {
           </li>
 
           <li>
-            <Link to="/blog" className="btn text-white">
-              部落格
-            </Link>
-          </li>
-
-          <li>
             <Link to="/shopping-cart" className="btn text-white">
               購物車
             </Link>
           </li>
           <li>
-            <a>
+            <a role="button" onClick={handleSignIn}>
               <i className="fa-regular fa-user text-white btn"></i>
             </a>
           </li>
 
-          {/* {isLogin && (
-          <li>
-            <a onClick={logout} className="btn text-white">
-              <i className="fa-solid fa-person-running me-2"></i>登出
-            </a>
-          </li>
-        )} */}
+          {currentUser && (
+            <li>
+              <a
+                className="btn text-white"
+                role="button"
+                onClick={handleSignOut}
+              >
+                <i className="fa-solid fa-person-running me-2"></i>登出
+              </a>
+            </li>
+          )}
         </ul>
       </div>
       <Outlet />

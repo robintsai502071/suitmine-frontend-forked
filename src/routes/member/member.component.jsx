@@ -24,7 +24,7 @@ function Member() {
             <MemberProfileForm />
           </Tab>
           <Tab eventKey="my-favorites" title="我的收藏">
-            2
+            <MyFavoritesDisplay />
           </Tab>
           <Tab eventKey="my-orders" title="我的訂單">
             3

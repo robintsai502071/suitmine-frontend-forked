@@ -1,33 +1,21 @@
 import React from 'react';
-import { useState } from 'react';
 
-function MyFavoritesDisplayItem(props) {
-  const { name, price, product_photo, product_id, handleDelete } = props;
-  const newProduct_photo = `http://localhost:3001/${product_photo}`;
-  // console.log(product_id);
-
+function MyFavoritesDisplayItem() {
   return (
-    <a href="#/" className="d-block my-favorites-display-item text-center my-3">
-      <div className="my-favorites-display-item__image-wrapper">
+    <div className="col-6 col-md-4 col-lg-2 mb-2 myFavoritesDisplayItem">
+      <div class="card">
         <img
-          className="my-favorites-display-item__image classForFit"
-          src={newProduct_photo}
-          alt=""
+          src="https://fakeimg.pl/250x200/"
+          class="card-img-top myFavoritesDisplayItem__image"
+          alt="..."
         />
+        <div class="card-body d-flex flex-column align-items-center">
+          <p className="myFavoritesDisplayItem__title">高級黑西裝</p>
+          <p className="myFavoritesDisplayItem__price my-2">$ 1,699</p>
+          <i class="fa-solid fa-heart myFavoritesDisplayItem__heart"></i>
+        </div>
       </div>
-
-      <h6 className="my-favorites-display-item__title my-2">{name}</h6>
-      <div className="my-favorites-display-item__price">${price}</div>
-      <button
-        className="loveBtn"
-        onClick={async () => {
-          handleDelete(product_id);
-        }}
-        data-runner="1"
-      >
-        <i className="fa-solid fa-heart my-2"></i>
-      </button>
-    </a>
+    </div>
   );
 }
 

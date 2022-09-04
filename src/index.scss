@@ -17,11 +17,13 @@
 // components/for-shopping-cart
 @import './components/for-shopping-cart/steps/steps.styles.scss';
 @import './components/for-shopping-cart/cart-reconfirm-accordion/cartReconfirmAccordion.styles.scss';
+@import './components/for-shopping-cart/shopping-cart-item/shopping-cart-item.styles.scss';
+@import './components/for-shopping-cart/order-detail/orderDetail.component.styles.scss';
 
 @import './components/login-form/loginForm.styles.scss';
 @import './components/register-form/registerForm.styles.scss';
-@import './components/for-shopping-cart/shopping-cart-item/shopping-cart-item.styles.scss';
-@import './components/for-shopping-cart/order-detail/orderDetail.component.styles.scss';
+// for-member
+@import './components/for-member/my-favorites/myFavoritesDisplay.styles.scss';
 
 // routes
 @import './routes/home/home.styles.scss';

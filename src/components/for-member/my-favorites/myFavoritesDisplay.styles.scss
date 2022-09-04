@@ -1,0 +1,14 @@
+.my-favorites {
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  padding: 20px;
+}
+.myFavoritesDisplayItem {
+  .card-body {
+    padding: 10px;
+  }
+  &__heart {
+    color: $dark-gray;
+    font-size: 20px;
+  }
+}

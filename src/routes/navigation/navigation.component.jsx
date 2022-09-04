@@ -1,4 +1,5 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import React from 'react';
 import logo from '../../assests/images/layout/logo.svg';
 
@@ -10,6 +11,24 @@ import { signOutGoogle } from '../../utils/firebase/firebase.utils';
 import { selectCurrentUser } from '../../store/user/user.slector';
 
 const Navigation = () => {
+  // 每次載入 navigation.component 都要確認是否還在登入狀態
+  useEffect(() => {
+    const checkIsLogin = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/auth/check-is-login`, {
+          // 允許跨源讀寫 cookie
+          withCredentials: true,
+        });
+        const user = response.data;
+        dispatch(setCurrentUser(user));
+      } catch (error) {
+        dispatch(setCurrentUser(null));
+        navigate('/');
+      }
+    };
+    checkIsLogin();
+  }, []);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
@@ -22,6 +41,8 @@ const Navigation = () => {
     // 清除 Firebase 的驗證狀態
     await signOutGoogle();
     dispatch(setCurrentUser(null));
+    // 導回登入頁面
+    navigate('/login');
   };
 
   const handleSignIn = () => {
@@ -30,6 +51,7 @@ const Navigation = () => {
       navigate('/login');
       return;
     }
+    navigate('/member');
   };
   return (
     <>

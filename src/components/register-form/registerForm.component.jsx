@@ -116,7 +116,7 @@ function RegisterForm() {
 
         {/* Email */}
         <div className="mb-3 mx-1">
-          <label htmlFor="exampleFormControlInput1" className="form-label">
+          <label htmlFor="exampleFormControlInput2" className="form-label">
             Email
           </label>
           <input
@@ -125,7 +125,7 @@ function RegisterForm() {
             value={member.email}
             onChange={handleChange}
             className="form-control"
-            id="exampleFormControlInput1"
+            id="exampleFormControlInput2"
             placeholder="name@example.com"
             required
           ></input>
@@ -203,7 +203,7 @@ function RegisterForm() {
         </div>
 
         <div className="mb-3 mx-1">
-          <label htmlFor="exampleFormControlInput1" className="form-label">
+          <label htmlFor="exampleFormControlInput3" className="form-label">
             出生日期
           </label>
           <input
@@ -212,7 +212,7 @@ function RegisterForm() {
             value={member.age}
             onChange={handleChange}
             className="form-control"
-            id="exampleFormControlInput1"
+            id="exampleFormControlInput3"
             placeholder="請輸入年齡"
             required
           ></input>

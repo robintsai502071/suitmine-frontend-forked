@@ -342,11 +342,11 @@ function BookingMap() {
                 data-aos="fade-down"
                 className="col-3 d-md-flex d-none justify-content-center"
               >
-                <div class="card d-flex ">
+                <div className="card d-flex ">
                   <div className="shopName  d-flex justify-content-center align-items-center">
                     <p className="h5">台北新光店</p>
                   </div>
-                  <div class="reserveCardBody px-3">
+                  <div className="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
                       <p>02-3759965</p>
                     </div>
@@ -370,11 +370,11 @@ function BookingMap() {
                 data-aos="fade-down"
                 className="col-12 d-flex d-md-none justify-content-center"
               >
-                <div class="card d-flex  ">
+                <div className="card d-flex  ">
                   <div className="shopName  d-flex justify-content-center align-items-center">
                     <p className="h5">台北新光店</p>
                   </div>
-                  <div class="reserveCardBody px-3">
+                  <div className="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
                       <p>02-3759965</p>
                     </div>
@@ -398,11 +398,11 @@ function BookingMap() {
                 data-aos="fade-down"
                 className="col-3 d-md-flex d-none justify-content-center"
               >
-                <div class="card d-flex ">
+                <div className="card d-flex ">
                   <div className="shopName  d-flex justify-content-center align-items-center">
                     <p className="h5">桃園新光店</p>
                   </div>
-                  <div class="reserveCardBody px-3">
+                  <div className="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
                       <p>03-2189658</p>
                     </div>
@@ -426,11 +426,11 @@ function BookingMap() {
                 data-aos="fade-down"
                 className="my-5 col-12 d-flex d-md-none justify-content-center"
               >
-                <div class="card d-flex  ">
+                <div className="card d-flex  ">
                   <div className="shopName  d-flex justify-content-center align-items-center">
                     <p className="h5">桃園新光店</p>
                   </div>
-                  <div class="reserveCardBody px-3">
+                  <div className="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
                       <p>03-2189658</p>
                     </div>
@@ -454,11 +454,11 @@ function BookingMap() {
                 data-aos="fade-down"
                 className="col-3 d-md-flex d-none justify-content-center"
               >
-                <div class="card d-flex  ">
+                <div className="card d-flex  ">
                   <div className="shopName  top-0 d-flex justify-content-center align-items-center">
                     <p className="h5">彰化新光店</p>
                   </div>
-                  <div class="reserveCardBody px-3">
+                  <div className="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
                       <p>04-22253456</p>
                     </div>
@@ -482,11 +482,11 @@ function BookingMap() {
                 data-aos="fade-down"
                 className="col-12 d-flex d-md-none justify-content-center"
               >
-                <div class="card d-flex  ">
+                <div className="card d-flex  ">
                   <div className="shopName  top-0 d-flex justify-content-center align-items-center">
                     <p className="h5">彰化新光店</p>
                   </div>
-                  <div class="reserveCardBody px-3">
+                  <div className="reserveCardBody px-3">
                     <div className="my-3 d-flex ">
                       <p>04-22253456</p>
                     </div>

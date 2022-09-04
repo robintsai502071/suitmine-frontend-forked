@@ -1,6 +1,6 @@
+import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 import {
@@ -13,7 +13,7 @@ import { useDispatch } from 'react-redux';
 
 function LoginForm() {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const signInWithGooglePopupHandler = async () => {
     try {
       const {
@@ -34,6 +34,8 @@ function LoginForm() {
       const { user } = response.data;
       // 將從後端返回的 user 存入 redux store
       dispatch(setCurrentUser(user));
+      // 導向會員頁面
+      navigate('/member');
     } catch (error) {
       if (
         error.response.data.errorMessage ===
@@ -42,6 +44,7 @@ function LoginForm() {
         // 清除 Firebase 的驗證狀態
         await signOutGoogle();
         console.log(error.response.data.errorMessage);
+        // TODO: swal
       }
     }
   };
@@ -75,21 +78,7 @@ function LoginForm() {
       // 將從後端返回的 user 存入 redux store
       const { user } = response.data;
       dispatch(setCurrentUser(user));
-      // swal({
-      //   title: '登入成功',
-      //   text: '為您跳轉頁面中......',
-      //   icon: 'success',
-      //   buttons: false,
-      //   timer: 1500,
-      // }).then(() => {
-      //   history.push('/home');
-      //   // history.push({
-      //   //   pathname: `/member/user/${response.data.user.user_id}`,
-      //   //   state: {
-      //   //     isLogin: true,
-      //   //   },
-      //   // });
-      // });
+      navigate('/member');
     } catch (e) {
       console.error('登入失敗', e.response.data);
       // swal({
@@ -166,7 +155,7 @@ function LoginForm() {
         </div>
         {/* 請輸入密碼 */}
         <div className="mb-3 mx-1">
-          <label htmlFor="exampleFormControlInput1" className="form-label">
+          <label htmlFor="exampleFormControlInput2" className="form-label">
             請輸入密碼
           </label>
           <input
@@ -175,7 +164,7 @@ function LoginForm() {
             value={member.password}
             onChange={handleChange}
             className="form-control"
-            id="exampleFormControlInput1"
+            id="exampleFormControlInput2"
             placeholder="請輸入密碼"
             // 密碼長度驗證
             minLength={6}

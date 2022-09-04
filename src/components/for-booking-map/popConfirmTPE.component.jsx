@@ -15,19 +15,19 @@ function PopconfirmTPE() {
           overlay={
             <Popover id={`popover-positioned-${placement}`}>
               <Popover.Body>
-                <div class="TPEcard">
-                  <img src={TPEimg} class=" card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">台北店</h5>
+                <div className="TPEcard">
+                  <img src={TPEimg} className=" card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">台北店</h5>
                     <div>
-                      <p class="">
-                        {/* <i class="fa-solid fa-phone"></i> */}
+                      <p className="">
+                        {/* <i className="fa-solid fa-phone"></i> */}
                         <span className="popoverText">02-3759965</span>
                       </p>
                     </div>
                     <div>
-                      <p class="">
-                        {/* <i class="fa-solid fa-location-dot"></i> */}
+                      <p className="">
+                        {/* <i className="fa-solid fa-location-dot"></i> */}
                         <span className="popoverText">
                           台北市信義區松壽路9號
                         </span>

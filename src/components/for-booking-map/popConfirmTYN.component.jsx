@@ -16,19 +16,19 @@ function PopconfirmTYN() {
           overlay={
             <Popover id={`popover-positioned-${placement}`}>
               <Popover.Body>
-                <div class="TPEcard">
-                  <img src={TYNimg} class=" card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">桃園店</h5>
+                <div className="TPEcard">
+                  <img src={TYNimg} className=" card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">桃園店</h5>
                     <div>
-                      <p class="">
-                        {/* <i class="fa-solid fa-phone"></i> */}
+                      <p className="">
+                        {/* <i className="fa-solid fa-phone"></i> */}
                         <span className="popoverText">03-2189658</span>
                       </p>
                     </div>
                     <div>
-                      <p class="">
-                        {/* <i class="fa-solid fa-location-dot"></i> */}
+                      <p className="">
+                        {/* <i className="fa-solid fa-location-dot"></i> */}
                         <span className="popoverText">
                           桃園市中壢區新生街226巷8弄5號
                         </span>

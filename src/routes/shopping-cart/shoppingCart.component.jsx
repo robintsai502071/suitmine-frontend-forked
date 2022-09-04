@@ -81,7 +81,7 @@ const ShoppingCart = () => {
                       <p>$1,215</p>
                     </li>
                   </ul>
-                  <button class="btn w-100 mx-auto mt-4" type="button">
+                  <button className="btn w-100 mx-auto mt-4" type="button">
                     前往結帳
                   </button>
 

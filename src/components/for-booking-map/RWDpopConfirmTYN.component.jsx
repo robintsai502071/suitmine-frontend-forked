@@ -13,12 +13,12 @@ function MyVerticallyCenteredModal(props) {
       centered
     >
       <Modal.Body>
-        <div class="RWDcard">
-          <div class="PopconfirmCardImgBox">
-            <img src={TYNimg} class="PopconfirmCardImg " alt="..." />
+        <div className="RWDcard">
+          <div className="PopconfirmCardImgBox">
+            <img src={TYNimg} className="PopconfirmCardImg " alt="..." />
           </div>
-          <div class="card-body">
-            <h5 class="card-title">桃園店</h5>
+          <div className="card-body">
+            <h5 className="card-title">桃園店</h5>
             <div className="my-2 d-flex">
               <p className="">03-2189658</p>
             </div>

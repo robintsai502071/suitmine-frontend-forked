@@ -27,7 +27,7 @@ function Member() {
             <MyFavoritesDisplay />
           </Tab>
           <Tab eventKey="my-orders" title="我的訂單">
-            3
+            <OrderListDisplay />
           </Tab>
         </Tabs>
       </div>

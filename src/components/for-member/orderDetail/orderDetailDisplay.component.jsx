@@ -1,7 +1,11 @@
 import React from 'react';
 
 function OrderDetailDisplay() {
-  return <></>;
+  return (
+    <>
+
+    </>
+  );
 }
 
 export default OrderDetailDisplay;

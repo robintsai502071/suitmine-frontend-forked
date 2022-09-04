@@ -1,0 +1,22 @@
+.order-list-display {
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+  padding: 20px;
+}
+
+.order-list-display-item {
+  // 查閱按鈕
+  &__lookup {
+    font-size: 14px;
+    text-decoration: underline !important;
+    color: $dark-gray;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .order-list-display {
+    .prefix {
+      display: none;
+    }
+  }
+}

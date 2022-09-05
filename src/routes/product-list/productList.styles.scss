@@ -1,28 +1,18 @@
 .productListRow {
   margin: 0;
 }
-/* -----------右側sticky功能欄----------- */
-.sidebar {
-  background-color: rgb(95, 95, 95);
-  z-index: 9999;
-}
-.sidebar {
-  width: 40px;
-  height: 15vh;
-  border-radius: 15px 0 0 15px;
-}
-.sidebar {
-  position: fixed;
-  top: 35%;
-  right: 0%;
-}
-.sidebar i {
-  color: rgb(255, 255, 255);
-}
+
 /* -----------商品顏色、價格篩選列表(蓋)----------- */
 .filterBar {
   border-bottom: 0.5px solid #7575752d;
   margin-bottom: 20px;
+}
+// 調整顏色、價格篩選樣式
+.filter-color, .filter-price {
+  .ant-select-selection-item {
+    width: 65px;
+    font-size: 14px;
+  }
 }
 .container-fluid-padding {
   padding: 0%;
@@ -215,89 +205,7 @@
   border-right: 3px solid #000000;
 }
 
-/* -----------商品列表----------- */
-.cardSize {
-  padding: 0%;
-}
-.cardStyle {
-  --bs-card-border-radius: 0rem;
-  border: unset;
-}
-.imgSize {
-  height: 400px;
-  object-fit: cover;
-}
-.cardPadding {
-  padding-left: 0px;
-  padding-right: 0px;
-}
-.productList {
-  padding-right: 0px;
-  padding-left: 0px;
-}
-.cardBottomMargin {
-  margin-bottom: 40px;
-  text-decoration: none;
-  color: #000;
-}
-.imgBox:hover:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 400px;
-  background-color: rgba($color: #000000, $alpha: 0.8);
-}
-/* ============ 商品卡 hover============ */
-@media screen and (max-width: 420px) {
-  .imgBox:hover:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 300px;
-    background-color: rgba($color: #000000, $alpha: 0.8);
-  }
-}
-.imgBox:hover .viewProject {
-  display: block;
-}
-.viewProject {
-  z-index: 9999;
-  border: 0.8px solid #ffffff;
-  display: none;
-  width: 110px;
-  height: 28px;
-  text-align: center;
-}
-.viewProject p {
-  color: rgb(255, 255, 255);
-  line-height: 26px;
-}
-.viewProject :hover {
-  background-color: #fff;
-  color: #000;
-}
-.price {
-  color: #000;
-}
-.product-fa-heart {
-  font-size: 20px;
-  color: $dark-gray;
-}
-.product-fa-heart.active{
-  color: red;
-}
-/* ============ 商品列表 RWD============ */
-@media screen and (max-width: 420px) {
-  product-fa-heart.cardStyle img {
-    height: 300px;
-  }
-}
+
 /* -----------顧客怎麼說----------- */
 .bottomBanner {
   height: 600px;
@@ -315,25 +223,7 @@
   width: 90%;
   text-align: center;
 }
-/* -----------右側sticky功能欄----------- */
-.sidebar {
-  background-color: rgb(95, 95, 95);
-  float: right;
-  z-index: 9999;
-}
-.sidebar {
-  width: 40px;
-  height: 15vh;
-  border-radius: 15px 0 0 15px;
-}
-.sidebar {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 35%;
-}
-.sidebar i {
-  color: rgb(255, 255, 255);
-}
+
 /* -----------商品材質、顏色、價格篩選列表----------- */
 .dropdown .btn {
   color: rgb(0, 0, 0);
@@ -370,10 +260,7 @@
   text-decoration: none;
   background-color: #b8b8b8;
 }
-/* -----------材質展示switchButton----------- */
-.ant-switch-checked {
-  background: #000000;
-}
+
 /* =========== 商品材質、顏色、價格篩選列表 RWD ===========*/
 .ant-drawer-body {
   padding: 0;
@@ -474,10 +361,10 @@ html {
   --bs-card-border-radius: 0rem;
   border: unset;
 }
-.imgSize {
-  height: 400px;
-  object-fit: cover;
-}
+// .imgSize {
+//   height: 400px;
+//   object-fit: cover;
+// }
 .cardPadding {
   padding-left: 0px;
   padding-right: 0px;
@@ -491,35 +378,7 @@ html {
   text-decoration: none;
   color: #000;
 }
-.imgBox:hover:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 400px;
-  background-color: rgba($color: #000000, $alpha: 0.8);
-}
-.imgBox:hover .viewProject {
-  display: block;
-}
-.viewProject {
-  z-index: 9999;
-  border: 0.8px solid #ffffff;
-  display: none;
-  width: 110px;
-  height: 28px;
-  text-align: center;
-}
-.viewProject p {
-  color: rgb(255, 255, 255);
-}
-.viewProject :hover {
-  background-color: #fff;
-  border: 0.1px solid #ffffff;
-  color: #000;
-}
+
 .price {
   color: #000;
 }

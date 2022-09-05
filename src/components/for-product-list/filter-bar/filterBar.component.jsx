@@ -6,29 +6,19 @@ const App = () => {
     <>
       <Select
         // key={i}
-        className="col select "
+        className="col select filter-color"
         defaultValue="顏色"
-        style={{
-          width: 120,
-        }}
       >
-        <Option value="all">所有顏色</Option>
+        <Option value="all">所有</Option>
         <Option value="黑色">黑色</Option>
         <Option value="深藍">深藍</Option>
         <Option value="灰色">灰色</Option>
       </Select>
       {/* })} */}
 
-      <Select
-        className="col select my-2"
-        defaultValue="價格"
-        style={{
-          width: 120,
-        }}
-      >
-        <Option value="">請選擇排序</Option>
-        <Option value="1">由低到高</Option>
-        <Option value="2">由高到低</Option>
+      <Select className="col select my-2 filter-price" defaultValue="價格">
+        <Option value="1">價格 ↑</Option>
+        <Option value="2">價格 ↓</Option>
       </Select>
     </>
   );

@@ -32,7 +32,7 @@ const items = [
     getItem('領帶夾', '12'),
     getItem('方巾', '13'),
   ]),
-]; 
+];
 
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4'];
 
@@ -54,11 +54,9 @@ const ProductTypeBar = () => {
       mode="inline"
       openKeys={openKeys}
       onOpenChange={onOpenChange}
-     
       style={{
         width: 229,
       }}
-    
       items={items}
       className="ProductTypeBar"
     />

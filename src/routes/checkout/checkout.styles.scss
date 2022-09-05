@@ -18,7 +18,7 @@
   // }
   strong {
     // font-size: 14px;
-    color: #e00068;
+    color: $highlight-red;
   }
   .set-default-address-btn {
     font-size: 14px;
@@ -40,6 +40,6 @@
   background-color: $light-green;
   border: 1px solid $dark-gray;
   border-radius: 0;
-  color: #e00068;
+  color: $highlight-red;
 }
 

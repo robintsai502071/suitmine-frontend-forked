@@ -2,45 +2,43 @@ import RelatedProductItem from '../../components/for-product-detail/related-prod
 import { Image } from 'antd';
 import { useState, useEffect } from 'react';
 const ProductDetail = () => {
-  const [visible, setVisible] = useState(false);
+  // const [visible, setVisible] = useState(false);
   return (
     <div className="product-detail mt-4">
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-6 position-relative">
+          <div className="col-12 col-md-6 position-relative d-flex justify-content-center">
             <img
               src="https://fakeimg.pl/450x700/"
               alt=""
               className="product-detail__image"
             />
-            <button
+            {/* <button
               type="button"
               className="btn position-absolute intro1__lightbox__thumb__btn"
               onClick={() => setVisible(true)}
             >
               <i className="fa-solid fa-images me-2"></i>詳細展示
-            </button>
+            </button> */}
 
             <div
-              style={{
-                display: 'none',
-              }}
+            // style={{
+            //   display: 'none',
+            // }}
+            className='preview-group position-absolute'
             >
               <Image.PreviewGroup
-                preview={{
-                  visible,
-                  onVisibleChange: (vis) => setVisible(vis),
-                }}
+                // preview={{
+                //   visible,
+                //   onVisibleChange: (vis) => setVisible(vis),
+                // }}
+
               >
-                <Image
-                  src={'https://fakeimg.pl/350x100/'}
-                />
-                <Image
-                  src={'https://fakeimg.pl/450x100/'}
-                />
-                <Image
-                  src={'https://fakeimg.pl/550x100/'}
-                />
+                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
+                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
+                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
+                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
+                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
               </Image.PreviewGroup>
             </div>
           </div>

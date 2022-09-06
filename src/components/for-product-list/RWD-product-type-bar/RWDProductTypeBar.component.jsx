@@ -12,26 +12,25 @@ function getItem(label, key, children, type) {
 }
 
 const items = [
-  getItem('西裝類', 'sub1', [
-    getItem('西裝總覽', '1'),
-    getItem('高級西裝', '2'),
-    getItem('奢華西裝', '3'),
+  getItem('套裝', 'sub1', [
+    getItem('套裝總覽', '1'),
+    getItem('商務套裝', '2'),
+    getItem('奢華套裝', '3'),
   ]),
-  getItem('襯衫類', 'sub2', [
-    getItem('襯衫總覽', '4'),
-    getItem('休閒襯衫', '5'),
-    getItem('針織襯衫', '6'),
+  getItem('西裝外套', 'sub2', [
+    getItem('西裝外套總覽', '4'),
+    getItem('商務西裝外套', '5'),
+    getItem('奢華西裝外套', '6'),
   ]),
-  getItem('西裝褲類', 'sub3', [
-    getItem('西裝褲總覽', '7'),
-    getItem('高級西裝褲類', '8'),
-    getItem('奢華西裝褲類', '9'),
+  getItem('襯衫類', 'sub3', [
+    getItem('襯衫總覽', '7'),
+    getItem('休閒襯衫', '8'),
+    getItem('針織襯衫', '9'),
   ]),
-  getItem('配件類', 'sub4', [
-    getItem('配件總覽', '10'),
-    getItem('領帶', '11'),
-    getItem('領帶夾', '12'),
-    getItem('方巾', '13'),
+  getItem('西裝褲類', 'sub4', [
+    getItem('西裝褲總覽', '10'),
+    getItem('商務西裝褲類', '11'),
+    getItem('奢華西裝褲類', '12'),
   ]),
 ]; // submenu keys of first level
 

@@ -13,7 +13,7 @@ const RelatedProductItem = () => (
       </div>
       <div className="card-body text-center">
         <h6 className="card-title">ddd</h6>
-        <p className="card-price">$ff</p>
+        <p className="card-price price">$ff</p>
         <button className="add-to-cart-btn w-100 d-lg-none mt-2">
           <i class="fa-solid fa-cart-shopping"></i>
         </button>

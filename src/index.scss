@@ -27,6 +27,7 @@
 @import './components/for-member/orderlist/orderListDisplay.styles.scss';
 
 @import './components/for-product-list/product-list-item/product-list-item.styles.scss';
+@import './components/for-product-detail/related-product-item.styles.scss';
 
 // routes
 @import './routes/home/home.styles.scss';
@@ -38,6 +39,7 @@
 @import './routes/checkout/checkout.styles.scss';
 @import './routes/order-finished/orderFinished.styles.scss';
 @import './routes/member/member.styles.scss';
+@import './routes/product-detail/productDetail.styles.scss';
 
 // 靜態頁面
 @import './routes/booking-map/bookingMap.styles.scss';

@@ -1,0 +1,87 @@
+.product-detail {
+  &__title {
+    @include h5;
+  }
+  &__price {
+    @include h5;
+    margin-top: 10px;
+  }
+  &__description {
+    margin-top: 20px;
+  }
+  &__add-to-cart-btn {
+    display: block;
+    background-color: $light-green;
+    padding: 10px;
+    text-align: center;
+    color: $dark-gray;
+    &:hover {
+      color: #000;
+    }
+  }
+  &__add-to-my-favorites-btn {
+    color: $dark-gray;
+    text-align: center;
+  }
+  .intro1__lightbox__thumb__btn {
+    top: 10px;
+    left: 13px;
+    bottom: unset;
+    right: unset;
+    color: $dark-gray;
+    // i {
+    //   color: $dark-gray;
+    // }
+  }
+}
+.product-detail__specification {
+  li {
+    display: flex;
+    justify-content: space-between;
+    strong {
+      font-size: 14px;
+    }
+  }
+}
+.product-detail__features {
+  padding: 10px;
+  &__title {
+    @include h6;
+    margin-top: 10px;
+    color: $dark-gray;
+    &:nth-of-type(2) {
+      margin-top: 20px;
+    }
+  }
+  &__description {
+    margin-top: 5px;
+    color: $dark-gray;
+  }
+}
+.product-detail__related-products {
+  &__title {
+    display: flex;
+    justify-content: center;
+    // text-align: center;
+    color: $dark-gray;
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      position: relative;
+      align-self: center;
+      margin: 0 3px;
+      top: 50%;
+      width: 30%;
+      height: 2px;
+      background-color: $light-gray;
+    }
+  }
+}
+
+// 限制圖片在螢幕超過 md 時的大小
+@media screen and (min-width: 768px) {
+  .product-detail__image {
+    max-height: 560px;
+  }
+}

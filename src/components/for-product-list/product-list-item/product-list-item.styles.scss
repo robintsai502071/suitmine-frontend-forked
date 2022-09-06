@@ -27,6 +27,7 @@
   font-size: 20px;
   color: $dark-gray;
 }
+
 .add-to-cart-btn {
   background-color: $light-green;
   color: $dark-gray;
@@ -39,7 +40,8 @@
 
 // 螢幕 > LG 時須出現 hover
 @media screen and (min-width: 996px) {
-  .product-list-item {
+  .product-list-item,
+  .related-product-item {
     .add-to-cart-btn.for-pc {
       width: 70%;
       padding: 10px;

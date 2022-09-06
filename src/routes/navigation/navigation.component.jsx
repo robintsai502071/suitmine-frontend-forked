@@ -12,22 +12,22 @@ import { selectCurrentUser } from '../../store/user/user.slector';
 
 const Navigation = () => {
   // 每次載入 navigation.component 都要確認是否還在登入狀態
-  useEffect(() => {
-    const checkIsLogin = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/auth/check-is-login`, {
-          // 允許跨源讀寫 cookie
-          withCredentials: true,
-        });
-        const user = response.data;
-        dispatch(setCurrentUser(user));
-      } catch (error) {
-        dispatch(setCurrentUser(null));
-        navigate('/');
-      }
-    };
-    checkIsLogin();
-  }, []);
+  // useEffect(() => {
+  //   const checkIsLogin = async () => {
+  //     try {
+  //       const response = await axios.get(`${API_URL}/auth/check-is-login`, {
+  //         // 允許跨源讀寫 cookie
+  //         withCredentials: true,
+  //       });
+  //       const user = response.data;
+  //       dispatch(setCurrentUser(user));
+  //     } catch (error) {
+  //       dispatch(setCurrentUser(null));
+  //       navigate('/');
+  //     }
+  //   };
+  //   checkIsLogin();
+  // }, []);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

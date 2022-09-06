@@ -11,7 +11,7 @@ import OrderFinshed from './routes/order-finished/orderFinished.component';
 import Measurement from './routes/silent-pages/measurement/measurement.component';
 import CustomizedShow from './routes/silent-pages/customized-show/customizeShow.component';
 import Member from './routes/member/member.component';
-
+import ProductDetail from './routes/product-detail/productDetail.component';
 function App() {
   return (
     <Routes>
@@ -24,6 +24,7 @@ function App() {
         <Route path="checkout" element={<Checkout />} />
         <Route path="order-finished" element={<OrderFinshed />} />
         <Route path="member" element={<Member />} />
+        <Route path="product-detail" element={<ProductDetail />} />
 
         <Route path="booking-map" element={<BookingMap />} />
         <Route path="measurement" element={<Measurement />} />

@@ -22,11 +22,11 @@ const items = [
     getItem('商務西裝外套', '5'),
     getItem('奢華西裝外套', '6'),
   ]),
-  getItem('襯衫類', 'sub3', [
-    getItem('襯衫總覽', '7'),
-    getItem('休閒襯衫', '8'),
-    getItem('針織襯衫', '9'),
-  ]),
+  // getItem('襯衫類', 'sub3', [
+  //   getItem('襯衫總覽', '7'),
+  //   getItem('休閒襯衫', '8'),
+  //   getItem('針織襯衫', '9'),
+  // ]),
   getItem('西裝褲類', 'sub4', [
     getItem('西裝褲總覽', '10'),
     getItem('商務西裝褲類', '11'),

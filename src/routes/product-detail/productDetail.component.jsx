@@ -9,7 +9,7 @@ const ProductDetail = () => {
         <div className="row">
           <div className="col-12 col-md-6 position-relative d-flex justify-content-center">
             <img
-              src="https://fakeimg.pl/450x700/"
+              src="https://raw.githubusercontent.com/robintsai502071/suitmine-frontend-forked/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/thumb.webp"
               alt=""
               className="product-detail__image"
             />
@@ -34,11 +34,11 @@ const ProductDetail = () => {
                 // }}
 
               >
-                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
-                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
-                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
-                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
-                <Image src={'https://fakeimg.pl/250x100/ff0000/'} />
+                <Image src={'https://raw.githubusercontent.com/robintsai502071/suitmine-frontend-forked/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/1.webp'} />
+                <Image src={'https://github.com/robintsai502071/suitmine-frontend-forked/blob/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/2.webp?raw=true'} />
+                <Image src={'https://github.com/robintsai502071/suitmine-frontend-forked/blob/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/3.webp?raw=true'} />
+                <Image src={'https://github.com/robintsai502071/suitmine-frontend-forked/blob/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/4.webp?raw=true'} />
+                <Image src={'https://github.com/robintsai502071/suitmine-frontend-forked/blob/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/5.webp?raw=true'} />
               </Image.PreviewGroup>
             </div>
           </div>

@@ -47,6 +47,10 @@ function ProductList() {
                 <ProductListItem />
                 <ProductListItem />
                 <ProductListItem />
+                <ProductListItem />
+                <ProductListItem />
+                <ProductListItem />
+                <ProductListItem />
               </div>
 
               {/* <!------------ 商品列表頁碼 ------------> */}

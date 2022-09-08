@@ -1,12 +1,8 @@
 /* -----------商品列表----------- */
-.cardSize {
-  padding: 0%;
-}
 .cardStyle {
   --bs-card-border-radius: 0rem;
   border: unset;
 }
-
 .cardPadding {
   padding: 10px 0;
 }
@@ -35,6 +31,21 @@
   border: none;
   &.for-pc {
     display: none;
+  }
+}
+// 商品列表圖片高度
+.product-list-item,
+.related-product-item {
+  img {
+    height: 300px;
+  }
+}
+@media screen and (min-width: 996px) {
+  .product-list-item,
+  .related-product-item {
+    img {
+      height: 360px;
+    }
   }
 }
 

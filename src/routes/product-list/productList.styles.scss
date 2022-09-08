@@ -354,9 +354,7 @@ html {
 .productList .card-body p {
   color: #000;
 }
-.cardSize {
-  padding: 0%;
-}
+
 .cardStyle {
   --bs-card-border-radius: 0rem;
   border: unset;
@@ -386,12 +384,7 @@ html {
   font-size: 20px;
   color: $dark-gray;
 }
-/* ============ 商品列表 RWD============ */
-@media screen and (max-width: 420px) {
-  .cardStyle img {
-    height: 300px;
-  }
-}
+
 /* ------------ 商品列表頁碼 ------------ */
 .pager {
   margin: 0 0 3.75rem;

@@ -4,9 +4,9 @@ const ProductListItem = ({ product }) => {
   return (
     <a
       href="#/"
-      className="col-6 col-md-3 px-3 d-flex cardSize cardBottomMargin product-list-item"
+      className="col-6 col-md-3 px-3 cardBottomMargin product-list-item d-block"
     >
-      <div className="card cardStyle ">
+      <div className="card cardStyle">
         <div className="imgBox position-relative">
           <img
             className="imgSize card-img-top position-relative"
@@ -18,8 +18,8 @@ const ProductListItem = ({ product }) => {
           </button>
         </div>
         <div className="card-body cardPadding text-center">
-          <h6 className="card-title englishText ">{product_name}</h6>
-          <p className="h6 price card-text englishText CardP_Padding">
+          <h6 className="card-title  ">{product_name}</h6>
+          <p className="h6 price card-text  CardP_Padding">
             ${product_price}
           </p>
           <button className="add-to-cart-btn w-100 d-lg-none mt-2">

@@ -61,7 +61,7 @@ function ProductList() {
               <div className="productListRow row ">
                 {/* <!------------ 商品卡 ------------> */}
                 {productsArray?.map((product) => {
-                  return <ProductListItem product={product} key={product.id}/>;
+                  return <ProductListItem product={product} key={product.id} />;
                 })}
               </div>
 

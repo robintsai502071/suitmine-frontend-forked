@@ -49,28 +49,28 @@ const ProductDetail = () => {
               脫穎而出並在海爾發表聲明。這款時尚、中等重量的淺灰色西裝外觀富有質感，手感柔軟。
             </p>
             <a className="product-detail__add-to-cart-btn mt-3">
-              加入購物車<i class="fa-solid fa-cart-shopping ms-2"></i>
+              加入購物車<i className="fa-solid fa-cart-shopping ms-2"></i>
             </a>
             <div className="text-center p-3">
               <a className="product-detail__add-to-my-favorites-btn mt-2">
-                加入我的收藏<i class="fa-regular fa-heart ms-2"></i>
+                加入我的收藏<i className="fa-regular fa-heart ms-2"></i>
               </a>
             </div>
-            <div class="card product-detail__specification mt-3">
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item">
+            <div className="card product-detail__specification mt-3">
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">
                   <strong>顏色</strong>
                   <p>灰色</p>
                 </li>
-                <li class="list-group-item">
+                <li className="list-group-item">
                   <strong>花紋</strong>
                   <p>素色</p>
                 </li>
-                <li class="list-group-item">
+                <li className="list-group-item">
                   <strong>材質</strong>
                   <p>100% 羊毛</p>
                 </li>
-                <li class="list-group-item">
+                <li className="list-group-item">
                   <strong>磅數</strong>
                   <p>280</p>
                 </li>
@@ -78,13 +78,13 @@ const ProductDetail = () => {
             </div>
             <div className="product-detail__features">
               <h5 className="product-detail__features__title">
-                <i class="fa-solid fa-pen-ruler me-2"></i>為您量身定制
+                <i className="fa-solid fa-pen-ruler me-2"></i>為您量身定制
               </h5>
               <p className="product-detail__features__description">
                 我們根據您的獨特尺寸和規格定制每件服裝。我們掌握了細節，因此您可以自信地應對生活中的挑戰。
               </p>
               <h5 className="product-detail__features__title">
-                <i class="fa-solid fa-pen-ruler me-2"></i>一次性測量過程
+                <i className="fa-solid fa-pen-ruler me-2"></i>一次性測量過程
               </h5>
               <p className="product-detail__features__description">
                 按照我們的分步視頻指南設置您的測量配置文件。只需不到 10

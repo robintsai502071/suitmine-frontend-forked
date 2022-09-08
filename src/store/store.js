@@ -8,9 +8,11 @@ import thunk from 'redux-thunk';
 
 // 從各 slices 引入 reducers
 import { userReducer } from './user/user.slice';
+import { productReducer } from './product/product.slice';
 
 const reducers = combineReducers({
   user: userReducer,
+  product: productReducer,
 });
 
 const middlewares = [
@@ -19,7 +21,7 @@ const middlewares = [
 ].filter(Boolean);
 
 export const store = configureStore({
-	// 也可以不用 combineReducers，直接將 reducers 寫在這裡就好
+  // 也可以不用 combineReducers，直接將 reducers 寫在這裡就好
   reducer: reducers,
   middleware: middlewares,
 });

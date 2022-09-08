@@ -8,14 +8,14 @@ const RelatedProductItem = () => (
           alt="..."
         />
         <button className="add-to-cart-btn position-absolute for-pc">
-          加到購物車<i class="fa-solid fa-cart-shopping ms-1"></i>
+          加到購物車<i className="fa-solid fa-cart-shopping ms-1"></i>
         </button>
       </div>
       <div className="card-body text-center">
         <h6 className="card-title">ddd</h6>
         <p className="card-price price">$ff</p>
         <button className="add-to-cart-btn w-100 d-lg-none mt-2">
-          <i class="fa-solid fa-cart-shopping"></i>
+          <i className="fa-solid fa-cart-shopping"></i>
         </button>
       </div>
     </div>

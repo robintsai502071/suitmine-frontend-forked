@@ -1,13 +1,30 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import FilterBar from '../../components/for-product-list/filter-bar/filterBar.component';
 import SearchInput from '../../components/for-product-list/search-input/searchInput.component';
 import ProductTypeBar from '../../components/for-product-list/product-type-bar/productTypeBar.component';
 import RWDProductTypeBar from '../../components/for-product-list/RWD-product-type-bar/RWDProductTypeBar.component';
 import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.component';
-import { Link } from 'react-router-dom';
 import ProductListItem from '../../components/for-product-list/product-list-item/product-list-item.component';
 
+import { useSelector } from 'react-redux';
+import { selectProductsArray } from '../../store/product/product.selector';
+import { fetchProductsAsync } from '../../store/product/product.slice';
+
 function ProductList() {
+  const dispatch = useDispatch();
+
+  // 載入頁面先取得商品
+  useEffect(() => {
+    const product_category = {
+      product_category_id: null,
+      product_category_level: 1, // level 1 代表套裝總覽
+    };
+    dispatch(fetchProductsAsync(product_category));
+  }, []);
+
+  const productsArray = useSelector(selectProductsArray);
+
   return (
     <div className="ProductList">
       <div className="main">
@@ -43,14 +60,9 @@ function ProductList() {
 
               <div className="productListRow row ">
                 {/* <!------------ 商品卡 ------------> */}
-                <ProductListItem />
-                <ProductListItem />
-                <ProductListItem />
-                <ProductListItem />
-                <ProductListItem />
-                <ProductListItem />
-                <ProductListItem />
-                <ProductListItem />
+                {productsArray?.map((product) => {
+                  return <ProductListItem product={product} key={product.id}/>;
+                })}
               </div>
 
               {/* <!------------ 商品列表頁碼 ------------> */}

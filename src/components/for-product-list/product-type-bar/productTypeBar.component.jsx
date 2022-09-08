@@ -1,5 +1,7 @@
 import { Menu } from 'antd';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchProductsAsync } from '../../../store/product/product.slice';
 
 function getItem(label, key, children, type) {
   return {
@@ -32,12 +34,13 @@ const items = [
     getItem('奢華西裝褲類', '12'),
   ]),
 ];
-
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub3', 'sub4'];
 
 const ProductTypeBar = () => {
-  const [openKeys, setOpenKeys] = useState([]);
+  const dispatch = useDispatch();
 
+  // antd menu 基礎設置
+  const [openKeys, setOpenKeys] = useState([]);
   const onOpenChange = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
 
@@ -48,11 +51,99 @@ const ProductTypeBar = () => {
     }
   };
 
+  // OnSelect 事件處理
+  const handleSelect = ({ key }) => {
+    console.log(key);
+    switch (key) {
+      case '1': // 套裝總覽
+        dispatch(
+          fetchProductsAsync({
+            product_category_id: null,
+            product_category_level: 1,
+          })
+        );
+        break;
+
+      case '2': {
+        // 商務套裝
+        dispatch(
+          fetchProductsAsync({
+            product_category_id: 5,
+            product_category_level: null,
+          })
+        );
+        break;
+      }
+      case '3': // 奢華套裝
+        dispatch(
+          fetchProductsAsync({
+            product_category_id: 6,
+            product_category_level: null,
+          })
+        );
+        break;
+
+      case '4': // 西裝外套總覽
+        dispatch(
+          fetchProductsAsync({
+            product_category_id: null,
+            product_category_level: 2,
+          })
+        );
+        break;
+
+      case '5': // 商務西裝外套
+        dispatch(
+          fetchProductsAsync({
+            product_category_id: 7,
+            product_category_level: null,
+          })
+        );
+        break;
+
+      case '6': // 奢華西裝外套
+        dispatch(
+          fetchProductsAsync({
+            product_category_id: 8,
+            product_category_level: null,
+          })
+        );
+        break;
+      case '10': // 西裝褲總覽
+        dispatch(
+          fetchProductsAsync({
+            product_category_id: null,
+            product_category_level: 4,
+          })
+        );
+        break;
+      case '11': // 商務西裝褲
+        dispatch(
+          fetchProductsAsync({
+            product_category_id: 11,
+            product_category_level: null,
+          })
+        );
+        break;
+      case '12': // 奢華西裝褲
+        dispatch(
+          fetchProductsAsync({
+            product_category_id: 12,
+            product_category_level: null,
+          })
+        );
+        break;
+    }
+  };
+
   return (
     <Menu
       mode="inline"
       openKeys={openKeys}
       onOpenChange={onOpenChange}
+      defaultOpenKeys="sub1"
+      defaultSelectedKeys="1"
+      onSelect={handleSelect}
       style={{
         width: 229,
       }}

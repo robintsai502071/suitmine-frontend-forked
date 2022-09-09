@@ -19,3 +19,33 @@ export const selectSelectedPrice = createSelector(
   [selectProductReducer],
   (product) => product.selectedPrice
 );
+
+export const selectFilteredProductsArray = createSelector(
+  [
+    selectFilterString,
+    selectSelectedColor,
+    selectSelectedPrice,
+    selectProductsArray,
+  ],
+  (filterString, selectedColor, selectedPrice, productsArray) =>
+    productsArray
+      .filter((product) => product.product_name.includes(filterString))
+      .filter((product) => {
+        if (selectedColor === '所有' || selectedColor === '顏色') {
+          return product;
+        }
+        if (selectedColor === '其他')
+          return (
+            product.color_spec !== '黑色' &&
+            product.color_spec !== '灰色' &&
+            product.color_spec !== '藍色'
+          );
+        return product.color_spec === selectedColor;
+      })
+      .sort((a, b) => {
+        if (selectedPrice === '價格由高到低')
+          return b.product_price - a.product_price;
+        if (selectedPrice === '價格由低到高')
+          return a.product_price - b.product_price;
+      })
+);

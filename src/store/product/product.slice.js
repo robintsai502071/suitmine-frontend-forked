@@ -10,8 +10,8 @@ const initialProductState = {
   // 以下為篩選用
   // searchInput
   filterString: '',
-  selectedColor: '所有',
-  selectedPrice: '',
+  selectedColor: '顏色',
+  selectedPrice: '價格',
 };
 
 export const fetchProductsAsync = createAsyncThunk(

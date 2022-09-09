@@ -4,7 +4,7 @@ const ProductListItem = ({ product }) => {
   return (
     <a
       href="#/"
-      className="col-6 col-md-3 px-3 cardBottomMargin product-list-item d-block"
+      className="col-6 col-md-4 col-lg-3 px-3 cardBottomMargin product-list-item d-block"
     >
       <div className="card cardStyle">
         <div className="imgBox position-relative">

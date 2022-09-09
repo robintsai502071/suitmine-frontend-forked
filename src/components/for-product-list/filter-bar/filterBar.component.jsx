@@ -1,13 +1,22 @@
 import { Select } from 'antd';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
 import {
   setSelectedColor,
   setSelectedPrice,
 } from '../../../store/product/product.slice';
+
+import {
+  selectSelectedColor,
+  selectSelectedPrice,
+} from '../../../store/product/product.selector';
+
 const { Option } = Select;
 
 const App = () => {
   const dispatch = useDispatch();
+  const selectedColor = useSelector(selectSelectedColor);
+  const selectedPrice = useSelector(selectSelectedPrice);
 
   const handleSelectColor = (color) => {
     dispatch(setSelectedColor(color));
@@ -22,7 +31,7 @@ const App = () => {
       <Select
         // key={i}
         className="col select filter-color"
-        defaultValue="顏色"
+        defaultValue={selectedColor}
         onSelect={handleSelectColor}
       >
         <Option value="所有">所有</Option>
@@ -34,7 +43,7 @@ const App = () => {
 
       <Select
         className="col select my-2 filter-price"
-        defaultValue="價格"
+        defaultValue={selectedPrice}
         onSelect={handleSelectPrice}
       >
         <Option value="價格由低到高">價格 ↑</Option>

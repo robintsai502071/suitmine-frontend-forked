@@ -6,6 +6,12 @@ const initialProductState = {
   currentProducts: [],
   isLoading: false,
   error: null,
+
+  // 以下為篩選用
+  // searchInput
+  filterString: '',
+  selectedColor: '所有',
+  selectedPrice: '',
 };
 
 export const fetchProductsAsync = createAsyncThunk(
@@ -16,12 +22,20 @@ export const fetchProductsAsync = createAsyncThunk(
 const productSlice = createSlice({
   name: 'product',
   initialState: initialProductState,
-  // reducers: {
-  //   setcurrentProducts: (state, action) => {
-  //     const { payload } = action;
-  //     state.currentProducts = payload;
-  //   },
-  // },
+  reducers: {
+    setFilterString: (state, action) => {
+      const { payload } = action;
+      state.filterString = payload;
+    },
+    setSelectedColor: (state, action) => {
+      const { payload } = action;
+      state.selectedColor = payload;
+    },
+    setSelectedPrice: (state, action) => {
+      const { payload } = action;
+      state.selectedPrice = payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProductsAsync.pending, (state) => {
@@ -40,5 +54,6 @@ const productSlice = createSlice({
   },
 });
 
-export const { setcurrentProducts } = productSlice.actions;
+export const { setFilterString, setSelectedColor, setSelectedPrice } =
+  productSlice.actions;
 export const productReducer = productSlice.reducer;

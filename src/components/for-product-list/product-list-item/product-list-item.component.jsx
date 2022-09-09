@@ -20,7 +20,7 @@ const ProductListItem = ({ product }) => {
         <div className="card-body cardPadding text-center">
           <h6 className="card-title  ">{product_name}</h6>
           <p className="h6 price card-text  CardP_Padding">
-            ${product_price}
+            ${product_price.toLocaleString()}
           </p>
           <button className="add-to-cart-btn w-100 d-lg-none mt-2">
             <i className="fa-solid fa-cart-shopping"></i>

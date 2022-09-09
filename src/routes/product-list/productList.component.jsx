@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+// components
 import FilterBar from '../../components/for-product-list/filter-bar/filterBar.component';
 import SearchInput from '../../components/for-product-list/search-input/searchInput.component';
 import ProductTypeBar from '../../components/for-product-list/product-type-bar/productTypeBar.component';
@@ -7,8 +6,17 @@ import RWDProductTypeBar from '../../components/for-product-list/RWD-product-typ
 import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.component';
 import ProductListItem from '../../components/for-product-list/product-list-item/product-list-item.component';
 
+import React, { useEffect, useState } from 'react';
+
+// redux
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { selectProductsArray } from '../../store/product/product.selector';
+import {
+  selectProductsArray,
+  selectFilterString,
+  selectSelectedColor,
+  selectSelectedPrice,
+} from '../../store/product/product.selector';
 import { fetchProductsAsync } from '../../store/product/product.slice';
 
 function ProductList() {
@@ -23,7 +31,25 @@ function ProductList() {
     dispatch(fetchProductsAsync(product_category));
   }, []);
 
+  // 篩選：先將篩選條件從 redux store 取出
   const productsArray = useSelector(selectProductsArray);
+  const filterString = useSelector(selectFilterString);
+  const selectedColor = useSelector(selectSelectedColor);
+  const selectedPrice = useSelector(selectSelectedPrice);
+  // let filteredProductsArray = [];
+
+  const filteredProductsArray = productsArray
+    .filter((product) => product.product_name.includes(filterString))
+    .filter((product) => {
+      if (selectedColor === '所有') return product;
+      if (selectedColor === '其他')
+        return (
+          product.color_spec !== '黑色' &&
+          product.color_spec !== '灰色' &&
+          product.color_spec !== '藍色'
+        );
+      return product.color_spec === selectedColor;
+    });
 
   return (
     <div className="ProductList">
@@ -60,9 +86,13 @@ function ProductList() {
 
               <div className="productListRow row ">
                 {/* <!------------ 商品卡 ------------> */}
-                {productsArray?.map((product) => {
-                  return <ProductListItem product={product} key={product.id} />;
-                })}
+                {filteredProductsArray
+                  ? filteredProductsArray?.map((product) => {
+                      return (
+                        <ProductListItem product={product} key={product.id} />
+                      );
+                    })
+                  : '很抱歉，目前沒有此類商品！'}
               </div>
 
               {/* <!------------ 商品列表頁碼 ------------> */}

@@ -53,7 +53,6 @@ const ProductTypeBar = () => {
 
   // OnSelect 事件處理
   const handleSelect = ({ key }) => {
-    console.log(key);
     switch (key) {
       case '1': // 套裝總覽
         dispatch(

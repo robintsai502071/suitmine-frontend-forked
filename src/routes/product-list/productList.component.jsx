@@ -1,3 +1,5 @@
+import React, { useEffect, useState } from 'react';
+
 // components
 import FilterBar from '../../components/for-product-list/filter-bar/filterBar.component';
 import SearchInput from '../../components/for-product-list/search-input/searchInput.component';
@@ -6,13 +8,21 @@ import RWDProductTypeBar from '../../components/for-product-list/RWD-product-typ
 import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.component';
 import ProductListItem from '../../components/for-product-list/product-list-item/product-list-item.component';
 
-import React, { useEffect } from 'react';
-
 // redux
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { selectFilteredProductsArray } from '../../store/product/product.selector';
-import { fetchProductsAsync } from '../../store/product/product.slice';
+
+// selector
+import {
+  selectFilteredProductsArray,
+  selectCurrentPage,
+} from '../../store/product/product.selector';
+
+// action
+import {
+  fetchProductsAsync,
+  setCurrentPage,
+} from '../../store/product/product.slice';
 
 function ProductList() {
   const dispatch = useDispatch();
@@ -27,6 +37,27 @@ function ProductList() {
   }, []);
 
   const filteredProductsArray = useSelector(selectFilteredProductsArray);
+
+  // 分頁
+  const HOW_MANY_PRODUCT_PER_PAGE = 8;
+  const totalProductsLength = filteredProductsArray.length;
+  const totalPages = Math.ceil(totalProductsLength / HOW_MANY_PRODUCT_PER_PAGE);
+  const currentPage = useSelector(selectCurrentPage);
+
+  // 頁碼切換 handler
+  const handleClickPagination = (i) => () => {
+    dispatch(setCurrentPage(i + 1));
+  };
+  const handleClickPrevPage = () => {
+    dispatch(setCurrentPage(currentPage - 1 < 1 ? 1 : currentPage - 1));
+  };
+  const handleClickNextPage = () => {
+    dispatch(
+      setCurrentPage(
+        currentPage + 1 > totalPages ? currentPage : currentPage + 1
+      )
+    );
+  };
 
   return (
     <div className="ProductList">
@@ -64,11 +95,19 @@ function ProductList() {
               <div className="productListRow row ">
                 {/* <!------------ 商品卡 ------------> */}
                 {filteredProductsArray.length ? (
-                  filteredProductsArray?.map((product) => {
-                    return (
-                      <ProductListItem product={product} key={product.id} />
-                    );
-                  })
+                  filteredProductsArray
+                    ?.map((product) => {
+                      return (
+                        <ProductListItem product={product} key={product.id} />
+                      );
+                    })
+                    .filter((_, index) => {
+                      return (
+                        index >=
+                          HOW_MANY_PRODUCT_PER_PAGE * (currentPage - 1) &&
+                        index < currentPage * HOW_MANY_PRODUCT_PER_PAGE
+                      );
+                    })
                 ) : (
                   <h5 className="text-center mt-4">
                     很抱歉，目前沒有此類商品！
@@ -79,7 +118,10 @@ function ProductList() {
               {/* <!------------ 商品列表頁碼 ------------> */}
               <nav>
                 <ul className="pager">
-                  <li className="pager__item pager__item--prev">
+                  <li
+                    className="pager__item pager__item--prev"
+                    onClick={handleClickPrevPage}
+                  >
                     <a className="pager__link" href="#/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -98,8 +140,24 @@ function ProductList() {
                   </li>
 
                   {/* 創造一個依照pageTotal長度的陣列，來呈現目前的分頁元件項目 */}
+                  {Array(totalPages)
+                    .fill(1)
+                    .map((_, i) => (
+                      <li
+                        className={`pager__item ${
+                          i + 1 === currentPage ? 'active' : ''
+                        }`}
+                        key={i}
+                        onClick={handleClickPagination(i)}
+                      >
+                        <a className="pager__link">{i + 1}</a>
+                      </li>
+                    ))}
 
-                  <li className="pager__item pager__item--next">
+                  <li
+                    className="pager__item pager__item--next"
+                    onClick={handleClickNextPage}
+                  >
                     <a className="pager__link" href="#/">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

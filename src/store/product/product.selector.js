@@ -19,7 +19,13 @@ export const selectSelectedPrice = createSelector(
   [selectProductReducer],
   (product) => product.selectedPrice
 );
+// select 頁碼
+export const selectCurrentPage = createSelector(
+  [selectProductReducer],
+  (product) => product.currentPage
+);
 
+// select 篩選後的產品列表
 export const selectFilteredProductsArray = createSelector(
   [
     selectFilterString,

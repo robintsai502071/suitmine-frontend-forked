@@ -19,6 +19,7 @@ export const selectSelectedPrice = createSelector(
   [selectProductReducer],
   (product) => product.selectedPrice
 );
+
 // select 頁碼
 export const selectCurrentPage = createSelector(
   [selectProductReducer],
@@ -54,4 +55,10 @@ export const selectFilteredProductsArray = createSelector(
         if (selectedPrice === '價格由低到高')
           return a.product_price - b.product_price;
       })
+);
+
+// select 單筆商品細節
+export const selectCurrentProductDetail = createSelector(
+  [selectProductReducer],
+  (product) => product.currentProductDetail
 );

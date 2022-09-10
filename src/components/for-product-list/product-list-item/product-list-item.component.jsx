@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 const ProductListItem = ({ product }) => {
   const { id, product_photo, product_name, product_price } = product;
   return (
-    <a
-      href="#/"
+    <Link
+      to={`/product-detail/${id}`}
       className="col-6 col-md-4 col-lg-3 px-3 cardBottomMargin product-list-item d-block"
     >
       <div className="card cardStyle">
@@ -27,7 +27,7 @@ const ProductListItem = ({ product }) => {
           </button>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

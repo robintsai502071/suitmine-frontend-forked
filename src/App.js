@@ -24,7 +24,7 @@ function App() {
         <Route path="checkout" element={<Checkout />} />
         <Route path="order-finished" element={<OrderFinshed />} />
         <Route path="member" element={<Member />} />
-        <Route path="product-detail" element={<ProductDetail />} />
+        <Route path="product-detail/:productId" element={<ProductDetail />} />
 
         <Route path="booking-map" element={<BookingMap />} />
         <Route path="measurement" element={<Measurement />} />

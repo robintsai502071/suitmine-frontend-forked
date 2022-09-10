@@ -7,6 +7,19 @@ const initialProductState = {
   isLoading: false,
   error: null,
 
+  // for 商品細節頁面
+  currentProductDetail: {
+    name: '',
+    product_photo: '',
+    price: '',
+    description: '',
+    color_spec: '',
+    pattern_spec: '',
+    fabric_spec: '',
+    fabric_weight_spec: '',
+    productDetailImages: [],
+  },
+
   // 以下為篩選用
   // searchInput
   filterString: '',
@@ -18,7 +31,12 @@ const initialProductState = {
 
 export const fetchProductsAsync = createAsyncThunk(
   'product/fetchProducts',
-  (product_category) => axios.post(`${API_URL}/product-list`, product_category)
+  (product_category) => axios.post(`${API_URL}/products`, product_category)
+);
+
+export const fetchProductDetailAsync = createAsyncThunk(
+  'product/fetchProductDetail',
+  (productId) => axios.get(`${API_URL}/products/${productId}`)
 );
 
 const productSlice = createSlice({
@@ -44,6 +62,7 @@ const productSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // fetchProductsAsync
       .addCase(fetchProductsAsync.pending, (state) => {
         state.isLoading = true;
       })
@@ -55,6 +74,21 @@ const productSlice = createSlice({
         state.currentPage = 1;
       })
       .addCase(fetchProductsAsync.rejected, (state, { error }) => {
+        const { message } = error;
+        state.error = message;
+        state.isLoading = false;
+      })
+
+      // fetchProductDetail
+      .addCase(fetchProductDetailAsync.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchProductDetailAsync.fulfilled, (state, { payload }) => {
+        const returnedProductDetail = payload.data.productDetail;
+        state.currentProductDetail = returnedProductDetail;
+        state.isLoading = false;
+      })
+      .addCase(fetchProductDetailAsync.rejected, (state, { error }) => {
         const { message } = error;
         state.error = message;
         state.isLoading = false;

@@ -1,53 +1,60 @@
 import RelatedProductItem from '../../components/for-product-detail/related-product-item.component';
 import { Image } from 'antd';
-import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProductDetailAsync } from '../../store/product/product.slice';
+import { selectCurrentProductDetail } from '../../store/product/product.selector';
 const ProductDetail = () => {
-  // const [visible, setVisible] = useState(false);
+  const dispatch = useDispatch();
+  const { productId } = useParams();
+
+  // 取得商品細節
+  useEffect(() => {
+    dispatch(fetchProductDetailAsync(productId));
+  }, []);
+
+  const currentProductDetail = useSelector(selectCurrentProductDetail);
+
+  const {
+    name,
+    product_photo,
+    price,
+    description,
+    color_spec,
+    pattern_spec,
+    fabric_spec,
+    fabric_weight_spec,
+    productDetailImages,
+  } = currentProductDetail;
+
   return (
     <div className="product-detail mt-4">
       <div className="container">
         <div className="row">
           <div className="col-12 col-md-6 position-relative d-flex justify-content-center">
             <img
-              src="https://raw.githubusercontent.com/robintsai502071/suitmine-frontend-forked/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/thumb.webp"
-              alt=""
+              src={product_photo}
+              alt={name}
               className="product-detail__image"
             />
-            {/* <button
-              type="button"
-              className="btn position-absolute intro1__lightbox__thumb__btn"
-              onClick={() => setVisible(true)}
-            >
-              <i className="fa-solid fa-images me-2"></i>詳細展示
-            </button> */}
 
-            <div
-            // style={{
-            //   display: 'none',
-            // }}
-            className='preview-group position-absolute'
-            >
-              <Image.PreviewGroup
-                // preview={{
-                //   visible,
-                //   onVisibleChange: (vis) => setVisible(vis),
-                // }}
-
-              >
-                <Image src={'https://raw.githubusercontent.com/robintsai502071/suitmine-frontend-forked/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/1.webp'} />
-                <Image src={'https://github.com/robintsai502071/suitmine-frontend-forked/blob/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/2.webp?raw=true'} />
-                <Image src={'https://github.com/robintsai502071/suitmine-frontend-forked/blob/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/3.webp?raw=true'} />
-                <Image src={'https://github.com/robintsai502071/suitmine-frontend-forked/blob/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/4.webp?raw=true'} />
-                <Image src={'https://github.com/robintsai502071/suitmine-frontend-forked/blob/dev/src/assests/images/products/suit/%E9%BB%91%E8%89%B2/%E5%93%88%E4%BD%9B%E5%A4%A9%E9%B5%9D%E7%B5%A8%E9%BB%91%E8%89%B2%E8%A5%BF%E8%A3%9D/5.webp?raw=true'} />
+            <div className="preview-group position-absolute">
+              <Image.PreviewGroup>
+                {productDetailImages.map((imageUrl, index) => (
+                  <Image
+                    key={index}
+                    src={imageUrl}
+                    alt={`${name}圖片細節 ${index}`}
+                  />
+                ))}
               </Image.PreviewGroup>
             </div>
           </div>
           <div className="col-12 mt-2 mt-md-0 col-md-6">
-            <h1 className="product-detail__title">海爾鯊魚皮淺灰色西裝</h1>
-            <p className="product-detail__price">$5,555</p>
-            <p className="product-detail__description">
-              脫穎而出並在海爾發表聲明。這款時尚、中等重量的淺灰色西裝外觀富有質感，手感柔軟。
-            </p>
+            <h1 className="product-detail__title">{name}</h1>
+            <p className="product-detail__price">${price.toLocaleString()}</p>
+            <p className="product-detail__description">{description}</p>
             <a className="product-detail__add-to-cart-btn mt-3">
               加入購物車<i className="fa-solid fa-cart-shopping ms-2"></i>
             </a>
@@ -60,19 +67,19 @@ const ProductDetail = () => {
               <ul className="list-group list-group-flush">
                 <li className="list-group-item">
                   <strong>顏色</strong>
-                  <p>灰色</p>
+                  <p>{color_spec}</p>
                 </li>
                 <li className="list-group-item">
                   <strong>花紋</strong>
-                  <p>素色</p>
+                  <p>{pattern_spec}</p>
                 </li>
                 <li className="list-group-item">
                   <strong>材質</strong>
-                  <p>100% 羊毛</p>
+                  <p>{fabric_spec}</p>
                 </li>
                 <li className="list-group-item">
                   <strong>磅數</strong>
-                  <p>280</p>
+                  <p>{fabric_weight_spec}</p>
                 </li>
               </ul>
             </div>
@@ -98,6 +105,7 @@ const ProductDetail = () => {
           <h6 className="product-detail__related-products__title mt-5">
             您可能會喜歡
           </h6>
+
           <div className="row mt-3">
             <div className="col-6 col-md-3">
               <RelatedProductItem />

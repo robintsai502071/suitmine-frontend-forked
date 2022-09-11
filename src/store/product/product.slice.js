@@ -31,7 +31,10 @@ const initialProductState = {
 
 export const fetchProductsAsync = createAsyncThunk(
   'product/fetchProducts',
-  (product_category) => axios.post(`${API_URL}/products`, product_category)
+  ({ product_category_id, product_category_level }) =>
+    axios.get(`${API_URL}/products`, {
+      params: { product_category_id, product_category_level },
+    })
 );
 
 export const fetchProductDetailAsync = createAsyncThunk(

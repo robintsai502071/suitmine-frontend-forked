@@ -57,7 +57,7 @@ const ProductTypeBar = () => {
       case '1': // 套裝總覽
         dispatch(
           fetchProductsAsync({
-            product_category_id: null,
+            product_category_id: 0,
             product_category_level: 1,
           })
         );
@@ -68,7 +68,7 @@ const ProductTypeBar = () => {
         dispatch(
           fetchProductsAsync({
             product_category_id: 5,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
         break;
@@ -77,7 +77,7 @@ const ProductTypeBar = () => {
         dispatch(
           fetchProductsAsync({
             product_category_id: 6,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
         break;
@@ -85,7 +85,7 @@ const ProductTypeBar = () => {
       case '4': // 西裝外套總覽
         dispatch(
           fetchProductsAsync({
-            product_category_id: null,
+            product_category_id: 0,
             product_category_level: 2,
           })
         );
@@ -95,7 +95,7 @@ const ProductTypeBar = () => {
         dispatch(
           fetchProductsAsync({
             product_category_id: 7,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
         break;
@@ -104,14 +104,14 @@ const ProductTypeBar = () => {
         dispatch(
           fetchProductsAsync({
             product_category_id: 8,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
         break;
       case '10': // 西裝褲總覽
         dispatch(
           fetchProductsAsync({
-            product_category_id: null,
+            product_category_id: 0,
             product_category_level: 4,
           })
         );
@@ -120,7 +120,7 @@ const ProductTypeBar = () => {
         dispatch(
           fetchProductsAsync({
             product_category_id: 11,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
         break;
@@ -128,7 +128,7 @@ const ProductTypeBar = () => {
         dispatch(
           fetchProductsAsync({
             product_category_id: 12,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
         break;

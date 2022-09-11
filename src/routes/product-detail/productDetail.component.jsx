@@ -4,7 +4,10 @@ import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProductDetailAsync } from '../../store/product/product.slice';
-import { selectCurrentProductDetail } from '../../store/product/product.selector';
+import {
+  selectCurrentProductDetail,
+  selectProductsArray,
+} from '../../store/product/product.selector';
 const ProductDetail = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
@@ -13,10 +16,11 @@ const ProductDetail = () => {
   useEffect(() => {
     dispatch(fetchProductDetailAsync(productId));
   }, []);
-
   const currentProductDetail = useSelector(selectCurrentProductDetail);
 
+  // currentProductDetail 解構
   const {
+    id,
     name,
     product_photo,
     price,
@@ -28,6 +32,24 @@ const ProductDetail = () => {
     productDetailImages,
   } = currentProductDetail;
 
+  // 將目前的產品陣列取出（可能是套裝、外套或褲子）用此陣列隨機選擇 4 種作為相關產品 RelatedProductItem
+  const productsArray = useSelector(selectProductsArray);
+  // 從產品陣列排除此 product-detail 顯示的產品
+  const DuplicatedProductsArray = productsArray.filter(
+    (product) => product.id !== id
+  );
+  // console.log('DuplicatedProductsArray', DuplicatedProductsArray);
+  const relatedProductsArray = [];
+  // Math.floor(Math.random() * max) 可以從 0 ~ max-1 區間內取亂數
+  for (let i = 0; i < 4; i++) {
+    const chosenIndex = Math.floor(
+      Math.random() * DuplicatedProductsArray.length - i
+    );
+    relatedProductsArray.push(
+      DuplicatedProductsArray.find((_, index) => index === chosenIndex)
+    );
+  }
+  console.log('relatedProductsArray', relatedProductsArray);
   return (
     <div className="product-detail mt-4">
       <div className="container">

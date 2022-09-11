@@ -62,20 +62,17 @@ const RWDProductTypeBar = () => {
     setVisible(false);
   };
 
-  // const handleSelect = ({ key }) => {
-  //   setVisible(false);
-  //   // console.log(key);
-  // };
+
+  // OnSelect 事件處理
   const handleSelect = ({ key }) => {
     switch (key) {
       case '1': // 套裝總覽
         dispatch(
           fetchProductsAsync({
-            product_category_id: null,
+            product_category_id: 0,
             product_category_level: 1,
           })
         );
-        setVisible(false);
         break;
 
       case '2': {
@@ -83,77 +80,69 @@ const RWDProductTypeBar = () => {
         dispatch(
           fetchProductsAsync({
             product_category_id: 5,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
-        setVisible(false);
         break;
       }
       case '3': // 奢華套裝
         dispatch(
           fetchProductsAsync({
             product_category_id: 6,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
-        setVisible(false);
         break;
 
       case '4': // 西裝外套總覽
         dispatch(
           fetchProductsAsync({
-            product_category_id: null,
+            product_category_id: 0,
             product_category_level: 2,
           })
         );
-        setVisible(false);
         break;
 
       case '5': // 商務西裝外套
         dispatch(
           fetchProductsAsync({
             product_category_id: 7,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
-        setVisible(false);
         break;
 
       case '6': // 奢華西裝外套
         dispatch(
           fetchProductsAsync({
             product_category_id: 8,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
-        setVisible(false);
         break;
       case '10': // 西裝褲總覽
         dispatch(
           fetchProductsAsync({
-            product_category_id: null,
+            product_category_id: 0,
             product_category_level: 4,
           })
         );
-        setVisible(false);
         break;
       case '11': // 商務西裝褲
         dispatch(
           fetchProductsAsync({
             product_category_id: 11,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
-        setVisible(false);
         break;
       case '12': // 奢華西裝褲
         dispatch(
           fetchProductsAsync({
             product_category_id: 12,
-            product_category_level: null,
+            product_category_level: 0,
           })
         );
-        setVisible(false);
         break;
     }
   };

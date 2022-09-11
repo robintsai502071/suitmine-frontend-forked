@@ -30,8 +30,10 @@ function ProductList() {
   // 載入頁面先取得商品
   useEffect(() => {
     const product_category = {
-      product_category_id: null,
-      product_category_level: 1, // level 1 代表套裝總覽
+      // product_category_id 值代入 0 代表要用 category_level 去篩選
+      product_category_id: 0,
+      // level 1 代表套裝總覽
+      product_category_level: 1,
     };
     dispatch(fetchProductsAsync(product_category));
   }, []);

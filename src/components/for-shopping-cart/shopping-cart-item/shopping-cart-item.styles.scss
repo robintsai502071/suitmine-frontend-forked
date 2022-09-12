@@ -1,9 +1,26 @@
-.cart__content__item__price {
-  text-align: right;
+.cart__content__item {
+  &__title {
+    // font-size: 14px;
+    color: #000;
+  }
+  &__price {
+    text-align: right;
+  }
+  &__quantity__arrow, &__remove-btn {
+    cursor: pointer;
+  }
 }
 
-@media screen and (min-width: 768px){
-  .cart__content__item__price {
-    text-align: left;
+@media screen and (min-width: 768px) {
+  .cart__content__item {
+    img {
+      max-width: 100px;
+    }
+    &__price {
+      text-align: left;
+    }
+    &__quantity {
+      transform: scale(1.2);
+    }
   }
 }

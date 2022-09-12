@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import {
@@ -10,7 +11,7 @@ import { selectCartItems } from '../../../store/cart/cart.selector';
 
 const ShoppingCartItem = ({ stepStatus, cartItem }) => {
   const dispatch = useDispatch();
-  const { product_photo, product_name, product_price, quantity } = cartItem;
+  const { id, product_photo, product_name, product_price, quantity } = cartItem;
 
   const cartItems = useSelector(selectCartItems);
   const handleAddItemToCart = (cartItems, productToAdd) => () => {
@@ -26,20 +27,25 @@ const ShoppingCartItem = ({ stepStatus, cartItem }) => {
   return (
     <li className="list-group-item cart__content__item">
       <div className="row">
-        <div className="col-4 col-md-2 order-md-0">
+        <div className="col-4 col-md-2 order-md-0 text-center">
           <img
             className="cart__content__item__image"
             src={product_photo}
             alt={product_name}
           />
         </div>
-        <div className="col-6 col-md-2 order-md-1 d-flex justify-content-center align-items-center">
-          <div className="cart__content__item__title ">{product_name}</div>
+        <div className="col-6 col-md-3 order-md-1 d-flex justify-content-center align-items-center">
+          <Link
+            to={`/product-detail/${id}`}
+            className="cart__content__item__title "
+          >
+            {product_name}
+          </Link>
         </div>
 
         {/* X 按鈕 => 點擊將此商品從購物車移除 */}
         <div
-          className={`col-2 col-md-2 d-flex justify-content-center align-items-center order-md-5 ${
+          className={`col-2 col-md-1 d-flex justify-content-center align-items-center order-md-5 ${
             stepStatus === 'checkout' || stepStatus === 'order-finished'
               ? 'd-none'
               : ''
@@ -51,7 +57,7 @@ const ShoppingCartItem = ({ stepStatus, cartItem }) => {
 
         {/* 數量 */}
         <div className="col-6 col-md-2 mt-2 mt-md-0 order-md-3 d-flex align-items-md-center">
-          <div className=" cart__content__item__quantity d-flex">
+          <div className="cart__content__item__quantity d-flex">
             {/* < 按鈕 => 點擊將此商品數量 - 1，若只剩一筆會從購物車直接移除 */}
             <div
               className={`cart__content__item__quantity__arrow ${

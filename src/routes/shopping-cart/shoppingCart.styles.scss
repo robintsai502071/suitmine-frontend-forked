@@ -1,3 +1,39 @@
+// 限縮 container 最大寬度
+.shopping-cart {
+  .container {
+    max-width: 960px !important;
+  }
+}
+
+// 購物車為空訊息
+.empty-cart-message {
+  text-align: center;
+  margin: 70px 0;
+  &__icon {
+    font-size: 60px;
+    color: $dark-gray;
+  }
+  &__title {
+    @include h5;
+    margin: 30px 0 10px;
+    color: $dark-gray;
+  }
+  &__subtitle {
+    @include h6;
+    color: $dark-gray;
+  }
+  &__btn {
+    display: block;
+    padding: 15px;
+    width: 120px;
+    margin: 20px auto;
+    background-color: $light-green;
+    color: $highlight-red;
+    &:hover {
+      color: #000;
+    }
+  }
+}
 .cart-detail__form {
   padding: 20px;
 }

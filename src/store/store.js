@@ -11,11 +11,24 @@ import { userReducer } from './user/user.slice';
 import { productReducer } from './product/product.slice';
 import { cartReducer } from './cart/cart.slice';
 
+// redux-persist
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 const reducers = combineReducers({
   user: userReducer,
   product: productReducer,
   cart: cartReducer,
 });
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist: ['user'],
+  whitelist: ['cart'],
+};
+
+const persistedReducer = persistReducer(persistConfig, reducers);
 
 const middlewares = [
   process.env.NODE_ENV !== 'production' && logger,
@@ -24,6 +37,9 @@ const middlewares = [
 
 export const store = configureStore({
   // 也可以不用 combineReducers，直接將 reducers 寫在這裡就好
-  reducer: reducers,
+  reducer: persistedReducer,
   middleware: middlewares,
 });
+
+// export persistor 
+export const persistor = persistStore(store);

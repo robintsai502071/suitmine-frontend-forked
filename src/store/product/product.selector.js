@@ -62,3 +62,32 @@ export const selectCurrentProductDetail = createSelector(
   [selectProductReducer],
   (product) => product.currentProductDetail
 );
+
+// for product-detail
+// select relatedProductsArray
+export const selectRelatedProductsArray = createSelector(
+  [selectProductsArray, selectCurrentProductDetail],
+  (productsArray, currentProductDetail) => {
+    if (productsArray.length === 0) return;
+
+    // 將目前的產品陣列取出（可能是套裝、外套或褲子）用此陣列隨機選擇 4 種作為相關產品 RelatedProductItem
+    // 從產品陣列排除 currentProductDetail 顯示的產品
+    const DuplicatedProductsArray = productsArray.filter(
+      (product) => product.id !== currentProductDetail.id
+    );
+
+    const relatedProductsArray = [];
+    // Math.floor(Math.random() * max) 可以從 0 ~ max-1 區間內取亂數
+    for (let i = 0; i < 4; i++) {
+      const chosenIndex = Math.floor(
+        Math.random() * (DuplicatedProductsArray.length - i)
+      );
+      // 取到亂數值後作為 index 透過 splice 從陣列刪除該 item 再存入 relatedProductsArray
+      const chosenItem = DuplicatedProductsArray.splice(chosenIndex, 1);
+      // splice 會回傳一個陣列，所以再用展開後再 push
+      relatedProductsArray.push(...chosenItem);
+    }
+
+    return relatedProductsArray;
+  }
+);

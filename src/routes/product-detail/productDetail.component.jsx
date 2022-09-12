@@ -1,27 +1,32 @@
 import RelatedProductItem from '../../components/for-product-detail/related-product-item.component';
 import { Image } from 'antd';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProductDetailAsync } from '../../store/product/product.slice';
+import {
+  fetchProductDetailAsync,
+  fetchProductsAsync,
+} from '../../store/product/product.slice';
 import {
   selectCurrentProductDetail,
-  selectProductsArray,
+  selectRelatedProductsArray,
 } from '../../store/product/product.selector';
 const ProductDetail = () => {
   const dispatch = useDispatch();
+  const [componentDidUpdate, setComponentDidUpdate] = useState(false);
   const { productId } = useParams();
 
   // 取得商品細節
   useEffect(() => {
     dispatch(fetchProductDetailAsync(productId));
+    setComponentDidUpdate(true);
   }, []);
   const currentProductDetail = useSelector(selectCurrentProductDetail);
 
   // currentProductDetail 解構
   const {
-    id,
     name,
+    product_category_id,
     product_photo,
     price,
     description,
@@ -32,24 +37,49 @@ const ProductDetail = () => {
     productDetailImages,
   } = currentProductDetail;
 
-  // 將目前的產品陣列取出（可能是套裝、外套或褲子）用此陣列隨機選擇 4 種作為相關產品 RelatedProductItem
-  const productsArray = useSelector(selectProductsArray);
-  // 從產品陣列排除此 product-detail 顯示的產品
-  const DuplicatedProductsArray = productsArray.filter(
-    (product) => product.id !== id
-  );
-  // console.log('DuplicatedProductsArray', DuplicatedProductsArray);
-  const relatedProductsArray = [];
-  // Math.floor(Math.random() * max) 可以從 0 ~ max-1 區間內取亂數
-  for (let i = 0; i < 4; i++) {
-    const chosenIndex = Math.floor(
-      Math.random() * DuplicatedProductsArray.length - i
-    );
-    relatedProductsArray.push(
-      DuplicatedProductsArray.find((_, index) => index === chosenIndex)
-    );
-  }
-  console.log('relatedProductsArray', relatedProductsArray);
+  // 取得此商品細節之後，利用取回的 product_category_id 再去 fetch 相同類別的產品
+  // 因為要從中亂數取得 4 筆產品做為相關產品 RelatedProduct Item
+  useEffect(() => {
+    // 確保商品細節已 fetch 完成再 fetch 相同類別的產品
+    if (componentDidUpdate) {
+      const fetchSameCategoryProducts = (product_category_id) => {
+        switch (product_category_id) {
+          case 5:
+          case 6:
+            dispatch(
+              fetchProductsAsync({
+                product_category_id: 0,
+                product_category_level: 1,
+              })
+            );
+            break;
+
+          case 7:
+          case 8:
+            dispatch(
+              fetchProductsAsync({
+                product_category_id: 0,
+                product_category_level: 2,
+              })
+            );
+            break;
+
+          case 11:
+          case 12:
+            dispatch(
+              fetchProductsAsync({
+                product_category_id: 0,
+                product_category_level: 4,
+              })
+            );
+            break;
+        }
+      };
+      fetchSameCategoryProducts(product_category_id);
+    }
+  }, [product_category_id]);
+  const relatedProductsArray = useSelector(selectRelatedProductsArray);
+
   return (
     <div className="product-detail mt-4">
       <div className="container">
@@ -129,18 +159,11 @@ const ProductDetail = () => {
           </h6>
 
           <div className="row mt-3">
-            <div className="col-6 col-md-3">
-              <RelatedProductItem />
-            </div>
-            <div className="col-6 col-md-3">
-              <RelatedProductItem />
-            </div>
-            <div className="col-6 col-md-3">
-              <RelatedProductItem />
-            </div>
-            <div className="col-6 col-md-3">
-              <RelatedProductItem />
-            </div>
+            {relatedProductsArray?.map((relatedProduct) => (
+              <div className="col-6 col-md-3" key={relatedProduct.id}>
+                <RelatedProductItem relatedProduct={relatedProduct} />
+              </div>
+            ))}
           </div>
         </div>
       </div>

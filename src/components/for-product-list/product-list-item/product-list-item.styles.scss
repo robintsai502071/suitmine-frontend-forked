@@ -39,12 +39,22 @@
   img {
     height: 300px;
   }
+  h6 {
+    font-size: 14px;
+    // 只顯示一行
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 @media screen and (min-width: 996px) {
   .product-list-item,
   .related-product-item {
     img {
       height: 360px;
+    }
+    h6 {
+      font-size: 16px;
     }
   }
 }

@@ -1,13 +1,17 @@
 .product-detail {
   &__title {
     @include h5;
+    text-align: center;
   }
   &__price {
     @include h5;
     margin-top: 10px;
+    text-align: center;
   }
   &__description {
     margin-top: 20px;
+    line-height: 1.3rem;
+    color: $dark-gray;
   }
   &__add-to-cart-btn {
     display: block;
@@ -23,32 +27,23 @@
     color: $dark-gray;
     text-align: center;
   }
-  // .intro1__lightbox__thumb__btn {
-  //   top: 10px;
-  //   left: 13px;
-  //   bottom: unset;
-  //   right: unset;
-  //   color: #000;
-  //   // i {
-  //   //   color: $dark-gray;
-  //   // }
-  // }
+
   .preview-group {
-    display: flex;
-    // flex-direction: column;
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    
+    margin-top: 8px;
+
     .ant-image {
-      width: 45px;
-      height: 45px;
+      width: 35px;
+      height: 35px;
       margin: 0 5px;
       border: 1px solid $dark-gray;
+      opacity: 0.7;
       cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
       img {
-        width: 45px;
-        height: 45px;
+        width: 35px;
+        height: 35px;
       }
       &-mask {
         display: none;
@@ -78,6 +73,7 @@
   &__description {
     margin-top: 5px;
     color: $dark-gray;
+    line-height: 1.3rem;
   }
 }
 .product-detail__related-products {
@@ -101,9 +97,28 @@
   }
 }
 
-// 限制圖片在螢幕超過 md 時的大小
 @media screen and (min-width: 768px) {
+  // 限制圖片在螢幕超過 md 時的大小
   .product-detail__image {
     max-height: 560px;
+  }
+}
+
+// .product-detail__related-products {
+//   .card h6 {
+//     font-size: 14px;
+//     // 只顯示一行
+//     overflow: hidden;
+//     white-space: nowrap;
+//     text-overflow: ellipsis;
+//   }
+// }
+@media screen and (min-width: 996px) {
+  .product-detail__related-products {
+    width: 80%;
+    margin: 50px auto 0;
+    .card h6 {
+      font-size: 16px;
+    }
   }
 }

@@ -84,14 +84,13 @@ const ProductDetail = () => {
     <div className="product-detail mt-4">
       <div className="container">
         <div className="row">
-          <div className="col-12 col-md-6 position-relative d-flex justify-content-center">
+          <div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-center">
             <img
               src={product_photo}
               alt={name}
               className="product-detail__image"
             />
-
-            <div className="preview-group position-absolute">
+            <div className="preview-group">
               <Image.PreviewGroup>
                 {productDetailImages.map((imageUrl, index) => (
                   <Image
@@ -103,7 +102,7 @@ const ProductDetail = () => {
               </Image.PreviewGroup>
             </div>
           </div>
-          <div className="col-12 mt-2 mt-md-0 col-md-6">
+          <div className="col-12 mt-3 mt-md-0 col-md-6">
             <h1 className="product-detail__title">{name}</h1>
             <p className="product-detail__price">${price.toLocaleString()}</p>
             <p className="product-detail__description">{description}</p>

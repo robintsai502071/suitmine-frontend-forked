@@ -450,11 +450,11 @@ html {
   margin-top: 40px;
 }
 @media screen and (max-width: 576px) {
-  .pager__item {
-    position: absolute;
-    top: -9999px;
-    left: -9999px;
-  }
+  // .pager__item {
+  //   position: absolute;
+  //   top: -9999px;
+  //   left: -9999px;
+  // }
   .pager__item.active,
   .pager__item:first-of-type,
   .pager__item:last-of-type,

@@ -9,16 +9,15 @@ import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.com
 import ProductListItem from '../../components/for-product-list/product-list-item/product-list-item.component';
 
 // redux
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-// selector
+// selector for product
 import {
   selectFilteredProductsArray,
   selectCurrentPage,
 } from '../../store/product/product.selector';
 
-// action
+// action for product
 import {
   fetchProductsAsync,
   setCurrentPage,

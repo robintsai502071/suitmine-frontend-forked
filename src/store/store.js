@@ -9,10 +9,12 @@ import thunk from 'redux-thunk';
 // 從各 slices 引入 reducers
 import { userReducer } from './user/user.slice';
 import { productReducer } from './product/product.slice';
+import { cartReducer } from './cart/cart.slice';
 
 const reducers = combineReducers({
   user: userReducer,
   product: productReducer,
+  cart: cartReducer,
 });
 
 const middlewares = [

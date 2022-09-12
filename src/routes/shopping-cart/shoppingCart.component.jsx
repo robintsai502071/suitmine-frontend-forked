@@ -1,8 +1,19 @@
 import ShoppingCartItem from '../../components/for-shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
+
+import { useSelector } from 'react-redux';
+import {
+  selectCartItems,
+  selectCartTotal,
+  selectShippingFee,
+} from '../../store/cart/cart.selector';
+
 const stepStatus = 'cart';
 const ShoppingCart = () => {
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+  const shippingFee = useSelector(selectShippingFee);
   return (
     <>
       <Steps stepStatus={stepStatus} />
@@ -20,10 +31,12 @@ const ShoppingCart = () => {
                   <div className="col-2">小計</div>
                 </div>
               </li>
-              <ShoppingCartItem />
+              {cartItems.map((cartItem, i) => (
+                <ShoppingCartItem key={i} cartItem={cartItem} />
+              ))}
             </ul>
           </div>
-          
+
           <div className="row">
             <div className="col-12 col-md-6">
               <div className="card cart-detail mt-4">
@@ -48,7 +61,7 @@ const ShoppingCart = () => {
                       *提醒您收件人務必填寫真實姓名，避免與身分證不符導致無法取件。
                     </p>
                     <p className="cart-detail__form__select-group__remind mt-1">
-                      *所有滿新臺幣 1,000 元或以上的訂單可享免費宅配服務。
+                      *所有滿新臺幣 20,000 元或以上的訂單可享免費宅配服務。
                     </p>
                   </div>
 
@@ -70,15 +83,15 @@ const ShoppingCart = () => {
                   <ul>
                     <li className="d-flex justify-content-between">
                       <p>小計：</p>
-                      <p>$1,215</p>
+                      <p>${cartTotal.toLocaleString()}</p>
                     </li>
                     <li className="d-flex justify-content-between mt-1">
                       <p>運費</p>
-                      <p>$0</p>
+                      <p>${shippingFee}</p>
                     </li>
                     <li className="d-flex justify-content-between mt-2">
                       <p>合計：</p>
-                      <p>$1,215</p>
+                      <p>${(cartTotal + shippingFee).toLocaleString()}</p>
                     </li>
                   </ul>
                   <button className="btn w-100 mx-auto mt-4" type="button">

@@ -1,12 +1,11 @@
 import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { useState } from 'react';
-import axios from 'axios';
-import { API_URL } from '../../utils/config';
 
 import { signInWithGoogle } from '../../utils/axiosApi';
 import { setCurrentUser } from '../../store/user/user.slice';
 import { useDispatch } from 'react-redux';
+import { login } from '../../utils/axiosApi';
 
 function LoginForm() {
   const dispatch = useDispatch();
@@ -43,24 +42,12 @@ function LoginForm() {
   const handleSubmit = async (e) => {
     // 防止表單直接送出
     e.preventDefault();
-    try {
-      let response = await axios.post(`${API_URL}/auth/login`, member, {
-        // 如果想要跨源讀寫 cookie
-        withCredentials: true,
-      });
-      // 將從後端返回的 user 存入 redux store
-      const { user } = response.data;
-      dispatch(setCurrentUser(user));
-      navigate('/member');
-    } catch (e) {
-      console.error('登入失敗', e.response.data);
-      // swal({
-      //   title: '登入失敗',
-      //   text: '帳號或密碼錯誤！',
-      //   icon: 'error',
-      //   button: '確認',
-      // });
-    }
+    const user = await login(member);
+    // 如果登入失敗就不繼續
+    if (!user) return;
+    // 登入成功 set user 狀態並轉址到會員頁
+    dispatch(setCurrentUser(user));
+    navigate('/member');
   };
   // -----------表單用，有不合法的驗証情況出現時觸發-----------
 

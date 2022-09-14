@@ -1,53 +1,16 @@
 import { Link, Outlet, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
 import React from 'react';
 import logo from '../../assests/images/layout/logo.svg';
-
-import axios from 'axios';
-import { API_URL } from '../../utils/config';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentUser } from '../../store/user/user.slice';
-import { signOutGoogle } from '../../utils/firebase/firebase.utils';
 import { selectCurrentUser } from '../../store/user/user.selector';
-import { initialCurrentUser } from '../../store/user/user.slice';
-
+import { signOut } from '../../utils/axiosApi';
+import { setCurrentUser } from '../../store/user/user.slice';
 const Navigation = () => {
-  // 每次載入 navigation.component 都要確認是否還在登入狀態
-  useEffect(() => {
-    const checkIsLogin = async () => {
-      try {
-        const response = await axios.get(`${API_URL}/auth/check-is-login`, {
-          // 允許跨源讀寫 cookie
-          withCredentials: true,
-        });
-        const user = response.data;
-        dispatch(setCurrentUser(user));
-      } catch (error) {
-        // 若未登入就將 currentUser 設為初始值 (空字串)
-        dispatch(setCurrentUser(null));
-      }
-    };
-    checkIsLogin();
-  }, []);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
 
-  const handleSignOut = async () => {
-    await axios.get(`${API_URL}/auth/logout`, {
-      // 如果想要跨源讀寫 cookie
-      withCredentials: true,
-    });
-    // 清除 Firebase 的驗證狀態
-    await signOutGoogle();
-
-    dispatch(setCurrentUser(null));
-    // 導回登入頁面
-    navigate('/login');
-  };
-
-  const handleSignIn = () => {
+  const handleClickSignIn = () => {
     // 如果不是登入狀態就導向登入頁面
     if (!currentUser) {
       navigate('/login');
@@ -55,6 +18,15 @@ const Navigation = () => {
     }
     navigate('/member');
   };
+
+  const handleClickSignOut = () => {
+    signOut();
+    // 將 currentUser 設回 null
+    dispatch(setCurrentUser(null));
+    // 導回登入頁面
+    navigate('/login');
+  };
+
   return (
     <>
       <div className="header bg-dark d-flex justify-content-between">
@@ -106,7 +78,7 @@ const Navigation = () => {
             </Link>
           </li>
           <li>
-            <a role="button" onClick={handleSignIn}>
+            <a role="button" onClick={handleClickSignIn}>
               <i className="fa-regular fa-user text-white btn"></i>
             </a>
           </li>
@@ -116,7 +88,7 @@ const Navigation = () => {
               <a
                 className="btn text-white"
                 role="button"
-                onClick={handleSignOut}
+                onClick={handleClickSignOut}
               >
                 <i className="fa-solid fa-person-running me-2"></i>登出
               </a>

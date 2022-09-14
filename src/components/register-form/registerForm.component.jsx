@@ -1,13 +1,17 @@
 import React from 'react';
 import { useState } from 'react';
-import axios from 'axios';
-
-import { API_URL } from '../../utils/config';
+import { register } from '../../utils/axiosApi';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { setCurrentUser } from '../../store/user/user.slice';
 
 //--------- 下拉式選單陣列 ---------
 const genderArr = ['男士', '女士', '不提供'];
 
 function RegisterForm() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   //--------- 會員狀態 ---------
   const [member, setMember] = useState({
     username: '',
@@ -48,14 +52,10 @@ function RegisterForm() {
       seterrorMessage(updatePasswordDoubleCheckErrorMessage);
       return;
     }
-
-    try {
-      //--- 送去後端 ---
-      await axios.post(`${API_URL}/auth/register`, member);
-      // TODO: 註冊成功導回登入頁面讓使用者登入
-    } catch (e) {
-      console.error(e);
-    }
+    const user = await register(member);
+    if (!user) return;
+    // 註冊成功就轉址到會員頁
+    navigate('/member');
   };
 
   //--------- 表單錯誤事件(有不合法的驗証情況出現時觸發) ---------

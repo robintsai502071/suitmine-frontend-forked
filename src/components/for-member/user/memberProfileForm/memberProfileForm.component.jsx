@@ -2,7 +2,7 @@ import { Form, Input, Radio, Button } from 'antd';
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { axiosPatchUserData } from '../../../../utils/axiosApi';
+import { patchUserData } from '../../../../utils/axiosApi';
 
 import {
   fetchUserProfileAsync,
@@ -55,7 +55,7 @@ function MainForm() {
   const memberFormRef = useRef();
 
   async function handleSubmit(values) {
-    axiosPatchUserData(id, values);
+    patchUserData(id, values);
     dispatch(setUserProfile(values));
     setProfileEditMode(false);
   }

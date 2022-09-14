@@ -1,6 +1,8 @@
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
 import CartReconfirmAccordion from '../../components/for-shopping-cart/cart-reconfirm-accordion/cartReconfirmAccordion.component';
+
+// 定義結帳階段為 "結帳" => 影響 <Steps>、 購物車內容 <ul> 樣式
 const stepStatus = 'checkout';
 
 const Checkout = () => {

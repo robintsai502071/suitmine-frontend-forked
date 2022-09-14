@@ -4,7 +4,7 @@ import Home from './routes/home/home.component';
 import Login from './routes/login/login.component';
 import Register from './routes/register/register.component';
 import ProductList from './routes/product-list/productList.component';
-import BookingMap from './routes/booking-map/bookingMap.component';
+import BookingMap from './routes/silent-pages/booking-map/bookingMap.component';
 import ShoppingCart from './routes/shopping-cart/shoppingCart.component';
 import Checkout from './routes/checkout/checkout.component';
 import OrderFinshed from './routes/order-finished/orderFinished.component';

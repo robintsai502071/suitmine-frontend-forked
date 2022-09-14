@@ -1,7 +1,11 @@
 import ShoppingCartItem from '../../../components/for-shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import Accordion from 'react-bootstrap/Accordion';
 
+import { useSelector } from 'react-redux';
+import { selectCartItems } from '../../../store/cart/cart.selector';
+
 const CartReconfirmAccordion = ({ stepStatus }) => {
+  const cartItems = useSelector(selectCartItems);
   return (
     <Accordion className="cart-reconfirm">
       <Accordion.Item eventKey="0">
@@ -16,9 +20,11 @@ const CartReconfirmAccordion = ({ stepStatus }) => {
                 <div className="col-2">小計</div>
               </div>
             </li>
-            <ShoppingCartItem stepStatus={stepStatus} />
-            <ShoppingCartItem stepStatus={stepStatus} />
-            <ShoppingCartItem stepStatus={stepStatus} />
+            
+            {cartItems?.map((cartItem) => (
+              <ShoppingCartItem stepStatus={stepStatus} cartItem={cartItem} />
+            ))}
+
             <div className="row">
               <div className="col-12 col-md-3 offset-md-9 ">
                 <ul className="cart-reconfirm__summary">

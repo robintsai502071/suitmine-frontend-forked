@@ -1,20 +1,47 @@
 import ShoppingCartItem from '../../components/for-shopping-cart/shopping-cart-item/shopping-cart-item.component';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
+import { Link, useNavigate } from 'react-router-dom';
 
+import swal from 'sweetalert';
 import { useSelector } from 'react-redux';
+
+// selector
 import {
   selectCartItems,
   selectCartTotal,
   selectShippingFee,
 } from '../../store/cart/cart.selector';
-import { Link } from 'react-router-dom';
+import { selectCurrentUser } from '../../store/user/user.selector';
 
+// 定義結帳階段為 "購物車" => 影響 <Steps>、 購物車內容 <ul> 樣式
 const stepStatus = 'cart';
+
 const ShoppingCart = () => {
   const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
   const shippingFee = useSelector(selectShippingFee);
+  const currentUser = useSelector(selectCurrentUser);
+  const navigate = useNavigate();
+
+  const handleGoToCheckout = async () => {
+    // 如果點選「前往結帳」時是未登入狀態就跳出題是文字
+    if (!currentUser) {
+      const response = await swal({
+        icon: 'info',
+        text: '您需要先登入或註冊才能繼續。',
+        button: '瞭解',
+      });
+      // 點選「瞭解」轉址到登入頁面
+      if (response) {
+        navigate(`/login`);
+      }
+      // 如果點選「前往結帳」時是已登入狀態就轉址到結帳頁面
+    } else {
+      navigate(`/checkout`);
+    }
+  };
+
   return (
     <div className="shopping-cart">
       <Steps stepStatus={stepStatus} />
@@ -110,7 +137,11 @@ const ShoppingCart = () => {
                         <p>${(cartTotal + shippingFee).toLocaleString()}</p>
                       </li>
                     </ul>
-                    <button className="btn w-100 mx-auto mt-4" type="button">
+                    <button
+                      className="btn w-100 mx-auto mt-4"
+                      type="button"
+                      onClick={handleGoToCheckout}
+                    >
                       前往結帳
                     </button>
 

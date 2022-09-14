@@ -3,50 +3,23 @@ import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
-import {
-  signInWithGooglePopup,
-  signOutGoogle,
-} from '../../utils/firebase/firebase.utils';
 
+import { signInWithGoogle } from '../../utils/axiosApi';
 import { setCurrentUser } from '../../store/user/user.slice';
 import { useDispatch } from 'react-redux';
 
 function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const signInWithGooglePopupHandler = async () => {
-    try {
-      const {
-        user: { email, displayName, uid },
-      } = await signInWithGooglePopup();
-      // 從 Firebase 取得 user 資訊並送去後端判斷 email 有無在官網註冊過
-      // const { email, displayName, uid } = response.user;
-      const userInfoFromGoogle = { email, displayName, uid };
 
-      const response = await axios.post(
-        `${API_URL}/auth/login-with-google`,
-        userInfoFromGoogle,
-        {
-          // 如果想要跨源讀寫 cookie
-          withCredentials: true,
-        }
-      );
-      const { user } = response.data;
-      // 將從後端返回的 user 存入 redux store
-      dispatch(setCurrentUser(user));
-      // 導向會員頁面
-      navigate('/member');
-    } catch (error) {
-      if (
-        error.response.data.errorMessage ===
-        '此 Gmail 已於官方網站註冊過！請改用信箱/密碼方式登入。'
-      ) {
-        // 清除 Firebase 的驗證狀態
-        await signOutGoogle();
-        console.log(error.response.data.errorMessage);
-        // TODO: swal
-      }
-    }
+  const handleSignInWithGoogle = async () => {
+    const user = await signInWithGoogle();
+    // 如果登入失敗就不再繼續
+    if (!user) return;
+    // 登入成功就將從後端返回的 user 存入 redux store
+    dispatch(setCurrentUser(user));
+    // 導向會員頁面
+    navigate('/member');
   };
 
   //--------- 會員狀態 ---------
@@ -182,7 +155,7 @@ function LoginForm() {
         <button
           className="btn googleBtn w-100 mx-auto mt-1"
           type="button"
-          onClick={signInWithGooglePopupHandler}
+          onClick={handleSignInWithGoogle}
         >
           <p>Google 登入</p>
         </button>

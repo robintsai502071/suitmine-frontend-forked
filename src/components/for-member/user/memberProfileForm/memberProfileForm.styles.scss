@@ -1,0 +1,107 @@
+// 裝置大於 996px 時限縮個人檔案表單大小並加上 border
+@media screen and (min-width: 996px) {
+  .member-profile-form {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid $light-gray;
+  }
+}
+.main__form {
+  padding: 2rem;
+  height: 100%;
+
+  &.body-info {
+    // 移除 ANTD input 欄位 suffix disabled 預設樣式
+    .ant-input-affix-wrapper-disabled {
+      background-color: transparent;
+    }
+  }
+  &__header {
+    border-bottom: 2px solid $light-gray;
+  }
+  &__title {
+    @include h6;
+    padding-bottom: 5px;
+  }
+  &__edit-btn {
+    font-size: 14px;
+    color: $highlight-red;
+    &:hover {
+      color: $highlight-red;
+      text-decoration: underline !important;
+    }
+  }
+  // 移除 ANTD input 欄位 requried 前墜紅色星號
+  .ant-form-item-label
+    > label.ant-form-item-required:not(.ant-form-item-required-mark-optional):before {
+    display: none;
+  }
+  // .ant-form-item {
+  //   margin: 0;
+  // }
+}
+
+// 表單裡面的 input 樣式
+.member-form {
+  &__email {
+    input {
+      border: none;
+    }
+  }
+  &__birth.disabled {
+    input {
+      border: none;
+    }
+  }
+}
+
+// 身體資訊未填標題訊息
+.body-info__reminder {
+  font-size: 14px;
+  color: $highlight-red;
+}
+
+// 儲存個人檔案按鈕
+.save-profile-btn {
+  color: $highlight-red;
+  background-color: $light-green;
+  &:hover {
+    color: $highlight-red !important;
+    background-color: $light-green;
+  }
+}
+
+// antd 樣式覆蓋
+// ********start disabled radio 覆蓋樣式不要灰底跟 cursor 不要禁止 ********
+.ant-input[disabled] {
+  color: black !important;
+  background-color: white !important;
+  cursor: default !important;
+}
+.ant-radio-wrapper-disabled {
+  cursor: default !important;
+}
+.ant-radio-disabled {
+  cursor: default !important;
+}
+.ant-radio-disabled .ant-radio-input {
+  cursor: default !important;
+}
+.ant-radio.ant-radio-checked .ant-radio-inner {
+  border-color: $dark-gray !important;
+}
+.ant-radio-disabled .ant-radio-inner {
+  background-color: white !important;
+  cursor: default !important;
+}
+.ant-radio-disabled .ant-radio-inner::after {
+  background-color: $dark-gray !important;
+}
+.ant-radio-disabled + span {
+  color: black !important;
+  cursor: default !important;
+}
+.ant-input-affix-wrapper-disabled {
+  cursor: default !important;
+}
+// ********ending disabled radio 覆蓋樣式不要灰底跟 cursor 不要禁止 ********

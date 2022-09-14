@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
-import PopconfirmTPE from '../../components/for-booking-map/popConfirmTPE.component';
-import PopconfirmTYN from '../../components/for-booking-map/popConfirmTYN.component';
-import PopconfirmCWS from '../../components/for-booking-map/popConfirmCWS.component';
-import RWDpopconfirmCWS from '../../components/for-booking-map/RWDpopConfirmCWS.component';
-import RWDpopconfirmTPE from '../../components/for-booking-map/RWDpopConfirmTPE.component';
-import RWDpopconfirmTYN from '../../components/for-booking-map/RWDpopConfirmTYN.component';
-import LayoutMain from '../../components/layout/layout-main/layoutMain.component'
-import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.component'
+import PopconfirmTPE from '../../../components/for-booking-map/popConfirmTPE.component';
+import PopconfirmTYN from '../../../components/for-booking-map/popConfirmTYN.component';
+import PopconfirmCWS from '../../../components/for-booking-map/popConfirmCWS.component';
+import RWDpopconfirmCWS from '../../../components/for-booking-map/RWDpopConfirmCWS.component';
+import RWDpopconfirmTPE from '../../../components/for-booking-map/RWDpopConfirmTPE.component';
+import RWDpopconfirmTYN from '../../../components/for-booking-map/RWDpopConfirmTYN.component';
+import LayoutMain from '../../../components/layout/layout-main/layoutMain.component'
+import LayoutFooter from '../../../components/layout/layout-footer/layoutFooter.component'
 
-import article1 from '../../assests/images/booking-map/文章1.png'
-import article2 from '../../assests/images/booking-map/文章2.png'
-import article3 from '../../assests/images/booking-map/文章3.png'
+import article1 from '../../../assests/images/booking-map/文章1.png'
+import article2 from '../../../assests/images/booking-map/文章2.png'
+import article3 from '../../../assests/images/booking-map/文章3.png'
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';

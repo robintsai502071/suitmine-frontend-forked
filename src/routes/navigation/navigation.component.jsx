@@ -8,7 +8,8 @@ import { API_URL } from '../../utils/config';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentUser } from '../../store/user/user.slice';
 import { signOutGoogle } from '../../utils/firebase/firebase.utils';
-import { selectCurrentUser } from '../../store/user/user.slector';
+import { selectCurrentUser } from '../../store/user/user.selector';
+import { initialCurrentUser } from '../../store/user/user.slice';
 
 const Navigation = () => {
   // 每次載入 navigation.component 都要確認是否還在登入狀態
@@ -22,8 +23,8 @@ const Navigation = () => {
         const user = response.data;
         dispatch(setCurrentUser(user));
       } catch (error) {
+        // 若未登入就將 currentUser 設為初始值 (空字串)
         dispatch(setCurrentUser(null));
-        navigate('/');
       }
     };
     checkIsLogin();
@@ -40,6 +41,7 @@ const Navigation = () => {
     });
     // 清除 Firebase 的驗證狀態
     await signOutGoogle();
+
     dispatch(setCurrentUser(null));
     // 導回登入頁面
     navigate('/login');

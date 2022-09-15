@@ -69,11 +69,6 @@ export const checkIsLogin = async () => {
     // console.log(error);
     // 清除 Firebase 的驗證狀態
     await signOutGoogle();
-    swal({
-      title: error.response.data.error,
-      text: '請您重新登入',
-      icon: 'info',
-    });
   }
 };
 

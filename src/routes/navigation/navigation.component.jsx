@@ -1,14 +1,31 @@
-import { Link, Outlet, useNavigate } from 'react-router-dom';
 import React from 'react';
+import { useEffect } from 'react';
+
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import logo from '../../assests/images/layout/logo.svg';
+
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCurrentUser } from '../../store/user/user.selector';
-import { signOut } from '../../utils/axiosApi';
 import { setCurrentUser } from '../../store/user/user.slice';
+import { selectCurrentUser } from '../../store/user/user.selector';
+import { checkIsLogin, signOut } from '../../utils/axiosApi';
+
 const Navigation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
+
+  // 每次載入頁面都確認是否登入
+  useEffect(() => {
+    const handleCheckIsLogin = async () => {
+      const user = await checkIsLogin();
+      if (user) {
+        dispatch(setCurrentUser(user));
+      } else {
+        dispatch(setCurrentUser(null));
+      }
+    };
+    handleCheckIsLogin();
+  }, []);
 
   const handleClickSignIn = () => {
     // 如果不是登入狀態就導向登入頁面

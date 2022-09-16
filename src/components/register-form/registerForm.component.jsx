@@ -69,13 +69,14 @@ function RegisterForm() {
       [e.target.name]: e.target.validationMessage,
     };
     seterrorMessage(newErrorMessage);
-    console.log(e.target.validationMessage);
   };
+
   //--------- 表單錯誤更正事件，重新輸入正確資訊會消除錯誤訊息 ---------
   // 用於讓使用者輸入某欄位時清空某欄位錯誤訊息
   // 填完資料送出後，更改原本錯誤的表單觸發onChange事件
   // 將空的錯誤訊息傳回狀態內
   // 原本顯示的錯誤訊息就會消失
+
   const handleFormChange = (e) => {
     // 如果以修正成正確資訊，錯誤訊息的欄位顯示 "" <--空(等於沒有錯誤)
     const fixErrorsMessage = { ...errorMessage, [e.target.name]: '' };

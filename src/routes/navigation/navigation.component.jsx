@@ -20,8 +20,11 @@ const Navigation = () => {
   useEffect(() => {
     const handleCheckIsLogin = async () => {
       const user = await checkIsLogin();
-      // 如果未登入且當前路由在會員頁：跳出彈窗並轉址到登入頁
-      if (!user && location.pathname === '/member') {
+      // 如果未登入且當前路由在會員頁或結帳頁：跳出彈窗並轉址到登入頁
+      if (
+        !user &&
+        (location.pathname === '/member' || location.pathname === '/checkout')
+      ) {
         swal({
           title: '尚未登入',
           text: '請您重新登入',

@@ -17,7 +17,7 @@
   //   }
   // }
   strong {
-    // font-size: 14px;
+    font-size: 14px;
     color: $highlight-red;
   }
   .set-default-address-btn {
@@ -43,3 +43,7 @@
   color: $highlight-red;
 }
 
+// 表單驗證失敗時的錯誤訊息
+.error-message {
+  color: red;
+}

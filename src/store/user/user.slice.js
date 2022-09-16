@@ -2,24 +2,24 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 
-export const initialUserProfile = {
-  id: '',
-  uid: '',
-  email: '',
-  name: '',
-  gender: '',
-  birth_date: '',
-  phone: '',
-  address: '',
-  arm_length: '',
-  chest_width: '',
-  leg_length: '',
-  shoulder_width: '',
-  waist_width: '',
-  butt_width: '',
-  height: '',
-  weight: '',
-};
+// export const initialUserProfile = {
+//   id: '',
+//   uid: '',
+//   email: '',
+//   name: '',
+//   gender: '',
+//   birth_date: '',
+//   phone: '',
+//   address: '',
+//   arm_length: '',
+//   chest_width: '',
+//   leg_length: '',
+//   shoulder_width: '',
+//   waist_width: '',
+//   butt_width: '',
+//   height: '',
+//   weight: '',
+// };
 
 const initialUserState = {
   currentUser: null,

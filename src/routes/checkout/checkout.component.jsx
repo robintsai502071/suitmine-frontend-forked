@@ -1,31 +1,30 @@
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
 import CartReconfirmAccordion from '../../components/for-shopping-cart/cart-reconfirm-accordion/cartReconfirmAccordion.component';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
+import { fetchUserProfileAsync } from '../../store/user/user.slice';
+import { useEffect } from 'react';
 
 // 定義結帳階段為 "結帳" => 影響 <Steps>、 購物車內容 <ul> 樣式
 const stepStatus = 'checkout';
 
 const Checkout = () => {
+  const dispatch = useDispatch();
+  const currentUser = useSelector(selectCurrentUser);
+  const { user_id } = currentUser || {};
+
+  // 取得會員資料
+  useEffect(() => {
+    if (user_id === '') return;
+    dispatch(fetchUserProfileAsync(user_id));
+  }, [user_id]);
+
   return (
     <>
       <Steps stepStatus={stepStatus} />
       <main className="mt-4 pb-5">
         <div className="container">
-          {/* <div className="card cart-reconfirm">
-            <div className="card-header cart__title">購物車確認</div>
-            <ul className="list-group list-group-flush cart__content">
-              <li className="list-group-item cart__content__title d-none d-md-block">
-                <div className="row">
-                  <div className="col-4">商品資訊</div>
-                  <div className="col-2">單件價格</div>
-                  <div className="col-2">數量</div>
-                  <div className="col-2">小計</div>
-                </div>
-              </li>
-              <ShoppingCartItem stepStatus={stepStatus} />
-            </ul>
-          </div> */}
-
           <CartReconfirmAccordion stepStatus={stepStatus} />
           <Form>
             <div className="row">
@@ -38,7 +37,11 @@ const Checkout = () => {
                   <div noValidate className="customer-info__form">
                     <Form.Group controlId="formBasicName">
                       <p className="mb-2">顧客姓名</p>
-                      <Form.Control type="text" value={`菜菜子`} disabled />
+                      <Form.Control
+                        type="text"
+                        // value={username}
+                        disabled
+                      />
                     </Form.Group>
 
                     <Form.Group>
@@ -46,18 +49,18 @@ const Checkout = () => {
                       <Form.Control
                         type="text"
                         name="receiver"
-                        value={`a123456798@gmail.com`}
+                        // value={email}
                         disabled
                       />
                     </Form.Group>
 
                     <Form.Group>
-                      <p className="mt-4 mb-2">生日日期</p>
+                      <p className="mt-4 mb-2">電話</p>
                       <Form.Control
-                        type="date"
+                        type="text"
                         className="form-control"
                         disabled
-                        value="1997-01-08"
+                        // value={phone}
                       />
                     </Form.Group>
                   </div>

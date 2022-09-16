@@ -4,29 +4,12 @@ import { useState, useRef, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { patchUserData } from '../../../../utils/axiosApi';
 
-import {
-  fetchUserProfileAsync,
-  setUserProfile,
-} from '../../../../store/user/user.slice';
-
-import {
-  selectCurrentUser,
-  selectUserProfile,
-} from '../../../../store/user/user.selector';
+import { setUserProfile } from '../../../../store/user/user.slice';
+import { selectUserProfile } from '../../../../store/user/user.selector';
 
 function MainForm() {
   const dispatch = useDispatch();
-  const currentUser = useSelector(selectCurrentUser);
   const userProfile = useSelector(selectUserProfile);
-
-  // 加上 || {} 是為了防止錯誤 Uncaught TypeError: Cannot destructure property ... 'currentUser' as it is null.
-  const { user_id } = currentUser || {};
-
-  // 取得會員資料
-  useEffect(() => {
-    if (user_id === '') return;
-    dispatch(fetchUserProfileAsync(user_id));
-  }, [user_id]);
 
   // 解構 userProfile
   const {

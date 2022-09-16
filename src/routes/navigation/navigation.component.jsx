@@ -1,7 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
+import swal from 'sweetalert';
 
-import { Link, Outlet, useNavigate } from 'react-router-dom';
+import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import logo from '../../assests/images/layout/logo.svg';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,16 +13,30 @@ import { checkIsLogin, signOut } from '../../utils/axiosApi';
 const Navigation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
   const currentUser = useSelector(selectCurrentUser);
 
   // 每次載入頁面都確認是否登入
   useEffect(() => {
     const handleCheckIsLogin = async () => {
       const user = await checkIsLogin();
-      if (user) {
-        dispatch(setCurrentUser(user));
-      } else {
+      // 如果未登入且當前路由在會員頁：跳出彈窗並轉址到登入頁
+      if (!user && location.pathname === '/member') {
+        swal({
+          title: '尚未登入',
+          text: '請您重新登入',
+          icon: 'info',
+          button: '確認',
+        });
         dispatch(setCurrentUser(null));
+        navigate('/login');
+        return;
+      }
+      // 登入就 set user、未登入將 user 設為 null
+      if (!user) {
+        dispatch(setCurrentUser(null));
+      } else {
+        dispatch(setCurrentUser(user));
       }
     };
     handleCheckIsLogin();

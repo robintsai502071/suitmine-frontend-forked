@@ -8,29 +8,22 @@ import MyFavoritesDisplay from '../../components/for-member/my-favorites/myFavor
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import { checkIsLogin } from '../../utils/axiosApi';
-import { useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
+import { useSelector, useDispatch } from 'react-redux';
+import { selectCurrentUser } from '../../store/user/user.selector';
+import { fetchUserProfileAsync } from '../../store/user/user.slice';
 
 function Member() {
+  const dispatch = useDispatch();
 
-  const navigate = useNavigate();
-  // 這裡的 useEffect 僅針對會員頁面做特別彈窗 swal 和 navigate 處理（在 Navigation 已有確認是否登入）
+  const currentUser = useSelector(selectCurrentUser);
+  // 加上 || {} 是為了防止錯誤 Uncaught TypeError: Cannot destructure property ... 'currentUser' as it is null.
+  const { user_id } = currentUser || {};
+
+  // 取得會員資料
   useEffect(() => {
-    const handleCheckIsLogin = async () => {
-      const user = await checkIsLogin();
-      // 如果未登入就將 currentUser 狀態設為 null 並轉址到官網
-      if (!user) {
-        swal({
-          title: '尚未登入',
-          text: '請您重新登入',
-          icon: 'info',
-        });
-        navigate('/');
-      }
-    };
-    handleCheckIsLogin();
-  }, []);
+    if (!user_id) return;
+    dispatch(fetchUserProfileAsync(user_id));
+  }, [user_id]);
 
   return (
     <div className="member">

@@ -8,7 +8,7 @@ import {
 } from '../../../store/cart/cart.slice';
 
 import { selectCartItems } from '../../../store/cart/cart.selector';
-import { lazy } from 'react';
+
 
 const ShoppingCartItem = ({ stepStatus, cartItem }) => {
   const dispatch = useDispatch();

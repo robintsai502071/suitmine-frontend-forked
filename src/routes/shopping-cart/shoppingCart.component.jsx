@@ -1,4 +1,4 @@
-import ShoppingCartItem from '../../components/for-shopping-cart/shopping-cart-item/shopping-cart-item.component';
+import ShoppingCartItem from '../../components/for-shopping-cart/shopping-cart-item/shoppingCartItem.component';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
 import { Link, useNavigate } from 'react-router-dom';

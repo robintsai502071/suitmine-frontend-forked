@@ -1,8 +1,26 @@
-import CartReconfirmAccordion from '../../components/for-shopping-cart/cart-reconfirm-accordion/cartReconfirmAccordion.component';
+import OrderItemsAccordion from '../../components/for-order-finished/orderItemsAccordion.component';
 import OrderDetail from '../../components/for-shopping-cart/order-detail/orderDetail.component';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
+
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { selectCurrentUser } from '../../store/user/user.selector';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchOneOrderAsync } from '../../store/user/user.slice';
+import swal from 'sweetalert';
+
 const stepStatus = 'order-finished';
 const OrderFinshed = () => {
+  const dispatch = useDispatch();
+  const { orderId } = useParams();
+  const currentUser = useSelector(selectCurrentUser);
+  const { user_id } = currentUser || {};
+
+  useEffect(() => {
+    if (!user_id) return;
+    dispatch(fetchOneOrderAsync({ memberId: user_id, orderId }));
+  }, [user_id]);
+
   return (
     <>
       <Steps stepStatus={stepStatus} />
@@ -13,7 +31,7 @@ const OrderFinshed = () => {
             <i className="fa-regular fa-circle-check check-sign"></i>
             <p>您的訂單已提交成功！</p>
           </div>
-          <CartReconfirmAccordion stepStatus={stepStatus} />
+          <OrderItemsAccordion stepStatus={stepStatus} />
           <OrderDetail />
         </div>
       </main>

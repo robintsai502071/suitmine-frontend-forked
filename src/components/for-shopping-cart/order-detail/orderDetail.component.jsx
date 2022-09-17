@@ -1,4 +1,19 @@
+import { useSelector } from 'react-redux';
+import { selectCurrentOrderDetail } from '../../../store/user/user.selector';
 const OrderDetail = () => {
+  const currentOrderDetail = useSelector(selectCurrentOrderDetail);
+  const { orderDetail } = currentOrderDetail || {};
+  const {
+    create_time,
+    order_uuid,
+    customer_name,
+    customer_phone,
+    customer_birth,
+    receiver_name,
+    receiver_phone,
+    receiver_address,
+  } = orderDetail || {};
+
   return (
     <div className="card order-detail mt-3">
       <div className="row">
@@ -7,13 +22,10 @@ const OrderDetail = () => {
             <h6 className="order-detail__order-info__title">訂單資訊</h6>
             <ul>
               <li>
-                <p>訂單號碼：1111111111</p>
+                <p>訂單號碼：{(order_uuid || '').slice(0, 8)}</p>
               </li>
               <li>
-                <p>訂單信箱：a093773582@gmail.com</p>
-              </li>
-              <li>
-                <p>訂單日期：2022-06-18 01:45PM</p>
+                <p>訂單日期：{create_time || ''}</p>
               </li>
               <li>
                 <p>訂單狀態：已完成</p>
@@ -27,13 +39,13 @@ const OrderDetail = () => {
             <h6 className="order-detail__customer-info__title">顧客資訊</h6>
             <ul>
               <li>
-                <p>姓名：蔡娓娓</p>
+                <p>姓名：{customer_name || ''}</p>
               </li>
               <li>
-                <p>電話號碼：08888888888</p>
+                <p>電話號碼：{customer_phone || ''}</p>
               </li>
               <li>
-                <p>生日日期：1997-01-08</p>
+                <p>生日日期：{customer_birth || ''}</p>
               </li>
             </ul>
           </div>
@@ -50,13 +62,13 @@ const OrderDetail = () => {
                 <p>送貨狀態：未取貨</p>
               </li>
               <li>
-                <p>收件人：蔡娓娓</p>
+                <p>收件人：{receiver_name || ''}</p>
               </li>
               <li>
-                <p>收件人電話：0999999999</p>
+                <p>收件人電話：{receiver_phone || ''}</p>
               </li>
               <li>
-                <p>收件人地址：蔡娓娓</p>
+                <p>收件人地址：{receiver_address || ''}</p>
               </li>
             </ul>
           </div>

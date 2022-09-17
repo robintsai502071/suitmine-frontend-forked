@@ -1,26 +1,18 @@
-import ShoppingCartItem from '../../../components/for-shopping-cart/shopping-cart-item/shoppingCartItem.component';
+import OrderItem from '../../components/for-order-finished/orderItem.component';
 import Accordion from 'react-bootstrap/Accordion';
-
 import { useSelector } from 'react-redux';
-import {
-  selectCartItems,
-  selectCartTotal,
-  selectShippingFee,
-  selectCartCount,
-} from '../../../store/cart/cart.selector';
+import { selectCurrentOrderDetail } from '../../store/user/user.selector';
 
-const CartReconfirmAccordion = ({ stepStatus }) => {
-  const cartItems = useSelector(selectCartItems);
-  const cartTotal = useSelector(selectCartTotal);
-  const shippingFee = useSelector(selectShippingFee);
-  const cartCount = useSelector(selectCartCount);
-  
+const OrderItemsAccordion = ({ stepStatus }) => {
+  const currentOrderDetail = useSelector(selectCurrentOrderDetail);
+  const { orderItems, orderDetail } = currentOrderDetail || {};
+  const { cart_total, shipping_fee } = orderDetail || {};
   return (
     <Accordion className="cart-reconfirm">
       <Accordion.Item eventKey="0">
         <Accordion.Header>
-          訂單金額：${(cartTotal + shippingFee).toLocaleString()} （共
-          {cartCount} 件）
+          訂單金額：${(cart_total + shipping_fee || '').toLocaleString()} （共
+          {(orderItems || []).length} 件）
         </Accordion.Header>
         <Accordion.Body>
           <ul className="list-group list-group-flush cart__content">
@@ -33,11 +25,11 @@ const CartReconfirmAccordion = ({ stepStatus }) => {
               </div>
             </li>
 
-            {cartItems?.map((cartItem) => (
-              <ShoppingCartItem
+            {orderItems?.map((orderItem) => (
+              <OrderItem
                 stepStatus={stepStatus}
-                cartItem={cartItem}
-                key={cartItem.id}
+                orderItem={orderItem}
+                key={orderItem.id}
               />
             ))}
 
@@ -46,15 +38,20 @@ const CartReconfirmAccordion = ({ stepStatus }) => {
                 <ul className="cart-reconfirm__summary">
                   <li className="d-flex justify-content-between">
                     <p>小計：</p>
-                    <p>${cartTotal.toLocaleString()}</p>
+                    <p>${cart_total || ''.toLocaleString()}</p>
                   </li>
                   <li className="d-flex justify-content-between mt-1">
                     <p>運費</p>
-                    <p>${shippingFee.toLocaleString()}</p>
+                    <p>
+                      $
+                      {shipping_fee || '' === 0
+                        ? 0
+                        : shipping_fee || ''.toLocaleString()}
+                    </p>
                   </li>
                   <li className="d-flex justify-content-between mt-2">
                     <p>合計：</p>
-                    <p>{(cartTotal + shippingFee).toLocaleString()}</p>
+                    <p>${(cart_total + shipping_fee || '').toLocaleString()}</p>
                   </li>
                 </ul>
               </div>
@@ -66,4 +63,4 @@ const CartReconfirmAccordion = ({ stepStatus }) => {
   );
 };
 
-export default CartReconfirmAccordion;
+export default OrderItemsAccordion;

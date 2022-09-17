@@ -6,7 +6,13 @@ export const selectCurrentUser = createSelector(
   [selectUserReducer],
   (user) => user.currentUser
 );
+
 export const selectUserProfile = createSelector(
   [selectUserReducer],
   (user) => user.userProfile
+);
+
+export const selectCurrentOrderDetail = createSelector(
+  [selectUserReducer],
+  (user) => user.currentOrderDetail
 );

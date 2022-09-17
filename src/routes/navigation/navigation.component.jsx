@@ -23,7 +23,9 @@ const Navigation = () => {
       // 如果未登入且當前路由在會員頁或結帳頁：跳出彈窗並轉址到登入頁
       if (
         !user &&
-        (location.pathname === '/member' || location.pathname === '/checkout')
+        (location.pathname === '/member' ||
+          location.pathname === '/checkout' ||
+          location.pathname.includes('order-finished'))
       ) {
         swal({
           title: '尚未登入',

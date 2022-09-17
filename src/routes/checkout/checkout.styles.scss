@@ -30,6 +30,12 @@
   padding: 20px;
 }
 
+// 付款資料 title 提醒文字：（僅供測試，請勿填寫真實的信用卡號碼！）
+.payment-info__title__reminder {
+  font-size: 14px;
+  color: $highlight-red;
+}
+
 // 索取發票 form
 .invoice-info__form {
   padding: 20px;

@@ -3,20 +3,34 @@ import { useEffect, useState } from 'react';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
 import CartReconfirmAccordion from '../../components/for-shopping-cart/cart-reconfirm-accordion/cartReconfirmAccordion.component';
-
 import { useSelector, useDispatch } from 'react-redux';
 import {
   selectCurrentUser,
   selectUserProfile,
 } from '../../store/user/user.selector';
+
+import {
+  selectCartItems,
+  selectCartTotal,
+  selectShippingFee,
+} from '../../store/cart/cart.selector';
+
 import { fetchUserProfileAsync } from '../../store/user/user.slice';
+import { clearWholeCart } from '../../store/cart/cart.slice';
+import { createOrder } from '../../utils/axiosApi';
+import swal from 'sweetalert';
+import { useNavigate } from 'react-router-dom';
 
 // 定義結帳階段為 "結帳" => 影響 <Steps>、 購物車內容 <ul> 樣式
 const stepStatus = 'checkout';
 
 const Checkout = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const currentUser = useSelector(selectCurrentUser);
+  const cartItems = useSelector(selectCartItems);
+  const cartTotal = useSelector(selectCartTotal);
+  const shippingFee = useSelector(selectShippingFee);
   const { user_id } = currentUser || {};
 
   // 取得會員資料 userProfile
@@ -39,8 +53,7 @@ const Checkout = () => {
     cardSafeCode: '',
   });
 
-  // 表單資料 useState
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     receiverName: '',
     receiverPhone: '',
     receiverAddress: '',
@@ -48,8 +61,11 @@ const Checkout = () => {
     cardOwner: '',
     cardValidDate: '',
     cardSafeCode: '',
-  });
+  };
+  // 表單資料 useState （要送去後端的資料）
+  const [formData, setFormData] = useState(initialFormData);
 
+  // fromData 解構
   const {
     receiverName,
     receiverPhone,
@@ -65,15 +81,42 @@ const Checkout = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // 收件人與顧客資料相同 input onChange 事件
+  // 收件人與顧客資料相同 checkbox 的 useState
+  const [isReceiverSameAsCustomer, setIsReceiverSameAsCustomer] =
+    useState(false);
+
+  // 收件人與顧客資料相同 useState onChange 事件
   const handleIsReceiverSameAsCustomer = () => {
-    setFormData({
-      ...formData,
-      receiverName: username,
-      receiverPhone: phone,
-      receiverAddress: address,
-    });
+    setIsReceiverSameAsCustomer(!isReceiverSameAsCustomer);
   };
+
+  // 收件人與顧客資料相同 useEffect
+  useEffect(() => {
+    // 若勾選 isReceiverSameAsCustomer 就將收件人資料填上顧客資料
+    if (isReceiverSameAsCustomer) {
+      setFormData({
+        ...formData,
+        receiverName: username,
+        receiverPhone: phone,
+        receiverAddress: address,
+      });
+      // 並清空此三個欄位的錯誤訊息
+      seterrorMessage({
+        ...errorMessage,
+        receiverName: '',
+        receiverPhone: '',
+        receiverAddress: '',
+      });
+    } else {
+      // 取消勾選 isReceiverSameAsCustomer 就將欄位值清空
+      setFormData({
+        ...formData,
+        receiverName: '',
+        receiverPhone: '',
+        receiverAddress: '',
+      });
+    }
+  }, [isReceiverSameAsCustomer]);
 
   // 表單驗證錯誤事件 (有不合法的驗証情況出現時觸發)
   const handleInvalid = (e) => {
@@ -99,7 +142,7 @@ const Checkout = () => {
     seterrorMessage(fixErrorsMessage);
   };
 
-  // 信用卡到期日 + '/' onKeyUp function
+  // 信用卡到期日加上 slash '/' onKeyUp function
   const handleOnKeyUpOfCardValidDate = (e) => {
     if (e.target.value.length === 2 && e.keyCode !== 8 && e.keyCode !== 46) {
       // console.log(e.target.name);
@@ -107,13 +150,34 @@ const Checkout = () => {
     }
   };
 
+  const handleFormOnSubmit = async (e) => {
+    e.preventDefault();
+    const cartSummary = {
+      cartItems,
+      cartTotal,
+      shippingFee,
+    };
+    const order_id = await createOrder(user_id, formData, cartSummary);
+    if (order_id) {
+      // 清空表單、購物車等等的狀態
+      dispatch(clearWholeCart());
+      setIsReceiverSameAsCustomer(false);
+      setFormData(initialFormData);
+      // 轉址到 order-finished 頁面
+      navigate(`/order-finished/${order_id}`);
+    }
+  };
   return (
     <>
       <Steps stepStatus={stepStatus} />
       <main className="mt-4 pb-5">
         <div className="container">
           <CartReconfirmAccordion stepStatus={stepStatus} />
-          <Form onInvalid={handleInvalid} onChange={handleRefreshErrorMessage}>
+          <Form
+            onInvalid={handleInvalid}
+            onChange={handleRefreshErrorMessage}
+            onSubmit={handleFormOnSubmit}
+          >
             <div className="row">
               <div className="col-12 col-md-6">
                 <div className="card customer-info mt-4">
@@ -235,6 +299,9 @@ const Checkout = () => {
                 <div className="card payment-info mt-4">
                   <div className="card-header payment-info__title">
                     付款資料
+                    <span className="payment-info__title__reminder">
+                      （僅供測試，請勿填寫真實的信用卡號碼！）
+                    </span>
                   </div>
 
                   <div noValidate className="payment-info__form">

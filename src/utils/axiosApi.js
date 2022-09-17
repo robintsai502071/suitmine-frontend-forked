@@ -136,3 +136,22 @@ export const register = async (member) => {
     });
   }
 };
+
+// 建立訂單
+export const createOrder = async (memberId, formData, cartSummary) => {
+  try {
+    const response = await axios.post(`${API_URL}/member/${memberId}/orders`, {
+      formData,
+      cartSummary,
+    });
+    return response.data.order_id;
+  } catch (error) {
+    // console.log(error);
+    swal({
+      // title: '提交訂單失敗',
+      text: '提交訂單失敗',
+      icon: 'error',
+      button: '確認',
+    });
+  }
+};

@@ -57,10 +57,17 @@ const cartSlice = createSlice({
       const { cartItems, productToClear } = payload;
       state.cartItems = clearItemFromCartHelper(cartItems, productToClear);
     },
+    clearWholeCart: (state) => {
+      state.cartItems = [];
+    },
   },
 });
 
-export const { addItemToCart, removeItemFromCart, clearItemFromCart } =
-  cartSlice.actions;
+export const {
+  addItemToCart,
+  removeItemFromCart,
+  clearItemFromCart,
+  clearWholeCart,
+} = cartSlice.actions;
 
 export const cartReducer = cartSlice.reducer;

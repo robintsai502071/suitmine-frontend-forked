@@ -1,7 +1,7 @@
 import React from 'react';
 const LayoutFooter = () => {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid mt-5">
       <div className="footer bg-dark row justify-content-between">
         <ul className="col-md-3 text-center text-md-start">
           <li>
@@ -54,19 +54,19 @@ const LayoutFooter = () => {
             </a>
           </li>
         </ul>
-        <ul className="col-3 d-none d-md-block">
+        <ul className="col-md-3 text-center text-md-start">
           <li>
-            <a href="" className="btn footer-btn-title text-white">
+            <a href="" className="btn footer-btn-title text-white d-block">
               聯絡客服
             </a>
           </li>
-          <li>
-            <a href="" className="btn text-white ">
+          <li className='my-2'>
+            <a href="" className="btn text-white p-0 d-block">
               客服信箱：ispan@ggmail.com
             </a>
           </li>
           <li>
-            <a href="" className="btn text-white">
+            <a href="" className="btn text-white p-0 d-block">
               客服時間：週一 ～ 週五 9:00-18:00
             </a>
           </li>

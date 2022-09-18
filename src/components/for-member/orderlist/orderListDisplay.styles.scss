@@ -1,15 +1,23 @@
 .order-list-display {
-  // border-left: 1px solid #dee2e6;
-  // border-right: 1px solid #dee2e6;
   padding: 20px;
+  li:first-of-type {
+    background-color: $light-green;
+  }
+  li {
+    padding: 10px;
+    &:hover:not(:first-of-type) {
+      background-color: $light-gray;
+    }
+  }
 }
 
 .order-list-display-item {
   // 查閱按鈕
   &__lookup {
-    font-size: 14px;
-    text-decoration: underline !important;
-    color: $dark-gray;
+    color: $highlight-red;
+    &:hover {
+      color: $highlight-red;
+    }
   }
 }
 
@@ -17,6 +25,11 @@
   .order-list-display {
     .prefix {
       display: none;
+    }
+    // 調整訂單列表對齊
+    .col-2,
+    .col-md-2 {
+      text-align: center;
     }
   }
 }

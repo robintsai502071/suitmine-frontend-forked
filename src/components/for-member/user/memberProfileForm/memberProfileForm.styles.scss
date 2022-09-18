@@ -9,7 +9,6 @@
 .main__form {
   padding: 2rem;
   height: 100%;
-
   &.body-info {
     // 移除 ANTD input 欄位 suffix disabled 預設樣式
     .ant-input-affix-wrapper-disabled {
@@ -22,6 +21,7 @@
   &__title {
     @include h6;
     padding-bottom: 5px;
+    // color: $dark-gray
   }
   &__edit-btn {
     font-size: 14px;

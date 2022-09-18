@@ -82,7 +82,9 @@ function MainForm() {
       >
         <div className="main__form member-profile">
           <div className="main__form__header d-flex justify-content-between mb-2">
-            <h4 className="main__form__title">個人檔案</h4>
+            <h4 className="main__form__title">
+              <i className="me-2 fa-solid fa-user-tie"></i>個人檔案
+            </h4>
             <a
               className="main__form__edit-btn"
               href="#"
@@ -193,7 +195,7 @@ function MainForm() {
         <div className="main__form body-info">
           <div className="main__form__header d-flex justify-content-between mb-2">
             <h4 className="main__form__title">
-              身體資訊
+            <i className="me-2 fa-solid fa-child-reaching"></i>身體資訊
               {height ? (
                 ''
               ) : (

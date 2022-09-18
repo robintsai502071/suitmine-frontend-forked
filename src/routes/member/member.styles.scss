@@ -6,10 +6,11 @@
       border-color: black;
     }
   }
-  // tab 兩側加上 border
+  // tab 兩側及底下加上 border
   .tab-content {
     border-left: 1px solid #dee2e6;
     border-right: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
   }
   // tab 按鈕字體顏色
   .nav-tabs {

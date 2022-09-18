@@ -1,7 +1,10 @@
 import React from 'react';
 import OrderListDisplayItem from './orderListDisplayItem.component';
+import { useSelector } from 'react-redux';
+import { selectUserOrderList } from '../../../store/user/user.selector';
 
-function OrderListDisplay(props) {
+function OrderListDisplay() {
+  const userOrderList = useSelector(selectUserOrderList);
   return (
     <div className="order-list-display">
       <div className="card">
@@ -14,9 +17,12 @@ function OrderListDisplay(props) {
               <div className="col-2">訂單狀態</div>
             </div>
           </li>
-          <OrderListDisplayItem />
-          <OrderListDisplayItem />
-          <OrderListDisplayItem />
+          {userOrderList?.map((orderListItem) => (
+            <OrderListDisplayItem
+              orderListItem={orderListItem}
+              key={orderListItem.id}
+            />
+          ))}
         </ul>
       </div>
     </div>

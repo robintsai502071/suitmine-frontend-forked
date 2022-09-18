@@ -64,9 +64,10 @@ const userSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchUserProfileAsync.fulfilled, (state, { payload }) => {
-        const { memberProfile } = payload.data;
+        const { memberProfile, orders } = payload.data;
 
         state.userProfile = memberProfile;
+        state.userOrderList = orders;
         state.isLoading = false;
       })
       .addCase(fetchUserProfileAsync.rejected, (state, { error }) => {
@@ -74,6 +75,7 @@ const userSlice = createSlice({
         state.error = message;
         state.isLoading = false;
       })
+      
       // fetchOneOrderAsync
       .addCase(fetchOneOrderAsync.pending, (state) => {
         state.isLoading = true;

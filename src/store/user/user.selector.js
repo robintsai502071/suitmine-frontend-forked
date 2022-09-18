@@ -16,3 +16,8 @@ export const selectCurrentOrderDetail = createSelector(
   [selectUserReducer],
   (user) => user.currentOrderDetail
 );
+
+export const selectUserOrderList = createSelector(
+  [selectUserReducer],
+  (user) => user.userOrderList
+);

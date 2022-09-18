@@ -1,22 +1,30 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+const origin = 'from-member-page';
 
-function OrderListDisplayItem() {
+function OrderListDisplayItem({ orderListItem }) {
+  const { id, order_uuid, create_time, cart_total, shipping_fee } =
+    orderListItem;
+
   return (
     <li className="list-group-item order-list-display-item">
       <div className="row">
         <div className="col-12 col-md-3">
           <p className="order-list-display-item__number">
-            <span className="prefix">訂單號碼：</span>111111
+            <span className="prefix">訂單號碼：</span>
+            {order_uuid.slice(0, 8)}
           </p>
         </div>
         <div className="col-12 col-md-2">
           <p className="order-list-display-item__date">
-            <span className="prefix">訂單日期：</span>2022-08-08
+            <span className="prefix">訂單日期：</span>
+            {create_time.slice(0, 10)}
           </p>
         </div>
         <div className="col-12 col-md-2">
           <p className="order-list-display-item__total">
-            <span className="prefix">合計：</span> $1,111
+            <span className="prefix">合計：</span> $
+            {(cart_total + shipping_fee).toLocaleString()}
           </p>
         </div>
         <div className="col-12 col-md-2">
@@ -25,9 +33,12 @@ function OrderListDisplayItem() {
           </p>
         </div>
         <div className="col-12 col-md-2 text-end">
-          <a className="order-list-display-item__lookup">
+          <Link
+            to={`/order-finished/${id}`}
+            className="order-list-display-item__lookup"
+          >
             查閱
-          </a>
+          </Link>
         </div>
       </div>
     </li>

@@ -7,11 +7,11 @@ import { useParams } from 'react-router-dom';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchOneOrderAsync } from '../../store/user/user.slice';
-import swal from 'sweetalert';
 
 const stepStatus = 'order-finished';
 const OrderFinshed = () => {
   const dispatch = useDispatch();
+
   const { orderId } = useParams();
   const currentUser = useSelector(selectCurrentUser);
   const { user_id } = currentUser || {};

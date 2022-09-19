@@ -7,6 +7,22 @@ import {
   signOutGoogle,
 } from './firebase/firebase.utils';
 
+// 確認用戶使否已填寫身體資訊
+export const checkIfBodyInfoFilled = async (memberId) => {
+  try {
+    const response = await axios.get(
+      `${API_URL}/member/${memberId}/check-if-body-info-filled`
+    );
+    return response.data.success;
+  } catch (error) {
+    swal({
+      text: error.response.data.error, // 很抱歉，您還未填寫身體資訊，請您完成後才能繼續！
+      icon: 'info',
+      button: '確認',
+    });
+  }
+};
+
 // 修改密碼
 export const changePasswordAxios = async (formData, formRef) => {
   try {
@@ -37,7 +53,7 @@ export const patchUserData = async (id, values) => {
     icon: 'success',
     buttons: false,
     timer: 1500,
-  })
+  });
 };
 
 // Google 登入

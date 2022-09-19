@@ -24,8 +24,11 @@ import {
 import { clearWholeCart } from '../../store/cart/cart.slice';
 
 // api
-import { fetchUserProfileAsync } from '../../utils/axiosApi';
-import { createOrder } from '../../utils/axiosApi';
+import {
+  fetchUserProfileAsync,
+  createOrder,
+  checkIfBodyInfoFilled,
+} from '../../utils/axiosApi';
 
 // 定義結帳階段為 "結帳" => 影響 <Steps>、 購物車內容 <ul> 樣式
 const stepStatus = 'checkout';
@@ -68,6 +71,7 @@ const Checkout = () => {
     cardValidDate: '',
     cardSafeCode: '',
   };
+
   // 表單資料 useState （要送去後端的資料）
   const [formData, setFormData] = useState(initialFormData);
 
@@ -158,6 +162,11 @@ const Checkout = () => {
 
   const handleFormOnSubmit = async (e) => {
     e.preventDefault();
+
+    // 如果尚未填寫身體資訊直接 return
+    const isFilled = await checkIfBodyInfoFilled(user_id);
+    if (!isFilled) return;
+
     const cartSummary = {
       cartItems,
       cartTotal,
@@ -173,6 +182,7 @@ const Checkout = () => {
       navigate(`/order-finished/${order_id}`);
     }
   };
+
   return (
     <>
       <Steps stepStatus={stepStatus} />
@@ -402,8 +412,6 @@ const Checkout = () => {
                             value={cardSafeCode}
                             onChange={handleFormChange}
                             inputMode="numeric"
-                            maxLength="3"
-                            minLength="3"
                           />
                         </Form.Group>
                       </div>

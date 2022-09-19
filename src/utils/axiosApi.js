@@ -1,5 +1,6 @@
 import axios from 'axios';
 import swal from 'sweetalert';
+import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API_URL } from './config';
 import {
   signInWithGooglePopup,
@@ -156,3 +157,30 @@ export const createOrder = async (memberId, formData, cartSummary) => {
   }
 };
 
+// 取得會員頁 3 個 tab 的資料
+export const fetchUserProfileAsync = createAsyncThunk(
+  'user/fetchUserProfile',
+  (memberId) => axios.get(`${API_URL}/member/${memberId}`)
+);
+
+// 取得某 1 會員的 1 筆訂單
+export const fetchOneOrderAsync = createAsyncThunk(
+  'user/fetchOneOrder',
+  ({ memberId, orderId }) =>
+    axios.get(`${API_URL}/member/${memberId}/orders/${orderId}`)
+);
+
+// 取得商品列表
+export const fetchProductsAsync = createAsyncThunk(
+  'product/fetchProducts',
+  ({ product_category_id, product_category_level }) =>
+    axios.get(`${API_URL}/products`, {
+      params: { product_category_id, product_category_level },
+    })
+);
+
+// 取得商品細節
+export const fetchProductDetailAsync = createAsyncThunk(
+  'product/fetchProductDetail',
+  (productId) => axios.get(`${API_URL}/products/${productId}`)
+);

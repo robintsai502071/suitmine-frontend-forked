@@ -1,7 +1,9 @@
 import { Menu } from 'antd';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchProductsAsync } from '../../../store/product/product.slice';
+
+// api
+import { fetchProductsAsync } from '../../../utils/axiosApi';
 
 function getItem(label, key, children, type) {
   return {

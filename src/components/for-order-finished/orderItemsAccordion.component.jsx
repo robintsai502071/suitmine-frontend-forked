@@ -1,6 +1,10 @@
+import { useSelector } from 'react-redux';
+
+// components
 import OrderItem from '../../components/for-order-finished/orderItem.component';
 import Accordion from 'react-bootstrap/Accordion';
-import { useSelector } from 'react-redux';
+
+// user selector
 import { selectCurrentOrderDetail } from '../../store/user/user.selector';
 
 const OrderItemsAccordion = ({ stepStatus }) => {

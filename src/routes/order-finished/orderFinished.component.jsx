@@ -1,12 +1,16 @@
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+
+// components
 import OrderItemsAccordion from '../../components/for-order-finished/orderItemsAccordion.component';
 import OrderDetail from '../../components/for-shopping-cart/order-detail/orderDetail.component';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 
-import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+// user selector
 import { selectCurrentUser } from '../../store/user/user.selector';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchOneOrderAsync } from '../../store/user/user.slice';
+// api
+import { fetchOneOrderAsync } from '../../utils/axiosApi';
 
 const stepStatus = 'order-finished';
 const OrderFinshed = () => {

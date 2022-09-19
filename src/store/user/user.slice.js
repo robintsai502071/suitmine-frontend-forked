@@ -1,6 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { API_URL } from '../../utils/config';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  fetchUserProfileAsync,
+  fetchOneOrderAsync,
+} from '../../utils/axiosApi';
 
 const initialUserState = {
   currentUser: null,
@@ -10,20 +12,6 @@ const initialUserState = {
   userOrderList: null,
   currentOrderDetail: null,
 };
-
-// 取得會員頁 3 個 tab 的資料
-export const fetchUserProfileAsync = createAsyncThunk(
-  'user/fetchUserProfile',
-  (memberId) => axios.get(`${API_URL}/member/${memberId}`)
-);
-
-// 取得某 1 會員的 1 筆訂單
-export const fetchOneOrderAsync = createAsyncThunk(
-  'user/fetchOneOrder',
-  ({ memberId, orderId }) =>
-    axios.get(`${API_URL}/member/${memberId}/orders/${orderId}`)
-);
-
 
 const userSlice = createSlice({
   name: 'user',
@@ -74,6 +62,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setCurrentUser, setUserProfile } =
-  userSlice.actions;
+export const { setCurrentUser, setUserProfile } = userSlice.actions;
 export const userReducer = userSlice.reducer;

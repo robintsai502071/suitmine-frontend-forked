@@ -1,13 +1,20 @@
 import React from 'react';
 import { useEffect } from 'react';
+import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import swal from 'sweetalert';
 
-import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
+// component
 import logo from '../../assests/images/layout/logo.svg';
 
-import { useDispatch, useSelector } from 'react-redux';
+// user selector
 import { setCurrentUser } from '../../store/user/user.slice';
 import { selectCurrentUser } from '../../store/user/user.selector';
+
+// cart selector
+import { selectCartCount } from '../../store/cart/cart.selector';
+
+// api
 import { checkIsLogin, signOut } from '../../utils/axiosApi';
 
 const Navigation = () => {
@@ -15,6 +22,7 @@ const Navigation = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const currentUser = useSelector(selectCurrentUser);
+  const cartCount = useSelector(selectCartCount);
 
   // 每次載入頁面都確認是否登入
   useEffect(() => {
@@ -80,9 +88,14 @@ const Navigation = () => {
               <Link to="product-list">
                 <li>商品總覽</li>
               </Link>
+
               <Link to="booking-map">
                 <li>門市據點</li>
               </Link>
+
+              <li onClick={handleClickSignIn}>會員中心</li>
+
+              {currentUser && <li onClick={handleClickSignOut}>登出</li>}
             </ul>
           </div>
         </nav>
@@ -91,9 +104,9 @@ const Navigation = () => {
           <img src={logo} alt="" />
         </Link>
 
-        <div className="shoppingCart fs-4 me-3 d-md-none">
+        <Link to="/shopping-cart" className="shoppingCart fs-4 me-3 d-md-none">
           <i className="fa-solid fa-cart-shopping"></i>
-        </div>
+        </Link>
         {/* mobile design ↑↑↑↑↑↑ */}
 
         {/* pc design ↓↓↓↓↓ */}
@@ -112,6 +125,11 @@ const Navigation = () => {
           <li>
             <Link to="/shopping-cart" className="btn text-white">
               購物車
+              {cartCount > 0 && (
+                <span class="ms-1 badge rounded-pill bg-light text-dark">
+                  {cartCount}
+                </span>
+              )}
             </Link>
           </li>
           <li>

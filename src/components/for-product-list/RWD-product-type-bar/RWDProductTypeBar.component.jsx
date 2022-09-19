@@ -1,8 +1,12 @@
-import { Button, Drawer, Space } from 'antd';
 import { useState } from 'react';
-import { Menu } from 'antd';
 import { useDispatch } from 'react-redux';
-import { fetchProductsAsync } from '../../../store/product/product.slice';
+
+// components
+import { Button, Drawer, Space } from 'antd';
+import { Menu } from 'antd';
+
+// api
+import { fetchProductsAsync } from '../../../utils/axiosApi';
 
 function getItem(label, key, children, type) {
   return {

@@ -1,7 +1,10 @@
+import { useSelector } from 'react-redux';
+
+// components
 import ShoppingCartItem from '../../../components/for-shopping-cart/shopping-cart-item/shoppingCartItem.component';
 import Accordion from 'react-bootstrap/Accordion';
 
-import { useSelector } from 'react-redux';
+// cart selector
 import {
   selectCartItems,
   selectCartTotal,

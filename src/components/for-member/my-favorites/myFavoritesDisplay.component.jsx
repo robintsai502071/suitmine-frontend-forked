@@ -1,6 +1,8 @@
 import React from 'react';
-import MyFavoritesDisplayItem from './myFavoritesDisplayItem.component';
 import { useSelector } from 'react-redux';
+// component
+import MyFavoritesDisplayItem from './myFavoritesDisplayItem.component';
+// myFavorits selector
 import { selectMyFavoritesItems } from '../../../store/myFavorites/myFavorits.selector';
 
 function MyFavoritesDisplay() {

@@ -1,5 +1,7 @@
 import { Input, Space } from 'antd';
 import { useDispatch } from 'react-redux';
+
+// product action
 import { setFilterString } from '../../../store/product/product.slice';
 const { Search } = Input;
 

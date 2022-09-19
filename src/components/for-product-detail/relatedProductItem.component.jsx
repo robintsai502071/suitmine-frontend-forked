@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import swal from 'sweetalert';
 
-import { useDispatch, useSelector } from 'react-redux';
-// 購物車 action
+// cart action
 import { addItemToCart } from '../../store/cart/cart.slice';
+// cart selector
 import { selectCartItems } from '../../store/cart/cart.selector';
 
 const RelatedProductItem = ({ relatedProduct }) => {

@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+// cart action
 import {
   addItemToCart,
   removeItemFromCart,
   clearItemFromCart,
 } from '../../../store/cart/cart.slice';
 
+// cart selector
 import { selectCartItems } from '../../../store/cart/cart.selector';
 
 const ShoppingCartItem = ({ stepStatus, cartItem }) => {

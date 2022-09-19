@@ -1,5 +1,7 @@
 import React from 'react';
 import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
 // components
 import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.component';
 import MemberProfileForm from '../../components/for-member/user/memberProfileForm/memberProfileForm.component';
@@ -8,9 +10,10 @@ import MyFavoritesDisplay from '../../components/for-member/my-favorites/myFavor
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import { useSelector, useDispatch } from 'react-redux';
+// user selector
 import { selectCurrentUser } from '../../store/user/user.selector';
-import { fetchUserProfileAsync } from '../../store/user/user.slice';
+// api
+import { fetchUserProfileAsync } from '../../utils/axiosApi';
 
 function Member() {
   const dispatch = useDispatch();

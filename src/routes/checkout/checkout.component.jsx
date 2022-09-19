@@ -1,25 +1,31 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 
+// components
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
 import CartReconfirmAccordion from '../../components/for-shopping-cart/cart-reconfirm-accordion/cartReconfirmAccordion.component';
-import { useSelector, useDispatch } from 'react-redux';
+
+// user selector
 import {
   selectCurrentUser,
   selectUserProfile,
 } from '../../store/user/user.selector';
 
+// cart selector
 import {
   selectCartItems,
   selectCartTotal,
   selectShippingFee,
 } from '../../store/cart/cart.selector';
 
-import { fetchUserProfileAsync } from '../../store/user/user.slice';
+// cart action
 import { clearWholeCart } from '../../store/cart/cart.slice';
+
+// api
+import { fetchUserProfileAsync } from '../../utils/axiosApi';
 import { createOrder } from '../../utils/axiosApi';
-import swal from 'sweetalert';
-import { useNavigate } from 'react-router-dom';
 
 // 定義結帳階段為 "結帳" => 影響 <Steps>、 購物車內容 <ul> 樣式
 const stepStatus = 'checkout';

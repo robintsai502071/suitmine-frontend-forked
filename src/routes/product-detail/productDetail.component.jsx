@@ -1,27 +1,33 @@
-import RelatedProductItem from '../../components/for-product-detail/relatedProductItem.component';
-import { Image } from 'antd';
-import swal from 'sweetalert';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import swal from 'sweetalert';
 
-//  fetcg product thunk
-import {
-  fetchProductDetailAsync,
-  fetchProductsAsync,
-} from '../../store/product/product.slice';
+// components
+import RelatedProductItem from '../../components/for-product-detail/relatedProductItem.component';
+import { Image } from 'antd';
 
-// 購物車 action
+// cart action
 import { addItemToCart } from '../../store/cart/cart.slice';
 import { selectCartItems } from '../../store/cart/cart.selector';
 
+// product selector
 import {
   selectCurrentProductDetail,
   selectRelatedProductsArray,
 } from '../../store/product/product.selector';
 
-import { setMyFavoriteItems } from '../../store/myFavorites/myFavorits.slice';
+// myFavorits selector
 import { selectMyFavoritesItems } from '../../store/myFavorites/myFavorits.selector';
+
+// myFavorits action
+import { setMyFavoriteItems } from '../../store/myFavorites/myFavorits.slice';
+
+//  api
+import {
+  fetchProductDetailAsync,
+  fetchProductsAsync,
+} from '../../utils/axiosApi';
 
 const ProductDetail = () => {
   const dispatch = useDispatch();

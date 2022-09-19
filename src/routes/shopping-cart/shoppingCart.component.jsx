@@ -1,17 +1,21 @@
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import swal from 'sweetalert';
+
+// components
 import ShoppingCartItem from '../../components/for-shopping-cart/shopping-cart-item/shoppingCartItem.component';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
-import { Link, useNavigate } from 'react-router-dom';
 
-import swal from 'sweetalert';
-import { useSelector } from 'react-redux';
 
-// selector
+// cart selector
 import {
   selectCartItems,
   selectCartTotal,
   selectShippingFee,
 } from '../../store/cart/cart.selector';
+
+// user selector
 import { selectCurrentUser } from '../../store/user/user.selector';
 
 // 定義結帳階段為 "購物車" => 影響 <Steps>、 購物車內容 <ul> 樣式

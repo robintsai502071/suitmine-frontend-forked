@@ -1,10 +1,13 @@
-import { Link, useNavigate } from 'react-router-dom';
 import React from 'react';
 import { useState } from 'react';
-
-import { signInWithGoogle } from '../../utils/axiosApi';
-import { setCurrentUser } from '../../store/user/user.slice';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+
+// user action
+import { setCurrentUser } from '../../store/user/user.slice';
+
+// api
+import { signInWithGoogle } from '../../utils/axiosApi';
 import { login } from '../../utils/axiosApi';
 
 function LoginForm() {

@@ -1,11 +1,13 @@
 import { Select } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 
+// product action
 import {
   setSelectedColor,
   setSelectedPrice,
 } from '../../../store/product/product.slice';
 
+// product selector
 import {
   selectSelectedColor,
   selectSelectedPrice,

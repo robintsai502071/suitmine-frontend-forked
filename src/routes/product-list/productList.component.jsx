@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 // components
 import FilterBar from '../../components/for-product-list/filter-bar/filterBar.component';
@@ -8,20 +9,15 @@ import RWDProductTypeBar from '../../components/for-product-list/RWD-product-typ
 import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.component';
 import ProductListItem from '../../components/for-product-list/product-list-item/product-list-item.component';
 
-// redux
-import { useDispatch, useSelector } from 'react-redux';
-
-// selector for product
+// product selector
 import {
   selectFilteredProductsArray,
   selectCurrentPage,
 } from '../../store/product/product.selector';
 
-// action for product
-import {
-  fetchProductsAsync,
-  setCurrentPage,
-} from '../../store/product/product.slice';
+// product action
+import { setCurrentPage } from '../../store/product/product.slice';
+import { fetchProductsAsync } from '../../utils/axiosApi';
 
 function ProductList() {
   const dispatch = useDispatch();

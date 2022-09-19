@@ -2,9 +2,12 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import swal from 'sweetalert';
 
-// for cart
-import { selectCartItems } from '../../../store/cart/cart.selector';
+// cart action
 import { addItemToCart } from '../../../store/cart/cart.slice';
+
+// cart selector
+import { selectCartItems } from '../../../store/cart/cart.selector';
+
 
 const ProductListItem = ({ product }) => {
   const dispatch = useDispatch();

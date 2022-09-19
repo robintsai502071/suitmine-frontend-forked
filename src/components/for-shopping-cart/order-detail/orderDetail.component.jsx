@@ -1,5 +1,8 @@
 import { useSelector } from 'react-redux';
+
+// user selector
 import { selectCurrentOrderDetail } from '../../../store/user/user.selector';
+
 const OrderDetail = () => {
   const currentOrderDetail = useSelector(selectCurrentOrderDetail);
   const { orderDetail } = currentOrderDetail || {};

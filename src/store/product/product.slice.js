@@ -1,6 +1,8 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-import { API_URL } from '../../utils/config';
+import { createSlice } from '@reduxjs/toolkit';
+import {
+  fetchProductDetailAsync,
+  fetchProductsAsync,
+} from '../../utils/axiosApi';
 
 const initialProductState = {
   currentProducts: [],
@@ -28,19 +30,6 @@ const initialProductState = {
   // 頁碼
   currentPage: 1,
 };
-
-export const fetchProductsAsync = createAsyncThunk(
-  'product/fetchProducts',
-  ({ product_category_id, product_category_level }) =>
-    axios.get(`${API_URL}/products`, {
-      params: { product_category_id, product_category_level },
-    })
-);
-
-export const fetchProductDetailAsync = createAsyncThunk(
-  'product/fetchProductDetail',
-  (productId) => axios.get(`${API_URL}/products/${productId}`)
-);
 
 const productSlice = createSlice({
   name: 'product',

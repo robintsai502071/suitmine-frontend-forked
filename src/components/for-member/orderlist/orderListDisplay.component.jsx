@@ -1,6 +1,8 @@
 import React from 'react';
-import OrderListDisplayItem from './orderListDisplayItem.component';
 import { useSelector } from 'react-redux';
+// component
+import OrderListDisplayItem from './orderListDisplayItem.component';
+// use selector
 import { selectUserOrderList } from '../../../store/user/user.selector';
 
 function OrderListDisplay() {

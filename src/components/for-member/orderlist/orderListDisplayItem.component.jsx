@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const origin = 'from-member-page';
 
 function OrderListDisplayItem({ orderListItem }) {
   const { id, order_uuid, create_time, cart_total, shipping_fee } =

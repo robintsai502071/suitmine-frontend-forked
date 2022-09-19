@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import { register } from '../../utils/axiosApi';
-import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { setCurrentUser } from '../../store/user/user.slice';
+import { useDispatch } from 'react-redux';
+
+// api
+import { register } from '../../utils/axiosApi';
 
 //--------- 下拉式選單陣列 ---------
 const genderArr = ['男士', '女士', '不提供'];

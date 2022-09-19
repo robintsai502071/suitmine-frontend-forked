@@ -1,16 +1,28 @@
-import RelatedProductItem from '../../components/for-product-detail/related-product-item.component';
+import RelatedProductItem from '../../components/for-product-detail/relatedProductItem.component';
 import { Image } from 'antd';
+import swal from 'sweetalert';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+//  fetcg product thunk
 import {
   fetchProductDetailAsync,
   fetchProductsAsync,
 } from '../../store/product/product.slice';
+
+// 購物車 action
+import { addItemToCart } from '../../store/cart/cart.slice';
+import { selectCartItems } from '../../store/cart/cart.selector';
+
 import {
   selectCurrentProductDetail,
   selectRelatedProductsArray,
 } from '../../store/product/product.selector';
+
+import { setMyFavoriteItems } from '../../store/myFavorites/myFavorits.slice';
+import { selectMyFavoritesItems } from '../../store/myFavorites/myFavorits.selector';
+
 const ProductDetail = () => {
   const dispatch = useDispatch();
   const [componentDidUpdate, setComponentDidUpdate] = useState(false);
@@ -25,10 +37,10 @@ const ProductDetail = () => {
 
   // currentProductDetail 解構
   const {
-    name,
+    product_name,
     product_category_id,
     product_photo,
-    price,
+    product_price,
     description,
     color_spec,
     pattern_spec,
@@ -39,6 +51,7 @@ const ProductDetail = () => {
 
   // 取得此商品細節之後，利用取回的 product_category_id 再去 fetch 相同類別的產品
   // 因為要從中亂數取得 4 筆產品做為相關產品 RelatedProduct Item
+
   useEffect(() => {
     // 確保商品細節已 fetch 完成再 fetch 相同類別的產品
     if (componentDidUpdate) {
@@ -78,7 +91,47 @@ const ProductDetail = () => {
       fetchSameCategoryProducts(product_category_id);
     }
   }, [product_category_id]);
+
   const relatedProductsArray = useSelector(selectRelatedProductsArray);
+
+  // 加入我的收藏 處理
+  const myFavoritesItems = useSelector(selectMyFavoritesItems);
+  // 此商品是否在我的收藏裡 state
+  const [isThisProductInMyFavorites, setIsThisProductInMyFavorites] =
+    useState(false);
+
+  // 每次點選 handleSetMyFavoriteItems 去確認此商品是否在我的收藏裡
+  useEffect(() => {
+    const foundItem = myFavoritesItems.find((myFavoritesItem) => {
+      return myFavoritesItem.id.toString() === productId;
+    });
+
+    if (foundItem) {
+      setIsThisProductInMyFavorites(true);
+    } else {
+      setIsThisProductInMyFavorites(false);
+    }
+  }, [myFavoritesItems]);
+
+  const handleSetMyFavoriteItems = (myFavoritesItems, itemToHandle) => (e) => {
+    e.preventDefault();
+    dispatch(setMyFavoriteItems({ myFavoritesItems, itemToHandle }));
+  };
+
+  const cartItems = useSelector(selectCartItems);
+
+  const handleAddItemToCart =
+    ({ cartItems, productToAdd }) =>
+    (e) => {
+      e.preventDefault();
+      swal({
+        text: '您已將此商品加入購物車',
+        icon: 'success',
+        buttons: false,
+        timer: 1200,
+      });
+      dispatch(addItemToCart({ cartItems, productToAdd }));
+    };
 
   return (
     <div className="product-detail mt-4">
@@ -87,7 +140,7 @@ const ProductDetail = () => {
           <div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-center">
             <img
               src={product_photo}
-              alt={name}
+              alt={product_name}
               className="product-detail__image"
             />
             <div className="preview-group">
@@ -96,22 +149,41 @@ const ProductDetail = () => {
                   <Image
                     key={index}
                     src={imageUrl}
-                    alt={`${name}圖片細節 ${index}`}
+                    alt={`${product_name}圖片細節 ${index}`}
                   />
                 ))}
               </Image.PreviewGroup>
             </div>
           </div>
           <div className="col-12 mt-3 mt-md-0 col-md-6">
-            <h1 className="product-detail__title">{name}</h1>
-            <p className="product-detail__price">${price.toLocaleString()}</p>
+            <h1 className="product-detail__title">{product_name}</h1>
+            <p className="product-detail__price">
+              ${(product_price || '').toLocaleString()}
+            </p>
             <p className="product-detail__description">{description}</p>
-            <a className="product-detail__add-to-cart-btn mt-3">
+            <a
+              className="product-detail__add-to-cart-btn mt-3"
+              onClick={handleAddItemToCart({
+                cartItems,
+                productToAdd: currentProductDetail,
+              })}
+            >
               加入購物車<i className="fa-solid fa-cart-shopping ms-2"></i>
             </a>
             <div className="text-center p-3">
-              <a className="product-detail__add-to-my-favorites-btn mt-2">
-                加入我的收藏<i className="fa-regular fa-heart ms-2"></i>
+              <a
+                className="product-detail__add-to-my-favorites-btn mt-2"
+                onClick={handleSetMyFavoriteItems(
+                  myFavoritesItems,
+                  currentProductDetail
+                )}
+              >
+                加入我的收藏
+                <i
+                  className={`${
+                    isThisProductInMyFavorites ? 'fa-solid' : 'fa-regular'
+                  }  fa-heart ms-2`}
+                ></i>
               </a>
             </div>
             <div className="card product-detail__specification mt-3">

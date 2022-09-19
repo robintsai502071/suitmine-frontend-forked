@@ -9,7 +9,6 @@ import {
 
 import { selectCartItems } from '../../../store/cart/cart.selector';
 
-
 const ShoppingCartItem = ({ stepStatus, cartItem }) => {
   const dispatch = useDispatch();
   const { id, product_photo, product_name, product_price, quantity } = cartItem;
@@ -100,7 +99,7 @@ const ShoppingCartItem = ({ stepStatus, cartItem }) => {
         {/* 價格 */}
         <div className="col-6 col-md-2 order-md-2 mt-2 mt-md-0 d-flex align-items-md-center justify-content-end justify-content-md-start">
           <div className="cart__content__item__price">
-            ${product_price.toLocaleString()}
+            ${(product_price || '').toLocaleString()}
           </div>
         </div>
 
@@ -121,7 +120,7 @@ const ShoppingCartItem = ({ stepStatus, cartItem }) => {
           >
             小計：
           </span>
-          ${(product_price * quantity).toLocaleString()}
+          ${(product_price * quantity || '').toLocaleString()}
         </div>
       </div>
     </li>

@@ -10,6 +10,7 @@ import thunk from 'redux-thunk';
 import { userReducer } from './user/user.slice';
 import { productReducer } from './product/product.slice';
 import { cartReducer } from './cart/cart.slice';
+import { myFavoritsReducer } from './myFavorites/myFavorits.slice';
 
 // redux-persist
 import { persistStore, persistReducer } from 'redux-persist';
@@ -19,13 +20,14 @@ const reducers = combineReducers({
   user: userReducer,
   product: productReducer,
   cart: cartReducer,
+  myFavorits: myFavoritsReducer,
 });
 
 const persistConfig = {
   key: 'root',
   storage,
+  whitelist: ['cart', 'myFavorits'],
   blacklist: ['user'],
-  whitelist: ['cart'],
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers);
@@ -41,5 +43,5 @@ export const store = configureStore({
   middleware: middlewares,
 });
 
-// export persistor 
+// export persistor
 export const persistor = persistStore(store);

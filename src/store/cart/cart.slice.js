@@ -6,6 +6,8 @@ const initialState = {
 
 const addItemToCartHelper = (cartItems, productToAdd) => {
   // 在 cartItems 找找看要加入的商品是否在陣列中
+  // console.log('cartItems', cartItems);
+  // console.log('productToAdd', productToAdd);
   const foundItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
   );
@@ -20,6 +22,7 @@ const addItemToCartHelper = (cartItems, productToAdd) => {
   // 沒找到就新增 => 複製原 cartItems 再合併 productToAdd 跟新增 quantity 屬性 & 值為 1
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
+
 const removeItemFromCartHelper = (cartItems, productToRemove) => {
   // 找到要移除的 product
   const foundItem = cartItems.find(
@@ -45,7 +48,7 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     addItemToCart: (state, { payload }) => {
-      // console.log('payload', payload);
+      console.log('payload', payload);
       const { cartItems, productToAdd } = payload;
       state.cartItems = addItemToCartHelper(cartItems, productToAdd);
     },

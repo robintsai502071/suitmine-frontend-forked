@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import swal from 'sweetalert';
 
 // for cart
 import { selectCartItems } from '../../../store/cart/cart.selector';
@@ -14,7 +15,12 @@ const ProductListItem = ({ product }) => {
 
   const handleAddItemToCart = (cartItems, productToAdd) => (e) => {
     e.preventDefault();
-    // console.log('productToAdd', productToAdd);
+    swal({
+      text: '您已將此商品加入購物車',
+      icon: 'success',
+      buttons: false,
+      timer: 1200,
+    });
     dispatch(addItemToCart({ cartItems, productToAdd }));
   };
 

@@ -48,9 +48,11 @@ function ProductList() {
   // 頁碼切換 handler
   const handleClickPagination = (i) => () => {
     dispatch(setCurrentPage(i + 1));
+    window.scrollTo(0, 0);
   };
   const handleClickPrevPage = () => {
     dispatch(setCurrentPage(currentPage - 1 < 1 ? 1 : currentPage - 1));
+    window.scrollTo(0, 0);
   };
   const handleClickNextPage = () => {
     dispatch(
@@ -58,6 +60,7 @@ function ProductList() {
         currentPage + 1 > totalPages ? currentPage : currentPage + 1
       )
     );
+    window.scrollTo(0, 0);
   };
 
   return (

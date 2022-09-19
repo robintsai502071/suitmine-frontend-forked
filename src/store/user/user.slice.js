@@ -2,31 +2,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { API_URL } from '../../utils/config';
 
-// export const initialUserProfile = {
-//   id: '',
-//   uid: '',
-//   email: '',
-//   name: '',
-//   gender: '',
-//   birth_date: '',
-//   phone: '',
-//   address: '',
-//   arm_length: '',
-//   chest_width: '',
-//   leg_length: '',
-//   shoulder_width: '',
-//   waist_width: '',
-//   butt_width: '',
-//   height: '',
-//   weight: '',
-// };
-
 const initialUserState = {
   currentUser: null,
   isLoading: false,
   error: null,
   userProfile: null,
-  userFavorites: null,
   userOrderList: null,
   currentOrderDetail: null,
 };
@@ -43,6 +23,7 @@ export const fetchOneOrderAsync = createAsyncThunk(
   ({ memberId, orderId }) =>
     axios.get(`${API_URL}/member/${memberId}/orders/${orderId}`)
 );
+
 
 const userSlice = createSlice({
   name: 'user',
@@ -75,7 +56,7 @@ const userSlice = createSlice({
         state.error = message;
         state.isLoading = false;
       })
-      
+
       // fetchOneOrderAsync
       .addCase(fetchOneOrderAsync.pending, (state) => {
         state.isLoading = true;
@@ -93,5 +74,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { setCurrentUser, setUserProfile } = userSlice.actions;
+export const { setCurrentUser, setUserProfile } =
+  userSlice.actions;
 export const userReducer = userSlice.reducer;

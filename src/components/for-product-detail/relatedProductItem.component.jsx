@@ -1,6 +1,30 @@
 import { Link } from 'react-router-dom';
+import swal from 'sweetalert';
+
+import { useDispatch, useSelector } from 'react-redux';
+// 購物車 action
+import { addItemToCart } from '../../store/cart/cart.slice';
+import { selectCartItems } from '../../store/cart/cart.selector';
+
 const RelatedProductItem = ({ relatedProduct }) => {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+
   const { id, product_photo, product_name, product_price } = relatedProduct;
+
+  const handleAddItemToCart =
+    ({ cartItems, productToAdd }) =>
+    (e) => {
+      e.preventDefault();
+      swal({
+        text: '您已將此商品加入購物車',
+        icon: 'success',
+        buttons: false,
+        timer: 1200,
+      });
+      dispatch(addItemToCart({ cartItems, productToAdd }));
+    };
+
   return (
     <Link
       to={`/product-detail/${id}`}
@@ -19,6 +43,10 @@ const RelatedProductItem = ({ relatedProduct }) => {
           <button
             className="add-to-cart-btn position-absolute for-pc"
             type="button"
+            onClick={handleAddItemToCart({
+              cartItems,
+              productToAdd: relatedProduct,
+            })}
           >
             加到購物車<i className="fa-solid fa-cart-shopping ms-1"></i>
           </button>

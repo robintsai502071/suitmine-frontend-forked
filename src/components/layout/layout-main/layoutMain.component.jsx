@@ -22,7 +22,7 @@ const LayoutMain = () => {
             </li>
             <li className="col-12 col-md-4">
               <Link
-                to="/customize-silent"
+                to="/customized-show"
                 className="d-flex justify-content-center align-items-center text-dark p-3"
               >
                 <img src={icon1} alt="" />
@@ -31,7 +31,7 @@ const LayoutMain = () => {
             </li>
             <li className="col-12 col-md-4">
               <Link
-                to=""
+                to="/#"
                 className="d-flex justify-content-center align-items-center text-dark p-3"
               >
                 <img src={icon3} alt="" />

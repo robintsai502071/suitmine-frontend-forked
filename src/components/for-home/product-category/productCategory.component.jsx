@@ -33,8 +33,8 @@ function ProductCategory() {
               <div className="card card-group-a">
                 <img src={product_pic2} className="card-img-top" alt="..." />
                 <div className="card-body d-flex justify-content-center align-item-center flex-column">
-                  <h5 className="card-title text-center">西裝類</h5>
-                  <h6 className="card-title text-center">Suit</h6>
+                  <h5 className="card-title text-center">西裝外裝類</h5>
+                  <h6 className="card-title text-center">Blazer</h6>
                 </div>
               </div>
             </Link>
@@ -50,8 +50,8 @@ function ProductCategory() {
               <div className="card card-group-a">
                 <img src={product_pic1} className="card-img-top" alt="..." />
                 <div className="card-body d-flex justify-content-center align-item-center flex-column">
-                  <h5 className="card-title text-center">襯衫類</h5>
-                  <h6 className="card-title text-center">Shirt</h6>
+                  <h5 className="card-title text-center">套裝類</h5>
+                  <h6 className="card-title text-center">Suit</h6>
                 </div>
               </div>
             </Link>
@@ -74,7 +74,7 @@ function ProductCategory() {
             </Link>
           </div>
 
-          <div
+          {/* <div
             className="col-md-2 col-5"
             data-aos="fade-up"
             data-aos-easing="ease-out-cubic"
@@ -89,7 +89,7 @@ function ProductCategory() {
                 </div>
               </div>
             </Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

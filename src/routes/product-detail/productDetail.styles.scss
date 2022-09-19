@@ -20,12 +20,15 @@
     text-align: center;
     color: $dark-gray;
     &:hover {
-      color: #000;
+      color: $highlight-red;
     }
   }
   &__add-to-my-favorites-btn {
     color: $dark-gray;
     text-align: center;
+    &:hover {
+      color: $highlight-red;
+    }
   }
 
   .preview-group {
@@ -104,18 +107,9 @@
   }
 }
 
-// .product-detail__related-products {
-//   .card h6 {
-//     font-size: 14px;
-//     // 只顯示一行
-//     overflow: hidden;
-//     white-space: nowrap;
-//     text-overflow: ellipsis;
-//   }
-// }
 @media screen and (min-width: 996px) {
   .product-detail__related-products {
-    width: 80%;
+    width: 75%;
     margin: 50px auto 0;
     .card h6 {
       font-size: 16px;

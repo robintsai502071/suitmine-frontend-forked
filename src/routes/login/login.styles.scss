@@ -60,7 +60,9 @@
     margin-bottom: 80px;
   }
   .Login .registerTitleBox p {
-    font-size: 33px;
+    // font-size: 33px;
+    @include h4;
+    text-align: center;
   }
   .Login .registerTitleBox {
     width: 350px;
@@ -72,5 +74,3 @@
     margin-top: 150px;
   }
 }
-
-

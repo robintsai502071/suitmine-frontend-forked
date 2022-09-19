@@ -85,7 +85,7 @@
         display: block;
         z-index: 3;
         &:hover {
-          color: black;
+          color: $highlight-red;
         }
       }
     }

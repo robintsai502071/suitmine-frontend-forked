@@ -1,7 +1,29 @@
 /* layout main */
-.main-menu li a {
-  text-decoration: none;
-  white-space: nowrap;
+.main-menu li {
+  a {
+    text-decoration: none;
+    white-space: nowrap;
+    transform: translateY(0px);
+  }
+  // li hover 底線效果、漂浮效果
+  &::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: transparent;
+  }
+  &:hover {
+    &::after {
+      width: 100%;
+      background-color: black;
+      transition: 0.5s;
+    }
+    a {
+      transform: translateY(-5px);
+      transition: 0.5s;
+    }
+  }
 }
 // .main-menu li a:hover {
 //   background: gray;

@@ -211,14 +211,16 @@ const ProductDetail = () => {
                 <i className="fa-solid fa-pen-ruler me-2"></i>為您量身定制
               </h5>
               <p className="product-detail__features__description">
-                我們根據您的獨特尺寸和規格定制每件服裝。我們掌握了細節，因此您可以自信地應對生活中的挑戰。
+                我們根據您的獨特尺寸和規格定制每件服裝。我們掌握了細節，因此您可以放心地相信
+                SUITMINE。
               </p>
               <h5 className="product-detail__features__title">
                 <i className="fa-solid fa-pen-ruler me-2"></i>一次性測量過程
               </h5>
               <p className="product-detail__features__description">
-                按照我們的分步視頻指南設置您的測量配置文件。只需不到 10
-                分鐘，您可以在舒適的家中完成。不需要裁縫。
+                只需不到 10
+                分鐘，您可以在舒適的家中完成身體測量。不需要裁縫，不需要選擇服裝尺寸，因
+                SUITMINE 為您訂做只屬於您獨一無二的服裝。
               </p>
             </div>
           </div>

@@ -17,10 +17,10 @@ function Login() {
               {/* -------------------打造屬於您的專屬西裝-------------------- */}
               <div className="col-md-6 col-12 registerAllTextBox d-flex justify-content-md-end justify-content-center">
                 <div className="loginText">
-                  <div className="registerTitleBox">
+                  <div className="registerTitleBox w-100 p-2">
                     <p className="h2">打造屬於您的專屬西裝</p>
                   </div>
-                  <div className="registerTextBox mt-4">
+                  <div className="registerTextBox mt-4 w-100 p-2">
                     <p>
                       以顧客穿著角度設計，並能有效的修飾身形並兼舒適的完美西服。因為SUITMINE堅信一套好的西裝能為你帶來尊榮感及專屬感!
                     </p>

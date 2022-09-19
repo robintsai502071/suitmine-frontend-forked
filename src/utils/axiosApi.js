@@ -7,16 +7,37 @@ import {
   signOutGoogle,
 } from './firebase/firebase.utils';
 
+// 修改密碼
+export const changePasswordAxios = async (formData, formRef) => {
+  try {
+    await axios.post(`${API_URL}/auth/change-password`, formData);
+    await swal({
+      text: '修改密碼成功',
+      icon: 'success',
+      buttons: false,
+      timer: 1500,
+    });
+
+    formRef.current.resetFields();
+  } catch (err) {
+    swal({
+      text: '目前密碼錯誤！',
+      icon: 'error',
+      button: '確認',
+    });
+  }
+};
+
 // 修改特定一位 user 的個人檔案
 export const patchUserData = async (id, values) => {
   await axios.patch(`${API_URL}/member/${id}`, values);
-  // swal({
-  //   // title: '修改密碼成功',
-  //   text: '修改個人檔案成功',
-  //   icon: 'success',
-  //   buttons: false,
-  //   timer: 1500,
-  // })
+  swal({
+    // title: '修改密碼成功',
+    text: '修改個人檔案成功',
+    icon: 'success',
+    buttons: false,
+    timer: 1500,
+  })
 };
 
 // Google 登入

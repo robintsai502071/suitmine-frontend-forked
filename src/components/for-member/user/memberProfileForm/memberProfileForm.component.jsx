@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
+import swal from 'sweetalert';
 // component
 import { Form, Input, Radio, Button } from 'antd';
 
@@ -21,6 +22,7 @@ function MainForm() {
   // 解構 userProfile
   const {
     id,
+    uid,
     email,
     username,
     gender,
@@ -41,15 +43,11 @@ function MainForm() {
 
   // 點選編輯檔案自動 focus 第一個 Input
   const nameInputRef = useRef();
+
   // ANTD 還原 memberData 預設值用
   const memberFormRef = useRef();
 
-  async function handleSubmit(values) {
-    patchUserData(id, values);
-    dispatch(setUserProfile(values));
-    setProfileEditMode(false);
-  }
-
+  // antd form 給初始值
   const initialValuesForForm = {
     gender: gender,
     email: email,
@@ -65,6 +63,23 @@ function MainForm() {
     waist_width: waist_width,
     height: height,
     weight: weight,
+  };
+
+  const handleSubmit = (values) => {
+    patchUserData(id, values);
+    dispatch(setUserProfile(values));
+    setProfileEditMode(false);
+  };
+
+  const handleIfIsTestAccount = (e) => {
+    if (id === 44) {
+      e.preventDefault();
+      swal({
+        text: '很抱歉，此帳號為測試帳號，無法修改密碼！',
+        icon: 'info',
+        button: '確認',
+      });
+    }
   };
 
   // 切換編輯模式
@@ -101,7 +116,7 @@ function MainForm() {
                 setProfileEditMode(true);
               }}
             >
-              <i className="fa-solid fa-pen-to-square me-1"></i>編輯
+              <i className="fa-solid fa-pen-to-square me-1"></i>編輯檔案
             </a>
           </div>
 
@@ -197,6 +212,16 @@ function MainForm() {
               placeholder={address ? '' : '尚未填寫'}
             />
           </Form.Item>
+
+          {!uid && (
+            <Link
+              to="/change-password"
+              className="change-password-link"
+              onClick={handleIfIsTestAccount}
+            >
+              <i className="fa-solid fa-key me-1"></i>變更密碼
+            </Link>
+          )}
         </div>
 
         <div className="main__form body-info">
@@ -345,7 +370,6 @@ function MainForm() {
                 <Button
                   onClick={() => {
                     setProfileEditMode(false);
-
                     memberFormRef.current.resetFields();
                   }}
                 >

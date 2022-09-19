@@ -3,6 +3,7 @@ import Navigation from './routes/navigation/navigation.component';
 import Home from './routes/home/home.component';
 import Login from './routes/login/login.component';
 import Register from './routes/register/register.component';
+import ChangePassword from './routes/change-password/changePassword.component';
 import ProductList from './routes/product-list/productList.component';
 import BookingMap from './routes/silent-pages/booking-map/bookingMap.component';
 import ShoppingCart from './routes/shopping-cart/shoppingCart.component';
@@ -19,6 +20,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
+        <Route path="change-password" element={<ChangePassword />} />
         <Route path="product-list" element={<ProductList />} />
         <Route path="Shopping-cart" element={<ShoppingCart />} />
         <Route path="checkout" element={<Checkout />} />

@@ -28,7 +28,6 @@
     color: $highlight-red;
     &:hover {
       color: $highlight-red;
-      text-decoration: underline !important;
     }
   }
   // 移除 ANTD input 欄位 requried 前墜紅色星號
@@ -55,6 +54,14 @@
   }
 }
 
+// 變更密碼 Link 樣式
+.change-password-link {
+  color: $highlight-red;
+  &:hover {
+    color: $highlight-red;
+  }
+}
+
 // 身體資訊未填標題訊息
 .body-info__reminder {
   font-size: 14px;
@@ -69,6 +76,18 @@
     color: $highlight-red !important;
     background-color: $light-green;
   }
+}
+
+// changePassword container 最大寬度限制
+.change-password-form {
+  .container {
+    max-width: 500px !important;
+  }
+}
+
+.change-password-btn:hover {
+  color: $highlight-red;
+  border-color: $highlight-red;
 }
 
 // antd 樣式覆蓋

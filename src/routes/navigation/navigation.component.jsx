@@ -28,11 +28,19 @@ const Navigation = () => {
   useEffect(() => {
     const handleCheckIsLogin = async () => {
       const user = await checkIsLogin();
-      // 如果未登入且當前路由在會員頁或結帳頁：跳出彈窗並轉址到登入頁
+
+      /* 如果未登入且當前路由在
+      || 1. 會員頁
+      || 2. 結帳頁
+      || 3. 訂單詳細頁面
+      || 4. 更改密碼葉面
+      || 跳出彈窗提示錯誤訊息並轉址到登入頁
+      */
       if (
         !user &&
         (location.pathname === '/member' ||
           location.pathname === '/checkout' ||
+          location.pathname === '/change-password' ||
           location.pathname.includes('order-finished'))
       ) {
         swal({
@@ -126,7 +134,7 @@ const Navigation = () => {
             <Link to="/shopping-cart" className="btn text-white">
               購物車
               {cartCount > 0 && (
-                <span class="ms-1 badge rounded-pill bg-light text-dark">
+                <span className="ms-1 badge rounded-pill bg-light text-dark">
                   {cartCount}
                 </span>
               )}

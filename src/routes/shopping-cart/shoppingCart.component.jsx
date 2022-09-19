@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import swal from 'sweetalert';
 
 // components
+import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.component';
 import ShoppingCartItem from '../../components/for-shopping-cart/shopping-cart-item/shoppingCartItem.component';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
-
 
 // cart selector
 import {
@@ -170,6 +170,7 @@ const ShoppingCart = () => {
           </div>
         </main>
       )}
+      <LayoutFooter />
     </div>
   );
 };

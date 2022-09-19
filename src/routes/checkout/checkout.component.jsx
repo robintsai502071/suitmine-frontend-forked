@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
 import Form from 'react-bootstrap/Form';
 import CartReconfirmAccordion from '../../components/for-shopping-cart/cart-reconfirm-accordion/cartReconfirmAccordion.component';
-
+import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.component';
 // user selector
 import {
   selectCurrentUser,
@@ -457,6 +457,7 @@ const Checkout = () => {
           </Form>
         </div>
       </main>
+      <LayoutFooter />
     </>
   );
 };

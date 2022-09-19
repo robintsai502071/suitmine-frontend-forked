@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import OrderItemsAccordion from '../../components/for-order-finished/orderItemsAccordion.component';
 import OrderDetail from '../../components/for-shopping-cart/order-detail/orderDetail.component';
 import Steps from '../../components/for-shopping-cart/steps/steps.compoent';
+import LayoutFooter from '../../components/layout/layout-footer/layoutFooter.component';
 
 // user selector
 import { selectCurrentUser } from '../../store/user/user.selector';
@@ -39,6 +40,8 @@ const OrderFinshed = () => {
           <OrderDetail />
         </div>
       </main>
+
+      <LayoutFooter />
     </>
   );
 };

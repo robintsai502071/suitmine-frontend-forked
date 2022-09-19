@@ -1,11 +1,12 @@
 import React from 'react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import swal from 'sweetalert';
 
 // component
 import logo from '../../assests/images/layout/logo.svg';
+import Alert from 'react-bootstrap/Alert';
 
 // user selector
 import { setCurrentUser } from '../../store/user/user.slice';
@@ -20,6 +21,12 @@ import { checkIsLogin, signOut } from '../../utils/axiosApi';
 const Navigation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  // project 聲明訊息 useState
+  const [projectDeclarationShow, setProjectDeclarationShow] = useState(true);
+  const handleSetProjectDeclarationShow = () => {
+    setProjectDeclarationShow(false);
+  };
   const location = useLocation();
   const currentUser = useSelector(selectCurrentUser);
   const cartCount = useSelector(selectCartCount);
@@ -159,6 +166,23 @@ const Navigation = () => {
           )}
         </ul>
       </div>
+
+      {projectDeclarationShow && (
+        <Alert
+          variant="danger"
+          onClose={handleSetProjectDeclarationShow}
+          dismissible
+        >
+          <p>
+            <em>DECLARATION：</em>This website is intended only for personal
+            practice and it doesn't have any commercial behavior. Copyright of
+            the iamges and words is not claimed by me. All rights retained by
+            the copyright holder. It will be removed if requested by contacting
+            robininispan@gmail.com.
+          </p>
+        </Alert>
+      )}
+
       <Outlet />
     </>
   );

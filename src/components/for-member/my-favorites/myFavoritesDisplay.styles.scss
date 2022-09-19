@@ -4,6 +4,20 @@
   padding: 20px;
 }
 .myFavoritesDisplayItem {
+  // 產品圖
+  img {
+    height: 290px;
+  }
+  &__title {
+    color: $dark-gray;
+    // 標題只能一行
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  &__price {
+    color: $dark-gray;
+  }
   .card-body {
     padding: 10px;
   }

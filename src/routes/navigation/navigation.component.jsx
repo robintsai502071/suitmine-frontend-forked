@@ -172,6 +172,7 @@ const Navigation = () => {
           variant="danger"
           onClose={handleSetProjectDeclarationShow}
           dismissible
+          className="m-0"
         >
           <p>
             <em>DECLARATION：</em>This website is intended only for personal

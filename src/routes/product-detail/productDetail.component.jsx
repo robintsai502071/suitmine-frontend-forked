@@ -6,6 +6,7 @@ import swal from 'sweetalert';
 // components
 import RelatedProductItem from '../../components/for-product-detail/relatedProductItem.component';
 import { Image } from 'antd';
+import Spinner from '../../components/spinner/spinner.component';
 
 // cart action
 import { addItemToCart } from '../../store/cart/cart.slice';
@@ -15,6 +16,7 @@ import { selectCartItems } from '../../store/cart/cart.selector';
 import {
   selectCurrentProductDetail,
   selectRelatedProductsArray,
+  selectIsLoading,
 } from '../../store/product/product.selector';
 
 // myFavorits selector
@@ -31,6 +33,8 @@ import {
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(selectIsLoading);
+
   const [componentDidUpdate, setComponentDidUpdate] = useState(false);
   const { productId } = useParams();
 
@@ -141,111 +145,115 @@ const ProductDetail = () => {
 
   return (
     <div className="product-detail mt-4">
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-center">
-            <img
-              src={product_photo}
-              alt={product_name}
-              className="product-detail__image"
-            />
-            <div className="preview-group">
-              <Image.PreviewGroup>
-                {productDetailImages.map((imageUrl, index) => (
-                  <Image
-                    key={index}
-                    src={imageUrl}
-                    alt={`${product_name}圖片細節 ${index}`}
-                  />
-                ))}
-              </Image.PreviewGroup>
-            </div>
-          </div>
-          <div className="col-12 mt-3 mt-md-0 col-md-6">
-            <h1 className="product-detail__title">{product_name}</h1>
-            <p className="product-detail__price">
-              ${(product_price || '').toLocaleString()}
-            </p>
-            <p className="product-detail__description">{description}</p>
-            <a
-              className="product-detail__add-to-cart-btn mt-3"
-              onClick={handleAddItemToCart({
-                cartItems,
-                productToAdd: currentProductDetail,
-              })}
-            >
-              加入購物車<i className="fa-solid fa-cart-shopping ms-2"></i>
-            </a>
-            <div className="text-center p-3">
-              <a
-                className="product-detail__add-to-my-favorites-btn mt-2"
-                onClick={handleSetMyFavoriteItems(
-                  myFavoritesItems,
-                  currentProductDetail
-                )}
-              >
-                加入我的收藏
-                <i
-                  className={`${
-                    isThisProductInMyFavorites ? 'fa-solid' : 'fa-regular'
-                  }  fa-heart ms-2`}
-                ></i>
-              </a>
-            </div>
-            <div className="card product-detail__specification mt-3">
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">
-                  <strong>顏色</strong>
-                  <p>{color_spec}</p>
-                </li>
-                <li className="list-group-item">
-                  <strong>花紋</strong>
-                  <p>{pattern_spec}</p>
-                </li>
-                <li className="list-group-item">
-                  <strong>材質</strong>
-                  <p>{fabric_spec}</p>
-                </li>
-                <li className="list-group-item">
-                  <strong>磅數</strong>
-                  <p>{fabric_weight_spec}</p>
-                </li>
-              </ul>
-            </div>
-            <div className="product-detail__features">
-              <h5 className="product-detail__features__title">
-                <i className="fa-solid fa-pen-ruler me-2"></i>為您量身定制
-              </h5>
-              <p className="product-detail__features__description">
-                我們根據您的獨特尺寸和規格定制每件服裝。我們掌握了細節，因此您可以放心地相信
-                SUITMINE。
-              </p>
-              <h5 className="product-detail__features__title">
-                <i className="fa-solid fa-pen-ruler me-2"></i>一次性測量過程
-              </h5>
-              <p className="product-detail__features__description">
-                只需不到 10
-                分鐘，您可以在舒適的家中完成身體測量。不需要裁縫，不需要選擇服裝尺寸，因
-                SUITMINE 為您訂做只屬於您獨一無二的服裝。
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div className="product-detail__related-products">
-          <h6 className="product-detail__related-products__title mt-5">
-            您可能會喜歡
-          </h6>
-
-          <div className="row mt-3">
-            {relatedProductsArray?.map((relatedProduct) => (
-              <div className="col-6 col-md-3" key={relatedProduct.id}>
-                <RelatedProductItem relatedProduct={relatedProduct} />
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <div className="container">
+          <div className="row">
+            <div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-center">
+              <img
+                src={product_photo}
+                alt={product_name}
+                className="product-detail__image"
+              />
+              <div className="preview-group">
+                <Image.PreviewGroup>
+                  {productDetailImages.map((imageUrl, index) => (
+                    <Image
+                      key={index}
+                      src={imageUrl}
+                      alt={`${product_name}圖片細節 ${index}`}
+                    />
+                  ))}
+                </Image.PreviewGroup>
               </div>
-            ))}
+            </div>
+            <div className="col-12 mt-3 mt-md-0 col-md-6">
+              <h1 className="product-detail__title">{product_name}</h1>
+              <p className="product-detail__price">
+                ${(product_price || '').toLocaleString()}
+              </p>
+              <p className="product-detail__description">{description}</p>
+              <a
+                className="product-detail__add-to-cart-btn mt-3"
+                onClick={handleAddItemToCart({
+                  cartItems,
+                  productToAdd: currentProductDetail,
+                })}
+              >
+                加入購物車<i className="fa-solid fa-cart-shopping ms-2"></i>
+              </a>
+              <div className="text-center p-3">
+                <a
+                  className="product-detail__add-to-my-favorites-btn mt-2"
+                  onClick={handleSetMyFavoriteItems(
+                    myFavoritesItems,
+                    currentProductDetail
+                  )}
+                >
+                  加入我的收藏
+                  <i
+                    className={`${
+                      isThisProductInMyFavorites ? 'fa-solid' : 'fa-regular'
+                    }  fa-heart ms-2`}
+                  ></i>
+                </a>
+              </div>
+              <div className="card product-detail__specification mt-3">
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    <strong>顏色</strong>
+                    <p>{color_spec}</p>
+                  </li>
+                  <li className="list-group-item">
+                    <strong>花紋</strong>
+                    <p>{pattern_spec}</p>
+                  </li>
+                  <li className="list-group-item">
+                    <strong>材質</strong>
+                    <p>{fabric_spec}</p>
+                  </li>
+                  <li className="list-group-item">
+                    <strong>磅數</strong>
+                    <p>{fabric_weight_spec}</p>
+                  </li>
+                </ul>
+              </div>
+              <div className="product-detail__features">
+                <h5 className="product-detail__features__title">
+                  <i className="fa-solid fa-pen-ruler me-2"></i>為您量身定制
+                </h5>
+                <p className="product-detail__features__description">
+                  我們根據您的獨特尺寸和規格定制每件服裝。我們掌握了細節，因此您可以放心地相信
+                  SUITMINE。
+                </p>
+                <h5 className="product-detail__features__title">
+                  <i className="fa-solid fa-pen-ruler me-2"></i>一次性測量過程
+                </h5>
+                <p className="product-detail__features__description">
+                  只需不到 10
+                  分鐘，您可以在舒適的家中完成身體測量。不需要裁縫，不需要選擇服裝尺寸，因
+                  SUITMINE 為您訂做只屬於您獨一無二的服裝。
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="product-detail__related-products">
+            <h6 className="product-detail__related-products__title mt-5">
+              您可能會喜歡
+            </h6>
+
+            <div className="row mt-3">
+              {relatedProductsArray?.map((relatedProduct) => (
+                <div className="col-6 col-md-3" key={relatedProduct.id}>
+                  <RelatedProductItem relatedProduct={relatedProduct} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -9,15 +9,20 @@ import OrderListDisplay from '../../components/for-member/orderlist/orderListDis
 import MyFavoritesDisplay from '../../components/for-member/my-favorites/myFavoritesDisplay.component';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
+import Spinner from '../../components/spinner/spinner.component';
 
 // user selector
-import { selectCurrentUser } from '../../store/user/user.selector';
+import {
+  selectCurrentUser,
+  selectIsloading,
+} from '../../store/user/user.selector';
 // api
 import { fetchUserProfileAsync } from '../../utils/axiosApi';
 
 function Member() {
   const dispatch = useDispatch();
 
+  const isloading = useSelector(selectIsloading);
   const currentUser = useSelector(selectCurrentUser);
   // 加上 || {} 是為了防止錯誤 Uncaught TypeError: Cannot destructure property ... 'currentUser' as it is null.
   const { user_id } = currentUser || {};
@@ -30,23 +35,27 @@ function Member() {
 
   return (
     <div className="member">
-      <div className="container">
-        <Tabs
-          defaultActiveKey="member-profile"
-          id="uncontrolled-tab-example"
-          className="mt-2"
-        >
-          <Tab eventKey="member-profile" title="個人檔案">
-            <MemberProfileForm />
-          </Tab>
-          <Tab eventKey="my-favorites" title="我的收藏">
-            <MyFavoritesDisplay />
-          </Tab>
-          <Tab eventKey="my-orders" title="我的訂單">
-            <OrderListDisplay />
-          </Tab>
-        </Tabs>
-      </div>
+      {isloading ? (
+        <Spinner />
+      ) : (
+        <div className="container">
+          <Tabs
+            defaultActiveKey="member-profile"
+            id="uncontrolled-tab-example"
+            className="mt-2"
+          >
+            <Tab eventKey="member-profile" title="個人檔案">
+              <MemberProfileForm />
+            </Tab>
+            <Tab eventKey="my-favorites" title="我的收藏">
+              <MyFavoritesDisplay />
+            </Tab>
+            <Tab eventKey="my-orders" title="我的訂單">
+              <OrderListDisplay />
+            </Tab>
+          </Tabs>
+        </div>
+      )}
 
       <LayoutFooter />
     </div>

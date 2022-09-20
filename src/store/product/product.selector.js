@@ -7,6 +7,11 @@ export const selectProductsArray = createSelector(
   (product) => product.currentProducts
 );
 
+export const selectIsLoading = createSelector(
+  [selectProductReducer],
+  (product) => product.isLoading
+);
+
 export const selectFilterString = createSelector(
   [selectProductReducer],
   (product) => product.filterString

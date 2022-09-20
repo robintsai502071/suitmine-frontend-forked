@@ -519,7 +519,7 @@ function BookingMap() {
           >
             {/* <!------------推薦文章(第一篇)------------> */}
             <a
-              href="http://localhost:3000/text-editor-print/28"
+              href="/#"
               className="d-md-flex d-none col-3 position-relative articleBox"
             >
               <img className="articleImg" src={article1} alt="" />
@@ -529,7 +529,7 @@ function BookingMap() {
             </a>
             {/* <!============推薦文章(第一篇)RWD============> */}
             <a
-              href="http://localhost:3000/text-editor-print/28"
+              href="/#"
               className="d-flex d-md-none col-12 position-relative articleBox"
             >
               <img className="articleImg" src={article1} alt="" />
@@ -539,7 +539,7 @@ function BookingMap() {
             </a>
             {/* <!------------推薦文章(第二篇)------------> */}
             <a
-              href="http://localhost:3000/text-editor-print/31"
+              href="/#"
               className="d-md-flex d-none col-3 position-relative articleBox"
             >
               <img className="articleImg" src={article2} alt="" />
@@ -549,7 +549,7 @@ function BookingMap() {
             </a>
             {/* <!============推薦文章(第一篇)RWD============> */}
             <a
-              href="http://localhost:3000/text-editor-print/31"
+              href="/#"
               className="my-5 d-flex d-md-none col-12 position-relative articleBox"
             >
               <img className="articleImg" src={article2} alt="" />
@@ -559,7 +559,7 @@ function BookingMap() {
             </a>
             {/* <!------------推薦文章(第三篇)------------> */}
             <a
-              href="http://localhost:3000/text-editor-print/39"
+              href="/#"
               className="d-md-flex d-none col-3 position-relative articleBox"
             >
               <img className="articleImg" src={article3} alt="" />
@@ -569,7 +569,7 @@ function BookingMap() {
             </a>
             {/* <!============推薦文章(第一篇)RWD============> */}
             <a
-              href="http://localhost:3000/text-editor-print/39"
+              href="/#"
               className="d-flex d-md-none col-12 position-relative articleBox"
             >
               <img className="articleImg" src={article3} alt="" />

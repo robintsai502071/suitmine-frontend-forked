@@ -35,7 +35,7 @@ const Navigation = () => {
   useEffect(() => {
     const handleCheckIsLogin = async () => {
       const user = await checkIsLogin();
-
+      
       /* 如果未登入且當前路由在
       || 1. 會員頁
       || 2. 結帳頁

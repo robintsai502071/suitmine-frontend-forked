@@ -12,7 +12,7 @@ import {
 //   process.env.REACT_APP_MESSAGING_SENDER_ID
 // );
 // console.log('REACT_APP_APP_ID', process.env.REACT_APP_APP_ID);
-console.log('REACT_APP_MEASUREMENT_ID', process.env.REACT_APP_MEASUREMENT_ID);
+// console.log('REACT_APP_MEASUREMENT_ID', process.env.REACT_APP_MEASUREMENT_ID);
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,

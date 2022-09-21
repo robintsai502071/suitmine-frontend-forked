@@ -124,8 +124,13 @@ const Navigation = () => {
           <img src={logo} alt="" />
         </Link>
 
-        <Link to="/shopping-cart" className="shoppingCart fs-4 me-3 d-md-none">
-          <i className="fa-solid fa-cart-shopping"></i>
+        <Link to="/shopping-cart" className="shoppingCart mx-3 d-md-none">
+          <i className="fa-solid fa-cart-shopping fs-4"></i>
+          {cartCount > 0 && (
+            <span className="ms-1 badge rounded-pill bg-light text-dark">
+              {cartCount}
+            </span>
+          )}
         </Link>
         {/* mobile design ↑↑↑↑↑↑ */}
 

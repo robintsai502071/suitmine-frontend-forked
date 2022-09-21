@@ -6,29 +6,31 @@ import OrderListDisplayItem from './orderListDisplayItem.component';
 import { selectUserOrderList } from '../../../store/user/user.selector';
 
 function OrderListDisplay() {
-  const userOrderList = useSelector(selectUserOrderList);
+  const userOrderList = useSelector(selectUserOrderList) || [];
   return (
     <div className="order-list-display">
-      <div className="card">
-        <ul className="list-group list-group-flush ">
-          <li className="list-group-item d-none d-md-block">
-            <div className="row">
-              <div className="col-3">訂單號碼</div>
-              <div className="col-2">訂單日期</div>
-              <div className="col-2">合計</div>
-              <div className="col-2">訂單狀態</div>
-            </div>
-          </li>
-          {userOrderList.length === 0
-            ? '您還未有訂單'
-            : userOrderList?.map((orderListItem) => (
-                <OrderListDisplayItem
-                  orderListItem={orderListItem}
-                  key={orderListItem.id}
-                />
-              ))}
-        </ul>
-      </div>
+      {userOrderList.length === 0 ? (
+        '您尚未有訂單'
+      ) : (
+        <div className="card">
+          <ul className="list-group list-group-flush ">
+            <li className="list-group-item d-none d-md-block">
+              <div className="row">
+                <div className="col-3">訂單號碼</div>
+                <div className="col-2">訂單日期</div>
+                <div className="col-2">合計</div>
+                <div className="col-2">訂單狀態</div>
+              </div>
+            </li>
+            {userOrderList?.map((orderListItem) => (
+              <OrderListDisplayItem
+                orderListItem={orderListItem}
+                key={orderListItem.id}
+              />
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import Spinner from '../spinner/spinner.component';
 
 // user action
 import { setCurrentUser } from '../../store/user/user.slice';
@@ -14,12 +13,11 @@ import { login } from '../../utils/axiosApi';
 function LoginForm() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  let isLoading = false;
+
   const handleSignInWithGoogle = async () => {
-    isLoading = true;
     const user = await signInWithGoogle();
     // 如果登入失敗就不再繼續
-    isLoading = false;
+
     if (!user) return;
     // 登入成功就將從後端返回的 user 存入 redux store
     dispatch(setCurrentUser(user));
@@ -91,77 +89,73 @@ function LoginForm() {
 
   return (
     <>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <form
-          //--- 表單送出事件 ---
-          onSubmit={handleSubmit}
-          //--- 表單錯誤事件，觸發handleInvalid函數 ---
-          onInvalid={handleInvalid}
-          //--- 表單更動事件，觸發handleFormChange函數 ---
-          onChange={handleFormChange}
-          className=" mx-auto d-flex flex-column justify-content-center"
-          target="framFile"
+      <form
+        //--- 表單送出事件 ---
+        onSubmit={handleSubmit}
+        //--- 表單錯誤事件，觸發handleInvalid函數 ---
+        onInvalid={handleInvalid}
+        //--- 表單更動事件，觸發handleFormChange函數 ---
+        onChange={handleFormChange}
+        className=" mx-auto d-flex flex-column justify-content-center"
+        target="framFile"
+      >
+        {/* Email */}
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Email
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={member.email}
+            onChange={handleChange}
+            className="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+            required
+          ></input>
+          <p className="my-2 errorMessage">
+            {fieldErrors.email && fieldErrors.email}
+          </p>
+        </div>
+        {/* 請輸入密碼 */}
+        <div className="mb-3 mx-1">
+          <label htmlFor="exampleFormControlInput2" className="form-label">
+            請輸入密碼
+          </label>
+          <input
+            type="password"
+            name="password"
+            value={member.password}
+            onChange={handleChange}
+            className="form-control"
+            id="exampleFormControlInput2"
+            placeholder="請輸入密碼"
+            // 密碼長度驗證
+            minLength={6}
+            maxLength={10}
+            required
+          ></input>
+          <p className="mt-2 errorMessage">
+            {fieldErrors.password && fieldErrors.password}
+          </p>
+        </div>
+        <button className="btn registerBtn w-100 mx-auto mt-1" type="submit">
+          <p>送出</p>
+        </button>
+
+        <button
+          className="btn googleBtn w-100 mx-auto mt-1"
+          type="button"
+          onClick={handleSignInWithGoogle}
         >
-          {/* Email */}
-          <div className="mb-3 mx-1">
-            <label htmlFor="exampleFormControlInput1" className="form-label">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              value={member.email}
-              onChange={handleChange}
-              className="form-control"
-              id="exampleFormControlInput1"
-              placeholder="name@example.com"
-              required
-            ></input>
-            <p className="my-2 errorMessage">
-              {fieldErrors.email && fieldErrors.email}
-            </p>
-          </div>
-          {/* 請輸入密碼 */}
-          <div className="mb-3 mx-1">
-            <label htmlFor="exampleFormControlInput2" className="form-label">
-              請輸入密碼
-            </label>
-            <input
-              type="password"
-              name="password"
-              value={member.password}
-              onChange={handleChange}
-              className="form-control"
-              id="exampleFormControlInput2"
-              placeholder="請輸入密碼"
-              // 密碼長度驗證
-              minLength={6}
-              maxLength={10}
-              required
-            ></input>
-            <p className="mt-2 errorMessage">
-              {fieldErrors.password && fieldErrors.password}
-            </p>
-          </div>
-          <button className="btn registerBtn w-100 mx-auto mt-1" type="submit">
-            <p>送出</p>
-          </button>
+          <p>Google 登入</p>
+        </button>
 
-          <button
-            className="btn googleBtn w-100 mx-auto mt-1"
-            type="button"
-            onClick={handleSignInWithGoogle}
-          >
-            <p>Google 登入</p>
-          </button>
-
-          <Link className="mx-auto registerButonBox" to="/register">
-            <p className="my-3">註冊會員</p>
-          </Link>
-        </form>
-      )}
+        <Link className="mx-auto registerButonBox" to="/register">
+          <p className="my-3">註冊會員</p>
+        </Link>
+      </form>
     </>
   );
 }

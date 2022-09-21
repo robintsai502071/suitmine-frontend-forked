@@ -19,12 +19,14 @@ function OrderListDisplay() {
               <div className="col-2">訂單狀態</div>
             </div>
           </li>
-          {userOrderList?.map((orderListItem) => (
-            <OrderListDisplayItem
-              orderListItem={orderListItem}
-              key={orderListItem.id}
-            />
-          ))}
+          {userOrderList.length === 0
+            ? '您還未有訂單'
+            : userOrderList?.map((orderListItem) => (
+                <OrderListDisplayItem
+                  orderListItem={orderListItem}
+                  key={orderListItem.id}
+                />
+              ))}
         </ul>
       </div>
     </div>

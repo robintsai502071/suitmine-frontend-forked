@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import swal from 'sweetalert';
@@ -21,6 +21,7 @@ import { checkIsLogin, signOut } from '../../utils/axiosApi';
 const Navigation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const hamburgerMenuRef = useRef();
 
   // project 聲明訊息 useState
   const [projectDeclarationShow, setProjectDeclarationShow] = useState(true);
@@ -35,7 +36,7 @@ const Navigation = () => {
   useEffect(() => {
     const handleCheckIsLogin = async () => {
       const user = await checkIsLogin();
-      
+
       /* 如果未登入且當前路由在
       || 1. 會員頁
       || 2. 結帳頁
@@ -71,6 +72,7 @@ const Navigation = () => {
   }, []);
 
   const handleClickSignIn = () => {
+    hamburgerMenuRef.current.checked = false;
     // 如果不是登入狀態就導向登入頁面
     if (!currentUser) {
       navigate('/login');
@@ -80,11 +82,16 @@ const Navigation = () => {
   };
 
   const handleClickSignOut = () => {
+    hamburgerMenuRef.current.checked = false;
     signOut();
     // 將 currentUser 設回 null
     dispatch(setCurrentUser(null));
     // 導回登入頁面
     navigate('/login');
+  };
+
+  const handleClickMenuItem = () => {
+    hamburgerMenuRef.current.checked = false;
   };
 
   return (
@@ -93,18 +100,16 @@ const Navigation = () => {
         {/* mobile design ↓↓↓↓↓ */}
         <nav role="navigation" className="d-md-none">
           <div className="menuToggle">
-            <input type="checkbox" />
-
+            <input type="checkbox" ref={hamburgerMenuRef} />
             <span></span>
             <span></span>
             <span></span>
-
-            <ul className="menu">
-              <Link to="product-list">
+            <ul className="menu hamburger-menu">
+              <Link to="product-list" onClick={handleClickMenuItem}>
                 <li>商品總覽</li>
               </Link>
 
-              <Link to="booking-map">
+              <Link to="booking-map" onClick={handleClickMenuItem}>
                 <li>門市據點</li>
               </Link>
 

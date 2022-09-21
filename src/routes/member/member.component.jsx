@@ -24,6 +24,7 @@ function Member() {
 
   const isloading = useSelector(selectIsloading);
   const currentUser = useSelector(selectCurrentUser);
+  
   // 加上 || {} 是為了防止錯誤 Uncaught TypeError: Cannot destructure property ... 'currentUser' as it is null.
   const { user_id } = currentUser || {};
 

@@ -33,7 +33,10 @@
   width: 100%;
   height: 100%;
   /*為什麼沒吃到background-color  */
-  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url('../../assests/images/login/1200x675_cmsv2_7231199b-0615-5f96-b27d-5592c25881cc-3115386.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
   /* opacity: .7; */
 }
 
@@ -94,6 +97,3 @@
   border: 1px solid rgba(40, 40, 40, 0.607);
   transition: 0.8s;
 }
-
-
-

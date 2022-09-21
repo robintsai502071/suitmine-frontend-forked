@@ -15,7 +15,10 @@ function MyFavoritesDisplay() {
             {myFavoritesItems.length === 0
               ? '您還未有收藏的商品'
               : myFavoritesItems?.map((myFavoritesItem) => (
-                  <MyFavoritesDisplayItem myFavoritesItem={myFavoritesItem} />
+                  <MyFavoritesDisplayItem
+                    myFavoritesItem={myFavoritesItem}
+                    key={myFavoritesItem.id}
+                  />
                 ))}
           </div>
         </div>

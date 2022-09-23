@@ -15,6 +15,7 @@ export const checkIfBodyInfoFilled = async (memberId) => {
     );
     return response.data.success;
   } catch (error) {
+    // console.log(error);
     swal({
       text: error.response.data.error, // 很抱歉，您還未填寫身體資訊，請您完成後才能繼續！
       icon: 'info',

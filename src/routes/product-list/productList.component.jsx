@@ -125,66 +125,68 @@ function ProductList() {
                 </div>
 
                 {/* <!------------ 商品列表頁碼 ------------> */}
-                <nav>
-                  <ul className="pager">
-                    <li
-                      className="pager__item pager__item--prev"
-                      onClick={handleClickPrevPage}
-                    >
-                      <a className="pager__link" href="#/">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="8"
-                          height="12"
-                          viewBox="0 0 8 12"
-                        >
-                          <g fill="none" fillRule="evenodd">
-                            <path
-                              fill="#33313C"
-                              d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
-                            ></path>
-                          </g>
-                        </svg>
-                      </a>
-                    </li>
+                {filteredProductsArray.length ? (
+                  <nav>
+                    <ul className="pager">
+                      <li
+                        className="pager__item pager__item--prev"
+                        onClick={handleClickPrevPage}
+                      >
+                        <a className="pager__link" href="#/">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="8"
+                            height="12"
+                            viewBox="0 0 8 12"
+                          >
+                            <g fill="none" fillRule="evenodd">
+                              <path
+                                fill="#33313C"
+                                d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
+                              ></path>
+                            </g>
+                          </svg>
+                        </a>
+                      </li>
 
-                    {/* 創造一個依照pageTotal長度的陣列，來呈現目前的分頁元件項目 */}
-                    {Array(totalPages)
-                      .fill(1)
-                      .map((_, i) => (
-                        <li
-                          className={`pager__item ${
-                            i + 1 === currentPage ? 'active' : ''
-                          }`}
-                          key={i}
-                          onClick={handleClickPagination(i)}
-                        >
-                          <a className="pager__link">{i + 1}</a>
-                        </li>
-                      ))}
+                      {/* 創造一個依照pageTotal長度的陣列，來呈現目前的分頁元件項目 */}
+                      {Array(totalPages)
+                        .fill(1)
+                        .map((_, i) => (
+                          <li
+                            className={`pager__item ${
+                              i + 1 === currentPage ? 'active' : ''
+                            }`}
+                            key={i}
+                            onClick={handleClickPagination(i)}
+                          >
+                            <a className="pager__link">{i + 1}</a>
+                          </li>
+                        ))}
 
-                    <li
-                      className="pager__item pager__item--next"
-                      onClick={handleClickNextPage}
-                    >
-                      <a className="pager__link" href="#/">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="8"
-                          height="12"
-                          viewBox="0 0 8 12"
-                        >
-                          <g fill="none" fillRule="evenodd">
-                            <path
-                              fill="#33313C"
-                              d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
-                            ></path>
-                          </g>
-                        </svg>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
+                      <li
+                        className="pager__item pager__item--next"
+                        onClick={handleClickNextPage}
+                      >
+                        <a className="pager__link" href="#/">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="8"
+                            height="12"
+                            viewBox="0 0 8 12"
+                          >
+                            <g fill="none" fillRule="evenodd">
+                              <path
+                                fill="#33313C"
+                                d="M7.41 1.41L6 0 0 6l6 6 1.41-1.41L2.83 6z"
+                              ></path>
+                            </g>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+                ) : null}
               </div>
             )}
           </div>

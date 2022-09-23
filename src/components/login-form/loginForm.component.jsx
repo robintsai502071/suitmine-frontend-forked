@@ -21,7 +21,6 @@ function LoginForm() {
     if (!user) return;
     // 登入成功就將從後端返回的 user 存入 redux store
     dispatch(setCurrentUser(user));
-    isLoading = false;
     // 導向會員頁面
     navigate('/member');
   };

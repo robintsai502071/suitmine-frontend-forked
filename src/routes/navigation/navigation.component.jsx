@@ -184,12 +184,11 @@ const Navigation = () => {
           dismissible
           className="m-0"
         >
-          <p>
+          <p style={{ lineHeight: 1.2 }}>
             <em>DECLARATION：</em>This website is intended only for personal
-            practice and it doesn't have any commercial behavior. Copyright of
-            the iamges and words is not claimed by me. All rights retained by
-            the copyright holder. It will be removed if requested by contacting
-            robininispan@gmail.com.
+            practice not commercial use. Copyright of the images and words is
+            not claimed by me. All rights retained by the copyright holder. It
+            will be removed if requested by contacting robininispan@gmail.com.
           </p>
         </Alert>
       )}

@@ -22,12 +22,14 @@ function OrderListDisplay() {
                 <div className="col-2">訂單狀態</div>
               </div>
             </li>
-            {userOrderList?.map((orderListItem) => (
-              <OrderListDisplayItem
-                orderListItem={orderListItem}
-                key={orderListItem.id}
-              />
-            ))}
+            {userOrderList
+              ?.map((orderListItem) => (
+                <OrderListDisplayItem
+                  orderListItem={orderListItem}
+                  key={orderListItem.id}
+                />
+              ))
+              .reverse()}
           </ul>
         </div>
       )}

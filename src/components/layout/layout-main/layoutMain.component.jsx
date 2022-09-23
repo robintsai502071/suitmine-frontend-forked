@@ -26,7 +26,7 @@ const LayoutMain = () => {
                 className="d-flex justify-content-center align-items-center text-dark p-3"
               >
                 <img src={icon1} alt="" />
-                客製化教學
+                客製化展示間
               </Link>
             </li>
             <li className="col-12 col-md-4">

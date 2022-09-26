@@ -222,3 +222,5 @@ export const fetchProductDetailAsync = createAsyncThunk(
   'product/fetchProductDetail',
   (productId) => axios.get(`${API_URL}/products/${productId}`)
 );
+
+

@@ -76,6 +76,13 @@ export const signInWithGoogle = async () => {
       }
     );
     const { user } = response.data;
+    await swal({
+      title: '登入成功',
+      text: '稍後為您跳轉頁面...',
+      icon: 'success',
+      buttons: false,
+      timer: 1800,
+    });
     return user;
   } catch (error) {
     if (
@@ -222,5 +229,3 @@ export const fetchProductDetailAsync = createAsyncThunk(
   'product/fetchProductDetail',
   (productId) => axios.get(`${API_URL}/products/${productId}`)
 );
-
-
